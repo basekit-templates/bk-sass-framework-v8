@@ -1,0 +1,94 @@
+// -------------------------
+// CORE: Forms
+// -------------------------
+
+// Fieldset
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+// Form Group
+.form-group { margin-bottom: 10px; }
+
+// Legend
+legend { display: block }
+
+// Label
+label {
+	display: block;
+    margin: 0 0 5px;
+}
+
+// Selects
+select {
+    height: 36px;
+    outline: none;
+    border: 1px solid darken($color__body--background,15%);
+    border-radius: 0;
+    background-color: $color__body--background;
+    font-size: 12px;
+    text-indent: 0;
+
+    @media #{$tablet} {
+    	font-size: 16px;
+    	line-height: 1.6;
+    }
+
+    &:hover, &:focus {
+        background-color: $color__body--background;
+        cursor: pointer;
+    }
+}
+
+
+// Inputs: Text
+// ------------
+
+input[type="search"],
+input[type="email"],
+input[type="password"],
+textarea,
+.input--single-line {
+	width: 100%;
+	padding: 6px 10px;
+	border: 1px solid #ddd;
+	-moz-box-sizing:    border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing:         border-box;
+	
+	@media #{$tablet} {
+		font-size: 16px;
+		line-height: 1.6;
+	}
+	
+	&:focus {
+		border-color: #129fea;
+		box-shadow: inset 0 1px 3px #ddd;
+		outline: 0;
+	}
+}
+
+// Textarea
+textarea {
+	resize: vertical;
+	min-height: 100px;
+}
+
+
+// Forms: Radio and Checkbox
+// --------------------------
+
+input[type=radio],
+input[type=checkbox],
+.label--radio,
+.label--checkbox {
+  display: inline;
+  vertical-align: middle;
+}
+
+.option-item--radio,
+.option-item--checkbox {
+  list-style-type: none;
+}

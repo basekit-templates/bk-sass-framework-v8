@@ -1,0 +1,74 @@
+// -------------------------
+// WIDGETS: Navigation
+// -------------------------
+
+// Navigation Text
+// ---------------
+
+.navigation-item .item-name {
+    display: block;
+    padding: 14px;
+    text-decoration: none;
+    // Font Styles
+    font-family: $font__navigation--font-family;
+    font-size: $font__navigation--font-size;
+    font-weight: $font__navigation--font-weight;
+    line-height: $font__navigation--line-height;
+    color: $color__navigation--text;
+    letter-spacing: $font__navigation--letter-spacing;
+
+    &:hover {
+        color: $color__navigation--text--hover;
+        cursor: pointer;
+    }
+}
+
+
+
+// Navigation Layout
+// -----------------
+
+// Navigation Body
+.navigation-body {
+    @include clearfix;
+}
+
+// Navigation List
+.navigation-list {
+    width: 100%;
+    z-index: 9999;
+    padding: 0;
+    margin-left: 0;
+    list-style: none;
+}
+
+// Navigation List Item
+.navigation-item {
+    position: relative;
+    display: inline-block;
+}
+
+// Dropdown Menu
+.navigation-list--children {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 100%;
+    background-color: $color__body--background;
+
+    .item-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+// Display Dropdown Menu
+.navigation-item:hover .navigation-list--children {
+    display: block;
+}
+.navigation-item--child {
+    display: list-item;
+}
+
+
+

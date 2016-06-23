@@ -1,0 +1,116 @@
+// -----------------------------
+// PLUGINS: Blog
+// -----------------------------
+
+// Element Resets
+// --------------
+
+// Navigation List
+.sharing-links,
+.tag-list,
+.pagination-numbers {
+	margin: 0;
+	list-style: none;
+}
+.menu-navigation-list {
+	margin-left: 0;
+}
+// Resets Post Image Height
+.post-image {
+	font-size: 0;
+	line-height: 0;
+}
+
+
+// Element Spacing
+// ---------------
+
+// Typography (Removes padding)
+.post-category {
+	padding-bottom: 0;
+}
+
+// Post Article
+.post-article {
+	margin-bottom: 30px;
+	&:last-child {
+		margin-bottom: 30px;
+	}
+}
+
+// Blog Featured Image
+.blogpostlist__image-link,
+.blogpost__image-link {
+	background-position: -9999px;
+	background-repeat: no-repeat;
+}
+
+
+// -----------------------------
+// Single Blog Post
+// -----------------------------
+
+.post-image .image {
+	max-height: 350px;
+	@media #{$mobile} {
+		max-height: 200px;
+	}
+}
+
+
+// Post Content
+// ------------
+
+.post-content {
+	margin: 20px 0;
+}
+
+// Timestamp
+.post-footer .timestamp {
+	display: block;
+	margin: 10px 0;
+}
+
+
+
+
+// -----------------------------
+// Blog Post List
+// -----------------------------
+
+// Post Attributes
+.post-attributes {
+	margin: 20px 0 10px;
+}
+
+// Footer Sharing Links
+.blogpost-list__network-item,
+.blogpost__network-item {
+	margin-top: 10px;
+}
+
+// Blog Post List Buttons,
+// Sharing Item Buttons,
+// Tag Title,
+// Tag Item List,
+// Tag Item
+.blogpost-list__button,
+.blogpost__button,
+.tags-title,
+.tag-list,
+.tag-item,
+.blogpost-list__pagination-item {
+	display: inline-block;
+}
+
+// Category Title
+.category-title {
+	display: inline-block;
+	padding: 0;
+}
+
+// Network Item
+.network-item {
+	display: inline-block;
+	margin-right: 10px;
+}

@@ -1,0 +1,164 @@
+// -----------------------------
+// CORE: Typography
+// -----------------------------
+
+// -----------------------------
+// #Table of Contents
+// -----------------------------
+
+// 1. #HEADINGS (H1 - H4, P)
+// 2. #STANDARD LINK
+// 3. #BLOCKQUOTE
+// 4. #COMPANY NAME
+// 5. #TABLES
+
+
+// ---------------------------
+// 1. #Headings ((H1 - H4 + P)
+// ---------------------------
+
+// Body
+body {
+    background-color: $color__body--background;
+    font-family: $font__p--font-family;
+    font-size: $font__p--font-size;
+    font-weight: $font__p--font-weight;
+    line-height: $font__p--line-height;
+    letter-spacing: $font__p--letter-spacing;
+    color: $color__p--text;
+    -webkit-text-size-adjust: 100%;
+}
+
+// Heading 1
+h1, .heading--1 {
+    font-family: $font__h1--font-family;
+    font-size: $font__h1--font-size;
+    font-weight: $font__h1--font-weight;
+    line-height: $font__h1--line-height;
+    letter-spacing: $font__h1--letter-spacing;
+    color: $color__h1--text;
+}
+
+// Heading 2
+h2, .heading--2 {
+    font-family: $font__h2--font-family;
+    font-size: $font__h2--font-size;
+    font-weight: $font__h2--font-weight;
+    line-height: $font__h2--line-height;
+    letter-spacing: $font__h2--letter-spacing;
+    color: $color__h2--text;
+}
+
+// Heading 3
+h3, .heading--3 {
+    font-family: $font__h3--font-family;
+    font-size: $font__h3--font-size;
+    font-weight: $font__h3--font-weight;
+    line-height: $font__h3--line-height;
+    letter-spacing: $font__h3--letter-spacing;
+    color: $color__h3--text;
+}
+
+// Heading 4
+h4, .heading--4 {
+    font-family: $font__h4--font-family;
+    font-size: $font__h4--font-size;
+    font-weight: $font__h4--font-weight;
+    line-height: $font__h4--line-height;
+    letter-spacing: $font__h4--letter-spacing;
+    color: $color__h4--text;
+}
+
+// Paragraph, List Elements, Blockquote
+p,
+ul,
+ol,
+li,
+blockquote,
+.paragraph {
+    font-family: $font__p--font-family;
+    font-size: $font__p--font-size;
+    font-weight: $font__p--font-weight;
+    line-height: $font__p--line-height;
+    letter-spacing: $font__p--letter-spacing;
+    color: $color__p--text;
+}
+
+// Typography Spacing
+h1, h2, h3, h4, p {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+// Typography Font Styles
+.justifyitalic {
+    font-style: italic;
+}
+.justifybold {
+    font-weight: bold;
+}
+
+
+
+
+// ----------------------
+// 2. #Standard Text Link
+// ----------------------
+
+a {
+    color: $color__link--text;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+
+
+
+
+// ---------------------
+// 3. #Blockquote
+// ---------------------
+
+blockquote {
+    quotes: "“" "”" "“" "”";
+    margin: 0;
+    &:before {
+        content:open-quote;
+        font-family: georgia, sans-serif;
+        line-height: $font__p--line-height;
+    }
+}
+
+
+
+
+// ---------------------
+// 4. #Company Name
+// ---------------------
+
+.company-link {
+    font-family: $font__companyname--font-family;
+    font-size: $font__companyname--font-size;
+    font-weight: $font__companyname--font-weight;
+    line-height: $font__companyname--line-height;
+    letter-spacing: $font__companyname--letter-spacing;
+    color: $color__companyname--text;
+    -ms-word-break: break-word;
+    word-break: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    hyphens: none;
+}
+
+
+
+
+// ---------------------
+// 5. #Tables
+// ---------------------
+
+code, pre, th, td { color: $color__h4--text; }
+

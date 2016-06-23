@@ -1,0 +1,74 @@
+// -------------------------
+// CORE: Messages
+// -------------------------
+
+.message {
+	position: relative;
+	clear: both;
+	color: $color__p--text;
+	padding-left: 1.2em;
+	@media #{$mobile} {
+		font-size: 14px;
+	}
+
+	&:before {
+		font-family: 'FontAwesome', sans-serif;
+		position: absolute;
+		left: 0;
+		top: 0;
+		line-height: 1.5;
+	}
+	h3, p {
+		margin: 0;
+		padding: 0;
+		line-height: 1.5;
+		color: $color__p--text;
+		font-size: 16px;
+		@media #{$mobile} {
+			font-size: 14px;
+		}
+	}
+}
+
+
+// Error
+.message--error {
+	&:before {
+		content: "\f071"; // triangle
+	}
+}
+
+// Warning
+.message--warning {
+	&:before {
+		content: "\f071"; // triangle
+	}
+}
+
+// Information
+.message--information {
+	&:before {
+		content: "\f05a"; // circled i
+	}
+}
+
+// Success
+.message--success {
+	&:before {
+		content: "\f00c"; // check
+	}
+}
+
+// Not Found
+.message--not-found {
+	&:before {
+		content: "\f002"; // magnifying glass
+	}
+}
+
+// Empty State
+.message--empty {
+	&:before {
+		content: "\f040"; // pencil
+	}
+}
