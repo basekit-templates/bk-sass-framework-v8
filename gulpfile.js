@@ -13,6 +13,6 @@ gulp.task('concat', function() {
             '!./bk-sass-precompiled.scss'
         ]
     )
-    .pipe(concat('bk-sass-framework.scss'))
+    .pipe(concat('bk-sass-framework-v8.scss'))
     .pipe(gulp.dest('./concat/'));
 });

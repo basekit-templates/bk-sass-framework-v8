@@ -18,6 +18,22 @@
 		"shouldRunBless": 0,
 		"useLibsass": 0
 		},
+	"\/concat\/bk-sass-framework-v8.scss": {
+		"createSourceMap": 0,
+		"debugStyle": 0,
+		"decimalPrecision": 10,
+		"fileType": 4,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/concat\/bk-sass-framework-v8.scss",
+		"outputAbbreviatedPath": "\/compiled\/bk-sass-framework-v8.css",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 0,
+		"shouldRunAutoprefixer": 0,
+		"shouldRunBless": 0,
+		"useLibsass": 0
+		},
 	"\/core\/alignment.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,
