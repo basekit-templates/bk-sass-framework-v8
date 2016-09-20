@@ -2,8 +2,9 @@
 // CORE: Resets
 // --------------------
 
-@import 'normalize'; // Normalize CSS
-@import 'typeset'; // Typeset CSS
+@import 'normalize';    // Normalize CSS
+@import 'typeset';      // Typeset CSS
+
 
 
 // General Resets
@@ -22,10 +23,11 @@ body {
     box-sizing:        border-box;
 }
 
+
+
 // BaseKit Resets
 // --------------
 
 .bk-zone {
   min-height: 80px;
 }
-

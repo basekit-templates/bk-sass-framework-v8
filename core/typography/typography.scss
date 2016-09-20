@@ -1,21 +1,27 @@
 // -----------------------------
-// CORE: Typography
+//  CORE: Typography
 // -----------------------------
 
+
+
+
 // -----------------------------
-// #Table of Contents
+//  Table of Contents
 // -----------------------------
 
-// 1. #HEADINGS (H1 - H4, P)
-// 2. #STANDARD LINK
-// 3. #BLOCKQUOTE
-// 4. #COMPANY NAME
-// 5. #TABLES
+// 1. Headings & Body Text
+// 2. Standard Link
+// 3. Blockquote
+// 4. Company name
+// 5. Tables
+
+
 
 
 // ---------------------------
-// 1. #Headings ((H1 - H4 + P)
+//  1. Headings & Body Text
 // ---------------------------
+
 
 // Body
 body {
@@ -102,8 +108,9 @@ h1, h2, h3, h4, p {
 
 
 // ----------------------
-// 2. #Standard Text Link
+//  2. Standard Text Link
 // ----------------------
+
 
 a {
     color: $color__link--text;
@@ -116,10 +123,10 @@ a {
 
 
 
+// ---------------------
+//  3. Blockquote
+// ---------------------
 
-// ---------------------
-// 3. #Blockquote
-// ---------------------
 
 blockquote {
     quotes: "“" "”" "“" "”";
@@ -135,8 +142,9 @@ blockquote {
 
 
 // ---------------------
-// 4. #Company Name
+//  4. Company Name
 // ---------------------
+
 
 .company-link {
     font-family: $font__companyname--font-family;
@@ -157,8 +165,9 @@ blockquote {
 
 
 // ---------------------
-// 5. #Tables
+//  5. Tables
 // ---------------------
+
 
 code, pre, th, td { color: $color__h4--text; }
 

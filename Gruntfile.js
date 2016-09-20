@@ -33,14 +33,14 @@ module.exports = function(grunt) {
   			swapOutString = matches[i];
 
         filecontents = recruseImports(swapOutString.replace(imports, "$1"));
-        
+
   			str = str.replace(swapOutString, filecontents);
   			filecontents = '';
   		}
 
       directoryFocus.pop();
 	  }
-  
+
 	return str;
   }
 
@@ -60,16 +60,16 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass-lint');
 
   // Default task(s).
-  grunt.registerTask('build', function () { 	
+  grunt.registerTask('build', function () {
   	var buildStr = recruseImports('bk-sass-precompiled');
 
     // This is the version that gets linted; includes
     // all the vars so linting doesn't fall over
-    grunt.file.write('bks-dev.scss', buildStr);
-    
+    grunt.file.write('bk-sass-framework-dev.scss', buildStr);
+
     // This is the production version of bkb. The
     // one that will get released with BaseKit
-    grunt.file.write('bks.scss', buildStr);
+    grunt.file.write('bk-sass-framework-v8.scss', buildStr);
     grunt.task.run('sasslint');
   });
 };

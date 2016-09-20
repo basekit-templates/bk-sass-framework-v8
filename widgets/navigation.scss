@@ -2,6 +2,8 @@
 // WIDGETS: Navigation
 // -------------------------
 
+
+
 // Navigation Text
 // ---------------
 
@@ -27,6 +29,7 @@
 
 // Navigation Layout
 // -----------------
+
 
 // Navigation Body
 .navigation-body {
@@ -62,13 +65,13 @@
         text-overflow: ellipsis;
     }
 }
+
 // Display Dropdown Menu
 .navigation-item:hover .navigation-list--children {
     display: block;
 }
+
 .navigation-item--child {
     display: list-item;
 }
-
-
 

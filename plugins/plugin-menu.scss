@@ -2,20 +2,25 @@
 // PLUGINS: Menu
 // -----------------------------
 
-// -----------------------------
-// #Table of Contents
-// -----------------------------
-
-// 1. #Element Defaults
-// 2. #Menu Sections Lists
-// 3. #Menu Items
-// 4. #CSS Column Structure
-// 5. #Menu Images
 
 
 // -----------------------------
-// 1. #Element Defaults
+//  Table of Contents
 // -----------------------------
+
+// 1. Element Defaults
+// 2. Menu Sections Lists
+// 3. Menu Items
+// 4. CSS Column Structure
+// 5. Menu Images
+
+
+
+// -----------------------------
+// 1. Element Defaults
+// -----------------------------
+
+
 
 // Navigation List
 // ---------------
@@ -27,8 +32,10 @@
 }
 
 
+
 // Element Spacing
 // ---------------
+
 
 // Typography (Removes padding)
 .section-description,
@@ -43,8 +50,9 @@
 
 
 // -----------------------------
-// 2. #Menu Sections Lists
+// 2. Menu Sections Lists
 // -----------------------------
+
 
 // Menu Section
 .menusections-list {
@@ -59,8 +67,9 @@
 
 
 // -----------------------------
-// 3. #Menu Items
+// 3. Menu Items
 // -----------------------------
+
 
 // Item Content
 .item-content {
@@ -76,6 +85,8 @@
     }
 }
 
+
+
 // Featured Item
 // -------------
 
@@ -84,6 +95,7 @@
 	padding: 20px;
 	background-color: darken($color__body--background,5%);
 }
+
 .menu-section--featured {
 	margin-bottom: 30px;
 	padding: 30px;
@@ -104,8 +116,9 @@
 
 
 // ------------------------------
-// 4. #CSS Column Structure
+// 4. CSS Column Structure
 // ------------------------------
+
 
 // Applied to parent list, not subsection list
 .menu-items:not(.menu-section--subsection),
@@ -116,6 +129,7 @@
 	-moz-column-gap: 50px;
 	-webkit-column-count: 2;
 	-webkit-column-gap : 50px;
+
 	@media #{$tablet} {
 		column-count: 2;
 		column-gap: 60px;
@@ -124,6 +138,7 @@
 		-webkit-column-count: 2;
 		-webkit-column-gap : 60px;
 	}
+
 	@media #{$mobile} {
 		column-count: 1;
 		-moz-column-count: 1;
@@ -131,8 +146,10 @@
 	}
 }
 
+
 // Applied to 'li'
 .menu-item {
+
 	// Forces styles below to be applied in FF
 	display: table;
 	width: 100%;
@@ -175,15 +192,17 @@
 
 
 // ------------------------------
-// 5. #Menu Images
+// 5. Menu Images
 // ------------------------------
+
+
 
 // Image centering technique
 // -------------------------
 
 .menu {
-
 	.item-image {
+
 		// Surrounding image div
 		.image-link {
 			width: 100%;
@@ -203,6 +222,7 @@
 		        line-height: 180px;
 		    }
 		}
+
 		// Image Element
 		.image {
 			display: inline-block;
@@ -211,5 +231,5 @@
 		    max-height: 100%;
 		}
 	}
-
 }
+

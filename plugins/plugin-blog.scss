@@ -2,8 +2,11 @@
 // PLUGINS: Blog
 // -----------------------------
 
+
+
 // Element Resets
 // --------------
+
 
 // Navigation List
 .sharing-links,
@@ -12,9 +15,11 @@
 	margin: 0;
 	list-style: none;
 }
+
 .menu-navigation-list {
 	margin-left: 0;
 }
+
 // Resets Post Image Height
 .post-image {
 	font-size: 0;
@@ -22,8 +27,10 @@
 }
 
 
+
 // Element Spacing
 // ---------------
+
 
 // Typography (Removes padding)
 .post-category {
@@ -46,6 +53,8 @@
 }
 
 
+
+
 // -----------------------------
 // Single Blog Post
 // -----------------------------
@@ -56,6 +65,7 @@
 		max-height: 200px;
 	}
 }
+
 
 
 // Post Content
@@ -77,6 +87,7 @@
 // -----------------------------
 // Blog Post List
 // -----------------------------
+
 
 // Post Attributes
 .post-attributes {
@@ -114,3 +125,4 @@
 	display: inline-block;
 	margin-right: 10px;
 }
+

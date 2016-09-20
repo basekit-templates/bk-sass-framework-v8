@@ -3,6 +3,7 @@
 // -------------------------
 
 
+
 // Fonecta Contact Form
 // -------------------------
 
@@ -12,21 +13,25 @@
     width: auto;
 }
 
+
+
 // Fonecta Map
 // -------------------------
 
-.fonectamap
-{
-    min-height:150px;
+.fonectamap {
+    min-height: 150px;
+
     .fonectmap {
         width: 100%;
-        height:100%;
-        overflow:hidden;
-        position:absolute;
+        height: 100%;
+        overflow: hidden;
+        position: absolute;
     }
+
     img {
         max-width: none;
     }
+
     // Map control buttons
     input[type="button"] {
         font-size: 11px;
@@ -42,3 +47,4 @@
         width: auto;
     }
 }
+

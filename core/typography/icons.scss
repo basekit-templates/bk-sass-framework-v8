@@ -6,9 +6,9 @@
     font-family: 'FontAwesome';
     src: url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.eot?v=4.2.0');
     src: url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.eot?#iefix&v=4.2.0') format('embedded-opentype'),
-        url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'),
-        url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'),
-        url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
+         url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.woff?v=4.2.0') format('woff'),
+         url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.ttf?v=4.2.0') format('truetype'),
+         url('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/fonts/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -21,8 +21,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
 .icon:before { margin-right: 5px; }
 .icon:after  { margin-left:  5px; }
+
 
 
 // Widget Icons
@@ -62,6 +64,7 @@
 .icon--instagram:before { content: "\f16d"; }
 
 
+
 // Slideshow Icons
 // ---------------
 
@@ -79,11 +82,13 @@
 .icon--pause.pause:before   { content: "\f04b"; }
 
 
+
 // Plugin Icons
 // ------------
 
 .icon--basket:before     { content: "\f07a"; }
 .icon--add:before        { content: "\f067"; }
+
 
 
 // Misc Icons
@@ -94,4 +99,3 @@
 .icon--close:before {
     content: "\f00d";
 }
-
