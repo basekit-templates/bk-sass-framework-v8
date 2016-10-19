@@ -2,6 +2,7 @@
 // WIDGETS: Slideshow
 // -------------------------
 
+
 // Element Resets
 .slides-list,
 .pagination-list,
@@ -18,6 +19,7 @@
 }
 
 
+
 // Slide Item
 // ----------
 
@@ -27,6 +29,7 @@
         display: list-item; // Current Item
     }
 }
+
 
 
 // Slideshow Images
@@ -47,6 +50,7 @@
     .image {
         display: none;
     }
+
     .caption  {
         position: absolute;
         bottom: 0;
@@ -56,8 +60,11 @@
         background-color: rgba(0,0,0,0.2);
     }
 
+
+
     // Pagination
     // ----------
+
 
     // Pagination Button
     .pagination-item {
@@ -81,8 +88,10 @@
 }
 
 
+
 // Crop Settings
 // -------------
+
 
 // Cover
 .responsiveslideshow .cover .figure {
@@ -101,12 +110,11 @@
 }
 
 
+
 // Slideshow Controls
 // ------------------
 
 .slide-navigation {
     margin: 10px 0;
 }
-
-
 

@@ -2,6 +2,7 @@
 // WIDGETS: Feature
 // ---------------------
 
+
 // Feature Background Image
 .feature__background-image {
     min-height: 250px;
@@ -36,7 +37,9 @@
 .feature__button {
 	padding: 9px 12px;
     text-decoration: none;
+
     &:hover {
     	text-decoration: none;
     }
 }
+

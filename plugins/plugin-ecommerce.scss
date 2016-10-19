@@ -2,21 +2,27 @@
 // PLUGINS: Ecommerce
 // -----------------------------
 
+
+
+
 // -----------------------------
-// #Table of Contents
+//  Table of Contents
 // -----------------------------
 
-// 1. #Element Defaults
-// 2. #Single Product
-// 3. #Product List
-// 4. #Basket Widget
-// 5. #Basket Summary
-// 6. #Ecommerce Images
+// 1. Element Defaults
+// 2. Single Product
+// 3. Product List
+// 4. Basket Widget
+// 5. Basket Summary
+// 6. Ecommerce Images
+
+
 
 
 // -------------------------------
-// 1. #Element Defaults
+// 1. Element Defaults
 // -------------------------------
+
 
 // Remove list margin
 .product-list,
@@ -48,9 +54,8 @@
 
 
 
-
 // -------------------------------
-// 2. #Single Product
+// 2. Single Product
 // -------------------------------
 
 .product-gallery .gallery-item {
@@ -80,6 +85,7 @@
 }
 
 
+
 // Product Actions (Form)
 // ----------------------
 
@@ -101,6 +107,7 @@ button.icon--add.added {
 }
 
 
+
 // Product Attibutes
 // -----------------
 
@@ -119,7 +126,7 @@ button.icon--add.added {
 
 
 // -------------------------------
-// 3. #Product List
+// 3. Product List
 // -------------------------------
 
 // Product Filters
@@ -143,7 +150,6 @@ button.icon--add.added {
     padding: 20px 0;
 }
 
-
 // Product Item Details
 .product-item-details {
     margin-top: 20px;
@@ -158,12 +164,13 @@ button.icon--add.added {
 
 
 // -------------------------------
-// 4. #Basket Widget
+// 4. Basket Widget
 // -------------------------------
 
 .basket-body {
     display: none; // Hide by default
 }
+
 .show-content .basket-body {
     display: block; // Display on click
 }
@@ -172,6 +179,7 @@ button.icon--add.added {
 .basket-toggle {
     margin-bottom: 20px;
 }
+
 .basket-item {
     position: relative;
     margin-bottom: 20px;
@@ -201,11 +209,12 @@ button.icon--add.added {
 
 
 // -------------------------------
-// 5. #Basket Summary
+// 5. Basket Summary
 // -------------------------------
 
 .summary-table {
     width: 100%;
+
     // Table Row
     .table-row {
         @media #{$mobile} {
@@ -221,7 +230,6 @@ button.icon--add.added {
             -webkit-flex-direction: column;
             -ms-flex-direction: column;
             flex-direction: column;
-
             border-bottom: 1px solid darken($color__body--background,10%);
         }
     }
@@ -240,7 +248,6 @@ button.icon--add.added {
     }
 
     // Summary Item Link
-
     .summary-item-link {
         background-position: -1000%;
     }
@@ -250,11 +257,13 @@ button.icon--add.added {
         vertical-align: middle;
         padding: 8px 12px;
         border-radius: 0;
+
         @media #{$mobile} {
             width: 100%;
             border: 0;
             display: block;
         }
+
         &:not(.cell--title):before {
             @media #{$mobile} {
                 content: attr(data-title);
@@ -269,6 +278,7 @@ button.icon--add.added {
     .cell--price,
     .cell--total {
         width: 10%;
+
         @media #{$mobile} {
             border-top: 1px solid darken($color__body--background,10%);
         }
@@ -277,6 +287,7 @@ button.icon--add.added {
     // Column: Title
     .cell--title {
         width: 50%;
+
         @media #{$mobile} {
             width: 100%;
             padding-top: 0;
@@ -287,17 +298,19 @@ button.icon--add.added {
     // Column: Quantity
     .cell--quantity {
         width: 15%;
+
         @media #{$mobile} {
             width: 100%;
             padding-bottom: 20px;
         }
     }
-
 }
+
 
 
 // Basket Quantity
 // ---------------
+
 
 // Quantity Wrap
 .quantity-wrap {
@@ -309,13 +322,13 @@ button.icon--add.added {
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
-
     width: 70%;
     background-color: darken($color__body--background,5%);
 
     @media #{$tablet} {
         width: 100%;
     }
+
     @media #{$mobile} {
         width: initial;
         max-width: 90px;
@@ -332,6 +345,7 @@ button.icon--add.added {
 }
 
 
+
 // Quantity Buttons
 // ----------------
 
@@ -344,11 +358,14 @@ button.icon--add.added {
 
 
 // -------------------------------
-// 6. #Ecommerce Images
+// 6. Ecommerce Images
 // -------------------------------
+
+
 
 // Image centering technique
 // -------------------------
+
 
 // Surrounding image divs
 .product-item-image,
@@ -374,11 +391,14 @@ button.icon--add.added {
     max-height: 100%;
 }
 
+
+
 // Product List
 // ------------
 
 // Sets individual height & alignments for all image
 // elements using this method of centering
+
 
 // Product List
 .product-item-image,
@@ -386,19 +406,23 @@ button.icon--add.added {
     height: 200px;
     line-height: 200px; // Line height matches div height
 }
+
 // Single Product
 .product-image .image-link {
     height: 400px;
     line-height: 400px;
+
     @media #{$tablet} {
         height: 300px;
         line-height: 300px;
     }
+
     @media #{$mobile} {
         height: 200px;
         line-height: 200px;
     }
 }
+
 // Basket
 .basket-item-image .image-link {
     width: 80px;
@@ -409,6 +433,7 @@ button.icon--add.added {
 }
 
 
+
 // Single Product Thumbnails
 // -------------------------
 
@@ -417,6 +442,7 @@ button.icon--add.added {
     height: 80px;
     line-height: 80px;
     cursor: pointer;
+
     @media #{$mobile} {
         width: 60px;
         height: 60px;
@@ -424,4 +450,11 @@ button.icon--add.added {
     }
 }
 
+.product-gallery .image-button .image {
+    max-height: 80px;
+
+    @media #{$mobile} {
+        max-height: 60px;
+    }
+}
 

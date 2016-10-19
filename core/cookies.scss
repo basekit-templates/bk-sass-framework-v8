@@ -2,7 +2,6 @@
 // CORE: Cookie Warning
 // -------------------------
 
-
 .bk-cookie-container {
     background-color: rgba(0,0,0, 0.75);
     border: 1px solid #333;
@@ -57,15 +56,18 @@
         position: absolute;
         right: 10px;
         top: 12px;
+
         @media #{$tablet} {
             font-size: 22px;
             line-height: 60px;
             top: 0;
         }
+
         @media only screen and (max-width: 422px) {
             line-height: 84px;
             right: 15px;
         }
+
         &:hover, &:focus {
             color: white;
             transition: color, .5s, ease-out;
@@ -73,3 +75,4 @@
         }
     }
 }
+

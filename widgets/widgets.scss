@@ -2,10 +2,12 @@
 // WIDGETS: General Widget
 // -----------------------
 
+
 // Widget Positioning
 .widget {
 	position: relative;
 }
+
 
 // Zone Widget Spacing
 .widget--zone-widget {
@@ -14,7 +16,9 @@
 	clear: both;
 }
 
+
 // Removes margin for the spacing widget
 .widget--zone-widget[data-name="space"] {
 	margin-bottom: 0;
 }
+

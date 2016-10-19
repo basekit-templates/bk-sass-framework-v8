@@ -2,6 +2,7 @@
 // WIDGETS: Twitter Feed
 // ---------------------
 
+
 .tweet-list {
     margin: 0;
     list-style: none;
@@ -20,6 +21,7 @@
 // Tweet List Items
 .tweet-item {
 	margin-bottom:  20px;
+
 	&:last-child {
 		margin-bottom: 0;
 	}
@@ -27,3 +29,14 @@
 
 // Avatar
 .avatar-link { display: block; }
+
+// Tweet Anchor Links
+.tweet-content a {
+    -ms-word-break: break-word;
+    word-break: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    hyphens: none;
+ }
+

@@ -2,25 +2,29 @@
 // BaseKit Sass Framework: V8
 // -----------------------------
 
+
+
+
 // -----------------------------
 // Core Import
 // -----------------------------
 
-@import 'validation';
 
 // Reset: Normalize & Typeset
-@import 'core/reset/reset';
+@import 'core/reset/normalize';
+@import 'core/reset/typeset';
+
 
 // Typography: Font Awesome Icons & BaseKit Font Swatches
 @import 'core/typography/icons';
 @import 'core/typography/typography';
+
 
 @import 'core/mixins';
 @import 'core/media';
 @import 'core/alignment';
 @import 'core/columns';
 @import 'core/forms';
-@import 'core/lightbox';
 @import 'core/print';
 @import 'core/messages';
 @import 'core/cookies';
@@ -34,28 +38,34 @@
 
 @import 'widgets/widgets';
 
-// Basic: Logo, Company Name, Navigation, Feature (1-4)
+
+// Basic: Logo, Company Name, Navigation, Feature
 @import 'widgets/logo';
 @import 'widgets/company-name';
 @import 'widgets/navigation';
 @import 'widgets/feature';
 @import 'widgets/content';
 
-// Media: Images, Gallery, Slideshow (5-7)
+
+// Media: Images, Gallery, Slideshow
 @import 'widgets/image';
 @import 'widgets/gallery';
 @import 'widgets/slideshow';
 
-// Buttons: Standard, Tweet, Dropbox, Click to Call, PayPal (8.1 - 8.5)
+
+// Buttons: Standard, Tweet, Dropbox, Click to Call, PayPal
 @import 'widgets/buttons';
 
-// Social: Social Icons, Twitter Feed (11 - 12)
+
+// Social: Social Icons, Twitter Feed
 @import 'widgets/social-icons';
 @import 'widgets/twitter-feed';
+
 
 // Other: Divider, Profile
 @import 'widgets/divider';
 @import 'widgets/profile';
+
 
 // Embed Widgets
 @import 'widgets/yelp';
@@ -63,9 +73,9 @@
 @import 'widgets/google-map';
 @import 'widgets/linkedin';
 
+
 // Partner Widgets
 @import 'widgets/fonecta-widgets';
-
 
 
 
@@ -74,7 +84,6 @@
 // Plugins Import
 // -----------------------------
 
-@import 'plugins/plugin-menu'; // Menu
-@import 'plugins/plugin-blog'; // Blog
-@import 'plugins/plugin-ecommerce'; // Ecommerce
-
+@import 'plugins/plugin-menu';
+@import 'plugins/plugin-blog';
+@import 'plugins/plugin-ecommerce';
