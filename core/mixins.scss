@@ -1,11 +1,13 @@
+
 // -----------------------------
-// CORE: Mixns
+// CORE: Mixins
 // -----------------------------
+
 
 
 
 // General Mixins
-// --------------
+// ------------------
 
 
 // Micro Clearfix
@@ -18,9 +20,18 @@
 }
 
 
+// Box Sizing
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+     -moz-box-sizing: $box-model; // Firefox <= 19
+          box-sizing: $box-model;
+}
+
+
+
 
 // Flexbox Mixins
-// --------------
+// -------------------
 
 
 // Flexbox Display
@@ -35,10 +46,20 @@
 
 // Flex
 @mixin flex($columns: initial) {
-  -webkit-flex: $columns;
+    -webkit-flex: $columns;
      -moz-flex: $columns;
       -ms-flex: $columns;
           flex: $columns;
+}
+
+
+// Flex Basis
+@mixin flex-basis($value: auto) {
+    -webkit-flex-basis: $value;
+    -moz-flex-basis: $value;
+    -ms-flex-preferred-size: $value;
+    flex-basis: $value;
+    max-width: $value;
 }
 
 
@@ -123,4 +144,3 @@
        -ms-flex-align: $align;
           align-items: $align;
 }
-

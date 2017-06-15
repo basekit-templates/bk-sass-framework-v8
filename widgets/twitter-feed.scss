@@ -1,3 +1,4 @@
+
 // ---------------------
 // WIDGETS: Twitter Feed
 // ---------------------
@@ -8,15 +9,17 @@
     list-style: none;
 }
 
+
 // Account Name
 .account-link {
+    color: $color__h3--text;
 	font-family: $font__h3--font-family;
     font-size: $font__h3--font-size;
     font-weight: $font__h3--font-weight;
-    color: $color__h3--text;
-    line-height: $font__h3--line-height;
     letter-spacing: $font__h3--letter-spacing;
+    line-height: $font__h3--line-height;
 }
+
 
 // Tweet List Items
 .tweet-item {
@@ -27,16 +30,18 @@
 	}
 }
 
+
 // Avatar
-.avatar-link { display: block; }
+.avatar-link {
+    display: block;
+}
+
 
 // Tweet Anchor Links
 .tweet-content a {
     -ms-word-break: break-word;
-    word-break: break-word;
     word-wrap: break-word;
     -webkit-hyphens: none;
     -moz-hyphens: none;
     hyphens: none;
- }
-
+}

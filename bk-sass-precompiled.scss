@@ -1,3 +1,4 @@
+
 // -----------------------------
 // BaseKit Sass Framework: V8
 // -----------------------------
@@ -12,7 +13,7 @@
 
 // Reset: Normalize & Typeset
 @import 'core/reset/normalize';
-@import 'core/reset/typeset';
+// @import 'core/reset/typeset';
 
 
 // Typography: Font Awesome Icons & BaseKit Font Swatches
@@ -36,6 +37,8 @@
 // Widgets Import
 // -----------------------------
 
+
+// General: Widgets
 @import 'widgets/widgets';
 
 

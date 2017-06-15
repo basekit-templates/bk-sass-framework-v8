@@ -1,3 +1,4 @@
+
 // -------------------------
 // WIDGETS: Slideshow
 // -------------------------
@@ -12,6 +13,7 @@
     line-height: normal;
 }
 
+
 .slideshow-controls {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -25,8 +27,16 @@
 
 .slide-item {
     display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+
     &.current {
         display: list-item; // Current Item
+        position: relative;
     }
 }
 
@@ -37,6 +47,7 @@
 
 .responsiveslideshow {
 
+
     // Figure
     .figure {
         background-color: darken($color__body--background, 5%);
@@ -46,10 +57,12 @@
         position: relative;
     }
 
+
     // Hides Img Element
     .image {
         display: none;
     }
+
 
     .caption  {
         position: absolute;
@@ -72,14 +85,18 @@
         line-height: normal;
     }
 
+
     // Pagination Button
     .button--pagination {
         padding: 3px 6px;
         font-size: 12px;
+
+
         &:focus {
             outline: none;
         }
     }
+
 
     // Pagination Selected Item
     .selected .button {
@@ -101,6 +118,7 @@
     background-size:         cover;
 }
 
+
 // Contain
 .responsiveslideshow .contain .figure {
     -webkit-background-size: contain;
@@ -117,4 +135,3 @@
 .slide-navigation {
     margin: 10px 0;
 }
-

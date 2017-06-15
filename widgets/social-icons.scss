@@ -1,10 +1,14 @@
+
 // ----------------------
 // WIDGETS: Social Links
 // ----------------------
 
 
 // Social List
-.social-list { margin: 0; }
+.social-list {
+    margin: 0;
+}
+
 
 // Social Item
 .social-item {
@@ -12,6 +16,8 @@
     margin-right: 10px;
 }
 
-// Social Link
-.social-link { -webkit-font-smoothing: antialiased; }
 
+// Social Link
+.social-link {
+    -webkit-font-smoothing: antialiased;
+}

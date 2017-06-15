@@ -1,3 +1,4 @@
+
 // -----------------------------
 // PLUGINS: Blog
 // -----------------------------
@@ -5,7 +6,7 @@
 
 
 // Element Resets
-// --------------
+// ----------------
 
 
 // Navigation List
@@ -16,9 +17,11 @@
 	list-style: none;
 }
 
+
 .menu-navigation-list {
 	margin-left: 0;
 }
+
 
 // Resets Post Image Height
 .post-image {
@@ -29,7 +32,7 @@
 
 
 // Element Spacing
-// ---------------
+// -----------------
 
 
 // Typography (Removes padding)
@@ -37,13 +40,17 @@
 	padding-bottom: 0;
 }
 
+
 // Post Article
 .post-article {
 	margin-bottom: 30px;
+
+
 	&:last-child {
 		margin-bottom: 30px;
 	}
 }
+
 
 // Blog Featured Image
 .blogpostlist__image-link,
@@ -59,8 +66,10 @@
 // Single Blog Post
 // -----------------------------
 
+
 .post-image .image {
 	max-height: 350px;
+
 	@media #{$mobile} {
 		max-height: 200px;
 	}
@@ -74,6 +83,7 @@
 .post-content {
 	margin: 20px 0;
 }
+
 
 // Timestamp
 .post-footer .timestamp {
@@ -94,11 +104,13 @@
 	margin: 20px 0 10px;
 }
 
+
 // Footer Sharing Links
 .blogpost-list__network-item,
 .blogpost__network-item {
 	margin-top: 10px;
 }
+
 
 // Blog Post List Buttons,
 // Sharing Item Buttons,
@@ -114,15 +126,16 @@
 	display: inline-block;
 }
 
+
 // Category Title
 .category-title {
 	display: inline-block;
 	padding: 0;
 }
 
+
 // Network Item
 .network-item {
 	display: inline-block;
 	margin-right: 10px;
 }
-

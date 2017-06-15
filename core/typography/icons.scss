@@ -1,6 +1,8 @@
+
 // -------------------------
 // CORE: Typography
 // -------------------------
+
 
 @font-face {
     font-family: 'FontAwesome';
@@ -13,6 +15,7 @@
     font-style: normal;
 }
 
+
 // Fontawesome
 .icon:before,
 .icon:after {
@@ -22,43 +25,59 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+
 .icon:before { margin-right: 5px; }
 .icon:after  { margin-left:  5px; }
 
 
 
 // Widget Icons
-// ------------
+// ---------------
+
 
 // Twitter
 .icon--twitter:before { content: "\f099"; }
 
+
 // Facebook
 .icon--facebook:before { content: "\f09a"; }
+
 
 // Facebook
 .icon--youtube:before { content: "\f167"; }
 
+
 // Google+
 .icon--googleplus:before { content: "\f0d5"; }
+
 
 // RSS
 .icon--rss:before { content: "\f09e"; }
 
+
 // LinkedIn
 .icon--linkedin:before { content: "\f0e1"; }
+
 
 // Dropbox
 .icon--dropbox:before { content: "\f16b"; }
 
+
+// File Download
+.icon--filedownload:before { content: "\f019"; }
+
+
 // PayPal
 .icon--paypal:before { content: "\f1ed"; }
+
 
 // Phone (Click to Call)
 .icon--phone:before { content: "\f095"; }
 
+
 // Pinterest
 .icon--pinterest:before { content: "\f0d2"; }
+
 
 // Instagram
 .icon--instagram:before { content: "\f16d"; }
@@ -66,16 +85,20 @@
 
 
 // Slideshow Icons
-// ---------------
+// -------------------
+
 
 // Previous
 .icon--previous:before { content: "\f053"; }
 
+
 // Next
 .icon--next:after    { content: "\f054"; }
 
+
 // Pause
 .icon--pause:before  { content: "\f04c"; }
+
 
 // Play
 .icon--play:before,
@@ -92,7 +115,8 @@
 
 
 // Misc Icons
-// ----------
+// -------------
+
 
 // Close, Remove
 .icon--remove:before,

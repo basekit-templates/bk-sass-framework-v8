@@ -1,6 +1,8 @@
+
 // -------------------------
 // CORE: Messages
 // -------------------------
+
 
 .message {
 	position: relative;
@@ -12,6 +14,7 @@
 		font-size: 14px;
 	}
 
+
 	&:before {
 		font-family: 'FontAwesome', sans-serif;
 		position: absolute;
@@ -20,12 +23,14 @@
 		line-height: 1.5;
 	}
 
+
 	h3, p {
 		margin: 0;
 		padding: 0;
 		line-height: 1.5;
 		color: $color__p--text;
 		font-size: 16px;
+
 		@media #{$mobile} {
 			font-size: 14px;
 		}

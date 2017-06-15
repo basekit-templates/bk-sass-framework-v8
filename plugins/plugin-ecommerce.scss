@@ -1,3 +1,4 @@
+
 // -----------------------------
 // PLUGINS: Ecommerce
 // -----------------------------
@@ -34,6 +35,7 @@
     list-style: none;
 }
 
+
 // Typography (Removes padding)
 .product-item-title,
 .product-item-price,
@@ -58,6 +60,7 @@
 // 2. Single Product
 // -------------------------------
 
+
 .product-gallery .gallery-item {
     display: inline-block;
     vertical-align: top;
@@ -65,19 +68,24 @@
     height: 80px;
 }
 
+
 .product-image .image-link {
     background-position: -9999px;
     background-repeat: no-repeat;
 }
+
+
 .product-image .image-link:hover {
     cursor: -webkit-zoom-in;
     cursor: -moz-zoom-in;
 }
 
+
 // Hide Product Image (use BG)
 .product-image .image {
     display: none;
 }
+
 
 // Product Gallery (Thumbnails)
 .product-gallery {
@@ -89,17 +97,22 @@
 // Product Actions (Form)
 // ----------------------
 
+
 .product-actions {
     margin: 20px 0;
 }
 
+
 button.icon--add.added {
     background: green;
+
+
     &:before {
         content: "\f00c";
         display: inline;
     }
 }
+
 
 // Add To Cart Button
 .js-ecom-product-add-to-cart-btn:disabled {
@@ -111,17 +124,20 @@ button.icon--add.added {
 // Product Attibutes
 // -----------------
 
+
 .product-attributes {
     margin: 10px 0;
 }
 
+
 // Tax Explainer
 .ecomproduct__tax-explainer {
+    color: fade($color__p--text, 50%);
+    line-height: 1.2;
     margin-top: 1em;
     font-size: 12px;
-    line-height: 1.2;
-    color: fade($color__p--text, 50%);
 }
+
 
 
 
@@ -129,8 +145,10 @@ button.icon--add.added {
 // 3. Product List
 // -------------------------------
 
+
 // Product Filters
 .product-filters {
+
 
     .form-group {
         display: inline-block;
@@ -138,22 +156,25 @@ button.icon--add.added {
         margin-right: 10px;
     }
 
+
     // Submit Button
     .input--search {
         height: 36px;
     }
-
 }
+
 
 // Listing Order (Showing 'x' products)
 .listing-order {
     padding: 20px 0;
 }
 
+
 // Product Item Details
 .product-item-details {
     margin-top: 20px;
 }
+
 
 // Product List Pagination
 .listing-pagination .pagination-item {
@@ -167,37 +188,46 @@ button.icon--add.added {
 // 4. Basket Widget
 // -------------------------------
 
+
 .basket-body {
     display: none; // Hide by default
 }
 
+
 .show-content .basket-body {
     display: block; // Display on click
 }
+
 
 // Basket Toggle / Item
 .basket-toggle {
     margin-bottom: 20px;
 }
 
+
 .basket-item {
     position: relative;
     margin-bottom: 20px;
+
+
     &:last-child {
         margin-bottom: 0;
     }
 }
+
 
 // Basket Total
 .basket-footer {
     margin-top: 20px;
 }
 
+
 // Item Remove Button
 .item-remove {
     padding: 2px 4px;
     font-size: 12px;
     line-height: 12px;
+
 
     // Remove icon spacing
     &:before {
@@ -212,34 +242,30 @@ button.icon--add.added {
 // 5. Basket Summary
 // -------------------------------
 
+
 .summary-table {
     width: 100%;
 
+
     // Table Row
     .table-row {
+
         @media #{$mobile} {
-            display: -webkit-box;
-            display: -moz-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -webkit-box-direction: normal;
-            -moz-box-direction: normal;
-            -webkit-box-orient: vertical;
-            -moz-box-orient: vertical;
-            -webkit-flex-direction: column;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            border-bottom: 1px solid darken($color__body--background,10%);
+            @include flex-display();
+            @include flex-direction(column);
+            border-bottom: 1px solid darken($color__body--background, 10%);
         }
     }
 
+
     // Table Row Heading
     .table-row--heading {
+
         @media #{$mobile} {
             display: none;
         }
     }
+
 
     // Column: Image
     .cell--image {
@@ -247,10 +273,12 @@ button.icon--add.added {
         width: 15%;
     }
 
+
     // Summary Item Link
     .summary-item-link {
         background-position: -1000%;
     }
+
 
     // Table Cell: General
     .cell {
@@ -259,12 +287,14 @@ button.icon--add.added {
         border-radius: 0;
 
         @media #{$mobile} {
-            width: 100%;
             border: 0;
             display: block;
+            width: 100%;
         }
 
+
         &:not(.cell--title):before {
+
             @media #{$mobile} {
                 content: attr(data-title);
                 display: block;
@@ -274,34 +304,37 @@ button.icon--add.added {
         }
     }
 
+
     // Column: Price & Total
     .cell--price,
     .cell--total {
         width: 10%;
 
         @media #{$mobile} {
-            border-top: 1px solid darken($color__body--background,10%);
+            border-top: 1px solid darken($color__body--background, 10%);
         }
     }
+
 
     // Column: Title
     .cell--title {
         width: 50%;
 
         @media #{$mobile} {
-            width: 100%;
             padding-top: 0;
             padding-bottom: 0;
+            width: 100%;
         }
     }
+
 
     // Column: Quantity
     .cell--quantity {
         width: 15%;
 
         @media #{$mobile} {
-            width: 100%;
             padding-bottom: 20px;
+            width: 100%;
         }
     }
 }
@@ -314,33 +347,28 @@ button.icon--add.added {
 
 // Quantity Wrap
 .quantity-wrap {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+    background-color: darken($color__body--background, 5%);
+    @include flex-display();
+    @include justify-content(space-between);
     width: 70%;
-    background-color: darken($color__body--background,5%);
 
     @media #{$tablet} {
         width: 100%;
     }
 
     @media #{$mobile} {
-        width: initial;
         max-width: 90px;
         margin-top: 0.5em;
+        width: initial;
     }
+
 
     // Quantity Inputs
     .button--quantity {
-        width: 20px;
         height: 20px;
-        padding: 0;
         line-height: initial;
+        padding: 0;
+        width: 20px;
     }
 }
 
@@ -373,12 +401,13 @@ button.icon--add.added {
 .product-gallery .gallery-item,
 .product-image .image-link,
 .basket-item-image .image-link {
-    width: 100%;
     background-repeat: no-repeat;
     background-position: -9999px;
     overflow: hidden; // Stops large images overflowing
     text-align: center;
+    width: 100%;
 }
+
 
 // Image Element
 .product-item-image .image,
@@ -407,6 +436,7 @@ button.icon--add.added {
     line-height: 200px; // Line height matches div height
 }
 
+
 // Single Product
 .product-image .image-link {
     height: 400px;
@@ -423,19 +453,21 @@ button.icon--add.added {
     }
 }
 
+
 // Basket
 .basket-item-image .image-link {
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
     background-repeat: no-repeat;
     background-position: -9999px;
+    height: 80px;
+    line-height: 80px;
+    width: 80px;
 }
 
 
 
 // Single Product Thumbnails
 // -------------------------
+
 
 .product-gallery .gallery-item {
     width: 80px;
@@ -444,11 +476,12 @@ button.icon--add.added {
     cursor: pointer;
 
     @media #{$mobile} {
-        width: 60px;
         height: 60px;
         line-height: 60px;
+        width: 60px;
     }
 }
+
 
 .product-gallery .image-button .image {
     max-height: 80px;
@@ -457,4 +490,3 @@ button.icon--add.added {
         max-height: 60px;
     }
 }
-

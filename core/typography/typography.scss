@@ -1,3 +1,4 @@
+
 // -----------------------------
 //  CORE: Typography
 // -----------------------------
@@ -26,54 +27,62 @@
 // Body
 body {
     background-color: $color__body--background;
+    color: $color__p--text;
     font-family: $font__p--font-family;
     font-size: $font__p--font-size;
     font-weight: $font__p--font-weight;
     line-height: $font__p--line-height;
     letter-spacing: $font__p--letter-spacing;
-    color: $color__p--text;
-    -webkit-text-size-adjust: 100%;
 }
 
+
 // Heading 1
-h1, .heading--1 {
+h1,
+.heading--1 {
+    color: $color__h1--text;
     font-family: $font__h1--font-family;
     font-size: $font__h1--font-size;
     font-weight: $font__h1--font-weight;
     line-height: $font__h1--line-height;
     letter-spacing: $font__h1--letter-spacing;
-    color: $color__h1--text;
 }
 
+
 // Heading 2
-h2, .heading--2 {
+h2,
+.heading--2 {
+    color: $color__h2--text;
     font-family: $font__h2--font-family;
     font-size: $font__h2--font-size;
     font-weight: $font__h2--font-weight;
     line-height: $font__h2--line-height;
     letter-spacing: $font__h2--letter-spacing;
-    color: $color__h2--text;
 }
 
+
 // Heading 3
-h3, .heading--3 {
+h3,
+.heading--3 {
+    color: $color__h3--text;
     font-family: $font__h3--font-family;
     font-size: $font__h3--font-size;
     font-weight: $font__h3--font-weight;
     line-height: $font__h3--line-height;
     letter-spacing: $font__h3--letter-spacing;
-    color: $color__h3--text;
 }
 
+
 // Heading 4
-h4, .heading--4 {
+h4,
+.heading--4 {
+    color: $color__h4--text;
     font-family: $font__h4--font-family;
     font-size: $font__h4--font-size;
     font-weight: $font__h4--font-weight;
     line-height: $font__h4--line-height;
     letter-spacing: $font__h4--letter-spacing;
-    color: $color__h4--text;
 }
+
 
 // Paragraph, List Elements, Blockquote
 p,
@@ -82,39 +91,50 @@ ol,
 li,
 blockquote,
 .paragraph {
+    color: $color__p--text;
     font-family: $font__p--font-family;
     font-size: $font__p--font-size;
     font-weight: $font__p--font-weight;
     line-height: $font__p--line-height;
     letter-spacing: $font__p--letter-spacing;
-    color: $color__p--text;
 }
 
+
 // Typography Spacing
-h1, h2, h3, h4, p {
+h1,
+h2,
+h3,
+h4,
+p {
     margin: 0;
     padding-bottom: 10px;
 }
 
+
 // Typography Font Styles
-.justifyitalic {
+.justifyitalic,
+.italic {
     font-style: italic;
 }
-.justifybold {
+
+
+.justifybold,
+.bold {
     font-weight: bold;
 }
 
 
 
 
-// ----------------------
+// -------------------------
 //  2. Standard Text Link
-// ----------------------
+// -------------------------
 
 
 a {
     color: $color__link--text;
     text-decoration: none;
+
     &:hover {
         text-decoration: underline;
     }
@@ -131,9 +151,10 @@ a {
 blockquote {
     quotes: "“" "”" "“" "”";
     margin: 0;
+
     &:before {
-        content:open-quote;
-        font-family: georgia, sans-serif;
+        content: open-quote;
+        font-family: $font__p--font-family;
         line-height: $font__p--line-height;
     }
 }
@@ -153,8 +174,8 @@ blockquote {
     line-height: $font__companyname--line-height;
     letter-spacing: $font__companyname--letter-spacing;
     color: $color__companyname--text;
+
     -ms-word-break: break-word;
-    word-break: break-word;
     word-wrap: break-word;
     -webkit-hyphens: none;
     -moz-hyphens: none;
@@ -169,5 +190,6 @@ blockquote {
 // ---------------------
 
 
-code, pre, th, td { color: $color__h4--text; }
-
+code, pre, th, td {
+    color: $color__h4--text;
+}

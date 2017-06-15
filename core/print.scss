@@ -1,6 +1,8 @@
+
 // -------------------------
 // CORE: Print Styles
 // -------------------------
+
 
 @media print,
        (-o-min-device-pixel-ratio: 5/4),
@@ -17,21 +19,27 @@
    Inlined to avoid required HTTP connection: h5bp.com/r
    ========================================================================== */
 
+
 @mixin print-mixin {
+
+
     * {
         box-shadow: none !important;
         text-shadow: none !important;
         border: none !important;
     }
 
+
     *:not(.print-bg-override) {
         background: transparent !important;
         color: #000 !important; /* Black prints faster: h5bp.com/s */
     }
 
+
     .print-bg-override {
         -webkit-print-color-adjust:exact;
     }
+
 
     pre,
     blockquote {
@@ -39,26 +47,32 @@
         page-break-inside: avoid;
     }
 
+
     input[type=text], input[type=email], input[type=search], .signupform fieldset input[type=email], .widget.profile form fieldset input[type=email], textarea, button {
         border: 1px solid #000 !important;
     }
 
+
     thead {
         display: table-header-group; /* h5bp.com/t */
     }
+
 
     tr,
     img {
         page-break-inside: avoid;
     }
 
+
     img {
         max-width: 100% !important;
     }
 
+
     @page {
         margin: 0.5cm;
     }
+
 
     p,
     h2,
@@ -67,11 +81,13 @@
         widows: 3;
     }
 
+
     h2,
     h3 {
         page-break-after: avoid;
     }
 }
+
 
 @media print {
     body {
@@ -80,6 +96,7 @@
     }
     @include print-mixin;
 }
+
 
 .bk-print {
     @include print-mixin;
@@ -94,6 +111,7 @@
    Print styles.
    Styles to deal with BaseKit related features
    ========================================================================== */
+
 
 @mixin extended-print-mixin {
     .widget.extendednavigation,
@@ -111,10 +129,12 @@
     }
 }
 
+
 @media print {
     @include print-mixin;
     @include extended-print-mixin;
 }
+
 
 .bk-print {
     @include print-mixin;

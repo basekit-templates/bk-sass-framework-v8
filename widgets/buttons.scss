@@ -1,3 +1,4 @@
+
 // -------------------------
 // WIDGETS: Buttons
 // -------------------------
@@ -42,23 +43,28 @@ button,
     font-size: $font__button--font-size;
     background-color: $color__button--background;
 
+
     &:hover {
         background-color: $color__button--background--hover;
         text-decoration: none;
     }
 
+
     &:focus {
         outline: none;
     }
+
 
     &.italic {
         font-style: italic;
     }
 
+
     &.bold {
         font-weight: bold;
     }
 }
+
 
 // Removes any scaling elements from pagination / ecom basket buttons
 .ecombasketsummary__quantity-minus,
@@ -77,6 +83,7 @@ button,
 // 2. #PayPal Button
 // ---------------------
 
+
 .paypalbuynow form { background-color: transparent; }
 
 
@@ -85,6 +92,7 @@ button,
 // ---------------------
 // 3. #Dropbox Button
 // ---------------------
+
 
 .dropbox-button__button,
 .dropbox-button__label {
@@ -104,6 +112,7 @@ button,
 // ------------------------
 // 5. #Click to Call Button
 // ------------------------
+
 
 .clicktocall__phone-number-link {
     @media #{$mobile}, only screen and (max-width:700px) and (orientation:landscape) {
@@ -137,4 +146,3 @@ button,
         }
     }
 }
-

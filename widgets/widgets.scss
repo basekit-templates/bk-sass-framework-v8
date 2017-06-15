@@ -1,3 +1,4 @@
+
 // -----------------------
 // WIDGETS: General Widget
 // -----------------------
@@ -12,8 +13,9 @@
 // Zone Widget Spacing
 .widget--zone-widget {
     @include clearfix;
-	margin: 0 0 20px;
-	clear: both;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 
