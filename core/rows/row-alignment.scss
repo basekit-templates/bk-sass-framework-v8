@@ -1,0 +1,38 @@
+
+// -----------------------------
+//  CORE - Row Alignment
+// -----------------------------
+
+
+.row__vertical-align {
+
+
+    // Row Alignment Top
+    &--top .row__container {
+        @include justify-content(flex-start);
+    }
+
+    &--top .responsivecolumns {
+        @include align-items(flex-start);
+    }
+
+
+    // Row Align Center
+    &--center .row__container {
+        @include justify-content(center);
+    }
+
+    &--center .responsivecolumns {
+        @include align-items(center);
+    }
+
+
+    // Row Align Bottom
+    &--bottom .row__container {
+        @include justify-content(flex-end);
+    }
+
+    &--bottom .responsivecolumns {
+        @include justify-content(flex-end);
+    }
+}

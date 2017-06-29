@@ -1,0 +1,21 @@
+
+// -----------------------------
+//  CORE - Row Background Type
+// -----------------------------
+
+
+
+
+//  Row Background
+// -------------------------------------
+
+
+.row__background-type {
+
+
+    &--image {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}

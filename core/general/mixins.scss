@@ -20,11 +20,47 @@
 }
 
 
+// Border Radius
+@mixin border-radius ($values) {
+    -webkit-border-radius: $values;
+    border-radius: $values;
+}
+
+
 // Box Sizing
 @mixin box-sizing($box-model) {
   -webkit-box-sizing: $box-model; // Safari <= 5
      -moz-box-sizing: $box-model; // Firefox <= 19
           box-sizing: $box-model;
+}
+
+
+// Box Shadow
+@mixin box-shadow ($values) {
+    -webkit-box-shadow: $values;
+    box-shadow: $values;
+}
+
+
+// Calc
+@mixin calc ($property, $expression) {
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
+
+
+// Transform
+@mixin transform ($values) {
+    -webkit-transform: $values;
+    -ms-transform: $values;
+    transform: $values;
+}
+
+
+// Transition
+@mixin transition ($values) {
+    -webkit-transition: $values;
+    transition: $values;
 }
 
 

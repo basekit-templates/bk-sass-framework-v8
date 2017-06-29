@@ -1,3 +1,4 @@
+
 // -------------------------
 // WIDGETS: Fonecta
 // -------------------------
@@ -21,6 +22,7 @@
 .fonectamap {
     min-height: 150px;
 
+
     .fonectmap {
         width: 100%;
         height: 100%;
@@ -28,9 +30,11 @@
         position: absolute;
     }
 
+
     img {
         max-width: none;
     }
+
 
     // Map control buttons
     input[type="button"] {
@@ -47,4 +51,3 @@
         width: auto;
     }
 }
-

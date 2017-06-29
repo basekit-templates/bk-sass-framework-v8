@@ -13,23 +13,29 @@
 
 // Reset: Normalize & Typeset
 @import 'core/reset/normalize';
-// @import 'core/reset/typeset';
 
 
-// Typography: Font Awesome Icons & BaseKit Font Swatches
+// Typography: Base Typography & Font Icons
 @import 'core/typography/icons';
 @import 'core/typography/typography';
 
 
-@import 'core/mixins';
-@import 'core/media';
-@import 'core/alignment';
-@import 'core/columns';
-@import 'core/forms';
-@import 'core/print';
-@import 'core/messages';
-@import 'core/cookies';
+// General
+@import 'core/general/mixins';
+@import 'core/general/media-queries';
+@import 'core/general/text-alignment';
+@import 'core/general/columns';
+@import 'core/general/forms';
+@import 'core/general/print';
+@import 'core/general/messages';
+@import 'core/general/cookies';
 
+
+// Row
+@import 'core/rows/row-alignment';
+@import 'core/rows/row-background';
+@import 'core/rows/row-sizing';
+@import 'core/rows/row-style';
 
 
 
@@ -77,16 +83,11 @@
 @import 'widgets/linkedin';
 
 
-// Partner Widgets
-@import 'widgets/fonecta-widgets';
-
-
 
 
 // -----------------------------
 // Plugins Import
 // -----------------------------
 
-@import 'plugins/plugin-menu';
 @import 'plugins/plugin-blog';
 @import 'plugins/plugin-ecommerce';

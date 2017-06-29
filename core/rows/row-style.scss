@@ -1,0 +1,24 @@
+
+// -----------------------------
+//  CORE - Row Style (Colour)
+// -----------------------------
+
+
+
+
+//  Row Height
+// -------------------------------------
+
+
+// Colour variables
+$color--light: white;
+$color--accent: blue;
+$color--dark: black;
+
+
+// Colour application with backup
+:root {
+    --row__color--light: $color--light;
+    --row__color--accent: $color--accent;
+    --row__color--dark: $color--dark;
+}

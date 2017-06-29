@@ -1,6 +1,8 @@
+
 // -------------------------
 // CORE: Cookie Warning
 // -------------------------
+
 
 .bk-cookie-container {
     background-color: rgba(0,0,0, 0.75);
@@ -16,7 +18,18 @@
     text-align: center;
     max-width: 900px;
     width: 95%;
-    z-index: 2147483647;
+    z-index: 10005;
+
+    @media #{$mobile} {
+        border: none;
+        border-top: 1px solid #333;
+        left: 0;
+        bottom: 0;
+        margin: 0;
+        text-align: left;
+        width: 100%;
+    }
+
 
     p {
         color: white;
@@ -30,25 +43,18 @@
             padding-right: 3em;
         }
 
+
         a {
             color: #96d3ed;
         }
     }
+
 
     p, a {
         font-size: 15px;
         line-height: 23px;
     }
 
-    @media #{$mobile} {
-        border: none;
-        border-top: 1px solid #333;
-        left: 0;
-        bottom: 0;
-        margin: 0;
-        text-align: left;
-        width: 100%;
-    }
 
     .bk-cookie-close-button {
         color: rgba(255,255,255, 0.5);
@@ -58,18 +64,22 @@
         top: 0;
         background-color: #000;
         padding: 12px;
-        @media @tablet {
+
+        @media #{$tablet} {
             font-size: 18px;
             top: 0;
             padding: 22px;
             color: white;
         }
+
         @media only screen and (max-width: 422px) {
             font-size: 16px;
             top: 12px;
             right: 14px;
             line-height: 1em;
         }
+
+
         &:hover, &:focus {
             color: white;
             transition: color, .5s, ease-out;
@@ -77,4 +87,3 @@
         }
     }
 }
-

@@ -1,3 +1,4 @@
+
 // ---------------------
 // WIDGETS: Feature
 // ---------------------
@@ -8,10 +9,12 @@
     min-height: 250px;
 }
 
+
 // Feature Content Wrap
 .feature__content-wrap {
 	padding: 30px;
 }
+
 
 // Feature Headline
 .feature__headline {
@@ -23,6 +26,7 @@
     color: $color__feature-headline--text;
 }
 
+
 // Feature Strapline
 .feature__strapline {
 	font-family: $font__feature-strapline--font-family;
@@ -33,6 +37,7 @@
     color: $color__feature-strapline--text;
 }
 
+
 // Feature Button
 .feature__button {
 	padding: 9px 12px;
@@ -42,4 +47,3 @@
     	text-decoration: none;
     }
 }
-

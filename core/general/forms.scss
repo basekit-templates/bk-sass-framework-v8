@@ -72,7 +72,7 @@ textarea,
 .input--single-line {
     border: 1px solid #ddd;
 	padding: 6px 10px;
-	@import box-sizing(border-box);
+	@include box-sizing(border-box);
     width: 100%;
 
 	@media #{$tablet} {
@@ -140,7 +140,7 @@ input[type="checkbox"] {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     -o-box-shadow: none;
-    @import box-sizing(border-box);
+    @include box-sizing(border-box);
     height: auto;
     min-height: inherit;
     margin-right: 5px;

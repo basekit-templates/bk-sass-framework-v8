@@ -1,0 +1,70 @@
+
+// -----------------------------
+//  CORE - Row Sizing
+// -----------------------------
+
+
+
+
+//  Row Height
+// -------------------------------------
+
+
+.row__height {
+
+
+    &--no-padding {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+
+    &--thin {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+
+    &--default {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+
+    &--full {
+        min-height: 100vh;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+}
+
+
+
+
+//  Row Width
+// -------------------------------------
+
+
+.row__layout {
+
+
+    &--contained {
+        padding-left: 30px;
+        padding-right: 30px;
+        width: 1200px;
+    }
+
+
+    &--wide {
+        padding-left: 30px;
+        padding-right: 30px;
+        width: 90%;
+    }
+
+
+    &--full {
+        padding-left: 60px;
+        padding-right: 60px;
+        width: 100%;
+    }
+}

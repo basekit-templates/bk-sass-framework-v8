@@ -39,6 +39,11 @@ html {
 }
 
 
+iframe {
+    border: 0;
+}
+
+
 
 
 /* Sections
@@ -277,6 +282,7 @@ audio:not([controls]) {
 
 img {
     border-style: none;
+    max-width: 100%;
 }
 
 
