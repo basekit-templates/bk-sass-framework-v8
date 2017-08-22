@@ -21,7 +21,7 @@ fieldset {
 // Form Group
 .form-group {
     margin-bottom: 10px;
-    }
+}
 
 
 // Legend
@@ -39,7 +39,7 @@ label {
 
 // Selects
 select {
-    height: 36px;
+    // height: 12px;
     outline: none;
     border: 1px solid darken($color__body--background,15%);
     border-radius: 0;
@@ -71,6 +71,7 @@ input[type="password"],
 textarea,
 .input--single-line {
     border: 1px solid #ddd;
+    // height: 12px;
 	padding: 6px 10px;
 	@include box-sizing(border-box);
     width: 100%;

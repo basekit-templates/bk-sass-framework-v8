@@ -1,0 +1,468 @@
+
+
+// ------------------------------
+// CORE: Typography (Typi)
+// ------------------------------
+
+
+
+
+$breakpoints: () !default;
+$typi: (null: (16px, 1.6)) !default;
+$typi-ms: false !default;
+$typi-breakpoint: null !default;
+
+
+
+
+// _ty-breakpoint
+// ==============
+// Allows use of breakpoint-sass and mappy-bp.
+// Falls back to default method otherwise.
+
+
+@mixin _ty-breakpoint(
+  $typi-map
+) {
+  $breakpoint: map-get($typi-map, breakpoint);
+  $breakpoints: map-get($typi-map, breakpoints);
+  $bp-val: map-get($breakpoints, $breakpoint);
+
+  @if $typi-breakpoint == breakpoint {
+    @if mixin-exists(breakpoint) {
+      @include breakpoint-set('to ems', true);
+      @include breakpoint(map-get($breakpoints, $breakpoint)) {
+        @include _ty-write-props($typi-map);
+      }
+    } @else {
+      @error 'Breakpoint-sass Library not found'
+    }
+  }
+
+  @else if $typi-breakpoint == mappy-breakpoint or $typi-breakpoint == mappy-breakpoints {
+    @if mixin-exists(mappy-bp) {
+      @include mappy-bp(map-get($breakpoints, $breakpoint)) {
+        @include _ty-write-props($typi-map);
+      }
+    } @else {
+      @error 'Mappy Breakpoints Library not found'
+    }
+  }
+
+  @else {
+    @media all and (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @include _ty-write-props($typi-map);
+    }
+  }
+}
+
+
+
+
+// _ty-write-props
+// ===============
+// Writes font-size (and line height) properties
+@mixin _ty-write-props (
+  $typi-map
+) {
+  $target: map-get($typi-map, target);
+  $breakpoint: map-get($typi-map, breakpoint);
+  $typi: map-get($typi-map, typi);
+  $base: map-get($typi-map, base);
+  $rem: map-get($typi-map, rem);
+
+  $bp-val: map-get($target, $breakpoint);
+  $font-size: null;
+  $line-height: null;
+
+  @if type-of($bp-val) == 'null' {
+    $last-valid-breakpoint: map-get($typi-map, last-valid-breakpoint);
+    $bp-val: map-get($target, $last-valid-breakpoint);
+  }
+
+  @if type-of($bp-val) == "list" and length($bp-val) > 1 {
+    $font-size: nth($bp-val, 1);
+    $line-height: nth($bp-val, 2);
+    font-size: _ty-font-size($font-size, $breakpoint, $typi, $rem, $base, $typi-map);
+    line-height: $line-height;
+  }
+  @else  {
+    $font-size: $bp-val;
+    font-size: _ty-font-size($font-size, $breakpoint, $typi, $rem, $base, $typi-map);
+  }
+}
+
+
+
+
+// _ty-font-size
+// =============
+// Calls _ty-calc-font-size or _ty-base-size
+@function _ty-font-size(
+  $font-size,
+  $breakpoint,
+  $typi,
+  $rem,
+  $base: false,
+  $typi-map: false
+) {
+  @if $base == true {
+    @return _ty-base-size($font-size);
+  } @else {
+    @return _ty-calc-font-size($font-size, $breakpoint, $typi, $rem, $typi-map);
+  }
+}
+
+
+
+
+// _ty-calc-font-size
+// =======
+// returns correct rem value depending on
+// breakpoint
+@function _ty-calc-font-size(
+  $font-size,
+  $breakpoint,
+  $typi,
+  $rem,
+  $typi-map: false
+) {
+  @if unitless($font-size) {
+    @if function-exists(ms) {
+      $typi-ms: map-get($typi-map, ms);
+      @if $rem {
+        @return _ty-strip-unit(_ty-ms($font-size, $breakpoint, $typi-ms, $typi-map)) * 1rem;
+      } @else {
+        @return _ty-ms($font-size, $breakpoint, $typi-ms, $typi-map);
+      }
+    } @else {
+      @error "Modular Scale Library required";
+    }
+  }
+
+  // Convert px and em into rem
+  @else if $rem {
+    @if unit($font-size) == 'em' {
+      @return _ty-strip-unit($font-size) * 1rem;
+    }
+
+    @else if unit($font-size) == 'px' {
+      $basemap: map-get($typi, $breakpoint);
+      $basefont: if(type-of($basemap) == 'list', nth($basemap, 1), $basemap);
+
+      @if $basefont == null {
+        $basefont: nth(map-get($typi, null), 1);
+      }
+
+      @return $font-size / $basefont * 1rem;
+    }
+
+    @else {
+      @return $font-size;
+    }
+  }
+
+  // Converts rem and px into em
+  @else {
+    @if unit($font-size) == 'rem' {
+      @return _ty-strip-unit($font-size) * 1em;
+    }
+
+    @else if unit($font-size) == 'px' {
+      $basemap: map-get($typi, $breakpoint);
+      $basefont: if(type-of($basemap) == 'list', nth($basemap, 1), $basemap);
+
+      @if $basefont == null {
+        $basefont: nth(map-get($typi, null), 1);
+      }
+
+      @return _ty-em($font-size, $basefont);
+    }
+
+    @else {
+      @return $font-size;
+    }
+  }
+}
+
+
+
+
+// _ty-base-size
+// =============
+// Converts Typi sizes into percentages
+@function _ty-base-size(
+  $font-size
+) {
+  @if unit($font-size) == 'px' {
+    @return $font-size / 16px * 100%;
+  }
+
+  @else {
+    @error 'Typi font sizes must be written in pixels';
+  }
+}
+
+
+
+
+// _ty-strip-unit
+// ==============
+@function _ty-strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+// _ty-em
+// ========
+@function _ty-em($font-size, $ref-size: false) {
+  @if ($ref-size) {
+    @return $font-size / $ref-size * 1em;
+  }
+}
+
+
+
+// _ty-rem
+// =========
+@function _ty-rem($font-size) {
+  @if unit($font-size) == 'px' {
+    @return strip-unit($font-size) / 16 * 1rem;
+  }
+  @else if unit($font-size) == 'em' {
+    @return strip-unit($font-size) * 1rem;
+  }
+}
+
+
+
+
+// _ty-ms
+// ======
+@function _ty-ms(
+  $multiplier,
+  $breakpoint: null,
+  $typi-ms: $typi-ms,
+  $typi-map: false
+) {
+  $ms-setting: null;
+  @if map-has-key($typi-ms, $breakpoint) {
+    $ms-setting: map-get($typi-ms, $breakpoint);
+  } @else {
+    $last-valid-ms: map-get($typi-map, last-valid-ms);
+    $ms-setting: map-get($typi-ms, $last-valid-ms);
+  }
+
+  $ty-ms-base: null;
+  $ty-ms-ratio: null;
+
+  @for $i from 1 to length($ms-setting) + 1 {
+    $val: nth($ms-setting, $i);
+
+
+    // For combinations of multiple bases + multiple ratios
+    @if type-of($val) == 'list' {
+      @if not unitless(nth($val, 1)) {
+        $ty-ms-base: $val;
+      } @else {
+        $ty-ms-ratio: $val;
+      }
+    }
+    // For combinations of 1 base + multiple ratios
+    @else {
+      @if unitless($val) {
+        @if $ty-ms-ratio == null {
+          $ty-ms-ratio: $val;
+        } @else if type-of($ty-ms-ratio) == "number" {
+          $ty-ms-ratio: $ty-ms-ratio $val;
+        } @else if type-of($ty-ms-ratio) == "list" {
+          $ty-ms-ratio: append($ty-ms-ratio, $val);
+        }
+      }
+
+      @else {
+        @if $ty-ms-base == null {
+          $ty-ms-base: $val;
+        } @else if type-of($ty-ms-base) == 'number' {
+          $ty-ms-base: ($ty-ms-base $val)
+        } @else if type-of($ty-ms-base) == 'list' {
+          $ty-ms-base: append($ty-ms-base, $val);
+        }
+      }
+    }
+  }
+
+  @if $ty-ms-base == null {
+    $ty-ms-base: 1em;
+  }
+
+  @return ms($multiplier, $ty-ms-base, $ty-ms-ratio);
+}
+
+
+
+
+// _ty-get-breakpoints
+// ===================
+@function _ty-get-breakpoints($breakpoints, $typi-ms, $target) {
+  $_return: null;
+
+  @each $breakpoint, $val in $breakpoints {
+    @if type-of($typi-ms) == 'map' and map-has-key($typi-ms, $breakpoint) {
+      @if not index($_return, $breakpoint) {
+        $_return: append($_return, $breakpoint);
+      }
+    }
+
+    @if map-has-key($target, $breakpoint) {
+      @if not index($_return, $breakpoint) {
+        $_return: append($_return, $breakpoint);
+      }
+    }
+  }
+  @return $_return;
+}
+
+
+
+
+// _ty-get-base-font
+@function _ty-get-base-font($typi) {
+  $base-map: map-get($typi, null);
+  @return nth($base-map, 1);
+}
+
+
+
+
+// _ty-get-base-line-height
+@function _ty-get-base-line-height($typi) {
+  $base-map: map-get($typi, null);
+  $base-line-height: null;
+
+  @if length($base-map) > 1 {
+    $base-line-height: nth($base-map, 2);
+  } @else {
+    @error "$typi map should contain a second argument (line-height) in the `null` key";
+  }
+
+  @if not unit($base-line-height) == "" {
+    @error "line-height multiple on the `null` key should be unitless";
+  }
+
+  @return $base-line-height;
+}
+
+
+
+
+@mixin typi(
+  $target-map,
+  $breakpoints: $breakpoints,
+  $typi: $typi,
+  $typi-ms: $typi-ms,
+  $base: false,
+  $rem: true
+) {
+  $typi-map: (
+    target: $target-map,
+    breakpoints: $breakpoints,
+    typi: $typi,
+    base: $base,
+    rem: $rem,
+    ms: $typi-ms
+  );
+
+  $breakpoints-to-output: _ty-get-breakpoints($breakpoints, $typi-ms, $target-map);
+  @each $breakpoint in $breakpoints-to-output {
+    $target: $target-map;
+    $typi-map: map-merge($typi-map, (breakpoint: $breakpoint));
+
+    @if $breakpoint == null {
+      @include _ty-write-props($typi-map);
+    }
+
+    @else {
+      @if map-has-key($breakpoints, $breakpoint) {
+        @include _ty-breakpoint($typi-map);
+      } @else {
+        @warn "Missing #{$breakpoint} in $breakpoints map";
+      }
+    }
+
+    // Add previous valid breakpoint
+    @if map-has-key($target, $breakpoint) {
+      $typi-map: map-merge($typi-map, (last-valid-breakpoint: $breakpoint))
+    }
+
+    // Add previous valid ms
+    @if type-of($typi-ms) == 'map' and map-has-key($typi-ms, $breakpoint)  {
+      $typi-map: map-merge($typi-map, (last-valid-ms: $breakpoint))
+    }
+  }
+}
+
+@mixin typi-base(
+  $typi: $typi,
+  $breakpoints: $breakpoints,
+  $typi-ms: $typi-ms,
+  $base: true,
+  $rem: true
+) {
+  @include typi(
+    $typi,
+    $breakpoints,
+    $typi: $typi,
+    $typi-ms: $typi-ms,
+    $base: $base,
+    $rem: $rem
+  );
+}
+
+// Vertical rhythm function. Possible to output both EM and REM.
+// Requires line height to be set on $typi map for 'null' breakpoint
+@function vr($vr, $current-font: null, $typi: $typi) {
+  $base-font-size: _ty-get-base-font($typi);
+  $base-line-height: _ty-get-base-line-height($typi);
+  $rhythm-context: $vr * $base-line-height;
+
+  // Converts into EM if $current-font is provided
+  @if $current-font {
+    @if unit($current-font) == "px" {
+      $rhythm-context: $rhythm-context * $base-font;
+
+      @return $rhythm-context / $current-font * 1em;
+    }
+
+    @if unit($current-font) == "em" {
+      @return $rhythm-context / _ty-strip-unit($current-font) * 1em;
+    }
+
+    @else {
+      @error "Font sizes should either be px or em if $current-font is provided";
+    }
+  }
+
+  @else {
+    @if unit($base-line-height) == 'px' {
+      @return $vr * $base-line-height / $base-font-size * 1rem;
+    } @else {
+      @return $vr * $base-line-height * 1rem;
+    }
+  }
+}
+
+// Responsive Vertical Rhythm
+@mixin rvr($props, $vr, $typi: $typi) {
+  $base-font-size: _ty-get-base-font($typi);
+  $base-line-height: _ty-get-base-line-height($typi);
+  $unit: unit($base-line-height);
+
+  @each $prop in $props {
+    @if $unit == 'px' {
+      #{$prop}: $base-line-height / $base-font * 1rem * $vr;
+    } @else {
+      #{$prop}: $base-line-height * 1rem * $vr;
+    }
+    #{$prop}: calc(var(--baseline) * #{1rem * $vr});
+  }
+}

@@ -1,7 +1,7 @@
 
-// ----------------------
-// WIDGETS: Social Links
-// ----------------------
+// -------------------------------------
+//  WIDGETS - Social Icons
+// -------------------------------------
 
 
 // Social List
@@ -19,5 +19,6 @@
 
 // Social Link
 .social-link {
+    text-rendering: optimizedLegibility;
     -webkit-font-smoothing: antialiased;
 }

@@ -1,7 +1,8 @@
 
-// -----------------------------
-//  CORE: Typography
-// -----------------------------
+// -------------------------------------
+//  CORE - Typography
+// -------------------------------------
+
 
 
 
@@ -10,11 +11,20 @@
 //  Table of Contents
 // -----------------------------
 
-// 1. Headings & Body Text
-// 2. Standard Link
-// 3. Blockquote
-// 4. Company name
-// 5. Tables
+//  1.      Headings & Body Text
+//  1.1     Body Text
+//  1.2     Heading 1
+//  1.3     Heading 2
+//  1.4     Heading 3
+//  1.5     Heading 4
+//  1.6     Anchor Link
+//  1.7     Blockquote
+//  1.8     Company Name
+//  1.9     Tables
+
+//  2.      Spacing
+//  3.      Font Styles
+
 
 
 
@@ -24,7 +34,12 @@
 // ---------------------------
 
 
-// Body
+
+
+//  1.1 - Body Text
+// ------------------------------
+
+
 body {
     background-color: $color__body--background;
     color: $color__p--text;
@@ -33,61 +48,23 @@ body {
     font-weight: $font__p--font-weight;
     line-height: $font__p--line-height;
     letter-spacing: $font__p--letter-spacing;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-
-// Heading 1
-h1,
-.heading--1 {
-    color: $color__h1--text;
-    font-family: $font__h1--font-family;
-    font-size: $font__h1--font-size;
-    font-weight: $font__h1--font-weight;
-    line-height: $font__h1--line-height;
-    letter-spacing: $font__h1--letter-spacing;
-}
-
-
-// Heading 2
-h2,
-.heading--2 {
-    color: $color__h2--text;
-    font-family: $font__h2--font-family;
-    font-size: $font__h2--font-size;
-    font-weight: $font__h2--font-weight;
-    line-height: $font__h2--line-height;
-    letter-spacing: $font__h2--letter-spacing;
-}
-
-
-// Heading 3
-h3,
-.heading--3 {
-    color: $color__h3--text;
-    font-family: $font__h3--font-family;
-    font-size: $font__h3--font-size;
-    font-weight: $font__h3--font-weight;
-    line-height: $font__h3--line-height;
-    letter-spacing: $font__h3--letter-spacing;
-}
-
-
-// Heading 4
-h4,
-.heading--4 {
-    color: $color__h4--text;
-    font-family: $font__h4--font-family;
-    font-size: $font__h4--font-size;
-    font-weight: $font__h4--font-weight;
-    line-height: $font__h4--line-height;
-    letter-spacing: $font__h4--letter-spacing;
+body {
+    color: $font-swatch5-color;
+    font-family: $font-swatch5-font-family;
+    font-size: $font-swatch5-font-size;
+    font-weight: $font-swatch5-font-weight;
+    letter-spacing: $font-swatch5-letter-spacing;
+    line-height: $font-swatch5-line-height;
 }
 
 
 // Paragraph, List Elements, Blockquote
 p,
-ul,
-ol,
 li,
 blockquote,
 .paragraph {
@@ -95,45 +72,145 @@ blockquote,
     font-family: $font__p--font-family;
     font-size: $font__p--font-size;
     font-weight: $font__p--font-weight;
-    line-height: $font__p--line-height;
     letter-spacing: $font__p--letter-spacing;
+    line-height: $font__p--line-height;
+}
+
+p,
+li,
+blockquote,
+.paragraph {
+    color: $font-swatch5-color;
+    font-family: $font-swatch5-font-family;
+    font-size: $font-swatch5-font-size;
+    font-weight: $font-swatch5-font-weight;
+    letter-spacing: $font-swatch5-letter-spacing;
+    line-height: $font-swatch5-line-height;
 }
 
 
-// Typography Spacing
+
+
+//  1.2 - Heading 1
+// ------------------------------
+
+
 h1,
+.heading--1 {
+    color: $color__h1--text;
+    font-family: $font__h1--font-family;
+    font-size: $font__h1--font-size;
+    font-weight: $font__h1--font-weight;
+    letter-spacing: $font__h1--letter-spacing;
+    line-height: $font__h1--line-height;
+}
+
+h1,
+.heading--1 {
+    color: $font-swatch1-color;
+    font-family: $font-swatch1-font-family;
+    font-size: $font-swatch1-font-size;
+    font-weight: $font-swatch1-font-weight;
+    letter-spacing: $font-swatch1-letter-spacing;
+    line-height: $font-swatch1-line-height;
+}
+
+
+
+
+
+//  1.3 - Heading 2
+// ------------------------------
+
+
 h2,
+.heading--2 {
+    color: $color__h2--text;
+    font-family: $font__h2--font-family;
+    font-size: $font__h2--font-size;
+    font-weight: $font__h2--font-weight;
+    letter-spacing: $font__h2--letter-spacing;
+    line-height: $font__h2--line-height;
+}
+
+
+h2,
+.heading--2 {
+    color: $font-swatch2-color;
+    font-family: $font-swatch2-font-family;
+    font-size: $font-swatch2-font-size;
+    font-weight: $font-swatch2-font-weight;
+    letter-spacing: $font-swatch2-letter-spacing;
+    line-height: $font-swatch2-line-height;
+}
+
+
+
+
+//  1.4 - Heading 3
+// ------------------------------
+
+
 h3,
+.heading--3 {
+    color: $color__h3--text;
+    font-family: $font__h3--font-family;
+    font-size: $font__h3--font-size;
+    font-weight: $font__h3--font-weight;
+    letter-spacing: $font__h3--letter-spacing;
+    line-height: $font__h3--line-height;
+}
+
+
+h3,
+.heading--3 {
+    color: $font-swatch3-color;
+    font-family: $font-swatch3-font-family;
+    font-size: $font-swatch3-font-size;
+    font-weight: $font-swatch3-font-weight;
+    letter-spacing: $font-swatch3-letter-spacing;
+    line-height: $font-swatch3-line-height;
+}
+
+
+
+
+//  1.5 - Heading 4
+// ------------------------------
+
+
 h4,
-p {
-    margin: 0;
-    padding-bottom: 10px;
+.heading--4 {
+    color: $color__h4--text;
+    font-family: $font__h4--font-family;
+    font-size: $font__h4--font-size;
+    font-weight: $font__h4--font-weight;
+    letter-spacing: $font__h4--letter-spacing;
+    line-height: $font__h4--line-height;
+}
+
+h4,
+.heading--4 {
+    color: $font-swatch4-color;
+    font-family: $font-swatch4-font-family;
+    font-size: $font-swatch4-font-size;
+    font-weight: $font-swatch4-font-weight;
+    letter-spacing: $font-swatch4-letter-spacing;
+    line-height: $font-swatch4-line-height;
 }
 
 
-// Typography Font Styles
-.justifyitalic,
-.italic {
-    font-style: italic;
-}
-
-
-.justifybold,
-.bold {
-    font-weight: bold;
-}
 
 
 
-
-// -------------------------
-//  2. Standard Text Link
-// -------------------------
+//  1.6 - Anchor Link
+// ------------------------------
 
 
 a {
     color: $color__link--text;
     text-decoration: none;
+
 
     &:hover {
         text-decoration: underline;
@@ -143,14 +220,14 @@ a {
 
 
 
-// ---------------------
-//  3. Blockquote
-// ---------------------
+//  1.7 - Blockquote
+// ------------------------------
 
 
 blockquote {
     quotes: "“" "”" "“" "”";
     margin: 0;
+
 
     &:before {
         content: open-quote;
@@ -162,19 +239,17 @@ blockquote {
 
 
 
-// ---------------------
-//  4. Company Name
-// ---------------------
+//  1.8 - Company Name
+// ------------------------------
 
 
 .company-link {
+    color: $color__companyname--text;
     font-family: $font__companyname--font-family;
     font-size: $font__companyname--font-size;
     font-weight: $font__companyname--font-weight;
-    line-height: $font__companyname--line-height;
     letter-spacing: $font__companyname--letter-spacing;
-    color: $color__companyname--text;
-
+    line-height: $font__companyname--line-height;
     -ms-word-break: break-word;
     word-wrap: break-word;
     -webkit-hyphens: none;
@@ -185,11 +260,152 @@ blockquote {
 
 
 
-// ---------------------
-//  5. Tables
-// ---------------------
+//  1.9 - Feature Text
+// ------------------------------
 
 
-code, pre, th, td {
+.feature__headline {
+    color: $color__feature-headline--text;
+    font-family: $font__feature-headline--font-family;
+    font-size: $font__feature-headline--font-size;
+    font-weight: $font__feature-headline--font-weight;
+    letter-spacing: $font__feature-headline--letter-spacing;
+    line-height: $font__feature-headline--line-height;
+}
+
+
+.feature__strapline {
+    color: $color__feature-strapline--text;
+    font-family: $font__feature-strapline--font-family;
+    font-size: $font__feature-strapline--font-size;
+    font-weight: $font__feature-strapline--font-weight;
+    letter-spacing: $font__feature-strapline--letter-spacing;
+    line-height: $font__feature-strapline--line-height;
+}
+
+
+
+
+
+//  1.10 - Tables
+// ------------------------------
+
+
+code,
+pre,
+th,
+td {
     color: $color__h4--text;
+}
+
+
+
+
+
+// ---------------------------
+//  2. Spacing
+// ---------------------------
+
+
+
+
+//  2.1 Spacing Reset
+// -----------------------------
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+
+ul {
+    padding: 0;
+}
+
+
+
+
+//  2.2 Paragraph Spacing
+// -----------------------------
+
+
+p,
+li,
+a {
+    margin-bottom: 0;
+
+
+    &+ h1,
+    &+ h2,
+    &+ h3,
+    &+ h4,
+    &+ ul,
+    &+ ol,
+    &+ blockquote,
+    &+ code {
+        margin-top: 12px;
+    }
+
+
+    &+ p {
+        margin-top: 6px;
+    }
+}
+
+
+
+
+//  3.3 Headings Spacing
+// -----------------------------
+
+
+h1,
+h2,
+h3,
+h4,
+blockquote,
+code,
+ul,
+ol {
+    position: relative;
+
+
+    &+ ul,
+    &+ blockquote,
+    &+ code {
+        margin-top: 12px;
+    }
+
+
+    &+ h1,
+    &+ h2,
+    &+ h3,
+    &+ h4,
+    &+ p,
+    &+ li {
+        margin-top: 6px;
+    }
+}
+
+
+
+
+
+// ---------------------------
+//  4. Font Styles
+// ---------------------------
+
+
+.justifyitalic,
+.italic {
+    font-style: italic;
+}
+
+
+.justifybold,
+.bold {
+    font-weight: bold;
 }

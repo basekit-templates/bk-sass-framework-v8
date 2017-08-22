@@ -1,21 +1,19 @@
 
-// -----------------------
-// WIDGETS: General Widget
-// -----------------------
+// -------------------------------------
+//  WIDGETS - General
+// -------------------------------------
 
 
 // Widget Positioning
 .widget {
-	position: relative;
-}
-
-
-// Zone Widget Spacing
-.widget--zone-widget {
     @include clearfix;
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    margin-bottom: 12px;
+	position: relative;
+
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 
@@ -23,4 +21,3 @@
 .widget--zone-widget[data-name="space"] {
 	margin-bottom: 0;
 }
-

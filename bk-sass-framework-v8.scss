@@ -562,7 +562,7 @@ template {
 // Typography: Base Typography & Font Icons
 
 // -------------------------
-// CORE: Typography
+// CORE: Typography - Icons
 // -------------------------
 
 
@@ -687,9 +687,10 @@ template {
 }
 
 
-// -----------------------------
-//  CORE: Typography
-// -----------------------------
+// -------------------------------------
+//  CORE - Typography
+// -------------------------------------
+
 
 
 
@@ -698,11 +699,20 @@ template {
 //  Table of Contents
 // -----------------------------
 
-// 1. Headings & Body Text
-// 2. Standard Link
-// 3. Blockquote
-// 4. Company name
-// 5. Tables
+//  1.      Headings & Body Text
+//  1.1     Body Text
+//  1.2     Heading 1
+//  1.3     Heading 2
+//  1.4     Heading 3
+//  1.5     Heading 4
+//  1.6     Anchor Link
+//  1.7     Blockquote
+//  1.8     Company Name
+//  1.9     Tables
+
+//  2.      Spacing
+//  3.      Font Styles
+
 
 
 
@@ -712,7 +722,12 @@ template {
 // ---------------------------
 
 
-// Body
+
+
+//  1.1 - Body Text
+// ------------------------------
+
+
 body {
     background-color: $color__body--background;
     color: $color__p--text;
@@ -721,61 +736,23 @@ body {
     font-weight: $font__p--font-weight;
     line-height: $font__p--line-height;
     letter-spacing: $font__p--letter-spacing;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-
-// Heading 1
-h1,
-.heading--1 {
-    color: $color__h1--text;
-    font-family: $font__h1--font-family;
-    font-size: $font__h1--font-size;
-    font-weight: $font__h1--font-weight;
-    line-height: $font__h1--line-height;
-    letter-spacing: $font__h1--letter-spacing;
-}
-
-
-// Heading 2
-h2,
-.heading--2 {
-    color: $color__h2--text;
-    font-family: $font__h2--font-family;
-    font-size: $font__h2--font-size;
-    font-weight: $font__h2--font-weight;
-    line-height: $font__h2--line-height;
-    letter-spacing: $font__h2--letter-spacing;
-}
-
-
-// Heading 3
-h3,
-.heading--3 {
-    color: $color__h3--text;
-    font-family: $font__h3--font-family;
-    font-size: $font__h3--font-size;
-    font-weight: $font__h3--font-weight;
-    line-height: $font__h3--line-height;
-    letter-spacing: $font__h3--letter-spacing;
-}
-
-
-// Heading 4
-h4,
-.heading--4 {
-    color: $color__h4--text;
-    font-family: $font__h4--font-family;
-    font-size: $font__h4--font-size;
-    font-weight: $font__h4--font-weight;
-    line-height: $font__h4--line-height;
-    letter-spacing: $font__h4--letter-spacing;
+body {
+    color: $font-swatch5-color;
+    font-family: $font-swatch5-font-family;
+    font-size: $font-swatch5-font-size;
+    font-weight: $font-swatch5-font-weight;
+    letter-spacing: $font-swatch5-letter-spacing;
+    line-height: $font-swatch5-line-height;
 }
 
 
 // Paragraph, List Elements, Blockquote
 p,
-ul,
-ol,
 li,
 blockquote,
 .paragraph {
@@ -783,45 +760,145 @@ blockquote,
     font-family: $font__p--font-family;
     font-size: $font__p--font-size;
     font-weight: $font__p--font-weight;
-    line-height: $font__p--line-height;
     letter-spacing: $font__p--letter-spacing;
+    line-height: $font__p--line-height;
+}
+
+p,
+li,
+blockquote,
+.paragraph {
+    color: $font-swatch5-color;
+    font-family: $font-swatch5-font-family;
+    font-size: $font-swatch5-font-size;
+    font-weight: $font-swatch5-font-weight;
+    letter-spacing: $font-swatch5-letter-spacing;
+    line-height: $font-swatch5-line-height;
 }
 
 
-// Typography Spacing
+
+
+//  1.2 - Heading 1
+// ------------------------------
+
+
 h1,
+.heading--1 {
+    color: $color__h1--text;
+    font-family: $font__h1--font-family;
+    font-size: $font__h1--font-size;
+    font-weight: $font__h1--font-weight;
+    letter-spacing: $font__h1--letter-spacing;
+    line-height: $font__h1--line-height;
+}
+
+h1,
+.heading--1 {
+    color: $font-swatch1-color;
+    font-family: $font-swatch1-font-family;
+    font-size: $font-swatch1-font-size;
+    font-weight: $font-swatch1-font-weight;
+    letter-spacing: $font-swatch1-letter-spacing;
+    line-height: $font-swatch1-line-height;
+}
+
+
+
+
+
+//  1.3 - Heading 2
+// ------------------------------
+
+
 h2,
+.heading--2 {
+    color: $color__h2--text;
+    font-family: $font__h2--font-family;
+    font-size: $font__h2--font-size;
+    font-weight: $font__h2--font-weight;
+    letter-spacing: $font__h2--letter-spacing;
+    line-height: $font__h2--line-height;
+}
+
+
+h2,
+.heading--2 {
+    color: $font-swatch2-color;
+    font-family: $font-swatch2-font-family;
+    font-size: $font-swatch2-font-size;
+    font-weight: $font-swatch2-font-weight;
+    letter-spacing: $font-swatch2-letter-spacing;
+    line-height: $font-swatch2-line-height;
+}
+
+
+
+
+//  1.4 - Heading 3
+// ------------------------------
+
+
 h3,
+.heading--3 {
+    color: $color__h3--text;
+    font-family: $font__h3--font-family;
+    font-size: $font__h3--font-size;
+    font-weight: $font__h3--font-weight;
+    letter-spacing: $font__h3--letter-spacing;
+    line-height: $font__h3--line-height;
+}
+
+
+h3,
+.heading--3 {
+    color: $font-swatch3-color;
+    font-family: $font-swatch3-font-family;
+    font-size: $font-swatch3-font-size;
+    font-weight: $font-swatch3-font-weight;
+    letter-spacing: $font-swatch3-letter-spacing;
+    line-height: $font-swatch3-line-height;
+}
+
+
+
+
+//  1.5 - Heading 4
+// ------------------------------
+
+
 h4,
-p {
-    margin: 0;
-    padding-bottom: 10px;
+.heading--4 {
+    color: $color__h4--text;
+    font-family: $font__h4--font-family;
+    font-size: $font__h4--font-size;
+    font-weight: $font__h4--font-weight;
+    letter-spacing: $font__h4--letter-spacing;
+    line-height: $font__h4--line-height;
+}
+
+h4,
+.heading--4 {
+    color: $font-swatch4-color;
+    font-family: $font-swatch4-font-family;
+    font-size: $font-swatch4-font-size;
+    font-weight: $font-swatch4-font-weight;
+    letter-spacing: $font-swatch4-letter-spacing;
+    line-height: $font-swatch4-line-height;
 }
 
 
-// Typography Font Styles
-.justifyitalic,
-.italic {
-    font-style: italic;
-}
-
-
-.justifybold,
-.bold {
-    font-weight: bold;
-}
 
 
 
-
-// -------------------------
-//  2. Standard Text Link
-// -------------------------
+//  1.6 - Anchor Link
+// ------------------------------
 
 
 a {
     color: $color__link--text;
     text-decoration: none;
+
 
     &:hover {
         text-decoration: underline;
@@ -831,14 +908,14 @@ a {
 
 
 
-// ---------------------
-//  3. Blockquote
-// ---------------------
+//  1.7 - Blockquote
+// ------------------------------
 
 
 blockquote {
     quotes: "“" "”" "“" "”";
     margin: 0;
+
 
     &:before {
         content: open-quote;
@@ -850,19 +927,17 @@ blockquote {
 
 
 
-// ---------------------
-//  4. Company Name
-// ---------------------
+//  1.8 - Company Name
+// ------------------------------
 
 
 .company-link {
+    color: $color__companyname--text;
     font-family: $font__companyname--font-family;
     font-size: $font__companyname--font-size;
     font-weight: $font__companyname--font-weight;
-    line-height: $font__companyname--line-height;
     letter-spacing: $font__companyname--letter-spacing;
-    color: $color__companyname--text;
-
+    line-height: $font__companyname--line-height;
     -ms-word-break: break-word;
     word-wrap: break-word;
     -webkit-hyphens: none;
@@ -873,13 +948,154 @@ blockquote {
 
 
 
-// ---------------------
-//  5. Tables
-// ---------------------
+//  1.9 - Feature Text
+// ------------------------------
 
 
-code, pre, th, td {
+.feature__headline {
+    color: $color__feature-headline--text;
+    font-family: $font__feature-headline--font-family;
+    font-size: $font__feature-headline--font-size;
+    font-weight: $font__feature-headline--font-weight;
+    letter-spacing: $font__feature-headline--letter-spacing;
+    line-height: $font__feature-headline--line-height;
+}
+
+
+.feature__strapline {
+    color: $color__feature-strapline--text;
+    font-family: $font__feature-strapline--font-family;
+    font-size: $font__feature-strapline--font-size;
+    font-weight: $font__feature-strapline--font-weight;
+    letter-spacing: $font__feature-strapline--letter-spacing;
+    line-height: $font__feature-strapline--line-height;
+}
+
+
+
+
+
+//  1.10 - Tables
+// ------------------------------
+
+
+code,
+pre,
+th,
+td {
     color: $color__h4--text;
+}
+
+
+
+
+
+// ---------------------------
+//  2. Spacing
+// ---------------------------
+
+
+
+
+//  2.1 Spacing Reset
+// -----------------------------
+
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 0;
+}
+
+
+ul {
+    padding: 0;
+}
+
+
+
+
+//  2.2 Paragraph Spacing
+// -----------------------------
+
+
+p,
+li,
+a {
+    margin-bottom: 0;
+
+
+    &+ h1,
+    &+ h2,
+    &+ h3,
+    &+ h4,
+    &+ ul,
+    &+ ol,
+    &+ blockquote,
+    &+ code {
+        margin-top: 12px;
+    }
+
+
+    &+ p {
+        margin-top: 6px;
+    }
+}
+
+
+
+
+//  3.3 Headings Spacing
+// -----------------------------
+
+
+h1,
+h2,
+h3,
+h4,
+blockquote,
+code,
+ul,
+ol {
+    position: relative;
+
+
+    &+ ul,
+    &+ blockquote,
+    &+ code {
+        margin-top: 12px;
+    }
+
+
+    &+ h1,
+    &+ h2,
+    &+ h3,
+    &+ h4,
+    &+ p,
+    &+ li {
+        margin-top: 6px;
+    }
+}
+
+
+
+
+
+// ---------------------------
+//  4. Font Styles
+// ---------------------------
+
+
+.justifyitalic,
+.italic {
+    font-style: italic;
+}
+
+
+.justifybold,
+.bold {
+    font-weight: bold;
 }
 
 
@@ -1161,6 +1377,12 @@ $mobile: 'only screen and (max-width: 700px)';
         position: relative;
 
 
+        // If only one column make full width
+        &:only-child {
+            width: 100%;
+        }
+
+
         // Removes last columns margin
         &:last-child {
             margin-right: 0;
@@ -1248,7 +1470,7 @@ fieldset {
 // Form Group
 .form-group {
     margin-bottom: 10px;
-    }
+}
 
 
 // Legend
@@ -1266,7 +1488,7 @@ label {
 
 // Selects
 select {
-    height: 36px;
+    // height: 12px;
     outline: none;
     border: 1px solid darken($color__body--background,15%);
     border-radius: 0;
@@ -1298,6 +1520,7 @@ input[type="password"],
 textarea,
 .input--single-line {
     border: 1px solid #ddd;
+    // height: 12px;
 	padding: 6px 10px;
 	@include box-sizing(border-box);
     width: 100%;
@@ -1756,34 +1979,66 @@ input[type="checkbox"] {
 .row__vertical-align {
 
 
+    // Add flex to top level if row height is set to full
+    &-top,
+    &-center,
+    &-bottom {
+
+
+        &.row--full-height {
+            @include flex(0 1 auto);
+            @include flex-display;
+            @include flex-direction(row);
+            @include flex-wrap(wrap);
+        }
+    }
+
+
+
     // Row Alignment Top
-    &--top .row__container {
+    &-top .row__container {
         @include justify-content(flex-start);
     }
 
-    &--top .responsivecolumns {
+    &-top .responsivecolumns {
+        @include align-items(flex-start);
+    }
+
+    // Full Height Alignment top
+    &-top.row__height--full {
         @include align-items(flex-start);
     }
 
 
     // Row Align Center
-    &--center .row__container {
+    &-center .row__container {
         @include justify-content(center);
     }
 
-    &--center .responsivecolumns {
+    &-center .responsivecolumns {
+        @include align-items(center);
+    }
+
+    // Full Height Alignment Center
+    &-center.row__height--full {
         @include align-items(center);
     }
 
 
     // Row Align Bottom
-    &--bottom .row__container {
+    &-bottom .row__container {
         @include justify-content(flex-end);
     }
 
-    &--bottom .responsivecolumns {
-        @include justify-content(flex-end);
+    &-bottom .responsivecolumns {
+        @include align-items(flex-end);
     }
+
+    // Full Height Alignment Bottom
+    &-bottom.row__height--full {
+        @include align-items(flex-end);
+    }
+
 }
 
 
@@ -1858,21 +2113,23 @@ input[type="checkbox"] {
 .row__layout {
 
 
-    &--contained {
+    &-contained .container {
+        margin: 0 auto;
         padding-left: 30px;
         padding-right: 30px;
-        width: 1200px;
+        max-width: 1200px;
     }
 
 
-    &--wide {
+    &-wide .container {
+        margin: 0 auto;
         padding-left: 30px;
         padding-right: 30px;
         width: 90%;
     }
 
 
-    &--full {
+    &-full .container {
         padding-left: 60px;
         padding-right: 60px;
         width: 100%;
@@ -1880,6 +2137,11 @@ input[type="checkbox"] {
 }
 
 
+.row__container {
+    width: 100%;
+}
+
+// 
 // -----------------------------
 //  CORE - Row Style (Colour)
 // -----------------------------
@@ -1887,21 +2149,95 @@ input[type="checkbox"] {
 
 
 
-//  Row Height
+//  Row Colour
 // -------------------------------------
 
 
-// Colour variables
-$color--light: white;
-$color--accent: blue;
-$color--dark: black;
+$style-sets: (
+    example_01: (
+        row-color-darkest: #3E417E,
+        row-color-dark: #3E417E,
+        row-color-lightest: #ffffff,
+        row-color-light: #ffffff,
+        row-color-accent: #E30019,
+        row-color-dark-foreground: #ffffff,
+        row-color-light-foreground: #1a1919,
+        row-color-accent-foreground: #ffffff,
+        row-font-body: 'Poppins',
+        row-font-heading: 'Poppins',
+        row-font-weight: 700
+    ),
+    example_02: (
+        row-color-darkest: #082D3A,
+        row-color-dark: #0C495E,
+        row-color-lightest: #ffffff,
+        row-color-light: #ECE7DD,
+        row-color-accent: #FEB904,
+        row-color-dark-foreground: #ECE7DD,
+        row-color-light-foreground: #0C495E,
+        row-color-accent-foreground: #888888,
+        row-font-heading: 'Lato',
+        row-font-body: 'Josefin Sans',
+        row-font-weight: 300
+    ),
+    example_03: (
+        row-color-darkest: #2B2B3C,
+        row-color-dark: #2B2B3C,
+        row-color-lightest: #ffffff,
+        row-color-light: #ffffff,
+        row-color-accent: #998d5e,
+        row-color-dark-foreground: #ffffff,
+        row-color-light-foreground: #2B2B3C,
+        row-color-accent-foreground: #ffffff,
+        row-font-body: 'Rubik',
+        row-font-heading: 'Playfair Display',
+        row-font-weight: 400
+    ),
+    example_04: (
+        row-color-darkest: #3E417E,
+        row-color-dark: #0c495e,
+        row-color-lightest: #ffffff,
+        row-color-light: #ebe7dc,
+        row-color-accent: #feb904,
+        row-color-dark-foreground: #ffffff,
+        row-color-light-foreground: #65797d,
+        row-color-accent-foreground: #072d3a,
+        row-font-body: 'Lato',
+        row-font-heading: 'Lato',
+        row-font-weight: 300
+    )
+);
+
+
+$style-set: map-get($style-sets, $style-set-id);
+
+$row-color-dark: map-get($style-set, 'row-color-dark');
+$row-color-darkest: map-get($style-set, 'row-color-darkest');
+$row-color-light: map-get($style-set, 'row-color-light');
+$row-color-lightest: map-get($style-set, 'row-color-lightest');
+$row-color-accent: map-get($style-set, 'row-color-accent');
+$row-color-dark-foreground: map-get($style-set, 'row-color-dark-foreground');
+$row-color-light-foreground: map-get($style-set, 'row-color-light-foreground');
+$row-color-accent-foreground: map-get($style-set, 'row-color-accent-foreground');
+$row-font-heading: map-get($style-set, 'row-font-heading');
+$row-font-body: map-get($style-set, 'row-font-body');
+$row-font-weight: map-get($style-set, 'row-font-weight');
 
 
 // Colour application with backup
 :root {
-    --row__color--light: $color--light;
-    --row__color--accent: $color--accent;
-    --row__color--dark: $color--dark;
+    --style-set-id: unquote($style-set-id);
+    --row-color-darkest: $row-color-darkest;
+    --row-color-dark: $row-color-dark;
+    --row-color-lightest: $row-color-lightest;
+    --row-color-light: $row-color-light;
+    --row-color-accent: $row-color-accent;
+    --row-color-dark-foreground: $row-color-dark-foreground;
+    --row-color-light-foreground: $row-color-light-foreground;
+    --row-color-accent-foreground: $row-color-accent-foreground;
+    --row-font-heading: $row-font-heading;
+    --row-font-body: $row-font-body;
+    --row-font-weight: $row-font-weight;
 }
 
 
@@ -1914,23 +2250,21 @@ $color--dark: black;
 
 // General: Widgets
 
-// -----------------------
-// WIDGETS: General Widget
-// -----------------------
+// -------------------------------------
+//  WIDGETS - General
+// -------------------------------------
 
 
 // Widget Positioning
 .widget {
-	position: relative;
-}
-
-
-// Zone Widget Spacing
-.widget--zone-widget {
     @include clearfix;
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    margin-bottom: 12px;
+	position: relative;
+
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 
@@ -1941,30 +2275,27 @@ $color--dark: black;
 
 
 
-
 // Basic: Logo, Company Name, Navigation, Feature
-// ---------------------
-// WIDGETS: Logo
-// ---------------------
+
+// -------------------------------------
+//  WIDGETS - Logo
+// -------------------------------------
+
 
 .logo {
-    line-height: 0;
     font-size: 0;
+    line-height: 0;
 }
 
 
-
-// ---------------------
-// WIDGETS: Company Name
-// ---------------------
-
-// No styles here...
+// -------------------------------------
+//  WIDGETS - Company Name
+// -------------------------------------
 
 
-// -------------------------
-// WIDGETS: Navigation
-// -------------------------
-
+// -------------------------------------
+//  WIDGETS - Navigation
+// -------------------------------------
 
 
 // Navigation Text
@@ -2039,49 +2370,28 @@ $color--dark: black;
 }
 
 
-// ---------------------
-// WIDGETS: Feature
-// ---------------------
+// -------------------------------------
+//  WIDGETS - Feature
+// -------------------------------------
 
 
 // Feature Background Image
 .feature__background-image {
-    min-height: 250px;
+    min-height: 400px;
 }
 
 
 // Feature Content Wrap
 .feature__content-wrap {
-	padding: 30px;
-}
-
-
-// Feature Headline
-.feature__headline {
-	font-family: $font__feature-headline--font-family;
-	font-size: $font__feature-headline--font-size;
-	font-weight: $font__feature-headline--font-weight;
-	line-height: $font__feature-headline--line-height;
-	letter-spacing: $font__feature-headline--letter-spacing;
-    color: $color__feature-headline--text;
-}
-
-
-// Feature Strapline
-.feature__strapline {
-	font-family: $font__feature-strapline--font-family;
-	font-size: $font__feature-strapline--font-size;
-	font-weight: $font__feature-strapline--font-weight;
-	line-height: $font__feature-strapline--line-height;
-	letter-spacing: $font__feature-strapline--letter-spacing;
-    color: $color__feature-strapline--text;
+	padding: 12px;
 }
 
 
 // Feature Button
 .feature__button {
-	padding: 9px 12px;
+	padding: 3px 6px;
     text-decoration: none;
+
 
     &:hover {
     	text-decoration: none;
@@ -2089,9 +2399,9 @@ $color--dark: black;
 }
 
 
-// -------------------------
-// WIDGETS: Content
-// -------------------------
+// -------------------------------------
+//  WIDGETS - Content
+// -------------------------------------
 
 
 .widget__content {
@@ -2104,38 +2414,39 @@ $color--dark: black;
 }
 
 
-.wysiwyg-font-size-xx-small { font-size: 10px; }
+// .wysiwyg-font-size-xx-small { font-size: 10px; }
 
 
-.wysiwyg-font-size-x-small { font-size: 12px; }
+//.wysiwyg-font-size-x-small { font-size: $font__p--font-size * 0.75; }
 
 
-.wysiwyg-font-size-smaller { font-size: 14px; }
+// .wysiwyg-font-size-smaller { font-size: 14px; }
 
 
-.wysiwyg-font-size-small { font-size: 16px; }
+.wysiwyg-font-size-small { font-size: 14px; }
 
 
-.wysiwyg-font-size-medium { font-size: 18px; }
+.wysiwyg-font-size-medium { font-size: 16px; }
 
 
-.wysiwyg-font-size-large { font-size: 20px; }
+.wysiwyg-font-size-large { font-size: 24px; }
 
 
-.wysiwyg-font-size-larger { font-size: 24px; }
+//.wysiwyg-font-size-larger { @include typi($h2-font-map); }
 
 
-.wysiwyg-font-size-x-large { font-size: 28px; }
+.wysiwyg-font-size-x-large { font-size: 32px; }
 
 
-.wysiwyg-font-size-xx-large { font-size: 30px; }
+//.wysiwyg-font-size-xx-large { @include typi($h1-font-map); }
 
 
 
 // Media: Images, Gallery, Slideshow
-// -------------------------
-// WIDGETS: Image
-// -------------------------
+
+// -------------------------------------
+//  WIDGETS - Image
+// -------------------------------------
 
 
 // Image Figure
@@ -2143,10 +2454,12 @@ $color--dark: black;
     margin: 0;
 }
 
+
 // Element Resets
 img {
 	display: inline-block;
 }
+
 
 
 
@@ -2162,6 +2475,7 @@ img {
 	@extend .paragraph;
 }
 
+
 // Image Link
 .image-link {
 	display: block;
@@ -2175,6 +2489,7 @@ img {
 
 
 
+
 // Post Image
 // ----------
 
@@ -2184,12 +2499,14 @@ img {
 
 
 
+
 // Image Widget Image
 // --------------------
 
 .imagewidget__image {
     display: inline;
 }
+
 
 
 
@@ -2203,12 +2520,14 @@ img {
 
 
 
+
 // Placeholder Image
 // -----------------
 
 .no-image {
 	background-image: url(data:image/png;base64,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);
 }
+
 
 
 
@@ -2245,9 +2564,10 @@ img {
 
 
 
-// -------------------------
-// WIDGETS: Image Gallery
-// -------------------------
+// -------------------------------------
+//  WIDGETS - Image Gallery
+// -------------------------------------
+
 
 
 
@@ -2267,9 +2587,15 @@ img {
 }
 
 
-// -------------------------
-// WIDGETS: Slideshow
-// -------------------------
+// Stops gallery background image repeating
+.gallery__image-link {
+    background-repeat: no-repeat;
+}
+
+
+// -------------------------------------
+//  WIDGETS - Slideshow
+// -------------------------------------
 
 
 // Element Resets
@@ -2408,49 +2734,47 @@ img {
 
 // Buttons: Standard, Tweet, Dropbox, Click to Call, PayPal
 
-// -------------------------
-// WIDGETS: Buttons
-// -------------------------
+// -------------------------------------
+//  WIDGETS - Buttons
+// -------------------------------------
 
 
 
-// ------------------
+
+
+// -----------------------------
 //  Table of Contents
-// ------------------
+// -----------------------------
 
-// 1. Standard Button
-// 2. Paypal Button
-// 3. Dropbox Button
-// 4. Tweet Button
-// 5. Click to Call Button
+//  1     Standard Button
+//  2     Paypal Button
+//  3     Dropbox Button
+//  4     Click to Call Button
+
+
 
 
 
 // ---------------------
-// 1. Main Button
+//  1. Main Button
 // ---------------------
 
 
 // Standard
 button,
 .button {
-    display: inline-block;
-
-    // Button Styles
-    padding: 4px 12px;
+    background-color: $color__button--background;
     border: 0;
+    color: $color__button--text;
+    display: inline-block;
+    font-family: $font__button--font-family;
+    font-size: $font__button--font-size;
+    font-weight: $font__button--font-weight;
+    line-height: $font__button--line-height;
+    letter-spacing: $font__button--letter-spacing;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-
-    // Font Styles
-    font-family: $font__button--font-family;
-    font-weight: $font__button--font-weight;
-    color: $color__button--text;
-    line-height: $font__button--line-height;
-    letter-spacing: $font__button--letter-spacing;
-    font-size: $font__button--font-size;
-    background-color: $color__button--background;
 
 
     &:hover {
@@ -2475,6 +2799,11 @@ button,
 }
 
 
+.button {
+    padding: 3px 6px;
+}
+
+
 // Removes any scaling elements from pagination / ecom basket buttons
 .ecombasketsummary__quantity-minus,
 .ecombasketsummary__quantity-plus,
@@ -2488,8 +2817,9 @@ button,
 
 
 
+
 // ---------------------
-// 2. #PayPal Button
+//  2. PayPal Button
 // ---------------------
 
 
@@ -2498,8 +2828,9 @@ button,
 
 
 
+
 // ---------------------
-// 3. #Dropbox Button
+//  3. Dropbox Button
 // ---------------------
 
 
@@ -2511,44 +2842,41 @@ button,
 
 
 
-// ---------------------
-// 4. #Tweet Button
-// ---------------------
 
-
-
-
-// ------------------------
-// 5. #Click to Call Button
-// ------------------------
+// ---------------------------
+//  4. Click to Call Button
+// ---------------------------
 
 
 .clicktocall__phone-number-link {
-    @media #{$mobile}, only screen and (max-width:700px) and (orientation:landscape) {
 
-        display: inline-block;
-
-        // Button Styles
-        padding: 9px 12px;
+    &:hover {
         text-decoration: none;
+    }
+
+
+    @media #{$mobile}, only screen and (max-width: 700px) and (orientation:landscape) {
+        background-color: $color__button--background;
         border: 0;
+        color: $color__button--text;
+        display: inline-block;
+        font-family: $font__button--font-family;
+        font-size: $font__button--font-size;
+        font-weight: $font__button--font-weight;
+        line-height: $font__button--line-height;
+        letter-spacing: $font__button--letter-spacing;
+        padding: 6px vr(0.75);
+        text-decoration: none;
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
 
-        // Font Styles
-        font-family: $font__button--font-family;
-        font-weight: $font__button--font-weight;
-        color: $color__button--text;
-        line-height: $font__button--line-height;
-        letter-spacing: $font__button--letter-spacing;
-        font-size: $font__button--font-size;
-        background-color: $color__button--background;
 
         &:hover {
             background-color: $color__button--background--hover;
             text-decoration: none;
         }
+
 
         &:focus {
             outline: none;
@@ -2560,9 +2888,9 @@ button,
 
 // Social: Social Icons, Twitter Feed
 
-// ----------------------
-// WIDGETS: Social Links
-// ----------------------
+// -------------------------------------
+//  WIDGETS - Social Icons
+// -------------------------------------
 
 
 // Social List
@@ -2580,17 +2908,19 @@ button,
 
 // Social Link
 .social-link {
+    text-rendering: optimizedLegibility;
     -webkit-font-smoothing: antialiased;
 }
 
 
-// ---------------------
-// WIDGETS: Twitter Feed
-// ---------------------
+// -------------------------------------
+//  WIDGETS - Twitter Feed
+// -------------------------------------
 
 
 .tweet-list {
     margin: 0;
+    padding: 0;
     list-style: none;
 }
 
@@ -2608,7 +2938,8 @@ button,
 
 // Tweet List Items
 .tweet-item {
-	margin-bottom:  20px;
+	margin-bottom: 20px;
+
 
 	&:last-child {
 		margin-bottom: 0;
@@ -2635,23 +2966,23 @@ button,
 
 // Other: Divider, Profile
 
-// ------------------------------
-// WIDGETS: Divider
-// ------------------------------
+// -------------------------------------
+//  WIDGETS - Divider
+// -------------------------------------
 
 
 hr.rule {
-	width: 100%;
-	height: 2px;
     border: none;
-    background-color: contrast($color__body--background, lighten($color__body--background,30%), darken($color__body--background,30%));
+    background-color: contrast($color__body--background, lighten($color__body--background, 30%), darken($color__body--background, 30%));
     display: inline-block;
+    height: 2px;
+    width: 100%;
 }
 
 
-// -------------------------
-// WIDGETS: Profile
-// -------------------------
+// -------------------------------------
+//  WIDGETS - Profile
+// -------------------------------------
 
 
 // Reset Profile Headline / Strapline styles
@@ -2669,9 +3000,9 @@ hr.rule {
 
 // Embed Widgets
 
-// ---------------------
-// WIDGETS: Yelp
-// ---------------------
+// -------------------------------------
+//  WIDGETS - Yelp
+// -------------------------------------
 
 
 .yelpreview {
@@ -2685,9 +3016,9 @@ hr.rule {
 }
 
 
-// ----------------------
-// WIDGETS: YouTube
-// ----------------------
+// -------------------------------------
+//  WIDGETS - Youtube
+// -------------------------------------
 
 
 .embed-wrap--video {
@@ -2707,9 +3038,11 @@ hr.rule {
 }
 
 
-// -------------------------
-// WIDGETS: Map
-// -------------------------
+// -------------------------------------
+//  WIDGETS - Google Maps
+// -------------------------------------
+
+
 
 
 // Embedded map layout fix
@@ -2717,9 +3050,10 @@ hr.rule {
     max-width: inherit;
 }
 
-// -------------------------
-// WIDGETS: LinkedIn
-// -------------------------
+
+// -------------------------------------
+//  WIDGETS - Linkedin
+// -------------------------------------
 
 
 .linkedincompanyprofile,
@@ -2731,23 +3065,37 @@ hr.rule {
 
 
 
-
 // -----------------------------
 // Plugins Import
 // -----------------------------
 
 
+// -------------------------------------
+//  PLUGINS - Blog
+// -------------------------------------
+
+
+
+
+
 // -----------------------------
-// PLUGINS: Blog
+//  Table of Contents
 // -----------------------------
 
+// 	1.	General Styling & Resets
+// 	2.  Blog Post List
+// 	3.  Blog Post
 
 
-// Element Resets
-// ----------------
 
 
-// Navigation List
+
+// -------------------------------
+//  1. General Styling & Resets
+// -------------------------------
+
+
+// List Reset
 .sharing-links,
 .tag-list,
 .pagination-numbers {
@@ -2756,41 +3104,38 @@ hr.rule {
 }
 
 
-.menu-navigation-list {
-	margin-left: 0;
-}
-
-
-// Resets Post Image Height
+// Resets post image height
 .post-image {
 	font-size: 0;
 	line-height: 0;
 }
 
 
-
-// Element Spacing
-// -----------------
-
-
-// Typography (Removes padding)
-.post-category {
-	padding-bottom: 0;
+// Buttons and links
+.blogpostlist__read-more,
+.blogpostlist__pagination-item,
+.blogpost__category-title,
+.blogpost__category-link,
+.blogpost__tags-title,
+.blogpost__tag-list,
+.blogpost__tag-item,
+.blogpost__network-item {
+	display: inline-block;
 }
 
 
-// Post Article
+// Post article spacing
 .post-article {
-	margin-bottom: 30px;
+	margin-bottom: 18px;
 
 
 	&:last-child {
-		margin-bottom: 30px;
+		margin-bottom: 0;
 	}
 }
 
 
-// Blog Featured Image
+// Blog background image
 .blogpostlist__image-link,
 .blogpost__image-link {
 	background-position: -9999px;
@@ -2798,89 +3143,87 @@ hr.rule {
 }
 
 
-
-
-// -----------------------------
-// Single Blog Post
-// -----------------------------
-
-
+// Inline blog image
 .post-image .image {
-	max-height: 350px;
+	max-height: 500px;
 
 	@media #{$mobile} {
-		max-height: 200px;
+		max-height: 300px;
 	}
 }
 
 
-
-// Post Content
-// ------------
-
+// Post content container
 .post-content {
-	margin: 20px 0;
+	margin: 6px 0;
 }
 
 
-// Timestamp
+
+
+
+
+// -----------------------------
+// 	2. Blog Post List
+// -----------------------------
+
+
+// If an excerpt is present add spacing
+.blogpostlist__post-header + .blogpostlist__post-excerpt {
+	margin-top: 6px;
+}
+
+
+// Footer spacing
+.blogpostlist__post-list-footer {
+	margin: 12px 0;
+}
+
+
+
+
+
+// -----------------------------
+// 	3. Single Blog Post
+// -----------------------------
+
+
+// If a post body is present add spacing
+.blogpost__post-header + .blogpost__post-body {
+	margin-top: 12px;
+}
+
+
+// Post category and tags spacing
+.blogpost__post-attributes {
+	margin: 6px 0;
+}
+
+
+// Sharing buttoms spacing
+.blogpost__network-item {
+	margin-right: 3px;
+
+	@media #{$mobile} {
+		margin-bottom: 3px;
+		margin-right: 0;
+	}
+
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+
+// Blog timestamp
 .post-footer .timestamp {
 	display: block;
-	margin: 10px 0;
-}
-
-
-
-
-// -----------------------------
-// Blog Post List
-// -----------------------------
-
-
-// Post Attributes
-.post-attributes {
-	margin: 20px 0 10px;
-}
-
-
-// Footer Sharing Links
-.blogpost-list__network-item,
-.blogpost__network-item {
-	margin-top: 10px;
-}
-
-
-// Blog Post List Buttons,
-// Sharing Item Buttons,
-// Tag Title,
-// Tag Item List,
-// Tag Item
-.blogpost-list__button,
-.blogpost__button,
-.tags-title,
-.tag-list,
-.tag-item,
-.blogpost-list__pagination-item {
-	display: inline-block;
-}
-
-
-// Category Title
-.category-title {
-	display: inline-block;
-	padding: 0;
-}
-
-
-// Network Item
-.network-item {
-	display: inline-block;
-	margin-right: 10px;
 }
 
 
 // -----------------------------
-// PLUGINS: Ecommerce
+//  PLUGINS: Ecommerce
 // -----------------------------
 
 
@@ -2890,204 +3233,260 @@ hr.rule {
 //  Table of Contents
 // -----------------------------
 
-// 1. Element Defaults
-// 2. Single Product
-// 3. Product List
-// 4. Basket Widget
-// 5. Basket Summary
-// 6. Ecommerce Images
+//  1.     General Styling & Resets
+//  2.     Product Filters
+//  3.     Product List
+
+//  4.     Single Product
+//  4.1    Product Form
+
+//  5.     Ecommerce Images
+//  6.     Basket Widget
+//  7.     Basket Summary
+
 
 
 
 
 // -------------------------------
-// 1. Element Defaults
+//  1. General Styling & Resets
 // -------------------------------
 
 
-// Remove list margin
+// List reset
 .product-list,
-.ecom-product-image-list,
-.basket-list,
-.categories-list,
-.product-gallery {
-    margin: 0;
+.ecombasket__basket-list,
+.ecomcategorieslist__category,
+.ecomproduct__product-gallery {
     list-style: none;
-}
-
-
-// Typography (Removes padding)
-.product-item-title,
-.product-item-price,
-.item-quantity,
-.basket-item-price,
-.summary-title,
-.summary-item-title,
-.summary-item-price,
-.summary-item-total,
-.order-total,
-.summary-item-price-title,
-.summary-item-total-title,
-.product-category,
-.tags-title {
-    padding-bottom: 0;
+    margin: 0;
 }
 
 
 
 
+
 // -------------------------------
-// 2. Single Product
+//  2. Product Filters
 // -------------------------------
 
 
-.product-gallery .gallery-item {
+.ecomproductslist__listing-title + .ecomproductslist__product-filters {
+    margin-top: 6px;
+}
+
+
+.ecomproductslist__listing-order {
+    padding: 12px 0;
+}
+
+
+// Product Filters
+.ecomproductslist__form-group {
     display: inline-block;
-    vertical-align: top;
-    width: 80px;
-    height: 80px;
-}
-
-
-.product-image .image-link {
-    background-position: -9999px;
-    background-repeat: no-repeat;
-}
-
-
-.product-image .image-link:hover {
-    cursor: -webkit-zoom-in;
-    cursor: -moz-zoom-in;
-}
-
-
-// Hide Product Image (use BG)
-.product-image .image {
-    display: none;
-}
-
-
-// Product Gallery (Thumbnails)
-.product-gallery {
-    margin: 20px 0;
+    margin-right: 3px;
+    vertical-align: bottom;
 }
 
 
 
-// Product Actions (Form)
-// ----------------------
 
 
-.product-actions {
-    margin: 20px 0;
+// -------------------------------
+//  3. Product List
+// -------------------------------
+
+
+// Image height
+.ecomproductslist__product-item-image,
+.ecomproductslist__image-link,
+.ecomproductslist__image {
+    line-height: 250px;
+    max-height: 250px;
 }
 
 
-button.icon--add.added {
-    background: green;
+// Product header and price spacing
+.ecomproductslist__product-content{
+    margin-top: 12px;
+}
 
 
-    &:before {
-        content: "\f00c";
-        display: inline;
+.ecomproductslist__listing-footer {
+    margin: 12px 0;
+}
+
+
+// Product List Pagination
+.ecomproductslist__pagination-item {
+    display: inline-block;
+
+
+    .ecomproductslist__button {
+        padding: 3px 6px;
     }
 }
 
 
-// Add To Cart Button
-.js-ecom-product-add-to-cart-btn:disabled {
-    opacity: 0.3;
+
+
+
+// -------------------------------
+//  4. Single Product
+// -------------------------------
+
+
+// Featured product image height
+.ecomproduct__image {
+    line-height: 500px;
+    max-height: 500px;
+
+    @media #{$mobile} {
+        line-height: 300px;
+        max-height: 300px;
+    }
+}
+
+
+// Product gallery thumbnails
+.ecomproduct__product-gallery {
+    margin: 12px 0;
+
+
+    .ecomproduct__image {
+        max-height: 80px;
+
+        @media #{$mobile} {
+            max-height: 60px;
+        }
+    }
+}
+
+
+// Hide featured background image
+.ecomproduct__image-link {
+    background-position: -9999px;
+    background-repeat: no-repeat;
+
+
+    &:hover {
+        cursor: -webkit-zoom-in;
+        cursor: -moz-zoom-in;
+    }
+}
+
+
+.ecomproduct__gallery-item,
+.ecombasket__image-link {
+    cursor: pointer;
+    display: inline-block;
+    line-height: 80px;
+    height: 80px;
+    width: 80px;
+    vertical-align: top;
+
+    @media #{$mobile} {
+        line-height: 50px;
+        height: 50px;
+        width: 50px;
+    }
 }
 
 
 
-// Product Attibutes
-// -----------------
+
+//  4.1 Product Form
+// -----------------------------
 
 
-.product-attributes {
-    margin: 10px 0;
+.product-actions {
+    margin: 12px 0;
+}
+
+
+.ecomproduct__button {
+
+    // Add product confirmation
+    &.added {
+        background: green;
+        transition: background 0.5s ease;
+
+        &:before {
+            content: "\f00c";
+            display: inline;
+        }
+    }
+
+
+    // Reduce opacity on inactive buttons
+    &:disabled {
+         opacity: 0.3;
+    }
 }
 
 
 // Tax Explainer
 .ecomproduct__tax-explainer {
-    color: fade($color__p--text, 50%);
-    line-height: 1.2;
-    margin-top: 1em;
-    font-size: 12px;
+    color: fade($color__p--text, 25%);
+    font-size: 14px;
+    line-height: 22px;
+    margin-top: 6px;
 }
+
 
 
 
 
 // -------------------------------
-// 3. Product List
+//  5. Ecommerce Images
 // -------------------------------
 
 
-// Product Filters
-.product-filters {
-
-
-    .form-group {
-        display: inline-block;
-        vertical-align: bottom;
-        margin-right: 10px;
-    }
-
-
-    // Submit Button
-    .input--search {
-        height: 36px;
-    }
+.ecomproductslist__product-item-image,
+.ecomproductslist__image-link,
+.ecomproduct__gallery-item,
+.ecomproduct__image-link,
+.ecombasket__image-link {
+    background-repeat: no-repeat;
+    background-position: -9999px;
+    overflow: hidden;
+    text-align: center;
 }
 
 
-// Listing Order (Showing 'x' products)
-.listing-order {
-    padding: 20px 0;
-}
-
-
-// Product Item Details
-.product-item-details {
-    margin-top: 20px;
-}
-
-
-// Product List Pagination
-.listing-pagination .pagination-item {
+// Image centering
+.ecomproductslist__image,
+.ecomproduct__image,
+.ecombasket__image,
+.ecombasketsummary__image,
+.ecombasketsummary__summary-item-link {
     display: inline-block;
+    max-width: 100%;
+    vertical-align: middle;
 }
 
 
 
 
+
 // -------------------------------
-// 4. Basket Widget
+//  6. Basket Widget
 // -------------------------------
 
 
-.basket-body {
+.ecombasket__basket-body {
     display: none; // Hide by default
+
+
+    .show-content & {
+        display: block;
+    }
 }
 
 
-.show-content .basket-body {
-    display: block; // Display on click
-}
-
-
-// Basket Toggle / Item
-.basket-toggle {
-    margin-bottom: 20px;
-}
-
-
-.basket-item {
+.ecombasket__basket-item {
+    margin-bottom: 6px;
     position: relative;
-    margin-bottom: 20px;
 
 
     &:last-child {
@@ -3097,16 +3496,16 @@ button.icon--add.added {
 
 
 // Basket Total
-.basket-footer {
-    margin-top: 20px;
+.ecombasket__basket-footer {
+    margin-top: 12px;
 }
 
 
 // Item Remove Button
-.item-remove {
-    padding: 2px 4px;
+.ecombasket__item-remove {
     font-size: 12px;
     line-height: 12px;
+    padding: 3px 6px;
 
 
     // Remove icon spacing
@@ -3119,21 +3518,22 @@ button.icon--add.added {
 
 
 // -------------------------------
-// 5. Basket Summary
+//  7. Basket Summary
 // -------------------------------
 
 
-.summary-table {
+.ecombasketsummary__summary-table {
     width: 100%;
 
 
     // Table Row
-    .table-row {
+    .ecombasketsummary__table-row {
 
         @media #{$mobile} {
+            border-bottom: 1px solid darken($color__body--background, 10%);
             @include flex-display();
             @include flex-direction(column);
-            border-bottom: 1px solid darken($color__body--background, 10%);
+            padding-top: 12px;
         }
     }
 
@@ -3147,28 +3547,18 @@ button.icon--add.added {
     }
 
 
-    // Column: Image
-    .cell--image {
-        vertical-align: top;
-        width: 15%;
-    }
-
-
-    // Summary Item Link
-    .summary-item-link {
-        background-position: -1000%;
-    }
-
-
     // Table Cell: General
-    .cell {
-        vertical-align: middle;
-        padding: 8px 12px;
+    .ecombasketsummary__cell {
         border-radius: 0;
+        padding: 3px 6px;
+        text-align: left;
+        vertical-align: middle;
 
         @media #{$mobile} {
             border: 0;
             display: block;
+            padding-left: 0;
+            padding-right: 0;
             width: 100%;
         }
 
@@ -3185,13 +3575,14 @@ button.icon--add.added {
     }
 
 
-    // Column: Price & Total
-    .cell--price,
-    .cell--total {
-        width: 10%;
+    // Column: Image
+    .cell--image,
+    .cell-quantity {
+        width: 15%;
 
         @media #{$mobile} {
-            border-top: 1px solid darken($color__body--background, 10%);
+            padding-bottom: 20px;
+            width: 100%;
         }
     }
 
@@ -3208,25 +3599,29 @@ button.icon--add.added {
     }
 
 
-    // Column: Quantity
-    .cell--quantity {
-        width: 15%;
+    // Column: Price & Total
+    .cell--price,
+    .cell--total {
+        width: 10%;
 
         @media #{$mobile} {
-            padding-bottom: 20px;
+            border-top: 1px solid darken($color__body--background, 10%);
             width: 100%;
         }
     }
 }
 
 
+.ecombasketsummary__summary-form {
 
-// Basket Quantity
-// ---------------
+    @media #{$mobile} {
+        margin-top: 12px;
+    }
+}
 
 
 // Quantity Wrap
-.quantity-wrap {
+.ecombasketsummary__quantity-wrap {
     background-color: darken($color__body--background, 5%);
     @include flex-display();
     @include justify-content(space-between);
@@ -3245,129 +3640,18 @@ button.icon--add.added {
 
     // Quantity Inputs
     .button--quantity {
-        height: 20px;
         line-height: initial;
-        padding: 0;
-        width: 20px;
+        padding: 0 3px;
     }
 }
 
 
+// Quantity buttons
+.ecombasketsummary__quantity-minus,
+.ecombasketsummary__quantity-plus {
 
-// Quantity Buttons
-// ----------------
-
-.quantity-minus.js-remove:disabled,
-.quantity-minus.js-add:disabled {
-    opacity: 0.3;
-}
-
-
-
-
-// -------------------------------
-// 6. Ecommerce Images
-// -------------------------------
-
-
-
-// Image centering technique
-// -------------------------
-
-
-// Surrounding image divs
-.product-item-image,
-.product-item-image .image-link,
-.product-gallery .gallery-item,
-.product-image .image-link,
-.basket-item-image .image-link {
-    background-repeat: no-repeat;
-    background-position: -9999px;
-    overflow: hidden; // Stops large images overflowing
-    text-align: center;
-    width: 100%;
-}
-
-
-// Image Element
-.product-item-image .image,
-.product-gallery .image-button,
-.product-image .image,
-.basket-item-image .image {
-    display: inline-block;
-    vertical-align: middle; // Vertically centers image
-    max-width: 100%; // Allows image to fill the width or height
-    max-height: 100%;
-}
-
-
-
-// Product List
-// ------------
-
-// Sets individual height & alignments for all image
-// elements using this method of centering
-
-
-// Product List
-.product-item-image,
-.product-item-image .image-link {
-    height: 200px;
-    line-height: 200px; // Line height matches div height
-}
-
-
-// Single Product
-.product-image .image-link {
-    height: 400px;
-    line-height: 400px;
-
-    @media #{$tablet} {
-        height: 300px;
-        line-height: 300px;
-    }
-
-    @media #{$mobile} {
-        height: 200px;
-        line-height: 200px;
-    }
-}
-
-
-// Basket
-.basket-item-image .image-link {
-    background-repeat: no-repeat;
-    background-position: -9999px;
-    height: 80px;
-    line-height: 80px;
-    width: 80px;
-}
-
-
-
-// Single Product Thumbnails
-// -------------------------
-
-
-.product-gallery .gallery-item {
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    cursor: pointer;
-
-    @media #{$mobile} {
-        height: 60px;
-        line-height: 60px;
-        width: 60px;
-    }
-}
-
-
-.product-gallery .image-button .image {
-    max-height: 80px;
-
-    @media #{$mobile} {
-        max-height: 60px;
+    &:disabled {
+        opacity: 0.3;
     }
 }
 

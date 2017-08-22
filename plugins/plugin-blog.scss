@@ -1,15 +1,30 @@
 
+// -------------------------------------
+//  PLUGINS - Blog
+// -------------------------------------
+
+
+
+
+
 // -----------------------------
-// PLUGINS: Blog
+//  Table of Contents
 // -----------------------------
 
+// 	1.	General Styling & Resets
+// 	2.  Blog Post List
+// 	3.  Blog Post
 
 
-// Element Resets
-// ----------------
 
 
-// Navigation List
+
+// -------------------------------
+//  1. General Styling & Resets
+// -------------------------------
+
+
+// List Reset
 .sharing-links,
 .tag-list,
 .pagination-numbers {
@@ -18,41 +33,38 @@
 }
 
 
-.menu-navigation-list {
-	margin-left: 0;
-}
-
-
-// Resets Post Image Height
+// Resets post image height
 .post-image {
 	font-size: 0;
 	line-height: 0;
 }
 
 
-
-// Element Spacing
-// -----------------
-
-
-// Typography (Removes padding)
-.post-category {
-	padding-bottom: 0;
+// Buttons and links
+.blogpostlist__read-more,
+.blogpostlist__pagination-item,
+.blogpost__category-title,
+.blogpost__category-link,
+.blogpost__tags-title,
+.blogpost__tag-list,
+.blogpost__tag-item,
+.blogpost__network-item {
+	display: inline-block;
 }
 
 
-// Post Article
+// Post article spacing
 .post-article {
-	margin-bottom: 30px;
+	margin-bottom: 18px;
 
 
 	&:last-child {
-		margin-bottom: 30px;
+		margin-bottom: 0;
 	}
 }
 
 
-// Blog Featured Image
+// Blog background image
 .blogpostlist__image-link,
 .blogpost__image-link {
 	background-position: -9999px;
@@ -60,82 +72,80 @@
 }
 
 
-
-
-// -----------------------------
-// Single Blog Post
-// -----------------------------
-
-
+// Inline blog image
 .post-image .image {
-	max-height: 350px;
+	max-height: 500px;
 
 	@media #{$mobile} {
-		max-height: 200px;
+		max-height: 300px;
 	}
 }
 
 
-
-// Post Content
-// ------------
-
+// Post content container
 .post-content {
-	margin: 20px 0;
+	margin: 6px 0;
 }
 
 
-// Timestamp
+
+
+
+
+// -----------------------------
+// 	2. Blog Post List
+// -----------------------------
+
+
+// If an excerpt is present add spacing
+.blogpostlist__post-header + .blogpostlist__post-excerpt {
+	margin-top: 6px;
+}
+
+
+// Footer spacing
+.blogpostlist__post-list-footer {
+	margin: 12px 0;
+}
+
+
+
+
+
+// -----------------------------
+// 	3. Single Blog Post
+// -----------------------------
+
+
+// If a post body is present add spacing
+.blogpost__post-header + .blogpost__post-body {
+	margin-top: 12px;
+}
+
+
+// Post category and tags spacing
+.blogpost__post-attributes {
+	margin: 6px 0;
+}
+
+
+// Sharing buttoms spacing
+.blogpost__network-item {
+	margin-right: 3px;
+
+	@media #{$mobile} {
+		margin-bottom: 3px;
+		margin-right: 0;
+	}
+
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+
+// Blog timestamp
 .post-footer .timestamp {
 	display: block;
-	margin: 10px 0;
-}
-
-
-
-
-// -----------------------------
-// Blog Post List
-// -----------------------------
-
-
-// Post Attributes
-.post-attributes {
-	margin: 20px 0 10px;
-}
-
-
-// Footer Sharing Links
-.blogpost-list__network-item,
-.blogpost__network-item {
-	margin-top: 10px;
-}
-
-
-// Blog Post List Buttons,
-// Sharing Item Buttons,
-// Tag Title,
-// Tag Item List,
-// Tag Item
-.blogpost-list__button,
-.blogpost__button,
-.tags-title,
-.tag-list,
-.tag-item,
-.blogpost-list__pagination-item {
-	display: inline-block;
-}
-
-
-// Category Title
-.category-title {
-	display: inline-block;
-	padding: 0;
-}
-
-
-// Network Item
-.network-item {
-	display: inline-block;
-	margin-right: 10px;
 }

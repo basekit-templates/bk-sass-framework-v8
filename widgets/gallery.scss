@@ -1,7 +1,8 @@
 
-// -------------------------
-// WIDGETS: Image Gallery
-// -------------------------
+// -------------------------------------
+//  WIDGETS - Image Gallery
+// -------------------------------------
+
 
 
 
@@ -18,4 +19,10 @@
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+
+// Stops gallery background image repeating
+.gallery__image-link {
+    background-repeat: no-repeat;
 }

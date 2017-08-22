@@ -38,6 +38,12 @@
         position: relative;
 
 
+        // If only one column make full width
+        &:only-child {
+            width: 100%;
+        }
+
+
         // Removes last columns margin
         &:last-child {
             margin-right: 0;

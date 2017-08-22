@@ -1,47 +1,26 @@
 
-// ---------------------
-// WIDGETS: Feature
-// ---------------------
+// -------------------------------------
+//  WIDGETS - Feature
+// -------------------------------------
 
 
 // Feature Background Image
 .feature__background-image {
-    min-height: 250px;
+    min-height: 400px;
 }
 
 
 // Feature Content Wrap
 .feature__content-wrap {
-	padding: 30px;
-}
-
-
-// Feature Headline
-.feature__headline {
-	font-family: $font__feature-headline--font-family;
-	font-size: $font__feature-headline--font-size;
-	font-weight: $font__feature-headline--font-weight;
-	line-height: $font__feature-headline--line-height;
-	letter-spacing: $font__feature-headline--letter-spacing;
-    color: $color__feature-headline--text;
-}
-
-
-// Feature Strapline
-.feature__strapline {
-	font-family: $font__feature-strapline--font-family;
-	font-size: $font__feature-strapline--font-size;
-	font-weight: $font__feature-strapline--font-weight;
-	line-height: $font__feature-strapline--line-height;
-	letter-spacing: $font__feature-strapline--letter-spacing;
-    color: $color__feature-strapline--text;
+	padding: 12px;
 }
 
 
 // Feature Button
 .feature__button {
-	padding: 9px 12px;
+	padding: 3px 6px;
     text-decoration: none;
+
 
     &:hover {
     	text-decoration: none;

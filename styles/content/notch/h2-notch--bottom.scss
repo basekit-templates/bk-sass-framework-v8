@@ -1,0 +1,41 @@
+
+// -------------------------------------
+//  CONTENT - H2 Notch / Bottom
+// -------------------------------------
+
+
+[data-widget-type="content"] {
+
+
+    // Heading One
+    h2,
+    .heading--2 {
+
+
+        &:after {
+            content: "";
+            display: block;
+            position: relative;
+        }
+
+
+        // Notch properties
+        &:after {
+            height: $style__content-notch--height;
+            margin: $style__content-notch--margin;
+            width: $style__content-notch--width;
+        }
+
+
+        // Align notch center
+        &[style="text-align: center;"]:after {
+             margin: 0 auto;
+        }
+
+
+        // Align notch right
+        &[style="text-align: right;"]:after {
+            margin-left: auto;
+        }
+    }
+}

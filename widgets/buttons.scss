@@ -1,47 +1,45 @@
 
-// -------------------------
-// WIDGETS: Buttons
-// -------------------------
+// -------------------------------------
+//  WIDGETS - Buttons
+// -------------------------------------
 
 
 
-// ------------------
+
+
+// -----------------------------
 //  Table of Contents
-// ------------------
+// -----------------------------
 
-// 1. Standard Button
-// 2. Paypal Button
-// 3. Dropbox Button
-// 4. Tweet Button
-// 5. Click to Call Button
+//  1     Standard Button
+//  2     Paypal Button
+//  3     Dropbox Button
+//  4     Click to Call Button
+
+
 
 
 
 // ---------------------
-// 1. Main Button
+//  1. Main Button
 // ---------------------
 
 
 // Standard
 button,
 .button {
-    display: inline-block;
-
-    // Button Styles
-    padding: 4px 12px;
+    background-color: $color__button--background;
     border: 0;
+    color: $color__button--text;
+    display: inline-block;
+    font-family: $font__button--font-family;
+    font-size: $font__button--font-size;
+    font-weight: $font__button--font-weight;
+    line-height: $font__button--line-height;
+    letter-spacing: $font__button--letter-spacing;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-
-    // Font Styles
-    font-family: $font__button--font-family;
-    font-weight: $font__button--font-weight;
-    color: $color__button--text;
-    line-height: $font__button--line-height;
-    letter-spacing: $font__button--letter-spacing;
-    font-size: $font__button--font-size;
-    background-color: $color__button--background;
 
 
     &:hover {
@@ -66,6 +64,11 @@ button,
 }
 
 
+.button {
+    padding: 3px 6px;
+}
+
+
 // Removes any scaling elements from pagination / ecom basket buttons
 .ecombasketsummary__quantity-minus,
 .ecombasketsummary__quantity-plus,
@@ -79,8 +82,9 @@ button,
 
 
 
+
 // ---------------------
-// 2. #PayPal Button
+//  2. PayPal Button
 // ---------------------
 
 
@@ -89,8 +93,9 @@ button,
 
 
 
+
 // ---------------------
-// 3. #Dropbox Button
+//  3. Dropbox Button
 // ---------------------
 
 
@@ -102,44 +107,41 @@ button,
 
 
 
-// ---------------------
-// 4. #Tweet Button
-// ---------------------
 
-
-
-
-// ------------------------
-// 5. #Click to Call Button
-// ------------------------
+// ---------------------------
+//  4. Click to Call Button
+// ---------------------------
 
 
 .clicktocall__phone-number-link {
-    @media #{$mobile}, only screen and (max-width:700px) and (orientation:landscape) {
 
-        display: inline-block;
-
-        // Button Styles
-        padding: 9px 12px;
+    &:hover {
         text-decoration: none;
+    }
+
+
+    @media #{$mobile}, only screen and (max-width: 700px) and (orientation:landscape) {
+        background-color: $color__button--background;
         border: 0;
+        color: $color__button--text;
+        display: inline-block;
+        font-family: $font__button--font-family;
+        font-size: $font__button--font-size;
+        font-weight: $font__button--font-weight;
+        line-height: $font__button--line-height;
+        letter-spacing: $font__button--letter-spacing;
+        padding: 6px vr(0.75);
+        text-decoration: none;
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
 
-        // Font Styles
-        font-family: $font__button--font-family;
-        font-weight: $font__button--font-weight;
-        color: $color__button--text;
-        line-height: $font__button--line-height;
-        letter-spacing: $font__button--letter-spacing;
-        font-size: $font__button--font-size;
-        background-color: $color__button--background;
 
         &:hover {
             background-color: $color__button--background--hover;
             text-decoration: none;
         }
+
 
         &:focus {
             outline: none;

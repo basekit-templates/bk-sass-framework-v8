@@ -1,0 +1,42 @@
+
+// -------------------------------------
+//  CONTENT - H1 Notch / Bottom
+// -------------------------------------
+
+
+[data-widget-type="content"] {
+
+
+    // Heading One
+    h1,
+    .heading--1 {
+
+
+        &:after {
+            content: "";
+            display: block;
+            position: relative;
+        }
+
+
+        // Notch properties
+        &:after {
+            background-color: $color__content-notch--background;
+            height: $style__content-notch--height;
+            margin-top: $style__content-notch--margin;
+            width: $style__content-notch--width;
+        }
+
+
+        // Align notch center
+        &[style="text-align: center;"]:after {
+             margin: 0 auto;
+        }
+
+
+        // Align notch right
+        &[style="text-align: right;"]:after {
+            margin-left: auto;
+        }
+    }
+}

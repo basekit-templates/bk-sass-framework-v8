@@ -7,32 +7,64 @@
 .row__vertical-align {
 
 
+    // Add flex to top level if row height is set to full
+    &-top,
+    &-center,
+    &-bottom {
+
+
+        &.row--full-height {
+            @include flex(0 1 auto);
+            @include flex-display;
+            @include flex-direction(row);
+            @include flex-wrap(wrap);
+        }
+    }
+
+
+
     // Row Alignment Top
-    &--top .row__container {
+    &-top .row__container {
         @include justify-content(flex-start);
     }
 
-    &--top .responsivecolumns {
+    &-top .responsivecolumns {
+        @include align-items(flex-start);
+    }
+
+    // Full Height Alignment top
+    &-top.row__height--full {
         @include align-items(flex-start);
     }
 
 
     // Row Align Center
-    &--center .row__container {
+    &-center .row__container {
         @include justify-content(center);
     }
 
-    &--center .responsivecolumns {
+    &-center .responsivecolumns {
+        @include align-items(center);
+    }
+
+    // Full Height Alignment Center
+    &-center.row__height--full {
         @include align-items(center);
     }
 
 
     // Row Align Bottom
-    &--bottom .row__container {
+    &-bottom .row__container {
         @include justify-content(flex-end);
     }
 
-    &--bottom .responsivecolumns {
-        @include justify-content(flex-end);
+    &-bottom .responsivecolumns {
+        @include align-items(flex-end);
     }
+
+    // Full Height Alignment Bottom
+    &-bottom.row__height--full {
+        @include align-items(flex-end);
+    }
+
 }
