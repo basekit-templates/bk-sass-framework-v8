@@ -10,28 +10,28 @@
 // -------------------------------------
 
 
-.row__height {
+.row--height {
 
 
-    &--no-padding {
+    &-no-padding {
         padding-top: 0;
         padding-bottom: 0;
     }
 
 
-    &--thin {
+    &-thin {
         padding-top: 15px;
         padding-bottom: 15px;
     }
 
 
-    &--default {
+    &-default {
         padding-top: 40px;
         padding-bottom: 40px;
     }
 
 
-    &--full {
+    &-full {
         min-height: 100vh;
         padding-top: 80px;
         padding-bottom: 80px;
@@ -45,7 +45,7 @@
 // -------------------------------------
 
 
-.row__layout {
+.row--layout {
 
 
     &-contained .container {
