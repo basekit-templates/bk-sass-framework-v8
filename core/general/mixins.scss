@@ -71,7 +71,7 @@
 
 
 // Flexbox Display
-@mixin flex-display() {
+@mixin flex-display {
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;

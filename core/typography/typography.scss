@@ -67,7 +67,8 @@ body {
 p,
 li,
 blockquote,
-.paragraph {
+.paragraph,
+%paragraph {
     color: $color__p--text;
     font-family: $font__p--font-family;
     font-size: $font__p--font-size;
@@ -79,7 +80,8 @@ blockquote,
 p,
 li,
 blockquote,
-.paragraph {
+.paragraph,
+%paragraph {
     color: $font-swatch5-color;
     font-family: $font-swatch5-font-family;
     font-size: $font-swatch5-font-size;

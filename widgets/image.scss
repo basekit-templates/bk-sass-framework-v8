@@ -24,10 +24,10 @@ img {
 
 .image-title,
 .image-description {
-    display: block;
-
     // Gives title and description paragraph styling
-	@extend .paragraph;
+    @extend %paragraph;
+
+    display: block;
 }
 
 
@@ -36,6 +36,7 @@ img {
 	display: block;
 	font-size: 0;
 	line-height: 0;
+
 	&:hover {
 		// Removes underline from image link
 		text-decoration: none;
@@ -90,6 +91,7 @@ img {
 // ------------------------------
 
 .imagewidget.widget-align-left {
+
     &, .caption {
         text-align: left;
     }
@@ -101,6 +103,7 @@ img {
 // ------------------------------
 
 .imagewidget.widget-align-right {
+
     &, .caption {
         text-align: right;
     }
@@ -112,6 +115,7 @@ img {
 // ------------------------------
 
 .imagewidget.widget-align-center {
+
     &, .caption {
         text-align: center;
     }

@@ -755,7 +755,8 @@ body {
 p,
 li,
 blockquote,
-.paragraph {
+.paragraph,
+%paragraph {
     color: $color__p--text;
     font-family: $font__p--font-family;
     font-size: $font__p--font-size;
@@ -767,7 +768,8 @@ blockquote,
 p,
 li,
 blockquote,
-.paragraph {
+.paragraph,
+%paragraph {
     color: $font-swatch5-color;
     font-family: $font-swatch5-font-family;
     font-size: $font-swatch5-font-size;
@@ -1174,7 +1176,7 @@ ol {
 
 
 // Flexbox Display
-@mixin flex-display() {
+@mixin flex-display {
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -1373,7 +1375,7 @@ $mobile: 'only screen and (max-width: 700px)';
     // Column margin and dropzone min height
     .column {
         margin-right: 4%;
-        min-height: 40px;
+        min-height: 30px;
         position: relative;
 
 
@@ -1475,7 +1477,7 @@ fieldset {
 
 // Legend
 legend {
-    display: block
+    display: block;
 }
 
 
@@ -1519,10 +1521,9 @@ input[type="email"],
 input[type="password"],
 textarea,
 .input--single-line {
+    @include box-sizing(border-box);
     border: 1px solid #ddd;
-    // height: 12px;
 	padding: 6px 10px;
-	@include box-sizing(border-box);
     width: 100%;
 
 	@media #{$tablet} {
@@ -1553,7 +1554,7 @@ textarea {
 
 .option-item--radio,
 .option-item--checkbox {
-    @include flex-display();
+    @include flex-display;
     @include justify-content(flex-start);
     @include align-items(center);
     margin-bottom: 8px;
@@ -1585,12 +1586,12 @@ input[type="checkbox"] {
 
 input[type="radio"],
 input[type="checkbox"] {
+    @include box-sizing(border-box);
     border: 1px solid #000 !important;
     box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     -o-box-shadow: none;
-    @include box-sizing(border-box);
     height: auto;
     min-height: inherit;
     margin-right: 5px;
@@ -1972,11 +1973,11 @@ input[type="checkbox"] {
 // Row
 
 // -----------------------------
-//  CORE - Row Alignment
+//  Row - Alignment
 // -----------------------------
 
 
-.row__vertical-align {
+.row--vertical-align {
 
 
     // Add flex to top level if row height is set to full
@@ -1985,7 +1986,7 @@ input[type="checkbox"] {
     &-bottom {
 
 
-        &.row--full-height {
+        &.row--height-full {
             @include flex(0 1 auto);
             @include flex-display;
             @include flex-direction(row);
@@ -2005,7 +2006,7 @@ input[type="checkbox"] {
     }
 
     // Full Height Alignment top
-    &-top.row__height--full {
+    &-top.row--height-full {
         @include align-items(flex-start);
     }
 
@@ -2020,7 +2021,7 @@ input[type="checkbox"] {
     }
 
     // Full Height Alignment Center
-    &-center.row__height--full {
+    &-center.row--height-full {
         @include align-items(center);
     }
 
@@ -2035,10 +2036,9 @@ input[type="checkbox"] {
     }
 
     // Full Height Alignment Bottom
-    &-bottom.row__height--full {
+    &-bottom.row--height-full {
         @include align-items(flex-end);
     }
-
 }
 
 
@@ -2053,10 +2053,10 @@ input[type="checkbox"] {
 // -------------------------------------
 
 
-.row__background-type {
+.row--background-type {
 
 
-    &--image {
+    &-image {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -2075,28 +2075,28 @@ input[type="checkbox"] {
 // -------------------------------------
 
 
-.row__height {
+.row--height {
 
 
-    &--no-padding {
+    &-no-padding {
         padding-top: 0;
         padding-bottom: 0;
     }
 
 
-    &--thin {
+    &-thin {
         padding-top: 15px;
         padding-bottom: 15px;
     }
 
 
-    &--default {
+    &-default {
         padding-top: 40px;
         padding-bottom: 40px;
     }
 
 
-    &--full {
+    &-full {
         min-height: 100vh;
         padding-top: 80px;
         padding-bottom: 80px;
@@ -2110,10 +2110,10 @@ input[type="checkbox"] {
 // -------------------------------------
 
 
-.row__layout {
+.row--layout {
 
 
-    &-contained .container {
+    &-contained .row__container {
         margin: 0 auto;
         padding-left: 30px;
         padding-right: 30px;
@@ -2121,15 +2121,15 @@ input[type="checkbox"] {
     }
 
 
-    &-wide .container {
+    &-wide .row__container {
         margin: 0 auto;
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: 40px;
+        padding-right: 40px;
         width: 90%;
     }
 
 
-    &-full .container {
+    &-full .row__container {
         padding-left: 60px;
         padding-right: 60px;
         width: 100%;
@@ -2141,104 +2141,95 @@ input[type="checkbox"] {
     width: 100%;
 }
 
-// 
+
+
+// Widget Style
+
 // -----------------------------
-//  CORE - Row Style (Colour)
+//  Layout - Gallery 01
 // -----------------------------
 
 
+.widget--gallery-01 {
 
 
-//  Row Colour
-// -------------------------------------
+    .gallery-list {
+        @include flex-display;
+        @include flex-wrap(wrap);
+        @include justify-content(space-between);
+    }
 
 
-$style-sets: (
-    example_01: (
-        row-color-darkest: #3E417E,
-        row-color-dark: #3E417E,
-        row-color-lightest: #ffffff,
-        row-color-light: #ffffff,
-        row-color-accent: #E30019,
-        row-color-dark-foreground: #ffffff,
-        row-color-light-foreground: #1a1919,
-        row-color-accent-foreground: #ffffff,
-        row-font-body: 'Poppins',
-        row-font-heading: 'Poppins',
-        row-font-weight: 700
-    ),
-    example_02: (
-        row-color-darkest: #082D3A,
-        row-color-dark: #0C495E,
-        row-color-lightest: #ffffff,
-        row-color-light: #ECE7DD,
-        row-color-accent: #FEB904,
-        row-color-dark-foreground: #ECE7DD,
-        row-color-light-foreground: #0C495E,
-        row-color-accent-foreground: #888888,
-        row-font-heading: 'Lato',
-        row-font-body: 'Josefin Sans',
-        row-font-weight: 300
-    ),
-    example_03: (
-        row-color-darkest: #2B2B3C,
-        row-color-dark: #2B2B3C,
-        row-color-lightest: #ffffff,
-        row-color-light: #ffffff,
-        row-color-accent: #998d5e,
-        row-color-dark-foreground: #ffffff,
-        row-color-light-foreground: #2B2B3C,
-        row-color-accent-foreground: #ffffff,
-        row-font-body: 'Rubik',
-        row-font-heading: 'Playfair Display',
-        row-font-weight: 400
-    ),
-    example_04: (
-        row-color-darkest: #3E417E,
-        row-color-dark: #0c495e,
-        row-color-lightest: #ffffff,
-        row-color-light: #ebe7dc,
-        row-color-accent: #feb904,
-        row-color-dark-foreground: #ffffff,
-        row-color-light-foreground: #65797d,
-        row-color-accent-foreground: #072d3a,
-        row-font-body: 'Lato',
-        row-font-heading: 'Lato',
-        row-font-weight: 300
-    )
-);
+    .gallery-item {
+        @include flex(1 1 auto);
+        @include flex-basis(31.6666667%);
+        margin-bottom: 2.5%;
+
+        &:nth-child(even) {
+            margin: 2.5%;
+        }
+
+        &:nth-last-child(-n+3) {
+            margin-bottom: 0;
+        }
 
 
-$style-set: map-get($style-sets, $style-set-id);
+        @media only screen and (max-width: 900px) {
 
-$row-color-dark: map-get($style-set, 'row-color-dark');
-$row-color-darkest: map-get($style-set, 'row-color-darkest');
-$row-color-light: map-get($style-set, 'row-color-light');
-$row-color-lightest: map-get($style-set, 'row-color-lightest');
-$row-color-accent: map-get($style-set, 'row-color-accent');
-$row-color-dark-foreground: map-get($style-set, 'row-color-dark-foreground');
-$row-color-light-foreground: map-get($style-set, 'row-color-light-foreground');
-$row-color-accent-foreground: map-get($style-set, 'row-color-accent-foreground');
-$row-font-heading: map-get($style-set, 'row-font-heading');
-$row-font-body: map-get($style-set, 'row-font-body');
-$row-font-weight: map-get($style-set, 'row-font-weight');
+            @include flex-basis(47.5%);
+
+            &:nth-child(odd) {
+                margin-right: 2.5%;
+            }
+
+            &:nth-child(even) {
+                margin-left: 2.5%;
+            }
+
+            &:nth-last-child(-n+3) {
+                margin-bottom: 2.5%;
+            }
+
+            &:nth-last-child(-n+2) {
+                margin-bottom: 0;
+            }
+        }
 
 
-// Colour application with backup
-:root {
-    --style-set-id: unquote($style-set-id);
-    --row-color-darkest: $row-color-darkest;
-    --row-color-dark: $row-color-dark;
-    --row-color-lightest: $row-color-lightest;
-    --row-color-light: $row-color-light;
-    --row-color-accent: $row-color-accent;
-    --row-color-dark-foreground: $row-color-dark-foreground;
-    --row-color-light-foreground: $row-color-light-foreground;
-    --row-color-accent-foreground: $row-color-accent-foreground;
-    --row-font-heading: $row-font-heading;
-    --row-font-body: $row-font-body;
-    --row-font-weight: $row-font-weight;
+        @media only screen and (max-width: 700px) {
+
+            @include flex-basis(100%);
+
+            &:nth-child(odd),
+            &:nth-child(even) {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            &:nth-last-child(-n+3),
+            &:nth-last-child(-n+2) {
+                margin-bottom: 2.5%;
+            }
+
+            &:nth-last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+
+    .image-link {
+        background-position: center;
+        padding-bottom: 100%;
+    }
+
+
+    .image {
+        display: none;
+        visibility: hidden;
+    }
 }
+
 
 
 
@@ -2255,11 +2246,16 @@ $row-font-weight: map-get($style-set, 'row-font-weight');
 // -------------------------------------
 
 
-// Widget Positioning
+// Default widget settings
 .widget {
     @include clearfix;
+    position: relative;
+}
+
+
+// Widget positioning
+.widget:not([data-name="row"]) {
     margin-bottom: 12px;
-	position: relative;
 
 
     &:last-child {
@@ -2303,7 +2299,7 @@ $row-font-weight: map-get($style-set, 'row-font-weight');
 
 .navigation-item .item-name {
     display: block;
-    padding: 14px;
+    padding: 10px;
     text-decoration: none;
     // Font Styles
     font-family: $font__navigation--font-family;
@@ -2335,7 +2331,7 @@ $row-font-weight: map-get($style-set, 'row-font-weight');
     width: 100%;
     z-index: 9999;
     padding: 0;
-    margin-left: 0;
+    margin: 0;
     list-style: none;
 }
 
@@ -2469,10 +2465,10 @@ img {
 
 .image-title,
 .image-description {
-    display: block;
-
     // Gives title and description paragraph styling
-	@extend .paragraph;
+    @extend %paragraph;
+
+    display: block;
 }
 
 
@@ -2481,6 +2477,7 @@ img {
 	display: block;
 	font-size: 0;
 	line-height: 0;
+
 	&:hover {
 		// Removes underline from image link
 		text-decoration: none;
@@ -2535,6 +2532,7 @@ img {
 // ------------------------------
 
 .imagewidget.widget-align-left {
+
     &, .caption {
         text-align: left;
     }
@@ -2546,6 +2544,7 @@ img {
 // ------------------------------
 
 .imagewidget.widget-align-right {
+
     &, .caption {
         text-align: right;
     }
@@ -2557,6 +2556,7 @@ img {
 // ------------------------------
 
 .imagewidget.widget-align-center {
+
     &, .caption {
         text-align: center;
     }
@@ -3530,9 +3530,10 @@ hr.rule {
     .ecombasketsummary__table-row {
 
         @media #{$mobile} {
-            border-bottom: 1px solid darken($color__body--background, 10%);
-            @include flex-display();
+            @include flex-display;
             @include flex-direction(column);
+
+            border-bottom: 1px solid darken($color__body--background, 10%);
             padding-top: 12px;
         }
     }
@@ -3622,9 +3623,10 @@ hr.rule {
 
 // Quantity Wrap
 .ecombasketsummary__quantity-wrap {
-    background-color: darken($color__body--background, 5%);
-    @include flex-display();
+    @include flex-display;
     @include justify-content(space-between);
+
+    background-color: darken($color__body--background, 5%);
     width: 70%;
 
     @media #{$tablet} {
@@ -3651,7 +3653,6 @@ hr.rule {
 .ecombasketsummary__quantity-plus {
 
     &:disabled {
-        opacity: 0.3;
+        opacity: .3;
     }
 }
-

@@ -1,0 +1,47 @@
+
+// -----------------------------
+//  Layout - Navigation 02
+// -----------------------------
+
+
+.navigation-02 {
+
+
+    .navigation-toggle {
+    }
+
+
+    .navigation-body {
+        background-color: transparent;
+        @include flex-display;
+        @include align-items(center);
+        @include justify-content(center);
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: opacity 0.5s ease, visibility 0.5s ease, bottom 0.5s ease;
+        visibility: hidden;
+
+        .navigation-open & {
+            background-color: $color__navigation--background;
+            bottom: 0;
+            overflow-y: scroll;
+            opacity: 1;
+            visibility: visible;
+            z-index: 10003;
+        }
+    }
+
+
+    .navigation-list {
+        max-width: 650px;
+    }
+
+
+    .navigation-item {
+        display: block;
+    }
+}

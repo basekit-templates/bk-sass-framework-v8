@@ -26,7 +26,7 @@ fieldset {
 
 // Legend
 legend {
-    display: block
+    display: block;
 }
 
 
@@ -70,10 +70,9 @@ input[type="email"],
 input[type="password"],
 textarea,
 .input--single-line {
+    @include box-sizing(border-box);
     border: 1px solid #ddd;
-    // height: 12px;
 	padding: 6px 10px;
-	@include box-sizing(border-box);
     width: 100%;
 
 	@media #{$tablet} {
@@ -104,7 +103,7 @@ textarea {
 
 .option-item--radio,
 .option-item--checkbox {
-    @include flex-display();
+    @include flex-display;
     @include justify-content(flex-start);
     @include align-items(center);
     margin-bottom: 8px;
@@ -136,12 +135,12 @@ input[type="checkbox"] {
 
 input[type="radio"],
 input[type="checkbox"] {
+    @include box-sizing(border-box);
     border: 1px solid #000 !important;
     box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     -o-box-shadow: none;
-    @include box-sizing(border-box);
     height: auto;
     min-height: inherit;
     margin-right: 5px;

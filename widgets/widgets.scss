@@ -4,11 +4,16 @@
 // -------------------------------------
 
 
-// Widget Positioning
+// Default widget settings
 .widget {
     @include clearfix;
+    position: relative;
+}
+
+
+// Widget positioning
+.widget:not([data-name="row"]) {
     margin-bottom: 12px;
-	position: relative;
 
 
     &:last-child {

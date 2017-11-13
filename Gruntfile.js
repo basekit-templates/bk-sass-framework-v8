@@ -48,7 +48,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     "sasslint":{
-     target: ['bks-dev.scss']
+     target: ['bk-sass-framework-dev.scss']
     },
     csslint: {
       options:{
