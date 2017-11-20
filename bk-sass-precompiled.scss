@@ -11,8 +11,9 @@
 // -----------------------------
 
 
-// Reset: Normalize & Typeset
+// Reset: Normalize, Typeset & Default Variables
 @import 'core/reset/normalize';
+// @import 'core/reset/defaults';
 
 
 // Typography: Base Typography & Font Icons
@@ -38,7 +39,9 @@
 
 
 // Widget Style
-@import 'core/layout/gallery-01';
+@import 'core/layout/navigation-1';
+@import 'core/layout/navigation-2';
+@import 'core/layout/gallery-1';
 
 
 

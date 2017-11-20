@@ -30,6 +30,7 @@ button,
 .button {
     background-color: $color__button--background;
     border: 0;
+    // border-radius: $style__button--border-radius;
     color: $color__button--text;
     display: inline-block;
     font-family: $font__button--font-family;
@@ -42,9 +43,47 @@ button,
     -ms-user-select: none;
 
 
-    &:hover {
+    // .row--style-light & {
+    //     background-color: $color--accent;
+    //     color: $color--lightest;
+    // }
+
+
+    // .row--style-accent & {
+    //     background-color: $color--lightest;
+    //     color: $color--accent;
+    // }
+
+
+    // .row--style-dark & {
+    //     background-color: $color--lightest;
+    //     color: $color--darkest;
+    // }
+
+
+    &:hover,
+    &:focus,
+    &:active {
         background-color: $color__button--background--hover;
         text-decoration: none;
+
+
+        // .row--style-light & {
+        //     background-color: $color--accent;
+        //     color: $color--lightest;
+        // }
+
+
+        // .row--style-accent & {
+        //     background-color: $color--lightest;
+        //     color: $color--lightest;
+        // }
+
+
+        // .row--style-dark & {
+        //     background-color: $color--lightest;
+        //     color: $color--darkest;
+        // }
     }
 
 
@@ -130,7 +169,7 @@ button,
         font-weight: $font__button--font-weight;
         line-height: $font__button--line-height;
         letter-spacing: $font__button--letter-spacing;
-        padding: 6px vr(0.75);
+        padding: 6px 12px;
         text-decoration: none;
         -webkit-user-select: none;
         -moz-user-select: none;

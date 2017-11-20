@@ -12,87 +12,70 @@
 
 $style-sets: (
     example_01: (
-        row-color-darkest: #3E417E,
-        row-color-dark: #3E417E,
-        row-color-lightest: #ffffff,
-        row-color-light: #ffffff,
-        row-color-accent: #E30019,
-        row-color-dark-foreground: #ffffff,
-        row-color-light-foreground: #1a1919,
-        row-color-accent-foreground: #ffffff,
-        row-font-body: 'Poppins',
-        row-font-heading: 'Poppins',
-        row-font-weight: 700
+        color--darkest: #3E417E,
+        color--dark: #3E417E,
+        color--lightest: #ffffff,
+        color--light: #ffffff,
+        color--accent: #E30019,
+        color--dark-foreground: #ffffff,
+        color--light-foreground: #1a1919,
+        color--accent-foreground: #ffffff,
+        font--body: 'Poppins',
+        font--heading: 'Poppins',
+        font--weight: 700
     ),
     example_02: (
-        row-color-darkest: #082D3A,
-        row-color-dark: #0C495E,
-        row-color-lightest: #ffffff,
-        row-color-light: #ECE7DD,
-        row-color-accent: #FEB904,
-        row-color-dark-foreground: #ECE7DD,
-        row-color-light-foreground: #0C495E,
-        row-color-accent-foreground: #888888,
-        row-font-heading: 'Lato',
-        row-font-body: 'Josefin Sans',
-        row-font-weight: 300
+        color--darkest: #082D3A,
+        color--dark: #0C495E,
+        color--lightest: #ffffff,
+        color--light: #ECE7DD,
+        color--accent: #FEB904,
+        color--dark-foreground: #ECE7DD,
+        color--light-foreground: #0C495E,
+        color--accent-foreground: #888888,
+        font--heading: 'Lato',
+        font--body: 'Josefin Sans',
+        font--weight: 300
     ),
     example_03: (
-        row-color-darkest: #2B2B3C,
-        row-color-dark: #2B2B3C,
-        row-color-lightest: #ffffff,
-        row-color-light: #ffffff,
-        row-color-accent: #998d5e,
-        row-color-dark-foreground: #ffffff,
-        row-color-light-foreground: #2B2B3C,
-        row-color-accent-foreground: #ffffff,
-        row-font-body: 'Rubik',
-        row-font-heading: 'Playfair Display',
-        row-font-weight: 400
+        color--darkest: #2B2B3C,
+        color--dark: #2B2B3C,
+        color--lightest: #ffffff,
+        color--light: #ffffff,
+        color--accent: #998d5e,
+        color--dark-foreground: #ffffff,
+        color--light-foreground: #2B2B3C,
+        color--accent-foreground: #ffffff,
+        font--body: 'Rubik',
+        font--heading: 'Playfair Display',
+        font--weight: 400
     ),
     example_04: (
-        row-color-darkest: #3E417E,
-        row-color-dark: #0c495e,
-        row-color-lightest: #ffffff,
-        row-color-light: #ebe7dc,
-        row-color-accent: #feb904,
-        row-color-dark-foreground: #ffffff,
-        row-color-light-foreground: #65797d,
-        row-color-accent-foreground: #072d3a,
-        row-font-body: 'Lato',
-        row-font-heading: 'Lato',
-        row-font-weight: 300
+        color--darkest: #3E417E,
+        color--dark: #0c495e,
+        color--lightest: #ffffff,
+        color--light: #ebe7dc,
+        color--accent: #feb904,
+        color--dark-foreground: #ffffff,
+        color--light-foreground: #65797d,
+        color--accent-foreground: #072d3a,
+        font--body: 'Lato',
+        font--heading: 'Lato',
+        font--weight: 300
     )
 );
 
 
 $style-set: map-get($style-sets, $style-set-id);
 
-$row-color-dark: map-get($style-set, 'row-color-dark');
-$row-color-darkest: map-get($style-set, 'row-color-darkest');
-$row-color-light: map-get($style-set, 'row-color-light');
-$row-color-lightest: map-get($style-set, 'row-color-lightest');
-$row-color-accent: map-get($style-set, 'row-color-accent');
-$row-color-dark-foreground: map-get($style-set, 'row-color-dark-foreground');
-$row-color-light-foreground: map-get($style-set, 'row-color-light-foreground');
-$row-color-accent-foreground: map-get($style-set, 'row-color-accent-foreground');
-$row-font-heading: map-get($style-set, 'row-font-heading');
-$row-font-body: map-get($style-set, 'row-font-body');
-$row-font-weight: map-get($style-set, 'row-font-weight');
-
-
-// Colour application with backup
-:root {
-    --style-set-id: unquote($style-set-id);
-    --row-color-darkest: $row-color-darkest;
-    --row-color-dark: $row-color-dark;
-    --row-color-lightest: $row-color-lightest;
-    --row-color-light: $row-color-light;
-    --row-color-accent: $row-color-accent;
-    --row-color-dark-foreground: $row-color-dark-foreground;
-    --row-color-light-foreground: $row-color-light-foreground;
-    --row-color-accent-foreground: $row-color-accent-foreground;
-    --row-font-heading: $row-font-heading;
-    --row-font-body: $row-font-body;
-    --row-font-weight: $row-font-weight;
-}
+$color--dark: map-get($style-set, 'color--dark');
+$color--darkest: map-get($style-set, 'color--darkest');
+$color--light: map-get($style-set, 'color--light');
+$color--lightest: map-get($style-set, 'color--lightest');
+$color--accent: map-get($style-set, 'color--accent');
+$color--dark-foreground: map-get($style-set, 'color--dark-foreground');
+$color--light-foreground: map-get($style-set, 'color--light-foreground');
+$color--accent-foreground: map-get($style-set, 'color--accent-foreground');
+$font--heading: map-get($style-set, 'font--heading');
+$font--body: map-get($style-set, 'font--body');
+$font--weight: map-get($style-set, 'font--weight');

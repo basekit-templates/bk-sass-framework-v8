@@ -26,8 +26,13 @@
 
 
     &-default {
-        padding-top: 40px;
-        padding-bottom: 40px;
+        padding-top: 60px;
+        padding-bottom: 60px;
+
+        @media #{$mobile} {
+            padding-top: ( 60px / 2 );
+            padding-bottom: ( 60px / 2 );
+        }
     }
 
 
@@ -35,6 +40,16 @@
         min-height: 100vh;
         padding-top: 80px;
         padding-bottom: 80px;
+
+        @media #{$tablet} {
+            padding-top: ( 80px / 2 );
+            padding-bottom: ( 80px / 2 );
+        }
+
+        @media #{$mobile} {
+            padding-top: ( 80px / 2.5 );
+            padding-bottom: ( 80px / 2.5 );
+        }
     }
 }
 
@@ -58,15 +73,24 @@
 
     &-wide .row__container {
         margin: 0 auto;
-        padding-left: 40px;
-        padding-right: 40px;
         width: 90%;
+
+        @media #{$tablet--landscape} {
+            padding-left: 40px;
+            padding-right: 40px;
+            width: 100%;
+        }
+
+        @media #{$tablet} {
+            padding-left: ( 40px / 1.5 );
+            padding-right: ( 40px / 1.5 );
+        }
     }
 
 
     &-full .row__container {
-        padding-left: 60px;
-        padding-right: 60px;
+        padding-left: 30px;
+        padding-right: 30px;
         width: 100%;
     }
 }
@@ -74,4 +98,26 @@
 
 .row__container {
     width: 100%;
+}
+
+
+
+
+//  Header & Footer
+// -------------------------------------
+
+
+#page-zones__header .responsivecolumns .column,
+#page-zones__footer .responsivecolumns .column {
+    margin-bottom: 0;
+}
+
+
+#page-zones__footer .row__container {
+    padding-bottom: 0;
+}
+
+
+#page-zones__header .row__container {
+    padding-top: 0;
 }

@@ -10,6 +10,25 @@
 // -------------------------------------
 
 
+.row--style {
+
+
+    &-light {
+        background-color: $color--lightest;
+    }
+
+
+    &-dark {
+        background-color: $color--darkest;
+    }
+
+
+    &-accent {
+        background-color: $color--accent;
+    }
+}
+
+
 .row--background-type {
 
 

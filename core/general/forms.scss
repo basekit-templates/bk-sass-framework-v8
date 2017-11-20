@@ -39,9 +39,8 @@ label {
 
 // Selects
 select {
-    // height: 12px;
     outline: none;
-    border: 1px solid darken($color__body--background,15%);
+    border: 1px solid darken($color__body--background, 15%);
     border-radius: 0;
     background-color: $color__body--background;
     font-size: 12px;

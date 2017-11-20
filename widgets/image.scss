@@ -31,11 +31,60 @@ img {
 }
 
 
+.image-title {
+
+
+    // .row--style-light & {
+    //     color: $color--darkest;
+    // }
+
+
+    // .row--style-accent & {
+    //     color: $color--lightest;
+    // }
+
+
+    // .row--style-dark & {
+    //     color: $color--lightest;
+    // }
+}
+
+
+.image-description {
+
+
+    // .row--style-light & {
+    //     color: $color--dark;
+    // }
+
+
+    // .row--style-accent & {
+    //     color: $color--lightest;
+    // }
+
+
+    // .row--style-dark & {
+    //     color: $color--light;
+    // }
+}
+
+
+
+
+// Image Widget Image Link
+// ----------------------------
+
+
 // Image Link
 .image-link {
-	display: block;
+	display: inline-block;
 	font-size: 0;
 	line-height: 0;
+    max-width: 100%;
+
+    @media #{$tablet} {
+        display: block;
+    }
 
 	&:hover {
 		// Removes underline from image link
@@ -61,17 +110,6 @@ img {
 
 .imagewidget__image {
     display: inline;
-}
-
-
-
-
-// Image Widget Image Link
-// ----------------------------
-
-.imagewidget__image-link {
-    max-width: 100%;
-    display: inline-block;
 }
 
 

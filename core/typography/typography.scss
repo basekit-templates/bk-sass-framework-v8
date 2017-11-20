@@ -53,14 +53,14 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-    color: $font-swatch5-color;
-    font-family: $font-swatch5-font-family;
-    font-size: $font-swatch5-font-size;
-    font-weight: $font-swatch5-font-weight;
-    letter-spacing: $font-swatch5-letter-spacing;
-    line-height: $font-swatch5-line-height;
-}
+// body {
+//     color: $font-swatch5-color;
+//     font-family: $font-swatch5-font-family;
+//     font-size: $font-swatch5-font-size;
+//     font-weight: $font-swatch5-font-weight;
+//     letter-spacing: $font-swatch5-letter-spacing;
+//     line-height: $font-swatch5-line-height;
+// }
 
 
 // Paragraph, List Elements, Blockquote
@@ -75,20 +75,35 @@ blockquote,
     font-weight: $font__p--font-weight;
     letter-spacing: $font__p--letter-spacing;
     line-height: $font__p--line-height;
+
+
+    // .row--style-light & {
+    //     color: $color--dark;
+    // }
+
+
+    // .row--style-accent & {
+    //     color: $color--lightest;
+    // }
+
+
+    // .row--style-dark & {
+    //     color: $color--light;
+    // }
 }
 
-p,
-li,
-blockquote,
-.paragraph,
-%paragraph {
-    color: $font-swatch5-color;
-    font-family: $font-swatch5-font-family;
-    font-size: $font-swatch5-font-size;
-    font-weight: $font-swatch5-font-weight;
-    letter-spacing: $font-swatch5-letter-spacing;
-    line-height: $font-swatch5-line-height;
-}
+// p,
+// li,
+// blockquote,
+// .paragraph,
+// %paragraph {
+//     color: $font-swatch5-color;
+//     font-family: $font-swatch5-font-family;
+//     font-size: $font-swatch5-font-size;
+//     font-weight: $font-swatch5-font-weight;
+//     letter-spacing: $font-swatch5-letter-spacing;
+//     line-height: $font-swatch5-line-height;
+// }
 
 
 
@@ -105,17 +120,32 @@ h1,
     font-weight: $font__h1--font-weight;
     letter-spacing: $font__h1--letter-spacing;
     line-height: $font__h1--line-height;
+
+
+    // .row--style-light & {
+    //     color: $color--darkest;
+    // }
+
+
+    // .row--style-accent & {
+    //     color: $color--lightest;
+    // }
+
+
+    // .row--style-dark & {
+    //     color: $color--lightest;
+    // }
 }
 
-h1,
-.heading--1 {
-    color: $font-swatch1-color;
-    font-family: $font-swatch1-font-family;
-    font-size: $font-swatch1-font-size;
-    font-weight: $font-swatch1-font-weight;
-    letter-spacing: $font-swatch1-letter-spacing;
-    line-height: $font-swatch1-line-height;
-}
+// h1,
+// .heading--1 {
+//     color: $font-swatch1-color;
+//     font-family: $font-swatch1-font-family;
+//     font-size: $font-swatch1-font-size;
+//     font-weight: $font-swatch1-font-weight;
+//     letter-spacing: $font-swatch1-letter-spacing;
+//     line-height: $font-swatch1-line-height;
+// }
 
 
 
@@ -133,18 +163,33 @@ h2,
     font-weight: $font__h2--font-weight;
     letter-spacing: $font__h2--letter-spacing;
     line-height: $font__h2--line-height;
+
+
+    // .row--style-light & {
+    //     color: $color--darkest;
+    // }
+
+
+    // .row--style-accent & {
+    //     color: $color--lightest;
+    // }
+
+
+    // .row--style-dark & {
+    //     color: $color--lightest;
+    // }
 }
 
 
-h2,
-.heading--2 {
-    color: $font-swatch2-color;
-    font-family: $font-swatch2-font-family;
-    font-size: $font-swatch2-font-size;
-    font-weight: $font-swatch2-font-weight;
-    letter-spacing: $font-swatch2-letter-spacing;
-    line-height: $font-swatch2-line-height;
-}
+// h2,
+// .heading--2 {
+//     color: $font-swatch2-color;
+//     font-family: $font-swatch2-font-family;
+//     font-size: $font-swatch2-font-size;
+//     font-weight: $font-swatch2-font-weight;
+//     letter-spacing: $font-swatch2-letter-spacing;
+//     line-height: $font-swatch2-line-height;
+// }
 
 
 
@@ -161,18 +206,33 @@ h3,
     font-weight: $font__h3--font-weight;
     letter-spacing: $font__h3--letter-spacing;
     line-height: $font__h3--line-height;
+
+
+    // .row--style-light & {
+    //     color: $color--darkest;
+    // }
+
+
+    // .row--style-accent & {
+    //     color: $color--lightest;
+    // }
+
+
+    // .row--style-dark & {
+    //     color: $color--lightest;
+    // }
 }
 
 
-h3,
-.heading--3 {
-    color: $font-swatch3-color;
-    font-family: $font-swatch3-font-family;
-    font-size: $font-swatch3-font-size;
-    font-weight: $font-swatch3-font-weight;
-    letter-spacing: $font-swatch3-letter-spacing;
-    line-height: $font-swatch3-line-height;
-}
+// h3,
+// .heading--3 {
+//     color: $font-swatch3-color;
+//     font-family: $font-swatch3-font-family;
+//     font-size: $font-swatch3-font-size;
+//     font-weight: $font-swatch3-font-weight;
+//     letter-spacing: $font-swatch3-letter-spacing;
+//     line-height: $font-swatch3-line-height;
+// }
 
 
 
@@ -189,17 +249,32 @@ h4,
     font-weight: $font__h4--font-weight;
     letter-spacing: $font__h4--letter-spacing;
     line-height: $font__h4--line-height;
+
+
+    // .row--style-light & {
+    //     color: $color--darkest;
+    // }
+
+
+    // .row--style-accent & {
+    //     color: $color--lightest;
+    // }
+
+
+    // .row--style-dark & {
+    //     color: $color--lightest;
+    // }
 }
 
-h4,
-.heading--4 {
-    color: $font-swatch4-color;
-    font-family: $font-swatch4-font-family;
-    font-size: $font-swatch4-font-size;
-    font-weight: $font-swatch4-font-weight;
-    letter-spacing: $font-swatch4-letter-spacing;
-    line-height: $font-swatch4-line-height;
-}
+// h4,
+// .heading--4 {
+//     color: $font-swatch4-color;
+//     font-family: $font-swatch4-font-family;
+//     font-size: $font-swatch4-font-size;
+//     font-weight: $font-swatch4-font-weight;
+//     letter-spacing: $font-swatch4-letter-spacing;
+//     line-height: $font-swatch4-line-height;
+// }
 
 
 
@@ -212,6 +287,21 @@ h4,
 a {
     color: $color__link--text;
     text-decoration: none;
+
+
+    // .row--style-light & {
+    //     color: $color--accent;
+    // }
+
+
+    // .row--style-accent & {
+    //     color: $color--lightest;
+    // }
+
+
+    // .row--style-dark & {
+    //     color: $color--lightest;
+    // }
 
 
     &:hover {
@@ -257,6 +347,21 @@ blockquote {
     -webkit-hyphens: none;
     -moz-hyphens: none;
     hyphens: none;
+
+
+    // .row--style-light & {
+    //     color: $color--darkest;
+    // }
+
+
+    // .row--style-accent & {
+    //     color: $color--lightest;
+    // }
+
+
+    // .row--style-dark & {
+    //     color: $color--lightest;
+    // }
 }
 
 
@@ -273,6 +378,21 @@ blockquote {
     font-weight: $font__feature-headline--font-weight;
     letter-spacing: $font__feature-headline--letter-spacing;
     line-height: $font__feature-headline--line-height;
+
+
+    // .row--style-light & {
+    //     color: $color--darkest;
+    // }
+
+
+    // .row--style-accent & {
+    //     color: $color--lightest;
+    // }
+
+
+    // .row--style-dark & {
+    //     color: $color--lightest;
+    // }
 }
 
 
@@ -283,6 +403,21 @@ blockquote {
     font-weight: $font__feature-strapline--font-weight;
     letter-spacing: $font__feature-strapline--letter-spacing;
     line-height: $font__feature-strapline--line-height;
+
+
+    // .row--style-light & {
+    //     color: $color--dark;
+    // }
+
+
+    // .row--style-accent & {
+    //     color: $color--lightest;
+    // }
+
+
+    // .row--style-dark & {
+    //     color: $color--light;
+    // }
 }
 
 
@@ -298,6 +433,21 @@ pre,
 th,
 td {
     color: $color__h4--text;
+
+
+    // .row--style-light & {
+    //     color: $color--dark;
+    // }
+
+
+    // .row--style-accent & {
+    //     color: $color--lightest;
+    // }
+
+
+    // .row--style-dark & {
+    //     color: $color--light;
+    // }
 }
 
 

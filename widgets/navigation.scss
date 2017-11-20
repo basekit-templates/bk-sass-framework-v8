@@ -11,6 +11,7 @@
     display: block;
     padding: 10px;
     text-decoration: none;
+
     // Font Styles
     font-family: $font__navigation--font-family;
     font-size: $font__navigation--font-size;
@@ -18,6 +19,43 @@
     line-height: $font__navigation--line-height;
     color: $color__navigation--text;
     letter-spacing: $font__navigation--letter-spacing;
+
+
+    // .row--style-light & {
+    //     color: $color--dark;
+    // }
+
+
+    // .row--style-accent & {
+    //     color: $color--lightest;
+    // }
+
+
+    // .row--style-dark & {
+    //     color: $color--light;
+    // }
+
+
+    &:hover,
+    &:active,
+    &:focus {
+
+
+        // .row--style-light & {
+        //     color: $color--darkest;
+        // }
+
+
+        // .row--style-accent & {
+        //     color: $color--lightest;
+        // }
+
+
+        // .row--style-dark & {
+        //     color: $color--lightest;
+        // }
+    }
+
 
     &:hover {
         color: $color__navigation--text--hover;
@@ -36,14 +74,16 @@
     @include clearfix;
 }
 
+
 // Navigation List
 .navigation-list {
     width: 100%;
-    z-index: 9999;
+    // z-index: 9999;
     padding: 0;
     margin: 0;
     list-style: none;
 }
+
 
 // Navigation List Item
 .navigation-item {
@@ -51,14 +91,31 @@
     display: inline-block;
 }
 
+
 // Dropdown Menu
 .navigation-list--children {
+    background-color: $color__body--background;
     display: none;
     position: absolute;
     left: 0;
     top: 100%;
     min-width: 100%;
-    background-color: $color__body--background;
+
+
+    // .row--style-light & {
+    //     background-color: $color--lightest;
+    // }
+
+
+    // .row--style-accent & {
+    //     background-color: $color--accent;
+    // }
+
+
+    // .row--style-dark & {
+    //     background-color: $color--darkest;
+    // }
+
 
     .item-name {
         overflow: hidden;
@@ -66,10 +123,12 @@
     }
 }
 
+
 // Display Dropdown Menu
 .navigation-item:hover .navigation-list--children {
     display: block;
 }
+
 
 .navigation-item--child {
     display: list-item;

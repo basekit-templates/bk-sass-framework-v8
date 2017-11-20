@@ -37,6 +37,10 @@
         min-height: 30px;
         position: relative;
 
+        @media #{$mobile} {
+            margin-bottom: 25px;
+        }
+
 
         // If only one column make full width
         &:only-child {
@@ -47,6 +51,10 @@
         // Removes last columns margin
         &:last-child {
             margin-right: 0;
+
+            @media #{$mobile} {
+                margin-bottom: 0;
+            }
         }
     }
 }
@@ -89,7 +97,7 @@
 
 
     // Makes all columns two up on smaller screens
-    @media only screen and (max-width: 925px) {
+    @media #{$tablet} {
         @include flex-basis(48%);
 
 
@@ -101,7 +109,7 @@
 
 
     // Makes all columns full width at small screens
-    @media only screen and (max-width: 700px) {
+    @media #{$mobile} {
         @include flex-basis(100%);
         margin-right: 0!important;
     }

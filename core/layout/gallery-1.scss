@@ -1,0 +1,118 @@
+
+// -----------------------------
+//  Layout - Gallery 1
+// -----------------------------
+
+
+.widget--gallery-1 {
+
+
+    .gallery-list {
+        @include flex-display;
+        @include flex-wrap(wrap);
+        @include justify-content(space-between);
+
+        @media #{$tablet} {
+            padding: 0;
+        }
+
+        @media only screen and (max-width: 700px) {
+            .gallery-item:first-child {
+                margin-top: 0;
+            }
+
+
+            .gallery-item:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+
+    .gallery-item {
+        @include flex(1 1 auto);
+        margin: 40px 20px;
+        transform: scale(1);
+        transition: transform .35s ease;
+
+        @media #{$tablet} {
+            @include flex-basis(47.5%);
+            max-width: 47.5%;
+            margin: 20px 0;
+        }
+
+        @media only screen and (max-width: 700px) {
+            @include flex-basis(100%);
+            max-width: 100%;
+            margin: 20px 0;
+
+        }
+
+
+        &:hover {
+            transform: scale(1.03);
+        }
+    }
+
+
+    .gallery__image-link {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        padding-bottom: 75%;
+        text-align: center;
+        width: 100%;
+    }
+
+
+    .gallery__image {
+        display: none;
+        visibility: hidden;
+    }
+
+
+    .caption-link {
+        display: block;
+    }
+
+
+    .gallery__caption {
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+
+    .image-title,
+    .image-description {
+        font-family: "questa-sans", helvetica neue, sans-serif;
+        font-size: 17px;
+        font-weight: 400;
+        text-rendering: optimizeLegibility;
+    }
+
+
+    .image-title {
+        color: $color__h2--text;
+        font-size: 17px;
+        letter-spacing: 2px;
+        margin: 25px 0 4px;
+        text-transform: uppercase;
+        -webkit-font-smoothing: subpixel-antialiased;
+
+        @media only screen and (max-width: 700px) {
+            margin-top: 15px;
+        }
+    }
+
+
+    .image-description {
+        font-size: 19px;
+        line-height: 30px;
+        -webkit-font-smoothing: antialiased;
+
+        @media only screen and (max-width: 700px) {
+            font-size: bkscale($font__p--font-size, 0.88);
+            line-height: bkscale($font__p--line-height, 0.88);
+        }
+    }
+}
