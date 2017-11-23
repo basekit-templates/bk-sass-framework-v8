@@ -2281,19 +2281,19 @@ input[type="checkbox"] {
 .row--height {
 
 
-    &-no-padding {
+    &-no-padding .row__container {
         padding-top: 0;
         padding-bottom: 0;
     }
 
 
-    &-thin {
+    &-thin .row__container {
         padding-top: 15px;
         padding-bottom: 15px;
     }
 
 
-    &-default {
+    &-default .row__container {
         padding-top: 60px;
         padding-bottom: 60px;
 
@@ -2306,17 +2306,21 @@ input[type="checkbox"] {
 
     &-full {
         min-height: 100vh;
-        padding-top: 80px;
-        padding-bottom: 80px;
 
-        @media #{$tablet} {
-            padding-top: ( 80px / 2 );
-            padding-bottom: ( 80px / 2 );
-        }
 
-        @media #{$mobile} {
-            padding-top: ( 80px / 2.5 );
-            padding-bottom: ( 80px / 2.5 );
+        .row__container {
+            padding-top: 80px;
+            padding-bottom: 80px;
+
+            @media #{$tablet} {
+                padding-top: ( 80px / 2 );
+                padding-bottom: ( 80px / 2 );
+            }
+
+            @media #{$mobile} {
+                padding-top: ( 80px / 2.5 );
+                padding-bottom: ( 80px / 2.5 );
+            }
         }
     }
 }
@@ -2365,6 +2369,8 @@ input[type="checkbox"] {
 
 
 .row__container {
+    @include flex-display;
+    @include flex-direction(column);
     width: 100%;
 }
 
@@ -2378,16 +2384,6 @@ input[type="checkbox"] {
 #page-zones__header .responsivecolumns .column,
 #page-zones__footer .responsivecolumns .column {
     margin-bottom: 0;
-}
-
-
-#page-zones__footer .row__container {
-    padding-bottom: 0;
-}
-
-
-#page-zones__header .row__container {
-    padding-top: 0;
 }
 
 
@@ -2457,6 +2453,10 @@ input[type="checkbox"] {
         margin: 0;
 
         @media only screen and (max-width: 860px) {
+            @include flex-display;
+            @include justify-content(center);
+            @include align-items(center);
+            @include flex-wrap(wrap);
             opacity: 0;
             visibility: hidden;
             position: fixed;
@@ -2464,10 +2464,6 @@ input[type="checkbox"] {
             left: 0;
             right: 0;
             bottom: 0;
-            @include flex-display;
-            @include justify-content(center);
-            @include align-items(center);
-            @include flex-wrap(wrap);
             text-align: center;
             width: 100%;
         }
