@@ -14,7 +14,6 @@
 
         .responsivecolumns {
             @include flex-wrap(nowrap);
-            @include align-items(flex-start);
 
 
             .columns-two-left,
@@ -25,7 +24,6 @@
 
             .columns-two-left {
                 @include flex(1 1 auto);
-                margin-right: 50px;
             }
 
 
@@ -64,8 +62,8 @@
         .navigation-open & {
 
             @media only screen and (max-width: 860px) {
-                margin-top: 65px;
-                padding-bottom: 15px;
+                margin-top: 70px;
+                padding: 0 20px 20px;
                 opacity: 1;
                 overflow-y: scroll;
                 visibility: visible;
@@ -180,12 +178,10 @@
         cursor: pointer;
         display: inline-block;
         overflow: hidden;
-        padding: 21px 10px 22px 5px;
-        position: absolute;
-        top: -5px;
-        right: -10px;
+        padding: 21px 0 22px 5px;
+        position: relative;
         height: 45px;
-        width: 45px;
+        width: 35px;
         margin-left: auto;
         text-indent: -99999px;
         visibility: visible;
@@ -202,9 +198,14 @@
         margin-left: 0;
         position: absolute;
         left: 5px;
-
         height: 2px;
         width: 30px;
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -o-transform: rotate(0);
+        -ms-transform: rotate(0);
+        transform: rotate(0);
+        transition: transform 0.25s ease;
 
         @media #{$mobile} {
             height: 2px;
@@ -227,22 +228,26 @@
     // ------------------------------
 
     .navigation-open & {
+        background-color: transparent;
         position: relative;
         top: 0;
         z-index: 100000;
-        background-color: transparent;
 
         &:before {
             top: 20px;
-            -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg);
-            -o-transform: rotate(45deg); -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
             transform: rotate(45deg);
         }
 
         &:after {
             bottom: 23px;
-            -webkit-transform: rotate(-45deg); -moz-transform: rotate(-45deg);
-            -o-transform: rotate(-45deg); -ms-transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
             transform: rotate(-45deg);
         }
     }

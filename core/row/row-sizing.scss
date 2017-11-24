@@ -54,6 +54,11 @@
                 padding-bottom: ( 80px / 2.5 );
             }
         }
+
+
+        .ua-ios-safari.editor-loaded & {
+            min-height: var(--viewport-height);
+        }
     }
 }
 
