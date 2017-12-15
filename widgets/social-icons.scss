@@ -7,6 +7,11 @@
 // Social List
 .social-list {
     margin: 0;
+
+
+    .social-item:last-child {
+        margin-right: 0;
+    }
 }
 
 

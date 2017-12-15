@@ -13,16 +13,16 @@
 
 // Widget positioning
 .widget:not([data-name="row"]) {
-    margin-bottom: 12px;
+    padding-bottom: 12px;
 
 
     &:last-child {
-        margin-bottom: 0;
+        padding-bottom: 0;
     }
 }
 
 
 // Removes margin for the spacing widget
 .widget--zone-widget[data-name="space"] {
-	margin-bottom: 0;
+	padding-bottom: 0;
 }

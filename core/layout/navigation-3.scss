@@ -1,13 +1,12 @@
 
 // -----------------------------
-//  Layout - Navigation 2
+//  Layout - Navigation 3
 // -----------------------------
 
 
 
 
-.row--navigation-2 {
-
+.row--navigation-3 {
 
 
 
@@ -40,6 +39,25 @@
     }
 
 
+    [data-name="responsivecolumns"] {
+        margin-bottom: 0!important;
+        padding: 15px 30px;
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        a,
+        li,
+        span {
+            font-size: 18px;
+            list-style: none;
+        }
+    }
+
+
 
 
     //  Widget Styling
@@ -49,7 +67,7 @@
     .navigation-list:not(.navigation-list--children) {
         margin: 0;
 
-        @media #{$tablet} {
+        @media #{$mobile} {
             @include flex-display;
             @include justify-content(center);
             @include align-items(center);
@@ -68,7 +86,7 @@
 
         .navigation-open & {
 
-            @media #{$tablet} {
+            @media #{$mobile} {
                 @include flex-direction(column);
                 padding: 50px 20px 20px;
                 opacity: 1;
@@ -81,9 +99,14 @@
 
 
     .navigation-toggle {
-        background-color: transparent;
-        display: block;
-        position: relative;
+        display: none;
+
+        @media #{$mobile} {
+            background-color: transparent;
+            display: inline-block;
+            position: relative;
+            margin: 0 auto;
+        }
 
         &:hover {
             cursor: pointer;
@@ -106,7 +129,7 @@
             transition-duration: 0;
             visibility: hidden;
 
-            @media #{$tablet} {
+            @media #{$mobile} {
                 display: block;
                 visibility: visible;
             }
@@ -123,7 +146,7 @@
                 width: 25px;
                 -webkit-transition-property: margin, -webkit-transform;
                 -webkit-transition-duration: 0.4s;
-                transition-duration: 0.4s;
+                -webkit-transition-delay: 0.4s, 0;
 
 
                 .navigation-open & {

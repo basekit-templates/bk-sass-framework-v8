@@ -4,21 +4,61 @@
 // -------------------------------------
 
 
-// Navigation Text
-// ---------------
+
+
+//  Navigation Body
+// -----------------
+
+
+.navigation-body {
+    @include clearfix;
+}
+
+
+
+
+//  Navigation List
+// -----------------
+
+
+.navigation-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+
+
+
+// Navigation Item
+// -----------------
+
+
+.navigation-item {
+    position: relative;
+    display: inline-block;
+}
+
+
+
+
+//  Navigation Text
+// -----------------
+
 
 .navigation-item .item-name {
     display: block;
-    padding: 10px;
+    padding: 5px 5px 0;
     text-decoration: none;
 
     // Font Styles
+    color: $color__navigation--text;
     font-family: $font__navigation--font-family;
     font-size: $font__navigation--font-size;
     font-weight: $font__navigation--font-weight;
-    line-height: $font__navigation--line-height;
-    color: $color__navigation--text;
     letter-spacing: $font__navigation--letter-spacing;
+    line-height: $font__navigation--line-height;
 
 
     // .row--style-light & {
@@ -65,34 +105,11 @@
 
 
 
-// Navigation Layout
+
+//  Dropdown Menu
 // -----------------
 
 
-// Navigation Body
-.navigation-body {
-    @include clearfix;
-}
-
-
-// Navigation List
-.navigation-list {
-    width: 100%;
-    // z-index: 9999;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-
-// Navigation List Item
-.navigation-item {
-    position: relative;
-    display: inline-block;
-}
-
-
-// Dropdown Menu
 .navigation-list--children {
     background-color: $color__body--background;
     display: none;
@@ -100,6 +117,7 @@
     left: 0;
     top: 100%;
     min-width: 100%;
+    z-index: 2;
 
 
     // .row--style-light & {
@@ -115,11 +133,19 @@
     // .row--style-dark & {
     //     background-color: $color--darkest;
     // }
+}
 
 
-    .item-name {
-        overflow: hidden;
-        text-overflow: ellipsis;
+// Dropdown Arrow
+.navigation-item {
+
+    &.folder .item-name--parent:after {
+        content: "\f107";
+        font-family: 'FontAwesome';
+        font-size: 13px;
+        margin-left: 5px;
+        position: relative;
+        top: -1px;
     }
 }
 
@@ -130,6 +156,9 @@
 }
 
 
+// Dropdown List Item
 .navigation-item--child {
     display: list-item;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

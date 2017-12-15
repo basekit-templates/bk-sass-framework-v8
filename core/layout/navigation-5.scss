@@ -1,13 +1,12 @@
 
 // -----------------------------
-//  Layout - Navigation 2
+//  LAYOUT - Navigation 5
 // -----------------------------
 
 
 
 
-.row--navigation-2 {
-
+.row--navigation-5 {
 
 
 
@@ -16,24 +15,87 @@
     // ------------------------------
 
 
-    @media #{$tablet} {
+    // Remove padding from container
+    .row__container {
+        padding: 0;
 
-        .responsivecolumns {
-            @include flex-wrap(nowrap);
 
+        // Move row container padding to the next level to allow for full width backgrounds
+        & > .widget {
+            padding: 5px 30px;
+
+            @media #{$tablet} {
+                padding: 5px 25px;
+            }
+
+            @media #{$mobile} {
+                padding: 5px 20px;
+            }
+        }
+
+
+        [data-name="responsivecolumns"]:first-child {
+            padding-bottom: 5px;
+            padding-top: 5px;
+        }
+
+
+        [data-name="responsivecolumns"]:last-child {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    }
+
+
+    // Removes margin from columns wrapper
+    [data-name="responsivecolumns"] {
+
+
+        // Adds spacing to conten widget proceeding a set of columns
+        & + [data-name="content"] {
+            padding: 35px 30px;
+
+            @media #{$tablet} {
+                padding: 25px;
+            }
+
+            @media #{$mobile} {
+                padding: 25px 20px;
+            }
+        }
+    }
+
+
+    // Overides columns layout to allow profile data to shrink
+    .row__container [data-name="responsivecolumns"]:first-child {
+
+
+        @media #{$mobile} {
 
             .columns-two-left,
             .columns-two-right {
-                max-width: 100%;
-            }
-
-
-            .columns-two-left {
                 @include flex(1 1 auto);
+                @include flex-basis(48%);
             }
+        }
+    }
 
 
-            .columns-two-right {
+
+    // Overides columns layout to allow profile data to shrink
+    .row__container [data-name="responsivecolumns"]:last-child {
+
+
+        .columns-two-left,
+        .columns-two-right {
+            @include flex(1 1 auto);
+            @include flex-basis(0);
+            max-width: 100%;
+        }
+
+
+        .columns-two-right {
+            @media #{$tablet} {
                 @include flex(0 1 auto);
             }
         }
@@ -84,6 +146,10 @@
         background-color: transparent;
         display: block;
         position: relative;
+
+        @media #{$tablet} {
+            margin-left: auto;
+        }
 
         &:hover {
             cursor: pointer;
@@ -158,4 +224,29 @@
             }
         }
     }
+
+
+
+
+    //  Colour Overides
+    // ------------------------------
+
+
+    // Adds row specific background colour
+    &.row--style-light [data-name="responsivecolumns"]:first-child {
+        background-color: darken($row-color-light, 8%);
+    }
+
+
+    // Adds row specific background colour
+    &.row--style-accent [data-name="responsivecolumns"]:first-child {
+        background-color: darken($row-color-accent, 8%);
+    }
+
+
+    // Adds row specific background colour
+    &.row--style-dark [data-name="responsivecolumns"]:first-child {
+        background-color: darken($row-color-dark, 8%);
+    }
 }
+

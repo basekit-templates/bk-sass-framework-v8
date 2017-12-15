@@ -28,19 +28,35 @@
 // Standard
 button,
 .button {
-    background-color: $color__button--background;
-    border: 0;
-    // border-radius: $style__button--border-radius;
-    color: $color__button--text;
+
+    // Structure
     display: inline-block;
-    font-family: $font__button--font-family;
-    font-size: $font__button--font-size;
-    font-weight: $font__button--font-weight;
-    line-height: $font__button--line-height;
-    letter-spacing: $font__button--letter-spacing;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+
+    // Colour
+    background-color: $color__button--background;
+    border-color: $color__button--border-color;
+    color: $color__button--text;
+
+    // Font
+    font-family: $font__button--font-family;
+    font-size: $font__button--font-size;
+    letter-spacing: $font__button--letter-spacing;
+    line-height: $font__button--line-height;
+    font-weight: $font__button--font-weight;
+
+    // Style
+    border-style: $style__button--border-style;
+    border-width: $style__button--border-width;
+    border-radius: $style__button--border-radius;
+    box-shadow: $style__button--box-shadow;
+    outline: $style__button--outline;
+    padding: $style__button--padding;
+    text-shadow: $style__button--text-shadow;
+    text-transform: $style__button--text-transform;
+    transition: $style__button--transition;
 
 
     // .row--style-light & {
@@ -65,23 +81,26 @@ button,
     &:focus,
     &:active {
         background-color: $color__button--background--hover;
+        box-shadow: $style__button--box-shadow--hover;
+        color: $color__button--text--hover;
+        outline: $style__button--outline--hover;
         text-decoration: none;
 
 
         // .row--style-light & {
-        //     background-color: $color--accent;
+        //     background-color: lighten($color--accent, 5%);
         //     color: $color--lightest;
         // }
 
 
         // .row--style-accent & {
-        //     background-color: $color--lightest;
-        //     color: $color--lightest;
+        //     background-color: darken($color--lightest, 5%);
+        //     color: $color--accent;
         // }
 
 
         // .row--style-dark & {
-        //     background-color: $color--lightest;
+        //     background-color: darken($color--lightest, 5%);
         //     color: $color--darkest;
         // }
     }
@@ -100,11 +119,6 @@ button,
     &.bold {
         font-weight: bold;
     }
-}
-
-
-.button {
-    padding: 3px 6px;
 }
 
 

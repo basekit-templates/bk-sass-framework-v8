@@ -238,7 +238,7 @@ mark {
  */
 
 small {
-    font-size: 80%;
+    font-size: 95%;
 }
 
 
@@ -1472,6 +1472,110 @@ $tablet--landscape: "only screen and (max-width: 1024px)";
 $tablet: "only screen and (max-width: 900px)";
 $mobile: "only screen and (max-width: 700px)";
 
+@function ch-max($v1, $v2) {
+  @return if($v1 > $v2, $v1, $v2);
+}
+
+@function ch-min($v1, $v2) {
+  @return if($v1 < $v2, $v1, $v2);
+}
+
+@function ch-gcd($a, $b) {
+  // From: http://rosettacode.org/wiki/Greatest_common_divisor#JavaScript
+  @if ($b != 0) {
+    @return ch-gcd($b, $a % $b);
+  } @else {
+    @return abs($a);
+  }
+}
+
+@function ch-pow($base, $exponent, $prec: 12) {
+  // Handles decimal exponents by trying to convert them into a fraction and then use a nthRoot-algorithm for parts of the calculation
+  @if (floor($exponent) != $exponent) {
+    $prec2 : ch-pow(10, $prec);
+    $exponent: round($exponent * $prec2);
+    $denominator: ch-gcd($exponent, $prec2);
+    @return ch-nth-root(ch-pow($base, $exponent / $denominator), $prec2 / $denominator, $prec);
+  }
+
+  $value: $base;
+  @if $exponent > 1 {
+    @for $i from 2 through $exponent {
+      $value: $value * $base;
+    }
+  } @else if $exponent < 1 {
+    @for $i from 0 through -$exponent {
+      $value: $value / $base;
+    }
+  }
+
+  @return $value;
+}
+
+@function ch-nth-root($num, $n: 2, $prec: 12) {
+  // From: http://rosettacode.org/wiki/Nth_root#JavaScript
+  $x: 1;
+
+  @for $i from 0 through $prec {
+    $x: 1 / $n * (($n - 1) * $x + ($num / ch-pow($x, $n - 1)));
+  }
+
+  @return $x;
+}
+
+@function ch-color-luminance($color) {
+  // Adapted from: https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/color.js
+  // Formula: http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
+  $rgba: red($color), green($color), blue($color);
+  $rgba2: ();
+
+  @for $i from 1 through 3 {
+    $rgb: nth($rgba, $i);
+    $rgb: $rgb / 255;
+
+    $rgb: if($rgb < .03928, $rgb / 12.92, ch-pow(($rgb + .055) / 1.055, 2.4, 16));
+
+    $rgba2: append($rgba2, $rgb);
+  }
+
+  @return .2126 * nth($rgba2, 1) + .7152 * nth($rgba2, 2) + 0.0722 * nth($rgba2, 3);
+}
+
+@function ch-color-contrast($color1, $color2) {
+  // Adapted from: https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/color.js
+  // Formula: http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef
+  $luminance1: ch-color-luminance($color1) + .05;
+  $luminance2: ch-color-luminance($color2) + .05;
+  $ratio: $luminance1 / $luminance2;
+
+  @if $luminance2 > $luminance1 {
+    $ratio: 1 / $ratio;
+  }
+
+  $ratio: round($ratio * 10) / 10;
+
+  @return $ratio;
+}
+
+@function ch-best-color-contrast($base, $colors: (#fff, #000), $tolerance: 0) {
+  $best: nth($colors, 1);
+  $contrast: ch-color-contrast($base, $best);
+
+  @for $i from 2 through length($colors) {
+    $currentColor: nth($colors, $i);
+    $currentContrast: ch-color-contrast($base, $currentColor);
+    @if ($currentContrast - $contrast > $tolerance) {
+      $best: $currentColor;
+      $contrast: $currentContrast;
+    }
+  }
+
+  @if ($contrast < 3) {
+    @warn "Contrast ratio of #{$best} on #{$base} is pretty bad, just #{$contrast}";
+  }
+
+  @return $best;
+}
 
 // -------------------------
 // CORE: Alignment Styles
@@ -2396,18 +2500,123 @@ input[type="checkbox"] {
 // Widget Style
 
 // -----------------------------
-//  Layout - Navigation 1
+//  LAYOUT - Navigation 1
 // -----------------------------
 
 
 
 
-.widget--navigation-1 {
+.row--navigation-1 {
+
+
+    .navigation-body {
+
+        @media #{$tablet} {
+            height: 0;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+
+        .navigation-open & {
+            padding-top: 20px;
+            height: auto;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+
+    .navigation-item:not(.navigation-item--child) {
+
+        @media #{$tablet} {
+            display: block;
+        }
+    }
 
 
     .navigation-toggle {
         display: none;
-        visibility: hidden;
+
+        @media #{$tablet} {
+            background-color: transparent;
+            display: block;
+            margin: 0 auto;
+            position: relative;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+
+        span {
+            background-color: #fff;
+            display: none;
+            font-size: 0;
+            line-height: 0;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            top: 0;
+            height: 2px;
+            width: 25px;
+            text-indent: -9999px;
+            -webkit-transition-duration: 0;
+            transition-duration: 0;
+            visibility: hidden;
+
+            @media #{$tablet} {
+                display: block;
+                visibility: visible;
+            }
+
+
+            &:before,
+            &:after {
+                background-color: #fff;
+                content: '';
+                display: block;
+                margin-left: 0;
+                position: absolute;
+                height: 2px;
+                width: 25px;
+                -webkit-transition-property: margin, -webkit-transform;
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
+
+
+                .navigation-open & {
+                    margin-top: 0;
+                }
+            }
+
+
+            &:before {
+                margin-top: -8px;
+
+
+                .navigation-open & {
+                    transform: rotate(45deg);
+                }
+            }
+
+
+            &:after {
+                margin-top: 8px;
+
+
+                .navigation-open & {
+                    transform: rotate(-45deg);
+                }
+            }
+
+
+            .navigation-open & {
+                background-color: transparent;
+                z-index: 4;
+            }
+        }
     }
 }
 
@@ -2418,8 +2627,14 @@ input[type="checkbox"] {
 
 
 
-.widget--navigation-2 {
+.row--navigation-2 {
 
+
+
+
+
+    // Layout Options & Overides
+    // ------------------------------
 
 
     @media #{$tablet} {
@@ -2448,14 +2663,14 @@ input[type="checkbox"] {
 
 
 
-    // Navigation List
+    //  Widget Styling
     // ------------------------------
 
 
-    .navigation-list {
+    .navigation-list:not(.navigation-list--children) {
         margin: 0;
 
-        @media only screen and (max-width: 860px) {
+        @media #{$tablet} {
             @include flex-display;
             @include justify-content(center);
             @include align-items(center);
@@ -2471,11 +2686,12 @@ input[type="checkbox"] {
             width: 100%;
         }
 
+
         .navigation-open & {
 
-            @media only screen and (max-width: 860px) {
-                margin-top: 70px;
-                padding: 0 20px 20px;
+            @media #{$tablet} {
+                @include flex-direction(column);
+                padding: 50px 20px 20px;
                 opacity: 1;
                 overflow-y: scroll;
                 visibility: visible;
@@ -2485,31 +2701,647 @@ input[type="checkbox"] {
     }
 
 
+    .navigation-toggle {
+        background-color: transparent;
+        display: block;
+        position: relative;
+
+        &:hover {
+            cursor: pointer;
+        }
 
 
-    // Navigation Link
+        span {
+            background-color: #fff;
+            display: none;
+            font-size: 0;
+            line-height: 0;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            top: 0;
+            height: 2px;
+            width: 25px;
+            text-indent: -9999px;
+            -webkit-transition-duration: 0;
+            transition-duration: 0;
+            visibility: hidden;
+
+            @media #{$tablet} {
+                display: block;
+                visibility: visible;
+            }
+
+
+            &:before,
+            &:after {
+                background-color: #fff;
+                content: '';
+                display: block;
+                margin-left: 0;
+                position: absolute;
+                height: 2px;
+                width: 25px;
+                -webkit-transition-property: margin, -webkit-transform;
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
+
+
+                .navigation-open & {
+                    margin-top: 0;
+                }
+            }
+
+
+            &:before {
+                margin-top: -8px;
+
+
+                .navigation-open & {
+                    transform: rotate(45deg);
+                }
+            }
+
+
+            &:after {
+                margin-top: 8px;
+
+
+                .navigation-open & {
+                    transform: rotate(-45deg);
+                }
+            }
+
+
+            .navigation-open & {
+                background-color: transparent;
+                z-index: 4;
+            }
+        }
+    }
+}
+
+
+// -----------------------------
+//  Layout - Navigation 3
+// -----------------------------
+
+
+
+
+.row--navigation-3 {
+
+
+
+
+    // Layout Options & Overides
     // ------------------------------
 
 
-    .navigation-item {
+    @media #{$tablet} {
+
+        .responsivecolumns {
+            @include flex-wrap(nowrap);
+
+
+            .columns-two-left,
+            .columns-two-right {
+                max-width: 100%;
+            }
+
+
+            .columns-two-left {
+                @include flex(1 1 auto);
+            }
+
+
+            .columns-two-right {
+                @include flex(0 1 auto);
+            }
+        }
+    }
+
+
+    [data-name="responsivecolumns"] {
+        margin-bottom: 0!important;
+        padding: 15px 30px;
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        a,
+        li,
+        span {
+            font-size: 18px;
+            list-style: none;
+        }
+    }
+
+
+
+
+    //  Widget Styling
+    // ------------------------------
+
+
+    .navigation-list:not(.navigation-list--children) {
+        margin: 0;
+
+        @media #{$mobile} {
+            @include flex-display;
+            @include justify-content(center);
+            @include align-items(center);
+            @include flex-wrap(wrap);
+            opacity: 0;
+            visibility: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            text-align: center;
+            width: 100%;
+        }
+
+
+        .navigation-open & {
+
+            @media #{$mobile} {
+                @include flex-direction(column);
+                padding: 50px 20px 20px;
+                opacity: 1;
+                overflow-y: scroll;
+                visibility: visible;
+                z-index: 3;
+            }
+        }
+    }
+
+
+    .navigation-toggle {
+        display: none;
+
+        @media #{$mobile} {
+            background-color: transparent;
+            display: inline-block;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+
+        span {
+            background-color: #fff;
+            display: none;
+            font-size: 0;
+            line-height: 0;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            top: 0;
+            height: 2px;
+            width: 25px;
+            text-indent: -9999px;
+            -webkit-transition-duration: 0;
+            transition-duration: 0;
+            visibility: hidden;
+
+            @media #{$mobile} {
+                display: block;
+                visibility: visible;
+            }
+
+
+            &:before,
+            &:after {
+                background-color: #fff;
+                content: '';
+                display: block;
+                margin-left: 0;
+                position: absolute;
+                height: 2px;
+                width: 25px;
+                -webkit-transition-property: margin, -webkit-transform;
+                -webkit-transition-duration: 0.4s;
+                -webkit-transition-delay: 0.4s, 0;
+
+
+                .navigation-open & {
+                    margin-top: 0;
+                }
+            }
+
+
+            &:before {
+                margin-top: -8px;
+
+
+                .navigation-open & {
+                    transform: rotate(45deg);
+                }
+            }
+
+
+            &:after {
+                margin-top: 8px;
+
+
+                .navigation-open & {
+                    transform: rotate(-45deg);
+                }
+            }
+
+
+            .navigation-open & {
+                background-color: transparent;
+                z-index: 4;
+            }
+        }
+    }
+}
+
+
+// -----------------------------
+//  LAYOUT - Navigation 4
+// -----------------------------
+
+
+
+
+.row--navigation-4 {
+
+
+
+
+    // Layout Options & Overides
+    // ------------------------------
+
+
+    // Remove padding from container
+    .row__container {
+        padding: 0;
+
+
+        // Move row container padding to the next level to allow for full width backgrounds
+        & > .widget {
+            padding: 5px 30px;
+
+            @media #{$tablet} {
+                padding: 5px 25px;
+            }
+
+            @media #{$mobile} {
+                padding: 5px 20px;
+            }
+        }
+    }
+
+
+    // Removes margin from columns wrapper
+    [data-name="responsivecolumns"] {
+        padding-bottom: 0!important;
+
+
+        // Adds spacing to conten widget proceeding a set of columns
+        & + [data-name="content"] {
+            padding: 35px 30px !important;
+
+            @media #{$tablet} {
+                padding: 25px !important;
+            }
+
+            @media #{$mobile} {
+                padding: 25px 20px !important;
+            }
+        }
+    }
+
+
+    // Overides columns layout to allow profile data to shrink
+    .columns-two-right {
+        @include flex-basis(initial);
+        @include flex-display;
+        @include align-items(center);
+        @include justify-content(flex-end);
+
+        @media #{$tablet} {
+            @include flex-grow(1);
+            text-align: right;
+        }
+
+
+        @media #{$mobile} {
+            display: block;
+        }
+
+
+        // Removes widget margin for header
+        .widget {
+            padding-bottom: 0;
+        }
+
+
+        // Adds spacing to profile widgets inside a column
+        .widget + .widget {
+            margin-left: 15px;
+        }
+    }
+
+
+    // Overides columns layout to allow navigation to expand
+    .columns-two-left {
+        @include flex(1 1 auto);
+        @include flex-basis(initial);
+
+        @media #{$tablet} {
+            max-width: 45px;
+        }
+    }
+
+
+
+
+    //  Widget Styling
+    // ------------------------------
+
+
+    .navigation-list:not(.navigation-list--children) {
+        margin: 0;
+
+        @media #{$tablet} {
+            @include flex-display;
+            @include justify-content(center);
+            @include align-items(center);
+            @include flex-wrap(wrap);
+            opacity: 0;
+            visibility: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            text-align: center;
+            width: 100%;
+        }
+
 
         .navigation-open & {
 
             @media #{$tablet} {
-                display: block;
-                width: 80%;
+                @include flex-direction(column);
+                padding: 50px 20px 20px;
+                opacity: 1;
+                overflow-y: scroll;
+                visibility: visible;
+                z-index: 3;
             }
+        }
+    }
+
+
+    .navigation-toggle {
+        background-color: transparent;
+        display: block;
+        position: relative;
+
+        &:hover {
+            cursor: pointer;
         }
 
 
-        .item-name {
-            font-family: "Questa Sans", geneva, lucida console, sans-serif;
-            font-size: $font__navigation--font-size;
-            line-height: $font__navigation--line-height;
-            padding: 10px 0;
+        span {
+            background-color: #fff;
+            display: none;
+            font-size: 0;
+            line-height: 0;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            top: 0;
+            height: 2px;
+            width: 25px;
+            text-indent: -9999px;
+            -webkit-transition-duration: 0;
+            transition-duration: 0;
+            visibility: hidden;
+
+            @media #{$tablet} {
+                display: block;
+                visibility: visible;
+            }
+
+
+            &:before,
+            &:after {
+                background-color: #fff;
+                content: '';
+                display: block;
+                margin-left: 0;
+                position: absolute;
+                height: 2px;
+                width: 25px;
+                -webkit-transition-property: margin, -webkit-transform;
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
+
+
+                .navigation-open & {
+                    margin-top: 0;
+                }
+            }
+
+
+            &:before {
+                margin-top: -8px;
+
+
+                .navigation-open & {
+                    transform: rotate(45deg);
+                }
+            }
+
+
+            &:after {
+                margin-top: 8px;
+
+
+                .navigation-open & {
+                    transform: rotate(-45deg);
+                }
+            }
+
+
+            .navigation-open & {
+                background-color: transparent;
+                z-index: 4;
+            }
+        }
+    }
+
+
+
+
+    //  Colour Overides
+    // ------------------------------
+
+
+    // Adds row specific background colour
+    &.row--style-light [data-name="responsivecolumns"] {
+        background-color: darken($row-color-light, 8%);
+    }
+
+
+    // Adds row specific background colour
+    &.row--style-accent [data-name="responsivecolumns"] {
+        background-color: darken($row-color-accent, 8%);
+    }
+
+
+    // Adds row specific background colour
+    &.row--style-dark [data-name="responsivecolumns"] {
+        background-color: darken($row-color-dark, 8%);
+    }
+
+
+    // Removes the option for a background colour on the navigation
+    .navigation-list:not(.navigation-list--children) {
+
+        @media only screen and (min-width: 900px) {
+            background-color: transparent!important;
+        }
+    }
+
+
+    // Makes sure the navigation text colour is legible over the background
+    .navigation-item {
+
+
+        // Colour - Light
+        .row--style-light & {
+            // ch-best-color-contrast($color--lightest, $colors: ($color--accent, $color--darkest), $tolerance: 0)
+            color: darken($color__navigation--text, 8%);
+        }
+
+
+        // Colour - Accent
+        .row--style-accent & {
+            color: $color__navigation--text;
+        }
+
+
+        // Colour - Dark
+        .row--style-dark & {
+            color: lighten($color__navigation--text, 8%);
+        }
+    }
+}
+
+
+
+// -----------------------------
+//  LAYOUT - Navigation 5
+// -----------------------------
+
+
+
+
+.row--navigation-5 {
+
+
+
+
+    // Layout Options & Overides
+    // ------------------------------
+
+
+    // Remove padding from container
+    .row__container {
+        padding: 0;
+
+
+        // Move row container padding to the next level to allow for full width backgrounds
+        & > .widget {
+            padding: 5px 30px;
+
+            @media #{$tablet} {
+                padding: 5px 25px;
+            }
 
             @media #{$mobile} {
-                padding: 6px 0;
+                padding: 5px 20px;
+            }
+        }
+
+
+        [data-name="responsivecolumns"]:first-child {
+            padding-bottom: 5px;
+            padding-top: 5px;
+        }
+
+
+        [data-name="responsivecolumns"]:last-child {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    }
+
+
+    // Removes margin from columns wrapper
+    [data-name="responsivecolumns"] {
+
+
+        // Adds spacing to conten widget proceeding a set of columns
+        & + [data-name="content"] {
+            padding: 35px 30px;
+
+            @media #{$tablet} {
+                padding: 25px;
+            }
+
+            @media #{$mobile} {
+                padding: 25px 20px;
+            }
+        }
+    }
+
+
+    // Overides columns layout to allow profile data to shrink
+    .row__container [data-name="responsivecolumns"]:first-child {
+
+
+        @media #{$mobile} {
+
+            .columns-two-left,
+            .columns-two-right {
+                @include flex(1 1 auto);
+                @include flex-basis(48%);
+            }
+        }
+    }
+
+
+
+    // Overides columns layout to allow profile data to shrink
+    .row__container [data-name="responsivecolumns"]:last-child {
+
+
+        .columns-two-left,
+        .columns-two-right {
+            @include flex(1 1 auto);
+            @include flex-basis(0);
+            max-width: 100%;
+        }
+
+
+        .columns-two-right {
+            @media #{$tablet} {
+                @include flex(0 1 auto);
             }
         }
     }
@@ -2517,153 +3349,152 @@ input[type="checkbox"] {
 
 
 
-    // Dropdown Menu
+    //  Widget Styling
     // ------------------------------
 
 
-    // Dropdown Arrow
-    .item-name--parent:after {
-        border: 5px solid transparent;
-        content: "";
-        display: inline-block;
-        margin-left: 6px;
-        vertical-align: middle;
-    }
+    .navigation-list:not(.navigation-list--children) {
+        margin: 0;
+
+        @media #{$tablet} {
+            @include flex-display;
+            @include justify-content(center);
+            @include align-items(center);
+            @include flex-wrap(wrap);
+            opacity: 0;
+            visibility: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            text-align: center;
+            width: 100%;
+        }
 
 
-    // Dropdown Menu List
-    .navigation-list--children {
-        display: block;
-        opacity: 0;
-        overflow: hidden;
-        height: 0;
-        position: relative;
-        transition: opacity 0.35s ease, visibility 0.35s ease;
-        visibility: hidden;
+        .navigation-open & {
 
-
-        // Dropdown Item Link
-        .item-name {
-            padding: 10px 15px;
+            @media #{$tablet} {
+                @include flex-direction(column);
+                padding: 50px 20px 20px;
+                opacity: 1;
+                overflow-y: scroll;
+                visibility: visible;
+                z-index: 3;
+            }
         }
     }
 
 
-    // Dropdown Menu - Open
-    .navigation-item.folder-open .navigation-list--children {
-        display: block;
-        height: auto;
-        margin: 0 auto;
-        opacity: 1;
-        padding: 10px 0;
-        width: auto;
-        transition: opacity 0.35s ease, visibility 0.35s ease;
-        visibility: visible;
-
-        @media #{$mobile}{
-            padding: 0;
-        }
-    }
-}
-
-
-
-
-//  Navigation Toggle Button
-// ------------------------------
-
-
-.navigation-open {
-    position: fixed;
-    width: 100%;
-    overflow: hidden;
-}
-
-
-.navigation-toggle {
-    display: none;
-    visibility: hidden;
-
-    @media only screen and (max-width: 860px) {
-        background-clip: content-box;
-        border-radius: 0;
-        cursor: pointer;
-        display: inline-block;
-        overflow: hidden;
-        padding: 21px 0 22px 5px;
-        position: relative;
-        height: 45px;
-        width: 35px;
-        margin-left: auto;
-        text-indent: -99999px;
-        visibility: visible;
-        z-index: 4;
-    }
-
-
-    // Top and bottom navigation item bar
-    &:after,
-    &:before {
-        content: "";
-        display: block;
-        margin-right: 0;
-        margin-left: 0;
-        position: absolute;
-        left: 5px;
-        height: 2px;
-        width: 30px;
-        -webkit-transform: rotate(0);
-        -moz-transform: rotate(0);
-        -o-transform: rotate(0);
-        -ms-transform: rotate(0);
-        transform: rotate(0);
-        transition: transform 0.25s ease;
-
-        @media #{$mobile} {
-            height: 2px;
-        }
-    }
-
-
-    // Top bar
-    &:before {
-        top: 13px;
-    }
-
-    // Bottom bar
-    &:after {
-        bottom: 14px;
-    }
-
-
-    // Toggle Button open state
-    // ------------------------------
-
-    .navigation-open & {
+    .navigation-toggle {
         background-color: transparent;
+        display: block;
         position: relative;
-        top: 0;
-        z-index: 100000;
 
-        &:before {
-            top: 20px;
-            -webkit-transform: rotate(45deg);
-            -moz-transform: rotate(45deg);
-            -o-transform: rotate(45deg);
-            -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
+        @media #{$tablet} {
+            margin-left: auto;
         }
 
-        &:after {
-            bottom: 23px;
-            -webkit-transform: rotate(-45deg);
-            -moz-transform: rotate(-45deg);
-            -o-transform: rotate(-45deg);
-            -ms-transform: rotate(-45deg);
-            transform: rotate(-45deg);
+        &:hover {
+            cursor: pointer;
+        }
+
+
+        span {
+            background-color: #fff;
+            display: none;
+            font-size: 0;
+            line-height: 0;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            top: 0;
+            height: 2px;
+            width: 25px;
+            text-indent: -9999px;
+            -webkit-transition-duration: 0;
+            transition-duration: 0;
+            visibility: hidden;
+
+            @media #{$tablet} {
+                display: block;
+                visibility: visible;
+            }
+
+
+            &:before,
+            &:after {
+                background-color: #fff;
+                content: '';
+                display: block;
+                margin-left: 0;
+                position: absolute;
+                height: 2px;
+                width: 25px;
+                -webkit-transition-property: margin, -webkit-transform;
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
+
+
+                .navigation-open & {
+                    margin-top: 0;
+                }
+            }
+
+
+            &:before {
+                margin-top: -8px;
+
+
+                .navigation-open & {
+                    transform: rotate(45deg);
+                }
+            }
+
+
+            &:after {
+                margin-top: 8px;
+
+
+                .navigation-open & {
+                    transform: rotate(-45deg);
+                }
+            }
+
+
+            .navigation-open & {
+                background-color: transparent;
+                z-index: 4;
+            }
         }
     }
+
+
+
+
+    //  Colour Overides
+    // ------------------------------
+
+
+    // Adds row specific background colour
+    &.row--style-light [data-name="responsivecolumns"]:first-child {
+        background-color: darken($row-color-light, 8%);
+    }
+
+
+    // Adds row specific background colour
+    &.row--style-accent [data-name="responsivecolumns"]:first-child {
+        background-color: darken($row-color-accent, 8%);
+    }
+
+
+    // Adds row specific background colour
+    &.row--style-dark [data-name="responsivecolumns"]:first-child {
+        background-color: darken($row-color-dark, 8%);
+    }
 }
+
 
 
 // -----------------------------
@@ -2785,6 +3616,70 @@ input[type="checkbox"] {
 }
 
 
+// -----------------------------
+//  Layout - footer_3
+// -----------------------------
+
+
+
+.row--footer-3 {
+
+
+    .content-block {
+
+
+        ul {
+            list-style: none;
+            margin: 0;
+        }
+
+
+        li {
+            margin-bottom: 3px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+
+
+#page-zones__footer {
+
+
+    .row__container {
+        padding-bottom: 25px;
+    }
+
+
+    .responsivecolumns .column:not(:last-child) {
+
+        @media #{$tablet} {
+            margin-bottom: 15px;
+        }
+    }
+
+
+    h1,h2,h3,h4,p,li {
+
+        @media #{$mobile} {
+            text-align: center;
+        }
+    }
+
+
+    [data-name="responsivecolumns"] + [data-name='content'] {
+        margin-top: 30px;
+        padding-top: 25px;
+
+        @media #{$tablet} {
+            margin-top: 5px;
+        }
+    }
+}
+
 
 
 
@@ -2809,18 +3704,18 @@ input[type="checkbox"] {
 
 // Widget positioning
 .widget:not([data-name="row"]) {
-    margin-bottom: 12px;
+    padding-bottom: 12px;
 
 
     &:last-child {
-        margin-bottom: 0;
+        padding-bottom: 0;
     }
 }
 
 
 // Removes margin for the spacing widget
 .widget--zone-widget[data-name="space"] {
-	margin-bottom: 0;
+	padding-bottom: 0;
 }
 
 
@@ -2848,21 +3743,61 @@ input[type="checkbox"] {
 // -------------------------------------
 
 
-// Navigation Text
-// ---------------
+
+
+//  Navigation Body
+// -----------------
+
+
+.navigation-body {
+    @include clearfix;
+}
+
+
+
+
+//  Navigation List
+// -----------------
+
+
+.navigation-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+
+
+
+// Navigation Item
+// -----------------
+
+
+.navigation-item {
+    position: relative;
+    display: inline-block;
+}
+
+
+
+
+//  Navigation Text
+// -----------------
+
 
 .navigation-item .item-name {
     display: block;
-    padding: 10px;
+    padding: 5px 5px 0;
     text-decoration: none;
 
     // Font Styles
+    color: $color__navigation--text;
     font-family: $font__navigation--font-family;
     font-size: $font__navigation--font-size;
     font-weight: $font__navigation--font-weight;
-    line-height: $font__navigation--line-height;
-    color: $color__navigation--text;
     letter-spacing: $font__navigation--letter-spacing;
+    line-height: $font__navigation--line-height;
 
 
     // .row--style-light & {
@@ -2909,34 +3844,11 @@ input[type="checkbox"] {
 
 
 
-// Navigation Layout
+
+//  Dropdown Menu
 // -----------------
 
 
-// Navigation Body
-.navigation-body {
-    @include clearfix;
-}
-
-
-// Navigation List
-.navigation-list {
-    width: 100%;
-    // z-index: 9999;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-
-// Navigation List Item
-.navigation-item {
-    position: relative;
-    display: inline-block;
-}
-
-
-// Dropdown Menu
 .navigation-list--children {
     background-color: $color__body--background;
     display: none;
@@ -2944,6 +3856,7 @@ input[type="checkbox"] {
     left: 0;
     top: 100%;
     min-width: 100%;
+    z-index: 2;
 
 
     // .row--style-light & {
@@ -2959,11 +3872,19 @@ input[type="checkbox"] {
     // .row--style-dark & {
     //     background-color: $color--darkest;
     // }
+}
 
 
-    .item-name {
-        overflow: hidden;
-        text-overflow: ellipsis;
+// Dropdown Arrow
+.navigation-item {
+
+    &.folder .item-name--parent:after {
+        content: "\f107";
+        font-family: 'FontAwesome';
+        font-size: 13px;
+        margin-left: 5px;
+        position: relative;
+        top: -1px;
     }
 }
 
@@ -2974,8 +3895,11 @@ input[type="checkbox"] {
 }
 
 
+// Dropdown List Item
 .navigation-item--child {
     display: list-item;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -3131,7 +4055,7 @@ img {
 
 // Image Link
 .image-link {
-	display: inline-block;
+	display: block;
 	font-size: 0;
 	line-height: 0;
     max-width: 100%;
@@ -3163,7 +4087,7 @@ img {
 // --------------------
 
 .imagewidget__image {
-    display: inline;
+    display: inline-block;
 }
 
 
@@ -3546,16 +4470,14 @@ button,
 
 
     @media #{$mobile}, only screen and (max-width: 700px) and (orientation:landscape) {
-        background-color: $color__button--background;
         border: 0;
-        color: $color__button--text;
+        color: $color__link--text;
         display: inline-block;
-        font-family: $font__button--font-family;
-        font-size: $font__button--font-size;
-        font-weight: $font__button--font-weight;
-        line-height: $font__button--line-height;
-        letter-spacing: $font__button--letter-spacing;
-        padding: 6px 12px;
+        font-family: $font__p--font-family;
+        font-size: $font__p--font-size;
+        font-weight: $font__p--font-weight;
+        line-height: $font__p--line-height;
+        letter-spacing: $font__p--letter-spacing;
         text-decoration: none;
         -webkit-user-select: none;
         -moz-user-select: none;
@@ -3563,7 +4485,10 @@ button,
 
 
         &:hover {
-            background-color: $color__button--background--hover;
+            // background-color: $color__button--background--hover;
+            // box-shadow: $style__button--box-shadow--hover;
+            // color: $color__button--text--hover;
+            // outline: $style__button--outline--hover;
             text-decoration: none;
         }
 
@@ -3586,6 +4511,11 @@ button,
 // Social List
 .social-list {
     margin: 0;
+
+
+    .social-item:last-child {
+        margin-right: 0;
+    }
 }
 
 

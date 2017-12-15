@@ -1,0 +1,43 @@
+
+// -------------------------------------
+//  Variables - Buttons
+// -------------------------------------
+
+
+
+
+// Colour
+// --------------
+
+$color__button--border-color: transparent !default;
+$color__button--border-color--hover: transparent !default;
+$color__button--background: transparent !default;
+$color__button--background--hover: transparent !default;
+
+
+
+// Fonts
+// --------------
+
+$font__button--font-family: $font__heading--font-family;
+$font__button--font-size: 16px !default;
+$font__button--font-weight: 400 !default;
+$font__button--letter-spacing: 0 !default;
+$font__button--line-height: 18px !default;
+
+
+
+// Style
+// --------------
+
+$style__button--border-style: none !default;
+$style__button--border-width: 0 !default;
+$style__button--border-radius: 0 !default;
+$style__button--box-shadow: none !default;
+$style__button--box-shadow--hover: none !default;
+$style__button--outline: 0 !default;
+$style__button--outline--hover: 0 !default;
+$style__button--padding: 14px 20px !default;
+$style__button--text-shadow: none !default;
+$style__button--text-transform: normal !default;
+$style__button--transition: none !default;
