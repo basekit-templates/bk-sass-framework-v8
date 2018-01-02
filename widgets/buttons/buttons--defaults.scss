@@ -1,6 +1,6 @@
 
 // -------------------------------------
-//  Variables - Buttons
+//  Defaults - Buttons
 // -------------------------------------
 
 
@@ -19,7 +19,7 @@ $color__button--background--hover: transparent !default;
 // Fonts
 // --------------
 
-$font__button--font-family: $font__heading--font-family;
+$font__button--font-family: 'Helvetica, sans-serif' !default;
 $font__button--font-size: 16px !default;
 $font__button--font-weight: 400 !default;
 $font__button--letter-spacing: 0 !default;

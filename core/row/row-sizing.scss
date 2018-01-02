@@ -6,6 +6,20 @@
 
 
 
+//  Sizing Variables
+// -------------------------------------
+
+
+$height--no-padding: 0;
+$height--thin: 15px;
+$height--default: 60px;
+$height--full: 80px;
+
+$width--contained: 30px;
+$width--wide: 40px;
+$width--full: 30px;
+
+
 //  Row Height
 // -------------------------------------
 
@@ -14,24 +28,23 @@
 
 
     &-no-padding .row__container {
-        padding-top: 0;
-        padding-bottom: 0;
+        padding: $height--no-padding!important;
     }
 
 
     &-thin .row__container {
-        padding-top: 15px;
-        padding-bottom: 15px;
+        padding-top: $height--thin;
+        padding-bottom: $height--thin;
     }
 
 
     &-default .row__container {
-        padding-top: 60px;
-        padding-bottom: 60px;
+        padding-top: $height--default;
+        padding-bottom: $height--default;
 
         @media #{$mobile} {
-            padding-top: ( 60px / 2 );
-            padding-bottom: ( 60px / 2 );
+            padding-top: ( $height--default / 2 );
+            padding-bottom: ( $height--default / 2 );
         }
     }
 
@@ -41,17 +54,17 @@
 
 
         .row__container {
-            padding-top: 80px;
-            padding-bottom: 80px;
+            padding-top: $height--full;
+            padding-bottom: $height--full;
 
             @media #{$tablet} {
-                padding-top: ( 80px / 2 );
-                padding-bottom: ( 80px / 2 );
+                padding-top: ( $height--full / 2 );
+                padding-bottom: ( $height--full / 2 );
             }
 
             @media #{$mobile} {
-                padding-top: ( 80px / 2.5 );
-                padding-bottom: ( 80px / 2.5 );
+                padding-top: ( $height--full / 2.5 );
+                padding-bottom: ( $height--full / 2.5 );
             }
         }
 
@@ -74,8 +87,8 @@
 
     &-contained .row__container {
         margin: 0 auto;
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: $width--contained;
+        padding-right: $width--contained;
         max-width: 1200px;
     }
 
@@ -85,21 +98,21 @@
         width: 90%;
 
         @media #{$tablet--landscape} {
-            padding-left: 40px;
-            padding-right: 40px;
+            padding-left: $width--wide;
+            padding-right: $width--wide;
             width: 100%;
         }
 
         @media #{$tablet} {
-            padding-left: ( 40px / 1.5 );
-            padding-right: ( 40px / 1.5 );
+            padding-left: ( $width--wide / 1.5 );
+            padding-right: ( $width--wide / 1.5 );
         }
     }
 
 
     &-full .row__container {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: $width--full;
+        padding-right: $width--full;
         width: 100%;
     }
 }

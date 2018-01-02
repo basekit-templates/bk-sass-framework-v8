@@ -757,11 +757,11 @@ $font--body: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 body {
     background-color: $color__body--background;
     color: $color__p--text;
-    font-family: $font__p--font-family;
-    font-size: $font__p--font-size;
-    font-weight: $font__p--font-weight;
-    line-height: $font__p--line-height;
-    letter-spacing: $font__p--letter-spacing;
+    font-family: $font__body--font-family;
+    font-size: $font__body--font-size;
+    font-weight: $font__body--font-weight;
+    line-height: $font__body--line-height;
+    letter-spacing: $font__body--letter-spacing;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -780,15 +780,17 @@ body {
 // Paragraph, List Elements, Blockquote
 p,
 li,
+ol,
 blockquote,
 .paragraph,
-%paragraph {
+%paragraph,
+.p-font {
     color: $color__p--text;
-    font-family: $font__p--font-family;
-    font-size: $font__p--font-size;
-    font-weight: $font__p--font-weight;
-    letter-spacing: $font__p--letter-spacing;
-    line-height: $font__p--line-height;
+    font-family: $font__body--font-family;
+    font-size: $font__body--font-size;
+    font-weight: $font__body--font-weight;
+    letter-spacing: $font__body--letter-spacing;
+    line-height: $font__body--line-height;
 
 
     // .row--style-light & {
@@ -829,7 +831,7 @@ blockquote,
 h1,
 .heading--1 {
     color: $color__h1--text;
-    font-family: $font__h1--font-family;
+    font-family: $font__heading--font-family;
     font-size: $font__h1--font-size;
     font-weight: $font__h1--font-weight;
     letter-spacing: $font__h1--letter-spacing;
@@ -872,7 +874,7 @@ h1,
 h2,
 .heading--2 {
     color: $color__h2--text;
-    font-family: $font__h2--font-family;
+    font-family: $font__heading--font-family;
     font-size: $font__h2--font-size;
     font-weight: $font__h2--font-weight;
     letter-spacing: $font__h2--letter-spacing;
@@ -915,7 +917,7 @@ h2,
 h3,
 .heading--3 {
     color: $color__h3--text;
-    font-family: $font__h3--font-family;
+    font-family: $font__heading--font-family;
     font-size: $font__h3--font-size;
     font-weight: $font__h3--font-weight;
     letter-spacing: $font__h3--letter-spacing;
@@ -958,7 +960,7 @@ h3,
 h4,
 .heading--4 {
     color: $color__h4--text;
-    font-family: $font__h4--font-family;
+    font-family: $font__heading--font-family;
     font-size: $font__h4--font-size;
     font-weight: $font__h4--font-weight;
     letter-spacing: $font__h4--letter-spacing;
@@ -993,6 +995,84 @@ h4,
 
 
 
+//  1.6 - Heading 5
+// ------------------------------
+
+
+$font__h5--font-family: transparent!default;
+$font__h5--font-size: transparent!default;
+$font__h5--font-weight: transparent!default;
+$font__h5--letter-spacing: transparent!default;
+$font__h5--line-height: transparent!default;
+
+
+h5,
+.heading--5 {
+    // color: $color__h5--text;
+    font-family: $font__heading--font-family;
+    font-size: $font__h5--font-size;
+    font-weight: $font__h5--font-weight;
+    letter-spacing: $font__h5--letter-spacing;
+    line-height: $font__h5--line-height;
+
+
+    .row--style-light & {
+        color: $color--darkest;
+    }
+
+
+    .row--style-accent & {
+        color: $color--lightest;
+    }
+
+
+    .row--style-dark & {
+        color: $color--lightest;
+    }
+}
+
+
+
+
+//  1.7 - Heading 6
+// ------------------------------
+
+
+$font__h6--font-family: transparent!default;
+$font__h6--font-size: transparent!default;
+$font__h6--font-weight: transparent!default;
+$font__h6--letter-spacing: transparent!default;
+$font__h6--line-height: transparent!default;
+
+
+h6,
+.heading--6 {
+    // color: $color__h6--text;
+    font-family: $font__heading--font-family;
+    font-size: $font__h6--font-size;
+    font-weight: $font__h6--font-weight;
+    letter-spacing: $font__h6--letter-spacing;
+    line-height: $font__h6--line-height;
+
+
+    .row--style-light & {
+        color: $color--darkest;
+    }
+
+
+    .row--style-accent & {
+        color: $color--lightest;
+    }
+
+
+    .row--style-dark & {
+        color: $color--lightest;
+    }
+}
+
+
+
+
 
 //  1.6 - Anchor Link
 // ------------------------------
@@ -1000,6 +1080,11 @@ h4,
 
 a {
     color: $color__link--text;
+    font-family: $font__body--font-family;
+    font-size: $font__body--font-size;
+    font-weight: $font__body--font-weight;
+    letter-spacing: $font__body--letter-spacing;
+    line-height: $font__body--line-height;
     text-decoration: none;
 
 
@@ -1037,8 +1122,8 @@ blockquote {
 
     &:before {
         content: open-quote;
-        font-family: $font__p--font-family;
-        line-height: $font__p--line-height;
+        font-family: $font__body--font-family;
+        line-height: $font__body--line-height;
     }
 }
 
@@ -1182,6 +1267,8 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 p {
     margin: 0;
 }
@@ -1208,6 +1295,8 @@ a {
     &+ h2,
     &+ h3,
     &+ h4,
+    &+ h5,
+    &+ h6,
     &+ ul,
     &+ ol,
     &+ blockquote,
@@ -1232,6 +1321,8 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 blockquote,
 code,
 ul,
@@ -1250,6 +1341,8 @@ ol {
     &+ h2,
     &+ h3,
     &+ h4,
+    &+ h5,
+    &+ h6,
     &+ p,
     &+ li {
         margin-top: 6px;
@@ -2378,6 +2471,20 @@ input[type="checkbox"] {
 
 
 
+//  Sizing Variables
+// -------------------------------------
+
+
+$height--no-padding: 0;
+$height--thin: 15px;
+$height--default: 60px;
+$height--full: 80px;
+
+$width--contained: 30px;
+$width--wide: 40px;
+$width--full: 30px;
+
+
 //  Row Height
 // -------------------------------------
 
@@ -2386,24 +2493,23 @@ input[type="checkbox"] {
 
 
     &-no-padding .row__container {
-        padding-top: 0;
-        padding-bottom: 0;
+        padding: $height--no-padding!important;
     }
 
 
     &-thin .row__container {
-        padding-top: 15px;
-        padding-bottom: 15px;
+        padding-top: $height--thin;
+        padding-bottom: $height--thin;
     }
 
 
     &-default .row__container {
-        padding-top: 60px;
-        padding-bottom: 60px;
+        padding-top: $height--default;
+        padding-bottom: $height--default;
 
         @media #{$mobile} {
-            padding-top: ( 60px / 2 );
-            padding-bottom: ( 60px / 2 );
+            padding-top: ( $height--default / 2 );
+            padding-bottom: ( $height--default / 2 );
         }
     }
 
@@ -2413,17 +2519,17 @@ input[type="checkbox"] {
 
 
         .row__container {
-            padding-top: 80px;
-            padding-bottom: 80px;
+            padding-top: $height--full;
+            padding-bottom: $height--full;
 
             @media #{$tablet} {
-                padding-top: ( 80px / 2 );
-                padding-bottom: ( 80px / 2 );
+                padding-top: ( $height--full / 2 );
+                padding-bottom: ( $height--full / 2 );
             }
 
             @media #{$mobile} {
-                padding-top: ( 80px / 2.5 );
-                padding-bottom: ( 80px / 2.5 );
+                padding-top: ( $height--full / 2.5 );
+                padding-bottom: ( $height--full / 2.5 );
             }
         }
 
@@ -2446,8 +2552,8 @@ input[type="checkbox"] {
 
     &-contained .row__container {
         margin: 0 auto;
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: $width--contained;
+        padding-right: $width--contained;
         max-width: 1200px;
     }
 
@@ -2457,21 +2563,21 @@ input[type="checkbox"] {
         width: 90%;
 
         @media #{$tablet--landscape} {
-            padding-left: 40px;
-            padding-right: 40px;
+            padding-left: $width--wide;
+            padding-right: $width--wide;
             width: 100%;
         }
 
         @media #{$tablet} {
-            padding-left: ( 40px / 1.5 );
-            padding-right: ( 40px / 1.5 );
+            padding-left: ( $width--wide / 1.5 );
+            padding-right: ( $width--wide / 1.5 );
         }
     }
 
 
     &-full .row__container {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: $width--full;
+        padding-right: $width--full;
         width: 100%;
     }
 }
@@ -2798,6 +2904,21 @@ input[type="checkbox"] {
     // ------------------------------
 
 
+    .row__container {
+        padding-top: 30px;
+        padding-bottom: 20px;
+
+        @media #{$tablet} {
+            padding-top: 20px;
+            padding-bottom: 15px;
+        }
+
+        @media #{$mobile} {
+            padding-top: 15px;
+        }
+    }
+
+
     @media #{$tablet} {
 
         .responsivecolumns {
@@ -2990,7 +3111,7 @@ input[type="checkbox"] {
 
         // Move row container padding to the next level to allow for full width backgrounds
         & > .widget {
-            padding: 5px 30px;
+            padding: 3px 30px;
 
             @media #{$tablet} {
                 padding: 5px 25px;
@@ -3005,7 +3126,6 @@ input[type="checkbox"] {
 
     // Removes margin from columns wrapper
     [data-name="responsivecolumns"] {
-        padding-bottom: 0!important;
 
 
         // Adds spacing to conten widget proceeding a set of columns
@@ -3320,7 +3440,7 @@ input[type="checkbox"] {
             .columns-two-left,
             .columns-two-right {
                 @include flex(1 1 auto);
-                @include flex-basis(48%);
+                @include flex-basis(50%);
             }
         }
     }
@@ -3498,11 +3618,35 @@ input[type="checkbox"] {
 
 
 // -----------------------------
+//  LAYOUT - Promo 2
+// -----------------------------
+
+
+
+
+.row--promo-2 {
+
+
+
+
+    // Layout Options & Overides
+    // ------------------------------
+
+
+    .widget-align-left,
+    .widget-align-right,
+    .widget-align-center {
+        text-align: center;
+    }
+}
+
+
+// -----------------------------
 //  Layout - Gallery 1
 // -----------------------------
 
 
-.widget--gallery-1 {
+.row--gallery-1 {
 
 
     .gallery-list {
@@ -3617,6 +3761,32 @@ input[type="checkbox"] {
 
 
 // -----------------------------
+//  Layout - Contact 2
+// -----------------------------
+
+
+
+
+.row--contact-2 {
+
+
+
+
+    // Layout Options & Overides
+    // ------------------------------
+
+
+    .responsivecolumns .column:last-child {
+        padding: 30px 30px 30px 0;
+
+        @media #{$mobile} {
+            padding: 5px 30px 30px;
+        }
+    }
+}
+
+
+// -----------------------------
 //  Layout - footer_3
 // -----------------------------
 
@@ -3642,14 +3812,9 @@ input[type="checkbox"] {
             }
         }
     }
-}
 
 
-
-#page-zones__footer {
-
-
-    .row__container {
+     .row__container {
         padding-bottom: 25px;
     }
 

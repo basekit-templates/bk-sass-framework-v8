@@ -22,7 +22,7 @@
 
         // Move row container padding to the next level to allow for full width backgrounds
         & > .widget {
-            padding: 5px 30px;
+            padding: 3px 30px;
 
             @media #{$tablet} {
                 padding: 5px 25px;
@@ -37,7 +37,6 @@
 
     // Removes margin from columns wrapper
     [data-name="responsivecolumns"] {
-        padding-bottom: 0!important;
 
 
         // Adds spacing to conten widget proceeding a set of columns

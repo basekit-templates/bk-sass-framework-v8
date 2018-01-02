@@ -34,6 +34,9 @@ button,
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    vertical-align: middle;
 
     // Colour
     background-color: $color__button--background;
@@ -107,7 +110,7 @@ button,
 
 
     &:focus {
-        outline: none;
+        outline: 0;
     }
 
 

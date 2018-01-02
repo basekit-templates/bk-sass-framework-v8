@@ -15,6 +15,21 @@
     // ------------------------------
 
 
+    .row__container {
+        padding-top: 30px;
+        padding-bottom: 20px;
+
+        @media #{$tablet} {
+            padding-top: 20px;
+            padding-bottom: 15px;
+        }
+
+        @media #{$mobile} {
+            padding-top: 15px;
+        }
+    }
+
+
     @media #{$tablet} {
 
         .responsivecolumns {

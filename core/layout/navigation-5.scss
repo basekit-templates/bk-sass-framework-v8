@@ -75,7 +75,7 @@
             .columns-two-left,
             .columns-two-right {
                 @include flex(1 1 auto);
-                @include flex-basis(48%);
+                @include flex-basis(50%);
             }
         }
     }
