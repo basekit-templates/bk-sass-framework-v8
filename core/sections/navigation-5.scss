@@ -1,12 +1,12 @@
 
 // -----------------------------
-//  Layout - Navigation 3
+//  LAYOUT - Navigation 5
 // -----------------------------
 
 
 
 
-.row--navigation-3 {
+.row--navigation-5 {
 
 
 
@@ -15,60 +15,93 @@
     // ------------------------------
 
 
+    // Remove padding from container
     .row__container {
-        padding-top: 30px;
-        padding-bottom: 20px;
+        padding: 0;
 
-        @media #{$tablet} {
-            padding-top: 20px;
-            padding-bottom: 15px;
+
+        // Move row container padding to the next level to allow for full width backgrounds
+        & > .widget {
+            padding: 5px 30px;
+
+            @media #{$tablet} {
+                padding: 5px 25px;
+            }
+
+            @media #{$mobile} {
+                padding: 5px 20px;
+            }
         }
 
-        @media #{$mobile} {
-            padding-top: 15px;
+
+        [data-name="responsivecolumns"]:first-child {
+            padding-bottom: 5px;
+            padding-top: 5px;
+        }
+
+
+        [data-name="responsivecolumns"]:last-child {
+            padding-top: 20px;
+            padding-bottom: 20px;
         }
     }
 
 
-    @media #{$tablet} {
+    // Removes margin from columns wrapper
+    [data-name="responsivecolumns"] {
 
-        .responsivecolumns {
-            @include flex-wrap(nowrap);
+        .column {
+            margin-bottom: 0;
+        }
 
+
+        // Adds spacing to conten widget proceeding a set of columns
+        & + [data-name="content"] {
+            padding: 35px 30px;
+
+            @media #{$tablet} {
+                padding: 25px;
+            }
+
+            @media #{$mobile} {
+                padding: 25px 20px;
+            }
+        }
+    }
+
+
+    // Overides columns layout to allow profile data to shrink
+    .row__container [data-name="responsivecolumns"]:first-child {
+
+
+        @media #{$mobile} {
 
             .columns-two-left,
             .columns-two-right {
-                max-width: 100%;
-            }
-
-
-            .columns-two-left {
                 @include flex(1 1 auto);
-            }
-
-
-            .columns-two-right {
-                @include flex(0 1 auto);
+                @include flex-basis(50%);
             }
         }
     }
 
 
-    [data-name="responsivecolumns"] {
-        margin-bottom: 0!important;
-        padding: 15px 30px;
+
+    // Overides columns layout to allow profile data to shrink
+    .row__container [data-name="responsivecolumns"]:last-child {
 
 
-        h1,
-        h2,
-        h3,
-        h4,
-        p,
-        a,
-        li,
-        span {
-            font-size: 18px;
-            list-style: none;
+        .columns-two-left,
+        .columns-two-right {
+            @include flex(1 1 auto);
+            @include flex-basis(0);
+            max-width: 100%;
+        }
+
+
+        .columns-two-right {
+            @media #{$tablet} {
+                @include flex(0 1 auto);
+            }
         }
     }
 
@@ -82,7 +115,7 @@
     .navigation-list:not(.navigation-list--children) {
         margin: 0;
 
-        @media #{$mobile} {
+        @media #{$tablet} {
             @include flex-display;
             @include justify-content(center);
             @include align-items(center);
@@ -101,7 +134,7 @@
 
         .navigation-open & {
 
-            @media #{$mobile} {
+            @media #{$tablet} {
                 @include flex-direction(column);
                 padding: 50px 20px 20px;
                 opacity: 1;
@@ -114,13 +147,12 @@
 
 
     .navigation-toggle {
-        display: none;
+        background-color: transparent;
+        display: block;
+        position: relative;
 
-        @media #{$mobile} {
-            background-color: transparent;
-            display: inline-block;
-            position: relative;
-            margin: 0 auto;
+        @media #{$tablet} {
+            margin-left: auto;
         }
 
         &:hover {
@@ -144,7 +176,7 @@
             transition-duration: 0;
             visibility: hidden;
 
-            @media #{$mobile} {
+            @media #{$tablet} {
                 display: block;
                 visibility: visible;
             }
@@ -161,7 +193,7 @@
                 width: 25px;
                 -webkit-transition-property: margin, -webkit-transform;
                 -webkit-transition-duration: 0.4s;
-                -webkit-transition-delay: 0.4s, 0;
+                transition-duration: 0.4s;
 
 
                 .navigation-open & {
@@ -196,4 +228,29 @@
             }
         }
     }
+
+
+
+
+    //  Colour Overides
+    // ------------------------------
+
+
+    // Adds row specific background colour
+    &.row--style-light [data-name="responsivecolumns"]:first-child {
+        background-color: darken($row-color-light, 8%);
+    }
+
+
+    // Adds row specific background colour
+    &.row--style-accent [data-name="responsivecolumns"]:first-child {
+        background-color: darken($row-color-accent, 8%);
+    }
+
+
+    // Adds row specific background colour
+    &.row--style-dark [data-name="responsivecolumns"]:first-child {
+        background-color: darken($row-color-dark, 8%);
+    }
 }
+

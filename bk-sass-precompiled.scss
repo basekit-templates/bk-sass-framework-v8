@@ -1,23 +1,25 @@
 
 // -----------------------------
-// BaseKit Sass Framework: V8
+//  BaseKit Sass Framework: V8
 // -----------------------------
 
 
 
 
+
 // -----------------------------
-// Core Import
+//  Core Import
 // -----------------------------
 
 
 // Reset: Normalize, Typeset & Default Variables
 @import 'core/reset/normalize';
-// @import 'core/reset/defaults';
 
 
 // Typography: Base Typography & Font Icons
 @import 'core/typography/icons';
+
+@import 'core/typography/typography-variables';
 @import 'core/typography/typography';
 
 
@@ -27,34 +29,36 @@
 @import 'core/general/contrast';
 @import 'core/general/text-alignment';
 @import 'core/general/columns';
-@import 'core/general/forms';
 @import 'core/general/print';
 @import 'core/general/messages';
 @import 'core/general/cookies';
 
 
-// Row
-@import 'core/row/row-alignment';
-@import 'core/row/row-background';
-@import 'core/row/row-sizing';
+// Section Options
+@import 'core/sections/options/section-alignment';
+@import 'core/sections/options/section-background';
+@import 'core/sections/options/section-sizing';
 
 
-// Widget Style
-@import 'core/layout/navigation-1';
-@import 'core/layout/navigation-2';
-@import 'core/layout/navigation-3';
-@import 'core/layout/navigation-4';
-@import 'core/layout/navigation-5';
-@import 'core/layout/promo-2';
-@import 'core/layout/gallery-1';
-@import 'core/layout/contact-2';
-@import 'core/layout/footer-3';
+// Additional Sections Styling
+@import 'core/sections/navigation-1';
+@import 'core/sections/navigation-2';
+@import 'core/sections/navigation-3';
+@import 'core/sections/navigation-4';
+@import 'core/sections/navigation-5';
+@import 'core/sections/promo-2';
+@import 'core/sections/gallery-1';
+@import 'core/sections/contact-2';
+@import 'core/sections/footer-1';
+@import 'core/sections/footer-3';
+@import 'core/sections/footer-4';
+
 
 
 
 
 // -----------------------------
-// Widgets Import
+//  Widgets Import
 // -----------------------------
 
 
@@ -74,6 +78,10 @@
 @import 'widgets/image';
 @import 'widgets/gallery';
 @import 'widgets/slideshow';
+
+
+// Forms
+@import 'widgets/forms';
 
 
 // Buttons: Standard, Tweet, Dropbox, Click to Call, PayPal
@@ -99,9 +107,11 @@
 
 
 
+
 // -----------------------------
-// Plugins Import
+//  Plugins Import
 // -----------------------------
+
 
 @import 'plugins/plugin-blog';
 @import 'plugins/plugin-ecommerce';

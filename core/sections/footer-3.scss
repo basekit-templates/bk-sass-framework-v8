@@ -28,32 +28,16 @@
 
 
      .row__container {
-        padding-bottom: 25px;
+        padding-bottom: 30px;
     }
 
-
-    .responsivecolumns .column:not(:last-child) {
-
-        @media #{$tablet} {
-            margin-bottom: 15px;
-        }
-    }
-
-
-    h1,h2,h3,h4,p,li {
-
-        @media #{$mobile} {
-            text-align: center;
-        }
-    }
 
 
     [data-name="responsivecolumns"] + [data-name='content'] {
-        margin-top: 30px;
-        padding-top: 25px;
+        margin-top: 20px;
 
-        @media #{$tablet} {
-            margin-top: 5px;
+        @media #{$mobile} {
+            margin-top: 18px;
         }
     }
 }

@@ -15,10 +15,14 @@
     @include flex-display;
     @include flex-direction(row);
     @include flex(0 1 auto);
-    @include flex-wrap(wrap);
+    @include flex-wrap(nowrap);
     margin: 0 auto;
     position: relative;
     width: 100%;
+
+    @media #{$tablet} {
+        @include flex-wrap(wrap);
+    }
 }
 
 
@@ -38,7 +42,7 @@
         position: relative;
 
         @media #{$mobile} {
-            margin-bottom: 25px;
+            margin-bottom: 18px;
         }
 
 
@@ -55,6 +59,21 @@
             @media #{$mobile} {
                 margin-bottom: 0;
             }
+        }
+    }
+
+
+    // Add spacing at certain breakpoints
+    .columns-three-right,
+    .columns-four-third,
+    .columns-four-fourth {
+
+        @media #{$tablet} {
+            margin-top: 20px;
+        }
+
+        @media #{$tablet} {
+            margin-top: 18px;
         }
     }
 }

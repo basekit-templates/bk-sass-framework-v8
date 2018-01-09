@@ -21,6 +21,10 @@ fieldset {
 // Form Group
 .form-group {
     margin-bottom: 10px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 

@@ -20,6 +20,8 @@ $width--wide: 40px;
 $width--full: 30px;
 
 
+
+
 //  Row Height
 // -------------------------------------
 
@@ -76,6 +78,18 @@ $width--full: 30px;
 }
 
 
+#page-zones__header,
+#page-zones__footer {
+
+
+    .bk-content-text,
+    .content,
+    .responsivecolumns .column {
+        min-height: 0 !important;
+    }
+}
+
+
 
 
 //  Row Width
@@ -122,16 +136,4 @@ $width--full: 30px;
     @include flex-display;
     @include flex-direction(column);
     width: 100%;
-}
-
-
-
-
-//  Header & Footer
-// -------------------------------------
-
-
-#page-zones__header .responsivecolumns .column,
-#page-zones__footer .responsivecolumns .column {
-    margin-bottom: 0;
 }

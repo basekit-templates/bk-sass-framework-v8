@@ -53,15 +53,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-// body {
-//     color: $font-swatch5-color;
-//     font-family: $font-swatch5-font-family;
-//     font-size: $font-swatch5-font-size;
-//     font-weight: $font-swatch5-font-weight;
-//     letter-spacing: $font-swatch5-letter-spacing;
-//     line-height: $font-swatch5-line-height;
-// }
-
 
 // Paragraph, List Elements, Blockquote
 p,
@@ -94,19 +85,6 @@ blockquote,
     // }
 }
 
-// p,
-// li,
-// blockquote,
-// .paragraph,
-// %paragraph {
-//     color: $font-swatch5-color;
-//     font-family: $font-swatch5-font-family;
-//     font-size: $font-swatch5-font-size;
-//     font-weight: $font-swatch5-font-weight;
-//     letter-spacing: $font-swatch5-letter-spacing;
-//     line-height: $font-swatch5-line-height;
-// }
-
 
 
 
@@ -138,17 +116,6 @@ h1,
     //     color: $color--lightest;
     // }
 }
-
-// h1,
-// .heading--1 {
-//     color: $font-swatch1-color;
-//     font-family: $font-swatch1-font-family;
-//     font-size: $font-swatch1-font-size;
-//     font-weight: $font-swatch1-font-weight;
-//     letter-spacing: $font-swatch1-letter-spacing;
-//     line-height: $font-swatch1-line-height;
-// }
-
 
 
 
@@ -183,17 +150,6 @@ h2,
 }
 
 
-// h2,
-// .heading--2 {
-//     color: $font-swatch2-color;
-//     font-family: $font-swatch2-font-family;
-//     font-size: $font-swatch2-font-size;
-//     font-weight: $font-swatch2-font-weight;
-//     letter-spacing: $font-swatch2-letter-spacing;
-//     line-height: $font-swatch2-line-height;
-// }
-
-
 
 
 //  1.4 - Heading 3
@@ -224,17 +180,6 @@ h3,
     //     color: $color--lightest;
     // }
 }
-
-
-// h3,
-// .heading--3 {
-//     color: $font-swatch3-color;
-//     font-family: $font-swatch3-font-family;
-//     font-size: $font-swatch3-font-size;
-//     font-weight: $font-swatch3-font-weight;
-//     letter-spacing: $font-swatch3-letter-spacing;
-//     line-height: $font-swatch3-line-height;
-// }
 
 
 
@@ -268,16 +213,6 @@ h4,
     // }
 }
 
-// h4,
-// .heading--4 {
-//     color: $font-swatch4-color;
-//     font-family: $font-swatch4-font-family;
-//     font-size: $font-swatch4-font-size;
-//     font-weight: $font-swatch4-font-weight;
-//     letter-spacing: $font-swatch4-letter-spacing;
-//     line-height: $font-swatch4-line-height;
-// }
-
 
 
 
@@ -285,16 +220,11 @@ h4,
 // ------------------------------
 
 
-$font__h5--font-family: transparent!default;
-$font__h5--font-size: transparent!default;
-$font__h5--font-weight: transparent!default;
-$font__h5--letter-spacing: transparent!default;
-$font__h5--line-height: transparent!default;
-
+$color__h5--text: transparent!default;
 
 h5,
 .heading--5 {
-    // color: $color__h5--text;
+    color: $color__h5--text;
     font-family: $font__heading--font-family;
     font-size: $font__h5--font-size;
     font-weight: $font__h5--font-weight;
@@ -302,19 +232,19 @@ h5,
     line-height: $font__h5--line-height;
 
 
-    .row--style-light & {
-        color: $color--darkest;
-    }
+    // .row--style-light & {
+    //     color: $color--darkest;
+    // }
 
 
-    .row--style-accent & {
-        color: $color--lightest;
-    }
+    // .row--style-accent & {
+    //     color: $color--lightest;
+    // }
 
 
-    .row--style-dark & {
-        color: $color--lightest;
-    }
+    // .row--style-dark & {
+    //     color: $color--lightest;
+    // }
 }
 
 
@@ -324,16 +254,11 @@ h5,
 // ------------------------------
 
 
-$font__h6--font-family: transparent!default;
-$font__h6--font-size: transparent!default;
-$font__h6--font-weight: transparent!default;
-$font__h6--letter-spacing: transparent!default;
-$font__h6--line-height: transparent!default;
-
+$color__h6--text: transparent!default;
 
 h6,
 .heading--6 {
-    // color: $color__h6--text;
+    color: $color__h6--text;
     font-family: $font__heading--font-family;
     font-size: $font__h6--font-size;
     font-weight: $font__h6--font-weight;
@@ -341,19 +266,19 @@ h6,
     line-height: $font__h6--line-height;
 
 
-    .row--style-light & {
-        color: $color--darkest;
-    }
+    // .row--style-light & {
+    //     color: $color--darkest;
+    // }
 
 
-    .row--style-accent & {
-        color: $color--lightest;
-    }
+    // .row--style-accent & {
+    //     color: $color--lightest;
+    // }
 
 
-    .row--style-dark & {
-        color: $color--lightest;
-    }
+    // .row--style-dark & {
+    //     color: $color--lightest;
+    // }
 }
 
 

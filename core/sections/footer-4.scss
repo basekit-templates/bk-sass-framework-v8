@@ -1,0 +1,48 @@
+
+// -----------------------------
+//  Layout - footer_4
+// -----------------------------
+
+
+
+.row--footer-4 {
+
+
+    // Three Columns
+    .columns-three-left,
+    .columns-three-middle,
+    .columns-three-right {
+
+        @media #{$tablet} {
+            @include flex-basis(30.6666667%);
+        }
+
+        @media #{$mobile} {
+            @include flex-basis(100%);
+        }
+    }
+
+
+    // Re-add middle columns margin
+    .columns-three-middle:nth-child(even) {
+
+        @media #{$tablet} {
+            margin-right: 4%;
+        }
+
+        @media #{$mobile} {
+            margin-right: 0;
+        }
+    }
+
+
+    .widget-align-left,
+    .widget-align-center,
+    .widget-align-right,
+    .widget__content p {
+
+        @media #{$mobile} {
+            text-align: center!important;
+        }
+    }
+}

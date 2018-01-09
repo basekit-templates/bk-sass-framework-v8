@@ -1,12 +1,12 @@
 
 // -----------------------------
-//  LAYOUT - Navigation 5
+//  LAYOUT - Navigation 4
 // -----------------------------
 
 
 
 
-.row--navigation-5 {
+.row--navigation-4 {
 
 
 
@@ -22,7 +22,7 @@
 
         // Move row container padding to the next level to allow for full width backgrounds
         & > .widget {
-            padding: 5px 30px;
+            padding: 3px 30px;
 
             @media #{$tablet} {
                 padding: 5px 25px;
@@ -31,18 +31,6 @@
             @media #{$mobile} {
                 padding: 5px 20px;
             }
-        }
-
-
-        [data-name="responsivecolumns"]:first-child {
-            padding-bottom: 5px;
-            padding-top: 5px;
-        }
-
-
-        [data-name="responsivecolumns"]:last-child {
-            padding-top: 20px;
-            padding-bottom: 20px;
         }
     }
 
@@ -53,51 +41,57 @@
 
         // Adds spacing to conten widget proceeding a set of columns
         & + [data-name="content"] {
-            padding: 35px 30px;
+            padding: 35px 30px !important;
 
             @media #{$tablet} {
-                padding: 25px;
+                padding: 25px !important;
             }
 
             @media #{$mobile} {
-                padding: 25px 20px;
+                padding: 25px 20px !important;
             }
         }
     }
 
 
     // Overides columns layout to allow profile data to shrink
-    .row__container [data-name="responsivecolumns"]:first-child {
+    .columns-two-right {
+        @include flex-basis(initial);
+        @include flex-display;
+        @include align-items(center);
+        @include justify-content(flex-end);
+
+        @media #{$tablet} {
+            @include flex-grow(1);
+            text-align: right;
+        }
 
 
         @media #{$mobile} {
+            display: block;
+        }
 
-            .columns-two-left,
-            .columns-two-right {
-                @include flex(1 1 auto);
-                @include flex-basis(50%);
-            }
+
+        // Removes widget margin for header
+        .widget {
+            padding-bottom: 0;
+        }
+
+
+        // Adds spacing to profile widgets inside a column
+        .widget + .widget {
+            margin-left: 15px;
         }
     }
 
 
+    // Overides columns layout to allow navigation to expand
+    .columns-two-left {
+        @include flex(1 1 auto);
+        @include flex-basis(initial);
 
-    // Overides columns layout to allow profile data to shrink
-    .row__container [data-name="responsivecolumns"]:last-child {
-
-
-        .columns-two-left,
-        .columns-two-right {
-            @include flex(1 1 auto);
-            @include flex-basis(0);
-            max-width: 100%;
-        }
-
-
-        .columns-two-right {
-            @media #{$tablet} {
-                @include flex(0 1 auto);
-            }
+        @media #{$tablet} {
+            max-width: 45px;
         }
     }
 
@@ -143,16 +137,23 @@
 
 
     .navigation-toggle {
-        background-color: transparent;
-        display: block;
-        position: relative;
+        display: none;
+        visibility: hidden;
 
         @media #{$tablet} {
-            margin-left: auto;
+            background-color: transparent;
+            display: inline-block;
+            height: 21px;
+            position: relative;
+            vertical-align: middle;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
-        &:hover {
-            cursor: pointer;
+        @media #{$mobile} {
+            vertical-align: top;
         }
 
 
@@ -233,20 +234,53 @@
 
 
     // Adds row specific background colour
-    &.row--style-light [data-name="responsivecolumns"]:first-child {
+    &.row--style-light [data-name="responsivecolumns"] {
         background-color: darken($row-color-light, 8%);
     }
 
 
     // Adds row specific background colour
-    &.row--style-accent [data-name="responsivecolumns"]:first-child {
+    &.row--style-accent [data-name="responsivecolumns"] {
         background-color: darken($row-color-accent, 8%);
     }
 
 
     // Adds row specific background colour
-    &.row--style-dark [data-name="responsivecolumns"]:first-child {
+    &.row--style-dark [data-name="responsivecolumns"] {
         background-color: darken($row-color-dark, 8%);
+    }
+
+
+    // Removes the option for a background colour on the navigation
+    .navigation-list:not(.navigation-list--children) {
+
+        @media only screen and (min-width: 900px) {
+            background-color: transparent!important;
+        }
+    }
+
+
+    // Makes sure the navigation text colour is legible over the background
+    .navigation-item {
+
+
+        // Colour - Light
+        .row--style-light & {
+            // ch-best-color-contrast($color--lightest, $colors: ($color--accent, $color--darkest), $tolerance: 0)
+            color: darken($color__navigation--text, 8%);
+        }
+
+
+        // Colour - Accent
+        .row--style-accent & {
+            color: $color__navigation--text;
+        }
+
+
+        // Colour - Dark
+        .row--style-dark & {
+            color: lighten($color__navigation--text, 8%);
+        }
     }
 }
 

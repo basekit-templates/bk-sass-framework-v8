@@ -14,10 +14,13 @@
     // Layout Options & Overides
     // ------------------------------
 
+    @media #{$tablet} {
 
-    .widget-align-left,
-    .widget-align-right,
-    .widget-align-center {
-        text-align: center;
+        h2,
+        .widget-align-left,
+        .widget-align-right,
+        .widget-align-center {
+            text-align: center;
+        }
     }
 }

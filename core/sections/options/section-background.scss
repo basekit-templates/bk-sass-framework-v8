@@ -14,17 +14,17 @@
 
 
     &-light {
-        background-color: $color--lightest;
-    }
-
-
-    &-dark {
-        background-color: $color--darkest;
+        background-color: $row-color-light;
     }
 
 
     &-accent {
-        background-color: $color--accent;
+        background-color: $row-color-accent;
+    }
+
+
+    &-dark {
+        background-color: $row-color-dark;
     }
 }
 
