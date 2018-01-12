@@ -1,0 +1,159 @@
+
+// ---------------------------
+//  FONTS - Set 03
+// ---------------------------
+
+
+
+
+
+// -----------------------------
+//  Table of Contents
+// -----------------------------
+
+//  1.      Font Families
+//  1.2     Font - H1
+//  1.3     Font - H2
+//  1.4     Font - H3
+//  1.5     Font - H4
+//  1.6     Font - H5
+//  1.7     Font - H6
+//  1.8     Font - Body
+
+
+
+//  Font Families
+// ------------------------------
+
+
+$font__heading--font-family: (Abril Fatface, serif);
+$font__body--font-family: (Merriweather Sans, serif);
+
+
+
+
+//  Font - H1
+// ------------------------------
+
+
+$font__h1--font-family: $font__heading--font-family;
+$font__h1--font-size: 80px;
+$font__h1--font-weight: 400;
+$font__h1--line-height: 1;
+$font__h1--letter-spacing: 0;
+
+
+// Style
+$style__h1--text-transform: normal;
+
+
+
+
+//  Font - H2
+// ------------------------------
+
+
+$font__h2--font-family: $font__heading--font-family;
+$font__h2--font-size: 44px;
+$font__h2--font-weight: 400;
+$font__h2--line-height: 1.1;
+$font__h2--letter-spacing: 0;
+
+
+// Style
+$style__h2--text-transform: normal;
+
+
+
+
+//  Font - H3
+// ------------------------------
+
+
+$font__h3--font-family: $font__heading--font-family;
+$font__h3--font-size: 34px;
+$font__h3--font-weight: 400;
+$font__h3--line-height: 1.2;
+$font__h3--letter-spacing: 0;
+
+
+// Style
+$style__h3--text-transform: normal;
+
+
+
+
+//  Font - H4
+// ------------------------------
+
+
+$font__h4--font-family: $font__heading--font-family;
+$font__h4--font-size: 28px;
+$font__h4--font-weight: 400;
+$font__h4--line-height: 1.3;
+$font__h4--letter-spacing: 0;
+
+
+// Style
+$style__h4--text-transform: normal;
+
+
+
+
+//  Font - H5
+// ------------------------------
+
+
+$font__h5--font-family: $font__heading--font-family;
+$font__h5--font-size: 21px;
+$font__h5--font-weight: 400;
+$font__h5--line-height: 1.4;
+$font__h5--letter-spacing: 0;
+
+
+// Style
+$style__h5--text-transform: normal;
+
+
+
+
+//  Font - H6
+// ------------------------------
+
+
+$font__h6--font-family: $font__heading--font-family;
+$font__h6--font-size: 20px;
+$font__h6--font-weight: 400;
+$font__h6--line-height: 1.5;
+$font__h6--letter-spacing: 0;
+
+
+// Style
+$style__h6--text-transform: normal;
+
+
+
+
+//  Font - Body
+// ------------------------------
+
+
+$font__p--font-family: $font__heading--font-family;
+$font__p--font-size: 19px;
+$font__p--font-weight: 400;
+$font__p--line-height: 1.6;
+$font__p--letter-spacing: 0;
+
+
+// Style
+$style__p--text-transform: normal;
+
+
+
+
+//  Font - Anchor Links
+// ------------------------------
+
+
+// Style
+$style__link--text-decoration: none;

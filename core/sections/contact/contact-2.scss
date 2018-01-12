@@ -1,0 +1,25 @@
+
+// -----------------------------
+//  Layout - Contact 2
+// -----------------------------
+
+
+
+
+.row--contact-2 {
+
+
+
+
+    // Layout Options & Overides
+    // ------------------------------
+
+
+    .responsivecolumns .column:last-child {
+        padding: 30px 30px 30px 0;
+
+        @media #{$mobile} {
+            padding: 5px 30px 30px;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+
+// -----------------------------
+//  Layout - footer_3
+// -----------------------------
+
+
+
+.row--footer-3 {
+
+
+    .content-block {
+
+
+        ul {
+            list-style: none;
+            margin: 0;
+        }
+
+
+        li {
+            margin-bottom: 3px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+
+     .row__container {
+        padding-bottom: 30px;
+    }
+
+
+
+    [data-name="responsivecolumns"] + [data-name='content'] {
+        margin-top: 20px;
+
+        @media #{$mobile} {
+            margin-top: 18px;
+        }
+    }
+}

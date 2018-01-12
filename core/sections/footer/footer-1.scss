@@ -1,0 +1,18 @@
+
+// -----------------------------
+//  Layout - footer_1
+// -----------------------------
+
+
+
+.row--footer-1 {
+
+    @media #{$mobile} {
+        text-align: center;
+
+        .widget-align-left,
+        .widget-align-right {
+            text-align: center;
+        }
+    }
+}

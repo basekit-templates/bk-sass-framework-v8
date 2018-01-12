@@ -1,0 +1,35 @@
+
+// -----------------------------
+//  Layout - Hero 2
+// -----------------------------
+
+
+
+
+.row--hero-2 {
+
+
+
+
+
+    // Layout Options & Overides
+    // ------------------------------
+
+
+    .row__container {
+        padding: 0;
+    }
+
+
+
+
+    //  Widget Styling
+    // ------------------------------
+
+
+    .imagewidget__image {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+}

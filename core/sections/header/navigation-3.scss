@@ -1,0 +1,209 @@
+
+// -----------------------------
+//  Layout - Navigation 3
+// -----------------------------
+
+
+
+
+.row--navigation-3 {
+
+
+
+
+    // Layout Options & Overides
+    // ------------------------------
+
+
+    .row__container {
+        padding-top: 30px;
+        padding-bottom: 20px;
+
+        @media #{$tablet} {
+            padding-top: 20px;
+            padding-bottom: 15px;
+        }
+
+        @media #{$mobile} {
+            padding-top: 15px;
+        }
+    }
+
+
+    @media #{$tablet} {
+
+        .responsivecolumns {
+            @include flex-wrap(nowrap);
+
+
+            .columns-two-left,
+            .columns-two-right {
+                max-width: 100%;
+            }
+
+
+            .columns-two-left {
+                @include flex(1 1 auto);
+            }
+
+
+            .columns-two-right {
+                @include flex(0 1 auto);
+            }
+        }
+    }
+
+
+    [data-name="responsivecolumns"] {
+        margin-bottom: 0!important;
+        padding: 15px 30px;
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        a,
+        li,
+        span {
+            font-size: 18px;
+            list-style: none;
+        }
+    }
+
+
+
+
+    //  Widget Styling
+    // ------------------------------
+
+
+    .extendednavigation {
+
+         @media #{$mobile} {
+            line-height: 0;
+        }
+    }
+
+
+    .navigation-list:not(.navigation-list--children) {
+        margin: 0;
+
+        @media #{$mobile} {
+            @include flex-display;
+            @include justify-content(center);
+            @include align-items(center);
+            @include flex-wrap(wrap);
+            opacity: 0;
+            visibility: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            text-align: center;
+            width: 100%;
+        }
+
+
+        .navigation-open & {
+
+            @media #{$mobile} {
+                @include flex-direction(column);
+                padding: 50px 20px 20px;
+                opacity: 1;
+                overflow-y: scroll;
+                visibility: visible;
+                z-index: 3;
+            }
+        }
+    }
+
+
+    .navigation-toggle {
+        display: none;
+
+        @media #{$mobile} {
+            background-color: transparent;
+            display: inline-block;
+            position: relative;
+            margin: 0 auto;
+            height: 21px;
+            vertical-align: top;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+
+        span {
+            background-color: #fff;
+            display: none;
+            font-size: 0;
+            line-height: 0;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            top: 0;
+            height: 2px;
+            width: 25px;
+            text-indent: -9999px;
+            -webkit-transition-duration: 0;
+            transition-duration: 0;
+            visibility: hidden;
+
+            @media #{$mobile} {
+                display: block;
+                visibility: visible;
+            }
+
+
+            &:before,
+            &:after {
+                background-color: #fff;
+                content: '';
+                display: block;
+                margin-left: 0;
+                position: absolute;
+                height: 2px;
+                width: 25px;
+                -webkit-transition-property: margin, -webkit-transform;
+                -webkit-transition-duration: 0.4s;
+                -webkit-transition-delay: 0.4s, 0;
+
+
+                .navigation-open & {
+                    margin-top: 0;
+                }
+            }
+
+
+            &:before {
+                margin-top: -8px;
+
+
+                .navigation-open & {
+                    transform: rotate(45deg);
+                }
+            }
+
+
+            &:after {
+                margin-top: 8px;
+
+
+                .navigation-open & {
+                    transform: rotate(-45deg);
+                }
+            }
+
+
+            .navigation-open & {
+                background-color: transparent;
+                z-index: 4;
+            }
+        }
+    }
+}
