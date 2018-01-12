@@ -14,19 +14,18 @@
 
 // Reset: Normalize, Typeset & Default Variables
 @import 'core/reset/normalize';
+@import 'core/reset/defaults';
 
 
 // Typography: Base Typography & Font Icons
 @import 'core/typography/icons';
-
-@import 'core/typography/typography-variables';
+// @import 'style-sets/font-sets/_font-set-01';
 @import 'core/typography/typography';
 
 
 // General
 @import 'core/general/mixins';
 @import 'core/general/media-queries';
-@import 'core/general/contrast';
 @import 'core/general/text-alignment';
 @import 'core/general/columns';
 @import 'core/general/print';
@@ -41,17 +40,17 @@
 
 
 // Additional Sections Styling
-@import 'core/sections/navigation-1';
-@import 'core/sections/navigation-2';
-@import 'core/sections/navigation-3';
-@import 'core/sections/navigation-4';
-@import 'core/sections/navigation-5';
-@import 'core/sections/promo-2';
-@import 'core/sections/gallery-1';
-@import 'core/sections/contact-2';
-@import 'core/sections/footer-1';
-@import 'core/sections/footer-3';
-@import 'core/sections/footer-4';
+@import 'core/sections/header/navigation-1';
+@import 'core/sections/header/navigation-2';
+@import 'core/sections/header/navigation-3';
+@import 'core/sections/header/navigation-4';
+@import 'core/sections/header/navigation-5';
+@import 'core/sections/promo/promo-2';
+@import 'core/sections//gallery/gallery-1';
+@import 'core/sections/contact/contact-2';
+@import 'core/sections/footer/footer-1';
+@import 'core/sections/footer/footer-3';
+@import 'core/sections/footer/footer-4';
 
 
 
@@ -76,7 +75,7 @@
 
 // Media: Images, Gallery, Slideshow
 @import 'widgets/image';
-@import 'widgets/gallery';
+@import 'widgets/galleries/gallery';
 @import 'widgets/slideshow';
 
 
@@ -85,7 +84,7 @@
 
 
 // Buttons: Standard, Tweet, Dropbox, Click to Call, PayPal
-@import 'widgets/buttons';
+@import 'widgets/buttons/buttons';
 
 
 // Social: Social Icons, Twitter Feed

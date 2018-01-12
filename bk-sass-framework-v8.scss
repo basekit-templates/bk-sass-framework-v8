@@ -559,6 +559,49 @@ template {
 }
 
 
+// -------------------------------------
+//  DEFAULTS - Styles
+// -------------------------------------
+
+
+
+
+// Colours
+// ------------
+
+
+$color--lightest: #ffffff!default;
+$color--light: #efefef!default;
+$color--accent: #0157be!default;
+$color--dark: #383838!default;
+$color--darkest: #212121!default;
+
+
+
+
+// SASS Map
+// ------------
+
+
+$styles: (
+    light: (
+    ),
+    accent: (
+    ),
+    dark: (
+    )
+) !default;
+
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
+
+
 
 // Typography: Base Typography & Font Icons
 
@@ -687,11 +730,10 @@ template {
     content: "\f00d";
 }
 
-
-
-// -------------------------------------
-//  CORE - Typography Variables
-// -------------------------------------
+// 
+// ---------------------------
+//  FONTS - Set 01
+// ---------------------------
 
 
 
@@ -701,142 +743,152 @@ template {
 //  Table of Contents
 // -----------------------------
 
-//  1.      Heading Defaults
-//  1.1     Heading 1
-//  1.2     Heading 2
-//  1.3     Heading 3
-//  1.4     Heading 4
-//  1.5     Heading 5
-//  1.6     Heading 6
-
-//  2.      Body Defaults
-//  2.1     Paragraph Text
+//  1.      Font Families
+//  1.2     Font - H1
+//  1.3     Font - H2
+//  1.4     Font - H3
+//  1.5     Font - H4
+//  1.6     Font - H5
+//  1.7     Font - H6
+//  1.8     Font - Body
 
 
 
-
-
-// ---------------------------------
-//  1. Heading Defaults
-// ---------------------------------
-
-
-$font__heading--font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$font__heading--font-weight: 400 !default;
-$font__heading--letter-spacing: 0 !default;
-$font__heading--text-transform: normal !default;
-
-
-
-
-//  1.1 - Heading 1
+//  Font Families
 // ------------------------------
 
 
-$font__h1--font-family: $font__heading--font-family !default;
-$font__h1--font-size: 50px !default;
-$font__h1--font-weight: $font__heading--font-weight !default;
-$font__h1--line-height: 1.1 !default;
-$font__h1--letter-spacing: $font__heading--letter-spacing !default;
-$font__h1--text-transform: $font__heading--text-transform !default;
+$font__heading--font-family: (Work Sans, sans-serif);
+$font__body--font-family: (Cardo, serif);
 
 
 
 
-//  1.2 - Heading 2
+//  Font - H1
 // ------------------------------
 
 
-$font__h2--font-family: $font__heading--font-family !default;
-$font__h2--font-size: 42px !default;
-$font__h2--font-weight: $font__heading--font-weight !default;
-$font__h2--line-height: 1.1 !default;
-$font__h2--letter-spacing: $font__heading--letter-spacing !default;
-$font__h2--text-transform: $font__heading--text-transform !default;
+$font__h1--font-family: $font__heading--font-family;
+$font__h1--font-size: 50px;
+$font__h1--font-weight: 600;
+$font__h1--line-height: 1.1;
+$font__h1--letter-spacing: 0;
+
+
+// Style
+$style__h1--text-transform: normal;
 
 
 
 
-//  1.3 - Heading 3
+//  Font - H2
 // ------------------------------
 
 
-$font__h3--font-family: $font__heading--font-family !default;
-$font__h3--font-size: 36px !default;
-$font__h3--font-weight: $font__heading--font-weight !default;
-$font__h3--line-height: 1.2 !default;
-$font__h3--letter-spacing: $font__heading--letter-spacing !default;
-$font__h3--text-transform: $font__heading--text-transform !default;
+$font__h2--font-family: $font__heading--font-family;
+$font__h2--font-size: 42px;
+$font__h2--font-weight: 600;
+$font__h2--line-height: 1.2;
+$font__h2--letter-spacing: 0;
+
+
+// Style
+$style__h2--text-transform: normal;
 
 
 
 
-//  1.4 - Heading 4
+//  Font - H3
 // ------------------------------
 
 
-$font__h4--font-family: $font__heading--font-family !default;
-$font__h4--font-size: 36px !default;
-$font__h4--font-weight: $font__heading--font-weight !default;
-$font__h4--line-height: 1.2 !default;
-$font__h4--letter-spacing: $font__heading--letter-spacing !default;
-$font__h4--text-transform: $font__heading--text-transform !default;
+$font__h3--font-family: $font__heading--font-family;
+$font__h3--font-size: 36px;
+$font__h3--font-weight: 600;
+$font__h3--line-height: 1.2;
+$font__h3--letter-spacing: 0;
+
+
+// Style
+$style__h3--text-transform: normal;
 
 
 
 
-//  1.5 - Heading 5
+//  Font - H4
 // ------------------------------
 
 
-$font__h5--font-family: $font__heading--font-family !default;
-$font__h5--font-size: 36px !default;
-$font__h5--font-weight: $font__heading--font-weight !default;
-$font__h5--line-height: 1.2 !default;
-$font__h5--letter-spacing: $font__heading--letter-spacing !default;
-$font__h5--text-transform: $font__heading--text-transform !default;
+$font__h4--font-family: $font__heading--font-family;
+$font__h4--font-size: 28px;
+$font__h4--font-weight: 600;
+$font__h4--line-height: 1.3;
+$font__h4--letter-spacing: 0;
+
+
+// Style
+$style__h4--text-transform: normal;
 
 
 
 
-//  1.6 - Heading 6
+//  Font - H5
 // ------------------------------
 
 
-$font__h6--font-family: $font__heading--font-family !default;
-$font__h6--font-size: 36px !default;
-$font__h6--font-weight: $font__heading--font-weight !default;
-$font__h6--line-height: 1.2 !default;
-$font__h6--letter-spacing: $font__heading--letter-spacing !default;
-$font__h6--text-transform: $font__heading--text-transform !default;
+$font__h5--font-family: $font__heading--font-family;
+$font__h5--font-size: 22px;
+$font__h5--font-weight: 600;
+$font__h5--line-height: 1.4;
+$font__h5--letter-spacing: 0;
+
+
+// Style
+$style__h5--text-transform: normal;
 
 
 
 
-
-// ---------------------------------
-//  2. Body Defaults
-// ---------------------------------
-
-
-$font__body--font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
-$font__body--font-weight: 400 !default;
-$font__body--letter-spacing: 0 !default;
-$font__body--text-transform: normal !default;
-
-
-
-
-//  2.1 - Paragraph Text
+//  Font - H6
 // ------------------------------
 
 
-$font__p--font-family: $font__body--font-family !default;
-$font__p--font-size: 18px !default;
-$font__p--font-weight: $font__body--font-weight !default;
-$font__p--line-height: 1.6 !default;
-$font__p--letter-spacing: $font__body--letter-spacing !default;
-$font__p--text-transform: $font__body--text-transform !default;
+$font__h6--font-family: $font__heading--font-family;
+$font__h6--font-size: 20px;
+$font__h6--font-weight: 400;
+$font__h6--line-height: 1.5;
+$font__h6--letter-spacing: 0;
+
+
+// Style
+$style__h6--text-transform: normal;
+
+
+
+
+//  Font - Body
+// ------------------------------
+
+
+$font__p--font-family: $font__heading--font-family;
+$font__p--font-size: 18px;
+$font__p--font-weight: 400;
+$font__p--line-height: 1.6;
+$font__p--letter-spacing: 0;
+
+
+// Style
+$style__p--text-transform: normal;
+
+
+
+
+//  Font - Anchor Links
+// ------------------------------
+
+
+// Style
+$style__link--text-decoration: underline;
 
 
 // -------------------------------------
@@ -851,84 +903,150 @@ $font__p--text-transform: $font__body--text-transform !default;
 //  Table of Contents
 // -----------------------------
 
-//  1.      Headings & Body Text
-//  1.1     Body Text
-//  1.2     Heading 1
-//  1.3     Heading 2
-//  1.4     Heading 3
-//  1.5     Heading 4
-//  1.6     Anchor Link
-//  1.7     Blockquote
-//  1.8     Company Name
-//  1.9     Tables
+//  1.      Typography Defaults
+//  2.      Headings & Body Text
+//  2.1     Body Text
+//  2.2     Heading 1
+//  2.3     Heading 2
+//  2.4     Heading 3
+//  2.5     Heading 4
+//  2.6     Anchor Link
+//  2.7     Blockquote
+//  2.8     Company Name
+//  2.9     Tables
+//  2.9     Tables
+//  2.9     Tables
+//  2.9     Tables
 
-//  2.      Spacing
-//  3.      Font Styles
+//  3.      Spacing
+//  4.      Font Styles
+
+
+
+
+
+// --------------------------------
+//  1. Typography Defaults
+// --------------------------------
+
+
+
 
 
 
 
 
 // ---------------------------
-//  1. Headings & Body Text
+//  2. Headings & Body Text
 // ---------------------------
 
 
 
 
-//  1.1 - Body Text
+//  2.1 - Body Text
 // ------------------------------
 
 
 body {
     background-color: $color__body--background;
-    color: $color__p--text;
-    font-family: $font__body--font-family;
-    font-size: $font__body--font-size;
-    font-weight: $font__body--font-weight;
-    line-height: $font__body--line-height;
-    letter-spacing: $font__body--letter-spacing;
+    font-family: $font__p--font-family;
+    font-size: $font__p--font-size;
+    font-weight: $font__p--font-weight;
+    line-height: $font__p--line-height;
+    letter-spacing: $font__p--letter-spacing;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 
-// Paragraph, List Elements, Blockquote
+
+
+//  2.2 - Paragraph, Link, Lists, Blockquotes
+// --------------------------------------------
+
+
 p,
+.paragraph,
+%paragraph,
+.p-font,
+li,
+ol,
+a,
+blockquote,
+th,
+td {
+    font-family: $font__p--font-family;
+    font-size: $font__p--font-size;
+    font-weight: $font__p--font-weight;
+    letter-spacing: $font__p--letter-spacing;
+    line-height: $font__p--line-height;
+    text-transform: $style__p--text-transform;
+}
+
+
+// Body font colour
+p,
+.paragraph,
+%paragraph,
 li,
 ol,
 blockquote,
-.paragraph,
-%paragraph,
-.p-font {
+td {
     color: $color__p--text;
-    font-family: $font__body--font-family;
-    font-size: $font__body--font-size;
-    font-weight: $font__body--font-weight;
-    letter-spacing: $font__body--letter-spacing;
-    line-height: $font__body--line-height;
 
 
-    // .row--style-light & {
-    //     color: $color--dark;
-    // }
+    .row--style-light & {
+        color: $color--dark;
+        color: map-deep-get($styles, 'light', 'color__p--text');
+    }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__p--text');
+    }
 
 
-    // .row--style-dark & {
-    //     color: $color--light;
-    // }
+    .row--style-dark & {
+        color: $color--light;
+        color: map-deep-get($styles, 'dark', 'color__p--text');
+    }
+}
+
+
+// Anchor link colour
+a {
+    color: $color__link--text;
+
+
+    .row--style-light & {
+        color: $color--accent;
+        color: map-deep-get($styles, 'light', 'color__link--text');
+    }
+
+
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__link--text');
+    }
+
+
+    .row--style-dark & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'dark', 'color__link--text');
+    }
+
+
+    &:hover {
+        text-decoration: $style__link--text-decoration;
+    }
 }
 
 
 
 
-//  1.2 - Heading 1
+//  2.3 - Heading 1
 // ------------------------------
 
 
@@ -942,25 +1060,28 @@ h1,
     line-height: $font__h1--line-height;
 
 
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
+    .row--style-light & {
+        color: $color--darkest;
+        color: map-deep-get($styles, 'light', 'color__p--text');
+    }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__p--text');
+    }
 
 
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
+    .row--style-dark & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'dark', 'color__p--text');
+    }
 }
 
 
 
 
-//  1.3 - Heading 2
+//  2.4 - Heading 2
 // ------------------------------
 
 
@@ -974,25 +1095,28 @@ h2,
     line-height: $font__h2--line-height;
 
 
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
+    .row--style-light & {
+        color: $color--darkest;
+        color: map-deep-get($styles, 'light', 'color__p--text');
+    }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__p--text');
+    }
 
 
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
+    .row--style-dark & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'dark', 'color__p--text');
+    }
 }
 
 
 
 
-//  1.4 - Heading 3
+//  2.5 - Heading 3
 // ------------------------------
 
 
@@ -1006,25 +1130,28 @@ h3,
     line-height: $font__h3--line-height;
 
 
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
+    .row--style-light & {
+        color: $color--darkest;
+        color: map-deep-get($styles, 'light', 'color__p--text');
+    }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__p--text');
+    }
 
 
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
+    .row--style-dark & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'dark', 'color__p--text');
+    }
 }
 
 
 
 
-//  1.5 - Heading 4
+//  2.6 - Heading 4
 // ------------------------------
 
 
@@ -1038,33 +1165,34 @@ h4,
     line-height: $font__h4--line-height;
 
 
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
+    .row--style-light & {
+        color: $color--darkest;
+        color: map-deep-get($styles, 'light', 'color__p--text');
+    }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__p--text');
+    }
 
 
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
+    .row--style-dark & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'dark', 'color__p--text');
+    }
 }
 
 
 
 
-//  1.6 - Heading 5
+//  2.7 - Heading 5
 // ------------------------------
 
 
-$color__h5--text: transparent!default;
-
 h5,
 .heading--5 {
-    color: $color__h5--text;
+    color: transparent;
     font-family: $font__heading--font-family;
     font-size: $font__h5--font-size;
     font-weight: $font__h5--font-weight;
@@ -1072,33 +1200,34 @@ h5,
     line-height: $font__h5--line-height;
 
 
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
+    .row--style-light & {
+        color: $color--darkest;
+        color: map-deep-get($styles, 'light', 'color__p--text');
+    }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__p--text');
+    }
 
 
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
+    .row--style-dark & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'dark', 'color__p--text');
+    }
 }
 
 
 
 
-//  1.7 - Heading 6
+//  2.8 - Heading 6
 // ------------------------------
 
 
-$color__h6--text: transparent!default;
-
 h6,
 .heading--6 {
-    color: $color__h6--text;
+    color: transparent;
     font-family: $font__heading--font-family;
     font-size: $font__h6--font-size;
     font-weight: $font__h6--font-weight;
@@ -1106,63 +1235,28 @@ h6,
     line-height: $font__h6--line-height;
 
 
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
+    .row--style-light & {
+        color: $color--darkest;
+        color: map-deep-get($styles, 'light', 'color__p--text');
+    }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__p--text');
+    }
 
 
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
-}
-
-
-
-
-
-//  1.6 - Anchor Link
-// ------------------------------
-
-
-a {
-    color: $color__link--text;
-    font-family: $font__body--font-family;
-    font-size: $font__body--font-size;
-    font-weight: $font__body--font-weight;
-    letter-spacing: $font__body--letter-spacing;
-    line-height: $font__body--line-height;
-    text-decoration: none;
-
-
-    // .row--style-light & {
-    //     color: $color--accent;
-    // }
-
-
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
-
-
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
-
-
-    &:hover {
-        text-decoration: underline;
+    .row--style-dark & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'dark', 'color__p--text');
     }
 }
 
 
 
 
-//  1.7 - Blockquote
+//  2.9 - Blockquote
 // ------------------------------
 
 
@@ -1173,145 +1267,202 @@ blockquote {
 
     &:before {
         content: open-quote;
-        font-family: $font__body--font-family;
-        line-height: $font__body--line-height;
+        font-family: $font__p--font-family;
+        line-height: $font__p--line-height;
     }
 }
 
 
 
 
-//  1.8 - Company Name
+//  2.10 - Company Name
 // ------------------------------
 
 
-.company-link {
-    color: $color__companyname--text;
-    font-family: $font__companyname--font-family;
-    font-size: $font__companyname--font-size;
-    font-weight: $font__companyname--font-weight;
-    letter-spacing: $font__companyname--letter-spacing;
-    line-height: $font__companyname--line-height;
-    -ms-word-break: break-word;
-    word-wrap: break-word;
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    hyphens: none;
+// .company-link {
+//     color: $color__companyname--text;
+//     font-family: $font__companyname--font-family;
+//     font-size: $font__companyname--font-size;
+//     font-weight: $font__companyname--font-weight;
+//     letter-spacing: $font__companyname--letter-spacing;
+//     line-height: $font__companyname--line-height;
+//     -ms-word-break: break-word;
+//     word-wrap: break-word;
+//     -webkit-hyphens: none;
+//     -moz-hyphens: none;
+//     hyphens: none;
 
 
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
+//     .row--style-light & {
+//         color: $color--darkest;
+//     }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+//     .row--style-accent & {
+//         color: $color--lightest;
+//     }
 
 
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
+//     .row--style-dark & {
+//         color: $color--lightest;
+//     }
+// }
+
+
+
+
+//  2.11 - Feature Text
+// ------------------------------
+
+
+// .feature__headline {
+//     color: $color__feature-headline--text;
+//     font-family: $font__feature-headline--font-family;
+//     font-size: $font__feature-headline--font-size;
+//     font-weight: $font__feature-headline--font-weight;
+//     letter-spacing: $font__feature-headline--letter-spacing;
+//     line-height: $font__feature-headline--line-height;
+
+
+//     .row--style-light & {
+//         color: $color--darkest;
+//     }
+
+
+//     .row--style-accent & {
+//         color: $color--lightest;
+//     }
+
+
+//     .row--style-dark & {
+//         color: $color--lightest;
+//     }
+// }
+
+
+// .feature__strapline {
+//     color: $color__feature-strapline--text;
+//     font-family: $font__feature-strapline--font-family;
+//     font-size: $font__feature-strapline--font-size;
+//     font-weight: $font__feature-strapline--font-weight;
+//     letter-spacing: $font__feature-strapline--letter-spacing;
+//     line-height: $font__feature-strapline--line-height;
+
+
+//     .row--style-light & {
+//         color: $color--dark;
+//     }
+
+
+//     .row--style-accent & {
+//         color: $color--lightest;
+//     }
+
+
+//     .row--style-dark & {
+//         color: $color--light;
+//     }
+// }
+
+
+
+
+//  2.12 - Tables
+// ------------------------------
+
+
+th {
+    color: $color__h1--text;
+
+
+    .row--style-light & {
+        color: $color--darkest;
+        color: map-deep-get($styles, 'light', 'color__h1--text');
+    }
+
+
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__h1--text');
+    }
+
+
+    .row--style-dark & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'dark', 'color__h1--text');
+    }
 }
 
 
 
 
-//  1.9 - Feature Text
+//  2.13 - Pre, Code
 // ------------------------------
 
 
-.feature__headline {
-    color: $color__feature-headline--text;
-    font-family: $font__feature-headline--font-family;
-    font-size: $font__feature-headline--font-size;
-    font-weight: $font__feature-headline--font-weight;
-    letter-spacing: $font__feature-headline--letter-spacing;
-    line-height: $font__feature-headline--line-height;
-
-
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
-
-
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
-
-
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
-}
-
-
-.feature__strapline {
-    color: $color__feature-strapline--text;
-    font-family: $font__feature-strapline--font-family;
-    font-size: $font__feature-strapline--font-size;
-    font-weight: $font__feature-strapline--font-weight;
-    letter-spacing: $font__feature-strapline--letter-spacing;
-    line-height: $font__feature-strapline--line-height;
-
-
-    // .row--style-light & {
-    //     color: $color--dark;
-    // }
-
-
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
-
-
-    // .row--style-dark & {
-    //     color: $color--light;
-    // }
-}
-
-
-
-
-
-//  1.10 - Tables
-// ------------------------------
-
-
-code,
 pre,
-th,
-td {
-    color: $color__h4--text;
+code {
+    color: $color__p--text;
+    font-family: monospace;
+    font-size: $font__p--font-size;
+    font-weight: $font__p--font-weight;
+    letter-spacing: $font__p--letter-spacing;
+    line-height: $font__p--line-height;
+    text-transform: $style__p--text-transform;
 
 
-    // .row--style-light & {
-    //     color: $color--dark;
-    // }
+    .row--style-light & {
+        color: $color--dark;
+        color: map-deep-get($styles, 'light', 'color__p--text');
+    }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__p--text');
+    }
 
 
-    // .row--style-dark & {
-    //     color: $color--light;
-    // }
+    .row--style-dark & {
+        color: $color--light;
+        color: map-deep-get($styles, 'dark', 'color__p--text');
+    }
+}
+
+
+// Code
+code {
+  word-break: break-word;
+
+
+    a > & {
+        color: inherit;
+    }
+}
+
+
+// Pre
+pre {
+  display: block;
+
+
+    code {
+        font-size: inherit;
+        color: inherit;
+        word-break: normal;
+    }
 }
 
 
 
-
-
 // ---------------------------
-//  2. Spacing
+//  3. Spacing
 // ---------------------------
 
 
 
 
-//  2.1 Spacing Reset
+//  3.1 Spacing Reset
 // -----------------------------
 
 h1,
@@ -1332,7 +1483,7 @@ ul {
 
 
 
-//  2.2 Paragraph Spacing
+//  3.2 Paragraph Spacing
 // -----------------------------
 
 
@@ -1364,7 +1515,7 @@ a {
 
 
 
-//  3.3 Headings Spacing
+//  3.3 Heading Spacing
 // -----------------------------
 
 
@@ -1616,110 +1767,6 @@ $tablet--landscape: "only screen and (max-width: 1024px)";
 $tablet: "only screen and (max-width: 900px)";
 $mobile: "only screen and (max-width: 700px)";
 
-@function ch-max($v1, $v2) {
-  @return if($v1 > $v2, $v1, $v2);
-}
-
-@function ch-min($v1, $v2) {
-  @return if($v1 < $v2, $v1, $v2);
-}
-
-@function ch-gcd($a, $b) {
-  // From: http://rosettacode.org/wiki/Greatest_common_divisor#JavaScript
-  @if ($b != 0) {
-    @return ch-gcd($b, $a % $b);
-  } @else {
-    @return abs($a);
-  }
-}
-
-@function ch-pow($base, $exponent, $prec: 12) {
-  // Handles decimal exponents by trying to convert them into a fraction and then use a nthRoot-algorithm for parts of the calculation
-  @if (floor($exponent) != $exponent) {
-    $prec2 : ch-pow(10, $prec);
-    $exponent: round($exponent * $prec2);
-    $denominator: ch-gcd($exponent, $prec2);
-    @return ch-nth-root(ch-pow($base, $exponent / $denominator), $prec2 / $denominator, $prec);
-  }
-
-  $value: $base;
-  @if $exponent > 1 {
-    @for $i from 2 through $exponent {
-      $value: $value * $base;
-    }
-  } @else if $exponent < 1 {
-    @for $i from 0 through -$exponent {
-      $value: $value / $base;
-    }
-  }
-
-  @return $value;
-}
-
-@function ch-nth-root($num, $n: 2, $prec: 12) {
-  // From: http://rosettacode.org/wiki/Nth_root#JavaScript
-  $x: 1;
-
-  @for $i from 0 through $prec {
-    $x: 1 / $n * (($n - 1) * $x + ($num / ch-pow($x, $n - 1)));
-  }
-
-  @return $x;
-}
-
-@function ch-color-luminance($color) {
-  // Adapted from: https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/color.js
-  // Formula: http://www.w3.org/TR/2008/REC-WCAG20-20081211/#relativeluminancedef
-  $rgba: red($color), green($color), blue($color);
-  $rgba2: ();
-
-  @for $i from 1 through 3 {
-    $rgb: nth($rgba, $i);
-    $rgb: $rgb / 255;
-
-    $rgb: if($rgb < .03928, $rgb / 12.92, ch-pow(($rgb + .055) / 1.055, 2.4, 16));
-
-    $rgba2: append($rgba2, $rgb);
-  }
-
-  @return .2126 * nth($rgba2, 1) + .7152 * nth($rgba2, 2) + 0.0722 * nth($rgba2, 3);
-}
-
-@function ch-color-contrast($color1, $color2) {
-  // Adapted from: https://github.com/LeaVerou/contrast-ratio/blob/gh-pages/color.js
-  // Formula: http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef
-  $luminance1: ch-color-luminance($color1) + .05;
-  $luminance2: ch-color-luminance($color2) + .05;
-  $ratio: $luminance1 / $luminance2;
-
-  @if $luminance2 > $luminance1 {
-    $ratio: 1 / $ratio;
-  }
-
-  $ratio: round($ratio * 10) / 10;
-
-  @return $ratio;
-}
-
-@function ch-best-color-contrast($base, $colors: (#fff, #000), $tolerance: 0) {
-  $best: nth($colors, 1);
-  $contrast: ch-color-contrast($base, $best);
-
-  @for $i from 2 through length($colors) {
-    $currentColor: nth($colors, $i);
-    $currentContrast: ch-color-contrast($base, $currentColor);
-    @if ($currentContrast - $contrast > $tolerance) {
-      $best: $currentColor;
-      $contrast: $currentContrast;
-    }
-  }
-
-  @if ($contrast < 3) {
-    @warn "Contrast ratio of #{$best} on #{$base} is pretty bad, just #{$contrast}";
-  }
-
-  @return $best;
-}
 
 // -------------------------
 // CORE: Alignment Styles
@@ -2134,7 +2181,7 @@ $mobile: "only screen and (max-width: 700px)";
 
 
 // -------------------------
-// CORE: Cookie Warning
+//  CORE: Cookie Warning
 // -------------------------
 
 
@@ -2142,14 +2189,16 @@ $mobile: "only screen and (max-width: 700px)";
     background-color: rgba(0,0,0, 0.75);
     border: 1px solid #333;
     color: white;
+    @include flex-display;
+    @include align-items(center);
+    @include justify-content(space-between);
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-weight: 600;
     bottom: 10px;
     left: 0;
     right: 0;
     margin: 0 auto;
     position: fixed;
-    text-align: center;
+    text-align: left;
     max-width: 900px;
     width: 95%;
     z-index: 10005;
@@ -2160,23 +2209,22 @@ $mobile: "only screen and (max-width: 700px)";
         left: 0;
         bottom: 0;
         margin: 0;
-        text-align: left;
         width: 100%;
+    }
+
+
+    p,
+    a {
+        font-family: 'Helvetica', Arial, sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.5;
     }
 
 
     p {
         color: white;
-        padding: 0.5em 2em 0.5em 1em;
-
-        @media #{$tablet} {
-            padding: 0.5em 2.5em 0.5em 1em;
-        }
-
-        @media #{$mobile} {
-            padding-right: 3em;
-        }
-
+        padding: 0.5em 1em;
 
         a {
             color: #96d3ed;
@@ -2184,39 +2232,23 @@ $mobile: "only screen and (max-width: 700px)";
     }
 
 
-    p, a {
-        font-size: 15px;
-        line-height: 23px;
-    }
-
-
     .bk-cookie-close-button {
-        color: rgba(255,255,255, 0.5);
-        line-height: 1em;
-        position: absolute;
-        right: 0;
-        top: 0;
         background-color: #000;
+        color: rgba(255,255,255, 0.5);
+        @include align-self(flex-start);
+        font-weight: 600;
+        line-height: 1em;
         padding: 12px;
+        text-decoration: none;
+        transition: color 0.5s ease;
 
         @media #{$tablet} {
-            font-size: 18px;
-            top: 0;
-            padding: 22px;
             color: white;
         }
 
-        @media only screen and (max-width: 422px) {
-            font-size: 16px;
-            top: 12px;
-            right: 14px;
-            line-height: 1em;
-        }
-
-
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             color: white;
-            transition: color, .5s, ease-out;
             text-decoration: none;
         }
     }
@@ -2311,17 +2343,17 @@ $mobile: "only screen and (max-width: 700px)";
 
 
     &-light {
-        background-color: $row-color-light;
+        background-color: $color--lightest;
     }
 
 
     &-accent {
-        background-color: $row-color-accent;
+        background-color: $color--accent;
     }
 
 
     &-dark {
-        background-color: $row-color-dark;
+        background-color: $color--darkest;
     }
 }
 
@@ -3214,19 +3246,19 @@ $width--full: 30px;
 
     // Adds row specific background colour
     &.row--style-light [data-name="responsivecolumns"] {
-        background-color: darken($row-color-light, 8%);
+        background-color: darken($color--lightest, 8%);
     }
 
 
     // Adds row specific background colour
     &.row--style-accent [data-name="responsivecolumns"] {
-        background-color: darken($row-color-accent, 8%);
+        background-color: darken($color--accent, 8%);
     }
 
 
     // Adds row specific background colour
     &.row--style-dark [data-name="responsivecolumns"] {
-        background-color: darken($row-color-dark, 8%);
+        background-color: darken($color--darkest, 8%);
     }
 
 
@@ -3245,7 +3277,6 @@ $width--full: 30px;
 
         // Colour - Light
         .row--style-light & {
-            // ch-best-color-contrast($color--lightest, $colors: ($color--accent, $color--darkest), $tolerance: 0)
             color: darken($color__navigation--text, 8%);
         }
 
@@ -3504,19 +3535,19 @@ $width--full: 30px;
 
     // Adds row specific background colour
     &.row--style-light [data-name="responsivecolumns"]:first-child {
-        background-color: darken($row-color-light, 8%);
+        background-color: darken($color--lightest, 8%);
     }
 
 
     // Adds row specific background colour
     &.row--style-accent [data-name="responsivecolumns"]:first-child {
-        background-color: darken($row-color-accent, 8%);
+        background-color: darken($color--accent, 8%);
     }
 
 
     // Adds row specific background colour
     &.row--style-dark [data-name="responsivecolumns"]:first-child {
-        background-color: darken($row-color-dark, 8%);
+        background-color: darken($color--darkest, 8%);
     }
 }
 
@@ -4289,10 +4320,104 @@ img {
 }
 
 
-// Stops gallery background image repeating
 .gallery__image-link {
     background-repeat: no-repeat;
+    // border-style: $style__gallery-image--border-style;
+    // border-width: $style__gallery-image--border-width;
+    // border-radius: $style__gallery-image--border-radius;
+    // box-shadow: $style__gallery-image--box-shadow;
+    // outline-style: $style__gallery-image--outline-style;
+    // outline-width: $style__gallery-image--outline-width;
+    // transform: $style__gallery-image--transform;
+    // transition: $style__gallery-image--transition;
+
+
+    // .row--style-light & {
+    //     border-color: $color--accent;
+    //     outline-color: $color--accent;
+    // }
+
+
+    // .row--style-accent & {
+    //     border-color: $color--lightest;
+    //     outline-color: $color--lightest;
+    // }
+
+
+    // .row--style-dark & {
+    //     border-color: $color--lightest;
+    //     outline-color: $color--lightest;
+    // }
+
+
+    // &:hover,
+    // &:focus,
+    // &:active {
+    //     box-shadow: $style__gallery-image--box-shadow--hover;
+    //     transform: $style__gallery-image--transform--hover;
+    // }
 }
+
+
+// .gallery__figcaption {
+//     border-style: $style__gallery-figcaption--border-style;
+//     border-width: $style__gallery-figcaption--border-width;
+//     border-radius: $style__gallery-figcaption--border-radius;
+//     box-shadow: $style__gallery-figcaption--box-shadow;
+//     outline-style: $style__gallery-image--outline-style;
+//     outline-width: $style__gallery-image--outline-width;
+//     padding: $style__gallery-figcaption--padding;
+//     transform: $style__gallery-figcaption--transform;
+//     transition: $style__gallery-figcaption--transition;
+
+
+//     .row--style-light & {
+//         border-color: $color--accent;
+//         outline-color: $color--accent;
+//     }
+
+
+//     .row--style-accent & {
+//         border-color: $color--lightest;
+//         outline-color: $color--lightest;
+//     }
+
+
+//     .row--style-dark & {
+//         border-color: $color--lightest;
+//         outline-color: $color--lightest;
+//     }
+
+
+//     &:hover,
+//     &:focus,
+//     &:active {
+//         box-shadow: $style__gallery-figcaption--box-shadow--hover;
+//         transform: $style__gallery-figcaption--transform--hover;
+//     }
+// }
+
+
+// .gallery__image-title {
+//     font-family: $font__gallery--title--font-family;
+//     font-size: $font__gallery--title--font-size;
+//     font-weight: $font__gallery--title--font-weight;
+//     letter-spacing: $font__gallery--title--letter-spacing;
+//     line-height: $font__gallery--title--line-height;
+//     text-shadow: $style__gallery-title--text-shadow;
+//     text-transform: $style__gallery-title--text-transform;
+// }
+
+
+// .gallery__image-description {
+//     font-family: $font__gallery--description--font-family;
+//     font-size: $font__gallery--description--font-size;
+//     font-weight: $font__gallery--description--font-weight;
+//     letter-spacing: $font__gallery--description--letter-spacing;
+//     line-height: $font__gallery--description--line-height;
+//     text-shadow: $style__gallery-description--text-shadow;
+//     text-transform: $style__gallery-description--text-transform;
+// }
 
 
 // -------------------------------------
@@ -4659,6 +4784,39 @@ input[type="checkbox"] {
 
 
 
+$color__button--border-color: transparent !default;
+$color__button--border-color--hover: transparent !default;
+$color__button--background: transparent !default;
+$color__button--background--hover: transparent !default;
+
+
+
+// Fonts
+// --------------
+
+$font__button--font-family: 'Helvetica, sans-serif' !default;
+$font__button--font-size: 16px !default;
+$font__button--font-weight: 400 !default;
+$font__button--letter-spacing: 0 !default;
+$font__button--line-height: 18px !default;
+
+
+
+// Style
+// --------------
+
+$style__button--border-style: none !default;
+$style__button--border-width: 0 !default;
+$style__button--border-radius: 0 !default;
+$style__button--box-shadow: none !default;
+$style__button--box-shadow--hover: none !default;
+$style__button--outline: 0 !default;
+$style__button--outline--hover: 0 !default;
+$style__button--padding: 14px 20px !default;
+$style__button--text-shadow: none !default;
+$style__button--text-transform: normal !default;
+$style__button--transition: none !default;
+
 
 
 // ---------------------
@@ -4669,67 +4827,89 @@ input[type="checkbox"] {
 // Standard
 button,
 .button {
-    background-color: $color__button--background;
-    border: 0;
-    // border-radius: $style__button--border-radius;
-    color: $color__button--text;
+
+    // Structure
     display: inline-block;
-    font-family: $font__button--font-family;
-    font-size: $font__button--font-size;
-    font-weight: $font__button--font-weight;
-    line-height: $font__button--line-height;
-    letter-spacing: $font__button--letter-spacing;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    vertical-align: middle;
+
+    // Colour
+    background-color: $color__button--background;
+    border-color: $color__button--border-color;
+    color: $color__button--text;
+
+    // Font
+    font-family: $font__button--font-family;
+    font-size: $font__button--font-size;
+    letter-spacing: $font__button--letter-spacing;
+    line-height: $font__button--line-height;
+    font-weight: $font__button--font-weight;
+
+    // Style
+    border-style: $style__button--border-style;
+    border-width: $style__button--border-width;
+    border-radius: $style__button--border-radius;
+    box-shadow: $style__button--box-shadow;
+    outline: $style__button--outline;
+    padding: $style__button--padding;
+    text-shadow: $style__button--text-shadow;
+    text-transform: $style__button--text-transform;
+    transition: $style__button--transition;
 
 
-    // .row--style-light & {
-    //     background-color: $color--accent;
-    //     color: $color--lightest;
-    // }
+    .row--style-light & {
+        background-color: $color--accent;
+        color: $color--lightest;
+    }
 
 
-    // .row--style-accent & {
-    //     background-color: $color--lightest;
-    //     color: $color--accent;
-    // }
+    .row--style-accent & {
+        background-color: $color--lightest;
+        color: $color--accent;
+    }
 
 
-    // .row--style-dark & {
-    //     background-color: $color--lightest;
-    //     color: $color--darkest;
-    // }
+    .row--style-dark & {
+        background-color: $color--lightest;
+        color: $color--darkest;
+    }
 
 
     &:hover,
     &:focus,
     &:active {
         background-color: $color__button--background--hover;
+        box-shadow: $style__button--box-shadow--hover;
+        color: $color__button--text--hover;
+        outline: $style__button--outline--hover;
         text-decoration: none;
 
 
-        // .row--style-light & {
-        //     background-color: $color--accent;
-        //     color: $color--lightest;
-        // }
+        .row--style-light & {
+            background-color: lighten($color--accent, 5%);
+            color: $color--lightest;
+        }
 
 
-        // .row--style-accent & {
-        //     background-color: $color--lightest;
-        //     color: $color--lightest;
-        // }
+        .row--style-accent & {
+            background-color: darken($color--lightest, 5%);
+            color: $color--accent;
+        }
 
 
-        // .row--style-dark & {
-        //     background-color: $color--lightest;
-        //     color: $color--darkest;
-        // }
+        .row--style-dark & {
+            background-color: darken($color--lightest, 5%);
+            color: $color--darkest;
+        }
     }
 
 
     &:focus {
-        outline: none;
+        outline: 0;
     }
 
 
@@ -4741,11 +4921,6 @@ button,
     &.bold {
         font-weight: bold;
     }
-}
-
-
-.button {
-    padding: 3px 6px;
 }
 
 

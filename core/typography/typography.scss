@@ -11,84 +11,150 @@
 //  Table of Contents
 // -----------------------------
 
-//  1.      Headings & Body Text
-//  1.1     Body Text
-//  1.2     Heading 1
-//  1.3     Heading 2
-//  1.4     Heading 3
-//  1.5     Heading 4
-//  1.6     Anchor Link
-//  1.7     Blockquote
-//  1.8     Company Name
-//  1.9     Tables
+//  1.      Typography Defaults
+//  2.      Headings & Body Text
+//  2.1     Body Text
+//  2.2     Heading 1
+//  2.3     Heading 2
+//  2.4     Heading 3
+//  2.5     Heading 4
+//  2.6     Anchor Link
+//  2.7     Blockquote
+//  2.8     Company Name
+//  2.9     Tables
+//  2.9     Tables
+//  2.9     Tables
+//  2.9     Tables
 
-//  2.      Spacing
-//  3.      Font Styles
+//  3.      Spacing
+//  4.      Font Styles
+
+
+
+
+
+// --------------------------------
+//  1. Typography Defaults
+// --------------------------------
+
+
+
 
 
 
 
 
 // ---------------------------
-//  1. Headings & Body Text
+//  2. Headings & Body Text
 // ---------------------------
 
 
 
 
-//  1.1 - Body Text
+//  2.1 - Body Text
 // ------------------------------
 
 
 body {
     background-color: $color__body--background;
-    color: $color__p--text;
-    font-family: $font__body--font-family;
-    font-size: $font__body--font-size;
-    font-weight: $font__body--font-weight;
-    line-height: $font__body--line-height;
-    letter-spacing: $font__body--letter-spacing;
+    font-family: $font__p--font-family;
+    font-size: $font__p--font-size;
+    font-weight: $font__p--font-weight;
+    line-height: $font__p--line-height;
+    letter-spacing: $font__p--letter-spacing;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 
-// Paragraph, List Elements, Blockquote
+
+
+//  2.2 - Paragraph, Link, Lists, Blockquotes
+// --------------------------------------------
+
+
 p,
+.paragraph,
+%paragraph,
+.p-font,
+li,
+ol,
+a,
+blockquote,
+th,
+td {
+    font-family: $font__p--font-family;
+    font-size: $font__p--font-size;
+    font-weight: $font__p--font-weight;
+    letter-spacing: $font__p--letter-spacing;
+    line-height: $font__p--line-height;
+    text-transform: $style__p--text-transform;
+}
+
+
+// Body font colour
+p,
+.paragraph,
+%paragraph,
 li,
 ol,
 blockquote,
-.paragraph,
-%paragraph,
-.p-font {
+td {
     color: $color__p--text;
-    font-family: $font__body--font-family;
-    font-size: $font__body--font-size;
-    font-weight: $font__body--font-weight;
-    letter-spacing: $font__body--letter-spacing;
-    line-height: $font__body--line-height;
 
 
-    // .row--style-light & {
-    //     color: $color--dark;
-    // }
+    .row--style-light & {
+        color: $color--dark;
+        color: map-deep-get($styles, 'light', 'color__p--text');
+    }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__p--text');
+    }
 
 
-    // .row--style-dark & {
-    //     color: $color--light;
-    // }
+    .row--style-dark & {
+        color: $color--light;
+        color: map-deep-get($styles, 'dark', 'color__p--text');
+    }
+}
+
+
+// Anchor link colour
+a {
+    color: $color__link--text;
+
+
+    .row--style-light & {
+        color: $color--accent;
+        color: map-deep-get($styles, 'light', 'color__link--text');
+    }
+
+
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__link--text');
+    }
+
+
+    .row--style-dark & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'dark', 'color__link--text');
+    }
+
+
+    &:hover {
+        text-decoration: $style__link--text-decoration;
+    }
 }
 
 
 
 
-//  1.2 - Heading 1
+//  2.3 - Heading 1
 // ------------------------------
 
 
@@ -102,25 +168,28 @@ h1,
     line-height: $font__h1--line-height;
 
 
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
+    .row--style-light & {
+        color: $color--darkest;
+        color: map-deep-get($styles, 'light', 'color__p--text');
+    }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__p--text');
+    }
 
 
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
+    .row--style-dark & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'dark', 'color__p--text');
+    }
 }
 
 
 
 
-//  1.3 - Heading 2
+//  2.4 - Heading 2
 // ------------------------------
 
 
@@ -134,25 +203,28 @@ h2,
     line-height: $font__h2--line-height;
 
 
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
+    .row--style-light & {
+        color: $color--darkest;
+        color: map-deep-get($styles, 'light', 'color__p--text');
+    }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__p--text');
+    }
 
 
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
+    .row--style-dark & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'dark', 'color__p--text');
+    }
 }
 
 
 
 
-//  1.4 - Heading 3
+//  2.5 - Heading 3
 // ------------------------------
 
 
@@ -166,25 +238,28 @@ h3,
     line-height: $font__h3--line-height;
 
 
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
+    .row--style-light & {
+        color: $color--darkest;
+        color: map-deep-get($styles, 'light', 'color__p--text');
+    }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__p--text');
+    }
 
 
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
+    .row--style-dark & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'dark', 'color__p--text');
+    }
 }
 
 
 
 
-//  1.5 - Heading 4
+//  2.6 - Heading 4
 // ------------------------------
 
 
@@ -198,33 +273,34 @@ h4,
     line-height: $font__h4--line-height;
 
 
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
+    .row--style-light & {
+        color: $color--darkest;
+        color: map-deep-get($styles, 'light', 'color__p--text');
+    }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__p--text');
+    }
 
 
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
+    .row--style-dark & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'dark', 'color__p--text');
+    }
 }
 
 
 
 
-//  1.6 - Heading 5
+//  2.7 - Heading 5
 // ------------------------------
 
 
-$color__h5--text: transparent!default;
-
 h5,
 .heading--5 {
-    color: $color__h5--text;
+    color: transparent;
     font-family: $font__heading--font-family;
     font-size: $font__h5--font-size;
     font-weight: $font__h5--font-weight;
@@ -232,33 +308,34 @@ h5,
     line-height: $font__h5--line-height;
 
 
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
+    .row--style-light & {
+        color: $color--darkest;
+        color: map-deep-get($styles, 'light', 'color__p--text');
+    }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__p--text');
+    }
 
 
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
+    .row--style-dark & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'dark', 'color__p--text');
+    }
 }
 
 
 
 
-//  1.7 - Heading 6
+//  2.8 - Heading 6
 // ------------------------------
 
 
-$color__h6--text: transparent!default;
-
 h6,
 .heading--6 {
-    color: $color__h6--text;
+    color: transparent;
     font-family: $font__heading--font-family;
     font-size: $font__h6--font-size;
     font-weight: $font__h6--font-weight;
@@ -266,63 +343,28 @@ h6,
     line-height: $font__h6--line-height;
 
 
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
+    .row--style-light & {
+        color: $color--darkest;
+        color: map-deep-get($styles, 'light', 'color__p--text');
+    }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__p--text');
+    }
 
 
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
-}
-
-
-
-
-
-//  1.6 - Anchor Link
-// ------------------------------
-
-
-a {
-    color: $color__link--text;
-    font-family: $font__body--font-family;
-    font-size: $font__body--font-size;
-    font-weight: $font__body--font-weight;
-    letter-spacing: $font__body--letter-spacing;
-    line-height: $font__body--line-height;
-    text-decoration: none;
-
-
-    // .row--style-light & {
-    //     color: $color--accent;
-    // }
-
-
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
-
-
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
-
-
-    &:hover {
-        text-decoration: underline;
+    .row--style-dark & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'dark', 'color__p--text');
     }
 }
 
 
 
 
-//  1.7 - Blockquote
+//  2.9 - Blockquote
 // ------------------------------
 
 
@@ -333,145 +375,202 @@ blockquote {
 
     &:before {
         content: open-quote;
-        font-family: $font__body--font-family;
-        line-height: $font__body--line-height;
+        font-family: $font__p--font-family;
+        line-height: $font__p--line-height;
     }
 }
 
 
 
 
-//  1.8 - Company Name
+//  2.10 - Company Name
 // ------------------------------
 
 
-.company-link {
-    color: $color__companyname--text;
-    font-family: $font__companyname--font-family;
-    font-size: $font__companyname--font-size;
-    font-weight: $font__companyname--font-weight;
-    letter-spacing: $font__companyname--letter-spacing;
-    line-height: $font__companyname--line-height;
-    -ms-word-break: break-word;
-    word-wrap: break-word;
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    hyphens: none;
+// .company-link {
+//     color: $color__companyname--text;
+//     font-family: $font__companyname--font-family;
+//     font-size: $font__companyname--font-size;
+//     font-weight: $font__companyname--font-weight;
+//     letter-spacing: $font__companyname--letter-spacing;
+//     line-height: $font__companyname--line-height;
+//     -ms-word-break: break-word;
+//     word-wrap: break-word;
+//     -webkit-hyphens: none;
+//     -moz-hyphens: none;
+//     hyphens: none;
 
 
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
+//     .row--style-light & {
+//         color: $color--darkest;
+//     }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+//     .row--style-accent & {
+//         color: $color--lightest;
+//     }
 
 
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
+//     .row--style-dark & {
+//         color: $color--lightest;
+//     }
+// }
+
+
+
+
+//  2.11 - Feature Text
+// ------------------------------
+
+
+// .feature__headline {
+//     color: $color__feature-headline--text;
+//     font-family: $font__feature-headline--font-family;
+//     font-size: $font__feature-headline--font-size;
+//     font-weight: $font__feature-headline--font-weight;
+//     letter-spacing: $font__feature-headline--letter-spacing;
+//     line-height: $font__feature-headline--line-height;
+
+
+//     .row--style-light & {
+//         color: $color--darkest;
+//     }
+
+
+//     .row--style-accent & {
+//         color: $color--lightest;
+//     }
+
+
+//     .row--style-dark & {
+//         color: $color--lightest;
+//     }
+// }
+
+
+// .feature__strapline {
+//     color: $color__feature-strapline--text;
+//     font-family: $font__feature-strapline--font-family;
+//     font-size: $font__feature-strapline--font-size;
+//     font-weight: $font__feature-strapline--font-weight;
+//     letter-spacing: $font__feature-strapline--letter-spacing;
+//     line-height: $font__feature-strapline--line-height;
+
+
+//     .row--style-light & {
+//         color: $color--dark;
+//     }
+
+
+//     .row--style-accent & {
+//         color: $color--lightest;
+//     }
+
+
+//     .row--style-dark & {
+//         color: $color--light;
+//     }
+// }
+
+
+
+
+//  2.12 - Tables
+// ------------------------------
+
+
+th {
+    color: $color__h1--text;
+
+
+    .row--style-light & {
+        color: $color--darkest;
+        color: map-deep-get($styles, 'light', 'color__h1--text');
+    }
+
+
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__h1--text');
+    }
+
+
+    .row--style-dark & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'dark', 'color__h1--text');
+    }
 }
 
 
 
 
-//  1.9 - Feature Text
+//  2.13 - Pre, Code
 // ------------------------------
 
 
-.feature__headline {
-    color: $color__feature-headline--text;
-    font-family: $font__feature-headline--font-family;
-    font-size: $font__feature-headline--font-size;
-    font-weight: $font__feature-headline--font-weight;
-    letter-spacing: $font__feature-headline--letter-spacing;
-    line-height: $font__feature-headline--line-height;
-
-
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
-
-
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
-
-
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
-}
-
-
-.feature__strapline {
-    color: $color__feature-strapline--text;
-    font-family: $font__feature-strapline--font-family;
-    font-size: $font__feature-strapline--font-size;
-    font-weight: $font__feature-strapline--font-weight;
-    letter-spacing: $font__feature-strapline--letter-spacing;
-    line-height: $font__feature-strapline--line-height;
-
-
-    // .row--style-light & {
-    //     color: $color--dark;
-    // }
-
-
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
-
-
-    // .row--style-dark & {
-    //     color: $color--light;
-    // }
-}
-
-
-
-
-
-//  1.10 - Tables
-// ------------------------------
-
-
-code,
 pre,
-th,
-td {
-    color: $color__h4--text;
+code {
+    color: $color__p--text;
+    font-family: monospace;
+    font-size: $font__p--font-size;
+    font-weight: $font__p--font-weight;
+    letter-spacing: $font__p--letter-spacing;
+    line-height: $font__p--line-height;
+    text-transform: $style__p--text-transform;
 
 
-    // .row--style-light & {
-    //     color: $color--dark;
-    // }
+    .row--style-light & {
+        color: $color--dark;
+        color: map-deep-get($styles, 'light', 'color__p--text');
+    }
 
 
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
+    .row--style-accent & {
+        color: $color--lightest;
+        color: map-deep-get($styles, 'accent', 'color__p--text');
+    }
 
 
-    // .row--style-dark & {
-    //     color: $color--light;
-    // }
+    .row--style-dark & {
+        color: $color--light;
+        color: map-deep-get($styles, 'dark', 'color__p--text');
+    }
+}
+
+
+// Code
+code {
+  word-break: break-word;
+
+
+    a > & {
+        color: inherit;
+    }
+}
+
+
+// Pre
+pre {
+  display: block;
+
+
+    code {
+        font-size: inherit;
+        color: inherit;
+        word-break: normal;
+    }
 }
 
 
 
-
-
 // ---------------------------
-//  2. Spacing
+//  3. Spacing
 // ---------------------------
 
 
 
 
-//  2.1 Spacing Reset
+//  3.1 Spacing Reset
 // -----------------------------
 
 h1,
@@ -485,14 +584,9 @@ p {
 }
 
 
-ul {
-    padding: 0;
-}
 
 
-
-
-//  2.2 Paragraph Spacing
+//  3.2 Paragraph Spacing
 // -----------------------------
 
 
@@ -524,7 +618,7 @@ a {
 
 
 
-//  3.3 Headings Spacing
+//  3.3 Heading Spacing
 // -----------------------------
 
 

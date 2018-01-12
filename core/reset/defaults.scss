@@ -7,10 +7,36 @@
 
 
 // Colours
-// --------
+// ------------
+
 
 $color--lightest: #ffffff!default;
 $color--light: #efefef!default;
 $color--accent: #0157be!default;
 $color--dark: #383838!default;
 $color--darkest: #212121!default;
+
+
+
+
+// SASS Map
+// ------------
+
+
+$styles: (
+    light: (
+    ),
+    accent: (
+    ),
+    dark: (
+    )
+) !default;
+
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}

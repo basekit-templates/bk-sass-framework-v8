@@ -1,6 +1,6 @@
 
 // -------------------------
-// CORE: Cookie Warning
+//  CORE: Cookie Warning
 // -------------------------
 
 
@@ -8,14 +8,16 @@
     background-color: rgba(0,0,0, 0.75);
     border: 1px solid #333;
     color: white;
+    @include flex-display;
+    @include align-items(center);
+    @include justify-content(space-between);
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-weight: 600;
     bottom: 10px;
     left: 0;
     right: 0;
     margin: 0 auto;
     position: fixed;
-    text-align: center;
+    text-align: left;
     max-width: 900px;
     width: 95%;
     z-index: 10005;
@@ -26,23 +28,22 @@
         left: 0;
         bottom: 0;
         margin: 0;
-        text-align: left;
         width: 100%;
+    }
+
+
+    p,
+    a {
+        font-family: 'Helvetica', Arial, sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.5;
     }
 
 
     p {
         color: white;
-        padding: 0.5em 2em 0.5em 1em;
-
-        @media #{$tablet} {
-            padding: 0.5em 2.5em 0.5em 1em;
-        }
-
-        @media #{$mobile} {
-            padding-right: 3em;
-        }
-
+        padding: 0.5em 1em;
 
         a {
             color: #96d3ed;
@@ -50,39 +51,23 @@
     }
 
 
-    p, a {
-        font-size: 15px;
-        line-height: 23px;
-    }
-
-
     .bk-cookie-close-button {
-        color: rgba(255,255,255, 0.5);
-        line-height: 1em;
-        position: absolute;
-        right: 0;
-        top: 0;
         background-color: #000;
+        color: rgba(255,255,255, 0.5);
+        @include align-self(flex-start);
+        font-weight: 600;
+        line-height: 1em;
         padding: 12px;
+        text-decoration: none;
+        transition: color 0.5s ease;
 
         @media #{$tablet} {
-            font-size: 18px;
-            top: 0;
-            padding: 22px;
             color: white;
         }
 
-        @media only screen and (max-width: 422px) {
-            font-size: 16px;
-            top: 12px;
-            right: 14px;
-            line-height: 1em;
-        }
-
-
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             color: white;
-            transition: color, .5s, ease-out;
             text-decoration: none;
         }
     }
