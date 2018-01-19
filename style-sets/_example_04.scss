@@ -13,8 +13,8 @@
 
 //  1.      Colour
 //  2.      Typography
-//  3.      Colour Overide Map
-//  4.      Widgets
+//  3.      Widgets
+//  4.      Colour Overide Map
 
 
 
@@ -41,23 +41,27 @@
 
 
 
+
 // ---------------------------
-//  3. Colour Overide Map
+//  3. Widget Style
 // ---------------------------
 
 
-$styles: (
-    light: (
-    ),
-    accent: (
-    ),
-    dark: (
-    )
+// Buttons
+@import 'style-components/buttons/button-rounded';
+@import 'style-components/buttons/button-outline';
+
+
+
+
+
+// ---------------------------
+//  4. Colour Overide Map
+// ---------------------------
+
+
+$color__button--border--theme: (
+  light: yellow,
+  accent: pink,
+  dark: purple,
 );
-
-
-
-
-// ---------------------------
-//  4. Widgets
-// ---------------------------

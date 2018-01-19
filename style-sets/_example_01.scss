@@ -25,6 +25,7 @@
 // ---------------------------
 
 
+@import 'color-sets/color-merge';
 @import 'color-sets/_color-set-01';
 
 
@@ -44,16 +45,6 @@
 // ---------------------------
 //  3. Colour Overide Map
 // ---------------------------
-
-
-$styles: (
-    light: (
-    ),
-    accent: (
-    ),
-    dark: (
-    )
-);
 
 
 

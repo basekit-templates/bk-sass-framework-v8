@@ -14,12 +14,11 @@
 
 // Reset: Normalize, Typeset & Default Variables
 @import 'core/reset/normalize';
-@import 'core/reset/defaults';
 
 
 // Typography: Base Typography & Font Icons
 @import 'core/typography/icons';
-// @import 'style-sets/font-sets/_font-set-01';
+@import 'core/typography/typography-defaults';
 @import 'core/typography/typography';
 
 
@@ -37,6 +36,7 @@
 @import 'core/sections/options/section-alignment';
 @import 'core/sections/options/section-background';
 @import 'core/sections/options/section-sizing';
+
 
 
 // Additional Sections Styling
@@ -65,6 +65,11 @@
 @import 'widgets/widgets';
 
 
+// Buttons: Standard, Tweet, Dropbox, Click to Call, PayPal
+// @import 'widgets/button/_button-default';               // Default button values
+@import 'widgets/button/_button';                          // Default button styling
+
+
 // Basic: Logo, Company Name, Navigation, Feature
 @import 'widgets/logo';
 @import 'widgets/company-name';
@@ -83,10 +88,6 @@
 @import 'widgets/forms';
 
 
-// Buttons: Standard, Tweet, Dropbox, Click to Call, PayPal
-@import 'widgets/buttons/buttons';
-
-
 // Social: Social Icons, Twitter Feed
 @import 'widgets/social-icons';
 @import 'widgets/twitter-feed';
@@ -102,7 +103,6 @@
 @import 'widgets/youtube';
 @import 'widgets/google-map';
 @import 'widgets/linkedin';
-
 
 
 

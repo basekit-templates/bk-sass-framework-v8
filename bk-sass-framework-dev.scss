@@ -559,49 +559,6 @@ template {
 }
 
 
-// -------------------------------------
-//  DEFAULTS - Styles
-// -------------------------------------
-
-
-
-
-// Colours
-// ------------
-
-
-$color--lightest: #ffffff!default;
-$color--light: #efefef!default;
-$color--accent: #0157be!default;
-$color--dark: #383838!default;
-$color--darkest: #212121!default;
-
-
-
-
-// SASS Map
-// ------------
-
-
-$styles: (
-    light: (
-    ),
-    accent: (
-    ),
-    dark: (
-    )
-) !default;
-
-
-@function map-deep-get($map, $keys...) {
-  @each $key in $keys {
-    $map: map-get($map, $key);
-  }
-
-  @return $map;
-}
-
-
 
 // Typography: Base Typography & Font Icons
 
@@ -730,49 +687,48 @@ $styles: (
     content: "\f00d";
 }
 
-// 
-// ---------------------------
-//  FONTS - Set 01
-// ---------------------------
+
+// -------------------------------------
+//  DEFAULTS - Typography
+// -------------------------------------
 
 
 
 
-
-// -----------------------------
-//  Table of Contents
-// -----------------------------
-
-//  1.      Font Families
-//  1.2     Font - H1
-//  1.3     Font - H2
-//  1.4     Font - H3
-//  1.5     Font - H4
-//  1.6     Font - H5
-//  1.7     Font - H6
-//  1.8     Font - Body
+// Body
+// --------------
 
 
+// Text
+$color__p--text--light: $color--dark !default;
+$color__p--text--accent: $color--lightest !default;
+$color__p--text--dark: $color--lightest !default;
 
-//  Font Families
+
+// Anchor link
+$color__link--text--light: $color--accent !default;
+$color__link--text--accent: $color--lightest !default;
+$color__link--text--dark: $color--lightest !default;
+
+
+
+
+//  Heading 1
 // ------------------------------
 
 
-$font__heading--font-family: (Work Sans, sans-serif);
-$font__body--font-family: (Cardo, serif);
-
-
-
-
-//  Font - H1
-// ------------------------------
-
-
+// Font
 $font__h1--font-family: $font__heading--font-family;
 $font__h1--font-size: 50px;
 $font__h1--font-weight: 600;
 $font__h1--line-height: 1.1;
 $font__h1--letter-spacing: 0;
+
+
+// Colour
+$color__h1--text--light: $color--darkest !default;
+$color__h1--text--accent: $color--lightest !default;
+$color__h1--text--dark: $color--lightest !default;
 
 
 // Style
@@ -785,11 +741,18 @@ $style__h1--text-transform: normal;
 // ------------------------------
 
 
+// Font
 $font__h2--font-family: $font__heading--font-family;
 $font__h2--font-size: 42px;
 $font__h2--font-weight: 600;
 $font__h2--line-height: 1.2;
 $font__h2--letter-spacing: 0;
+
+
+// Colour
+$color__h2--text--light: $color--darkest !default;
+$color__h2--text--accent: $color--lightest !default;
+$color__h2--text--dark: $color--lightest !default;
 
 
 // Style
@@ -802,11 +765,20 @@ $style__h2--text-transform: normal;
 // ------------------------------
 
 
+// Font
 $font__h3--font-family: $font__heading--font-family;
 $font__h3--font-size: 36px;
 $font__h3--font-weight: 600;
 $font__h3--line-height: 1.2;
 $font__h3--letter-spacing: 0;
+
+
+// Colour
+$color__h3--text: $color--darkest !default;
+$color__h3--text--light: transparent !default;
+$color__h3--text--accent: transparent !default;
+$color__h3--text--dark: transparent !default;
+
 
 
 // Style
@@ -819,11 +791,19 @@ $style__h3--text-transform: normal;
 // ------------------------------
 
 
+// Font
 $font__h4--font-family: $font__heading--font-family;
 $font__h4--font-size: 28px;
 $font__h4--font-weight: 600;
 $font__h4--line-height: 1.3;
 $font__h4--letter-spacing: 0;
+
+
+// Colour
+$color__h4--text: $color--darkest !default;
+$color__h4--text--light: transparent !default;
+$color__h4--text--accent: transparent !default;
+$color__h4--text--dark: transparent !default;
 
 
 // Style
@@ -836,11 +816,19 @@ $style__h4--text-transform: normal;
 // ------------------------------
 
 
+// Font
 $font__h5--font-family: $font__heading--font-family;
 $font__h5--font-size: 22px;
 $font__h5--font-weight: 600;
 $font__h5--line-height: 1.4;
 $font__h5--letter-spacing: 0;
+
+
+// Colour
+$color__h5--text: $color--darkest !default;
+$color__h5--text--light: transparent !default;
+$color__h5--text--accent: transparent !default;
+$color__h5--text--dark: transparent !default;
 
 
 // Style
@@ -853,11 +841,19 @@ $style__h5--text-transform: normal;
 // ------------------------------
 
 
+// Font
 $font__h6--font-family: $font__heading--font-family;
 $font__h6--font-size: 20px;
 $font__h6--font-weight: 400;
 $font__h6--line-height: 1.5;
 $font__h6--letter-spacing: 0;
+
+
+// Colour
+$color__h6--text: $color--darkest !default;
+$color__h6--text--light: transparent !default;
+$color__h6--text--accent: transparent !default;
+$color__h6--text--dark: transparent !default;
 
 
 // Style
@@ -975,7 +971,8 @@ ol,
 a,
 blockquote,
 th,
-td {
+td,
+.clicktocall__phone-number-link {
     font-family: $font__p--font-family;
     font-size: $font__p--font-size;
     font-weight: $font__p--font-weight;
@@ -992,49 +989,44 @@ p,
 li,
 ol,
 blockquote,
-td {
-    color: $color__p--text;
+td,
+.clicktocall__phone-number-link {
+    // color: $color__p--text;
 
 
     .row--style-light & {
-        color: $color--dark;
-        color: map-deep-get($styles, 'light', 'color__p--text');
+        color: $color__p--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__p--text');
+        color: $color__p--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--light;
-        color: map-deep-get($styles, 'dark', 'color__p--text');
+        color: $color__p--text--dark;
     }
 }
 
 
 // Anchor link colour
 a {
-    color: $color__link--text;
+    // color: $color__link--text;
 
 
     .row--style-light & {
-        color: $color--accent;
-        color: map-deep-get($styles, 'light', 'color__link--text');
+        color: $color__link--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__link--text');
+        color: $color__link--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'dark', 'color__link--text');
+        color: $color__link--text--dark;
     }
 
 
@@ -1052,7 +1044,7 @@ a {
 
 h1,
 .heading--1 {
-    color: $color__h1--text;
+    // color: $color__h1--text;
     font-family: $font__heading--font-family;
     font-size: $font__h1--font-size;
     font-weight: $font__h1--font-weight;
@@ -1061,20 +1053,17 @@ h1,
 
 
     .row--style-light & {
-        color: $color--darkest;
-        color: map-deep-get($styles, 'light', 'color__p--text');
+        color: $color__h1--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__p--text');
+        color: $color__h1--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'dark', 'color__p--text');
+        color: $color__h1--text--dark;
     }
 }
 
@@ -1087,7 +1076,7 @@ h1,
 
 h2,
 .heading--2 {
-    color: $color__h2--text;
+    // color: $color__h2--text;
     font-family: $font__heading--font-family;
     font-size: $font__h2--font-size;
     font-weight: $font__h2--font-weight;
@@ -1096,20 +1085,17 @@ h2,
 
 
     .row--style-light & {
-        color: $color--darkest;
-        color: map-deep-get($styles, 'light', 'color__p--text');
+        color: $color__h2--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__p--text');
+        color: $color__h2--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'dark', 'color__p--text');
+        color: $color__h2--text--dark;
     }
 }
 
@@ -1122,7 +1108,7 @@ h2,
 
 h3,
 .heading--3 {
-    color: $color__h3--text;
+    // color: $color__h3--text;
     font-family: $font__heading--font-family;
     font-size: $font__h3--font-size;
     font-weight: $font__h3--font-weight;
@@ -1131,20 +1117,17 @@ h3,
 
 
     .row--style-light & {
-        color: $color--darkest;
-        color: map-deep-get($styles, 'light', 'color__p--text');
+        color: $color__h3--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__p--text');
+        color: $color__h3--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'dark', 'color__p--text');
+        color: $color__h3--text--dark;
     }
 }
 
@@ -1157,7 +1140,7 @@ h3,
 
 h4,
 .heading--4 {
-    color: $color__h4--text;
+    // color: $color__h4--text;
     font-family: $font__heading--font-family;
     font-size: $font__h4--font-size;
     font-weight: $font__h4--font-weight;
@@ -1166,20 +1149,17 @@ h4,
 
 
     .row--style-light & {
-        color: $color--darkest;
-        color: map-deep-get($styles, 'light', 'color__p--text');
+        color: $color__h4--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__p--text');
+        color: $color__h4--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'dark', 'color__p--text');
+        color: $color__h4--text--dark;
     }
 }
 
@@ -1192,7 +1172,7 @@ h4,
 
 h5,
 .heading--5 {
-    color: transparent;
+    // color: transparent;
     font-family: $font__heading--font-family;
     font-size: $font__h5--font-size;
     font-weight: $font__h5--font-weight;
@@ -1201,20 +1181,17 @@ h5,
 
 
     .row--style-light & {
-        color: $color--darkest;
-        color: map-deep-get($styles, 'light', 'color__p--text');
+        color: $color__h5--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__p--text');
+        color: $color__h5--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'dark', 'color__p--text');
+        color: $color__h5--text--dark;
     }
 }
 
@@ -1227,7 +1204,7 @@ h5,
 
 h6,
 .heading--6 {
-    color: transparent;
+    // color: transparent;
     font-family: $font__heading--font-family;
     font-size: $font__h6--font-size;
     font-weight: $font__h6--font-weight;
@@ -1236,20 +1213,17 @@ h6,
 
 
     .row--style-light & {
-        color: $color--darkest;
-        color: map-deep-get($styles, 'light', 'color__p--text');
+        color: $color__h6--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__p--text');
+        color: $color__h6--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'dark', 'color__p--text');
+        color: $color__h6--text--dark;
     }
 }
 
@@ -1372,24 +1346,21 @@ blockquote {
 
 
 th {
-    color: $color__h1--text;
+    // color: $color__h1--text;
 
 
     .row--style-light & {
-        color: $color--darkest;
-        color: map-deep-get($styles, 'light', 'color__h1--text');
+        color: $color__h1--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__h1--text');
+        color: $color__h1--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'dark', 'color__h1--text');
+        color: $color__h1--text--dark;
     }
 }
 
@@ -1402,7 +1373,7 @@ th {
 
 pre,
 code {
-    color: $color__p--text;
+    // color: $color__p--text;
     font-family: monospace;
     font-size: $font__p--font-size;
     font-weight: $font__p--font-weight;
@@ -1412,20 +1383,17 @@ code {
 
 
     .row--style-light & {
-        color: $color--dark;
-        color: map-deep-get($styles, 'light', 'color__p--text');
+        color: $color__p--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__p--text');
+        color: $color__p--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--light;
-        color: map-deep-get($styles, 'dark', 'color__p--text');
+        color: $color__p--text--dark;
     }
 }
 
@@ -1473,11 +1441,6 @@ h5,
 h6,
 p {
     margin: 0;
-}
-
-
-ul {
-    padding: 0;
 }
 
 
@@ -2507,6 +2470,7 @@ $width--full: 30px;
     @include flex-direction(column);
     width: 100%;
 }
+
 
 
 
@@ -3878,6 +3842,325 @@ $width--full: 30px;
 
 
 
+// Buttons: Standard, Tweet, Dropbox, Click to Call, PayPal
+// 
+// -------------------------------------
+//  DEFAULTS - Buttons
+// -------------------------------------
+
+
+
+
+//  Background
+// ------------------------------
+
+
+// Default Colour
+// $color__button--background--default: (
+//   light: $color--accent,
+//   accent: $color--lightest,
+//   dark: $color--lightest,
+// ) !default;
+
+
+// // Default Colour - Hover
+// $color__button--background--hover--default: (
+//   light: $color--accent,
+//   accent: $color--lightest,
+//   dark: $color--lightest,
+// ) !default;
+
+
+$color__button--background: transparent !default;
+$color__button--background--hover: transparent !default;
+
+
+// Style
+$style__button--border-radius: 0 !default;
+$style__button--border-radius--hover: 0 !default;
+$style__button--box-shadow: none !default;
+$style__button--box-shadow--hover: none !default;
+$style__button--padding: 14px 20px !default;
+$style__button--transition: none !default;
+$style__button--transition--hover: none !default;
+
+
+
+
+//  Border
+// ------------------------------
+
+
+// Default Colour
+// $color__button--border--default: (
+//   light: $color--accent,
+//   accent: $color--lighest,
+//   dark: $color--lightest,
+// ) !default;
+
+
+// // Default Colour - Hover
+// $color__button--border--hover--default: (
+//   light: $color--accent,
+//   accent: $color--lighest,
+//   dark: $color--lightest,
+// ) !default;
+
+
+$color__button--border: transparent !default;
+$color__button--border--hover: transparent !default;
+
+
+// Style
+$style__button--border-style: none !default;
+$style__button--border-style--hover: none !default
+$style__button--border-width: 0 !default;
+$style__button--border-width--hover: 0 !default;
+
+
+
+
+//  Box Shadow
+// ------------------------------
+
+
+// Default Colour
+// $color__button--box-shadow--default: (
+//   normal: transparent,
+//   hover: transparent,
+// ) !default;
+
+$color__button--box-shadow: transparent !default;
+
+
+//  Outline
+// ------------------------------
+
+
+// Default Colour
+// $color__button--outline--default: (
+//   light: $color--accent,
+//   accent: $color--lighest,
+//   dark: $color--lightest,
+// ) !default;
+
+
+// // Default Colour - Hover
+// $color__button--outline--hover--default: (
+//   light: $color--accent,
+//   accent: $color--lighest,
+//   dark: $color--lightest,
+// ) !default;
+
+$color__button--outline: none !default;
+$color__button--outline--hover: none !default;
+
+
+// Style
+$style__button--outline-style: none !default;
+$style__button--outline-style--hover: none !default;
+$style__button--outline-width: 0 !default;
+$style__button--outline-width--hover: 0 !default;
+
+
+
+
+//  Text
+// ------------------------------
+
+
+// Font
+$font__button--font-family: $font__body--font-family !default;
+$font__button--font-size: 16px !default;
+$font__button--font-weight: 400 !default;
+$font__button--letter-spacing: 0 !default;
+$font__button--line-height: 18px !default;
+
+
+// Default Colour
+// $color__button--text--default: (
+//   light: $color--lightest,
+//   accent: $color--lighest,
+//   dark: $color--lightest,
+// ) !default;
+
+
+// // Default Colour - Hover
+// $color__button--text--hover--default: (
+//   light: transparent,
+//   accent: transparent,
+//   dark: transparent,
+// ) !default;
+
+$color__button--text: transparent !default;
+
+
+// Style
+$style__button--text-shadow: none !default;
+$style__button--text-shadow--hover: none !default;
+$style__button--text-transform: none !default;
+
+               // Default button values
+
+// -------------------------------------
+//  WIDGETS - Buttons
+// -------------------------------------
+
+
+
+
+
+// -----------------------------
+//  Table of Contents
+// -----------------------------
+
+//  1     Standard Button
+//  2     Paypal Button
+//  3     Dropbox Button
+//  4     Click to Call Button
+
+
+
+
+
+// ---------------------
+//  1. Main Button
+// ---------------------
+
+
+$color-button: ()!default;
+
+
+// Standard
+button,
+.button {
+
+    // Structure
+    display: inline-block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    padding: 15px 20px;
+    user-select: none;
+    white-space: nowrap;
+    vertical-align: middle;
+
+    // Font
+    font-family: $font__button--font-family;
+    font-size: $font__button--font-size;
+    letter-spacing: $font__button--letter-spacing;
+    line-height: $font__button--line-height;
+    font-weight: $font__button--font-weight;
+
+
+    // Colour
+    // @each $color, $value in $color__button--background {
+
+    //     .row--style-#{$color} & {
+    //         background: $value;
+    //         border-color: map-get($color__button--border, $color);
+    //         color: map-get($color__button--text, $color);
+    //         outline-color: map-get($color__button--outline, $color);
+    //     }
+    // }
+
+
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: none;
+
+
+        // Colour
+        // @each $color, $value in $color__button--background--hover {
+
+        //     .row--style-#{$color} & {
+        //         background: $value;
+        //         border-color: map-get($color__button--border--hover, $color);
+        //         color: map-get($color__button--text--hover, $color);
+        //         outline-color: map-get($color__button--outline--hover, $color);
+        //     }
+        // }
+    }
+
+
+    &:focus {
+        outline: none;
+    }
+}
+
+
+// Removes any scaling elements from pagination / ecom basket buttons
+.ecombasketsummary__quantity-minus,
+.ecombasketsummary__quantity-plus,
+.ecomproductslist__pagination-item .button,
+.responsiveslideshow__pagination-item .button {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 1;
+}
+
+
+
+
+
+// ---------------------
+//  2. PayPal Button
+// ---------------------
+
+
+.paypalbuynow form { background-color: transparent; }
+
+
+
+
+
+// ---------------------
+//  3. Dropbox Button
+// ---------------------
+
+
+.dropbox-button__button,
+.dropbox-button__label {
+    display: inline-block; // Displays button & label inline
+}
+
+
+
+
+
+// ---------------------------
+//  4. Click to Call Button
+// ---------------------------
+
+
+.clicktocall__phone-number-link {
+    background-color: transparent;
+
+
+    &:hover {
+        text-decoration: none;
+    }
+
+
+    @media #{$mobile}, only screen and (max-width: 700px) and (orientation:landscape) {
+        border: 0;
+        display: inline-block;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        text-decoration: none;
+
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+                          // Default button styling
+
+
 // Basic: Logo, Company Name, Navigation, Feature
 
 // -------------------------------------
@@ -4763,250 +5046,6 @@ input[type="checkbox"] {
 
 
 
-// Buttons: Standard, Tweet, Dropbox, Click to Call, PayPal
-
-// -------------------------------------
-//  WIDGETS - Buttons
-// -------------------------------------
-
-
-
-
-
-// -----------------------------
-//  Table of Contents
-// -----------------------------
-
-//  1     Standard Button
-//  2     Paypal Button
-//  3     Dropbox Button
-//  4     Click to Call Button
-
-
-
-$color__button--border-color: transparent !default;
-$color__button--border-color--hover: transparent !default;
-$color__button--background: transparent !default;
-$color__button--background--hover: transparent !default;
-
-
-
-// Fonts
-// --------------
-
-$font__button--font-family: 'Helvetica, sans-serif' !default;
-$font__button--font-size: 16px !default;
-$font__button--font-weight: 400 !default;
-$font__button--letter-spacing: 0 !default;
-$font__button--line-height: 18px !default;
-
-
-
-// Style
-// --------------
-
-$style__button--border-style: none !default;
-$style__button--border-width: 0 !default;
-$style__button--border-radius: 0 !default;
-$style__button--box-shadow: none !default;
-$style__button--box-shadow--hover: none !default;
-$style__button--outline: 0 !default;
-$style__button--outline--hover: 0 !default;
-$style__button--padding: 14px 20px !default;
-$style__button--text-shadow: none !default;
-$style__button--text-transform: normal !default;
-$style__button--transition: none !default;
-
-
-
-// ---------------------
-//  1. Main Button
-// ---------------------
-
-
-// Standard
-button,
-.button {
-
-    // Structure
-    display: inline-block;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    white-space: nowrap;
-    vertical-align: middle;
-
-    // Colour
-    background-color: $color__button--background;
-    border-color: $color__button--border-color;
-    color: $color__button--text;
-
-    // Font
-    font-family: $font__button--font-family;
-    font-size: $font__button--font-size;
-    letter-spacing: $font__button--letter-spacing;
-    line-height: $font__button--line-height;
-    font-weight: $font__button--font-weight;
-
-    // Style
-    border-style: $style__button--border-style;
-    border-width: $style__button--border-width;
-    border-radius: $style__button--border-radius;
-    box-shadow: $style__button--box-shadow;
-    outline: $style__button--outline;
-    padding: $style__button--padding;
-    text-shadow: $style__button--text-shadow;
-    text-transform: $style__button--text-transform;
-    transition: $style__button--transition;
-
-
-    .row--style-light & {
-        background-color: $color--accent;
-        color: $color--lightest;
-    }
-
-
-    .row--style-accent & {
-        background-color: $color--lightest;
-        color: $color--accent;
-    }
-
-
-    .row--style-dark & {
-        background-color: $color--lightest;
-        color: $color--darkest;
-    }
-
-
-    &:hover,
-    &:focus,
-    &:active {
-        background-color: $color__button--background--hover;
-        box-shadow: $style__button--box-shadow--hover;
-        color: $color__button--text--hover;
-        outline: $style__button--outline--hover;
-        text-decoration: none;
-
-
-        .row--style-light & {
-            background-color: lighten($color--accent, 5%);
-            color: $color--lightest;
-        }
-
-
-        .row--style-accent & {
-            background-color: darken($color--lightest, 5%);
-            color: $color--accent;
-        }
-
-
-        .row--style-dark & {
-            background-color: darken($color--lightest, 5%);
-            color: $color--darkest;
-        }
-    }
-
-
-    &:focus {
-        outline: 0;
-    }
-
-
-    &.italic {
-        font-style: italic;
-    }
-
-
-    &.bold {
-        font-weight: bold;
-    }
-}
-
-
-// Removes any scaling elements from pagination / ecom basket buttons
-.ecombasketsummary__quantity-minus,
-.ecombasketsummary__quantity-plus,
-.ecomproductslist__pagination-item .button,
-.responsiveslideshow__pagination-item .button {
-    font-size: 16px;
-    letter-spacing: 0;
-    line-height: 1;
-}
-
-
-
-
-
-// ---------------------
-//  2. PayPal Button
-// ---------------------
-
-
-.paypalbuynow form { background-color: transparent; }
-
-
-
-
-
-// ---------------------
-//  3. Dropbox Button
-// ---------------------
-
-
-.dropbox-button__button,
-.dropbox-button__label {
-    display: inline-block; // Displays button & label inline
-}
-
-
-
-
-
-// ---------------------------
-//  4. Click to Call Button
-// ---------------------------
-
-
-.clicktocall__phone-number-link {
-
-    &:hover {
-        text-decoration: none;
-    }
-
-
-    @media #{$mobile}, only screen and (max-width: 700px) and (orientation:landscape) {
-        border: 0;
-        color: $color__link--text;
-        display: inline-block;
-        font-family: $font__p--font-family;
-        font-size: $font__p--font-size;
-        font-weight: $font__p--font-weight;
-        line-height: $font__p--line-height;
-        letter-spacing: $font__p--letter-spacing;
-        text-decoration: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-
-
-        &:hover {
-            // background-color: $color__button--background--hover;
-            // box-shadow: $style__button--box-shadow--hover;
-            // color: $color__button--text--hover;
-            // outline: $style__button--outline--hover;
-            text-decoration: none;
-        }
-
-
-        &:focus {
-            outline: none;
-        }
-    }
-}
-
-
-
 // Social: Social Icons, Twitter Feed
 
 // -------------------------------------
@@ -5231,7 +5270,6 @@ hr.rule {
 .linkedinprofile {
     overflow: auto;
 }
-
 
 
 

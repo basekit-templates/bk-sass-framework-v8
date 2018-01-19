@@ -83,7 +83,8 @@ ol,
 a,
 blockquote,
 th,
-td {
+td,
+.clicktocall__phone-number-link {
     font-family: $font__p--font-family;
     font-size: $font__p--font-size;
     font-weight: $font__p--font-weight;
@@ -100,49 +101,44 @@ p,
 li,
 ol,
 blockquote,
-td {
-    color: $color__p--text;
+td,
+.clicktocall__phone-number-link {
+    // color: $color__p--text;
 
 
     .row--style-light & {
-        color: $color--dark;
-        color: map-deep-get($styles, 'light', 'color__p--text');
+        color: $color__p--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__p--text');
+        color: $color__p--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--light;
-        color: map-deep-get($styles, 'dark', 'color__p--text');
+        color: $color__p--text--dark;
     }
 }
 
 
 // Anchor link colour
 a {
-    color: $color__link--text;
+    // color: $color__link--text;
 
 
     .row--style-light & {
-        color: $color--accent;
-        color: map-deep-get($styles, 'light', 'color__link--text');
+        color: $color__link--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__link--text');
+        color: $color__link--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'dark', 'color__link--text');
+        color: $color__link--text--dark;
     }
 
 
@@ -160,7 +156,7 @@ a {
 
 h1,
 .heading--1 {
-    color: $color__h1--text;
+    // color: $color__h1--text;
     font-family: $font__heading--font-family;
     font-size: $font__h1--font-size;
     font-weight: $font__h1--font-weight;
@@ -169,20 +165,17 @@ h1,
 
 
     .row--style-light & {
-        color: $color--darkest;
-        color: map-deep-get($styles, 'light', 'color__p--text');
+        color: $color__h1--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__p--text');
+        color: $color__h1--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'dark', 'color__p--text');
+        color: $color__h1--text--dark;
     }
 }
 
@@ -195,7 +188,7 @@ h1,
 
 h2,
 .heading--2 {
-    color: $color__h2--text;
+    // color: $color__h2--text;
     font-family: $font__heading--font-family;
     font-size: $font__h2--font-size;
     font-weight: $font__h2--font-weight;
@@ -204,20 +197,17 @@ h2,
 
 
     .row--style-light & {
-        color: $color--darkest;
-        color: map-deep-get($styles, 'light', 'color__p--text');
+        color: $color__h2--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__p--text');
+        color: $color__h2--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'dark', 'color__p--text');
+        color: $color__h2--text--dark;
     }
 }
 
@@ -230,7 +220,7 @@ h2,
 
 h3,
 .heading--3 {
-    color: $color__h3--text;
+    // color: $color__h3--text;
     font-family: $font__heading--font-family;
     font-size: $font__h3--font-size;
     font-weight: $font__h3--font-weight;
@@ -239,20 +229,17 @@ h3,
 
 
     .row--style-light & {
-        color: $color--darkest;
-        color: map-deep-get($styles, 'light', 'color__p--text');
+        color: $color__h3--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__p--text');
+        color: $color__h3--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'dark', 'color__p--text');
+        color: $color__h3--text--dark;
     }
 }
 
@@ -265,7 +252,7 @@ h3,
 
 h4,
 .heading--4 {
-    color: $color__h4--text;
+    // color: $color__h4--text;
     font-family: $font__heading--font-family;
     font-size: $font__h4--font-size;
     font-weight: $font__h4--font-weight;
@@ -274,20 +261,17 @@ h4,
 
 
     .row--style-light & {
-        color: $color--darkest;
-        color: map-deep-get($styles, 'light', 'color__p--text');
+        color: $color__h4--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__p--text');
+        color: $color__h4--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'dark', 'color__p--text');
+        color: $color__h4--text--dark;
     }
 }
 
@@ -300,7 +284,7 @@ h4,
 
 h5,
 .heading--5 {
-    color: transparent;
+    // color: transparent;
     font-family: $font__heading--font-family;
     font-size: $font__h5--font-size;
     font-weight: $font__h5--font-weight;
@@ -309,20 +293,17 @@ h5,
 
 
     .row--style-light & {
-        color: $color--darkest;
-        color: map-deep-get($styles, 'light', 'color__p--text');
+        color: $color__h5--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__p--text');
+        color: $color__h5--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'dark', 'color__p--text');
+        color: $color__h5--text--dark;
     }
 }
 
@@ -335,7 +316,7 @@ h5,
 
 h6,
 .heading--6 {
-    color: transparent;
+    // color: transparent;
     font-family: $font__heading--font-family;
     font-size: $font__h6--font-size;
     font-weight: $font__h6--font-weight;
@@ -344,20 +325,17 @@ h6,
 
 
     .row--style-light & {
-        color: $color--darkest;
-        color: map-deep-get($styles, 'light', 'color__p--text');
+        color: $color__h6--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__p--text');
+        color: $color__h6--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'dark', 'color__p--text');
+        color: $color__h6--text--dark;
     }
 }
 
@@ -480,24 +458,21 @@ blockquote {
 
 
 th {
-    color: $color__h1--text;
+    // color: $color__h1--text;
 
 
     .row--style-light & {
-        color: $color--darkest;
-        color: map-deep-get($styles, 'light', 'color__h1--text');
+        color: $color__h1--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__h1--text');
+        color: $color__h1--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'dark', 'color__h1--text');
+        color: $color__h1--text--dark;
     }
 }
 
@@ -510,7 +485,7 @@ th {
 
 pre,
 code {
-    color: $color__p--text;
+    // color: $color__p--text;
     font-family: monospace;
     font-size: $font__p--font-size;
     font-weight: $font__p--font-weight;
@@ -520,20 +495,17 @@ code {
 
 
     .row--style-light & {
-        color: $color--dark;
-        color: map-deep-get($styles, 'light', 'color__p--text');
+        color: $color__p--text--light;
     }
 
 
     .row--style-accent & {
-        color: $color--lightest;
-        color: map-deep-get($styles, 'accent', 'color__p--text');
+        color: $color__p--text--accent;
     }
 
 
     .row--style-dark & {
-        color: $color--light;
-        color: map-deep-get($styles, 'dark', 'color__p--text');
+        color: $color__p--text--dark;
     }
 }
 
