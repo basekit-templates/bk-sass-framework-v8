@@ -7,6 +7,7 @@
 // Social List
 .social-list {
     margin: 0;
+    padding-left: 0;
 
 
     .social-item:last-child {
@@ -26,19 +27,4 @@
 .social-link {
     text-rendering: optimizedLegibility;
     -webkit-font-smoothing: antialiased;
-
-
-    // .row--style-light & {
-    //     color: $color--dark;
-    // }
-
-
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
-
-
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
 }

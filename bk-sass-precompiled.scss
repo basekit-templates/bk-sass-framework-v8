@@ -13,44 +13,29 @@
 
 
 // Reset: Normalize, Typeset & Default Variables
-@import 'core/reset/normalize';
+@import 'core/reset/_normalize';
 
 
 // Typography: Base Typography & Font Icons
-@import 'core/typography/icons';
-@import 'core/typography/typography-defaults';
-@import 'core/typography/typography';
+@import 'core/typography/_icons';
+@import 'core/typography/_typography-defaults';
+@import 'core/typography/_typography';
 
 
 // General
-@import 'core/general/mixins';
-@import 'core/general/media-queries';
-@import 'core/general/text-alignment';
-@import 'core/general/columns';
-@import 'core/general/print';
-@import 'core/general/messages';
-@import 'core/general/cookies';
+@import 'core/general/_text-alignment';
+@import 'core/general/_columns';
+@import 'core/general/_print';
+@import 'core/general/_messages';
+@import 'core/general/_cookies';
+@import 'core/general/_header';
+@import 'core/general/_footer';
 
 
 // Section Options
-@import 'core/sections/options/section-alignment';
-@import 'core/sections/options/section-background';
-@import 'core/sections/options/section-sizing';
-
-
-
-// Additional Sections Styling
-@import 'core/sections/header/navigation-1';
-@import 'core/sections/header/navigation-2';
-@import 'core/sections/header/navigation-3';
-@import 'core/sections/header/navigation-4';
-@import 'core/sections/header/navigation-5';
-@import 'core/sections/promo/promo-2';
-@import 'core/sections//gallery/gallery-1';
-@import 'core/sections/contact/contact-2';
-@import 'core/sections/footer/footer-1';
-@import 'core/sections/footer/footer-3';
-@import 'core/sections/footer/footer-4';
+@import 'core/general/_section-alignment';
+@import 'core/general/_section-background';
+@import 'core/general/_section-sizing';
 
 
 
@@ -66,8 +51,8 @@
 
 
 // Buttons: Standard, Tweet, Dropbox, Click to Call, PayPal
-// @import 'widgets/button/_button-default';               // Default button values
-@import 'widgets/button/_button';                          // Default button styling
+// @import 'widgets/button/_button-default';                // Default button values
+@import 'widgets/button/_button';                           // Default button styling
 
 
 // Basic: Logo, Company Name, Navigation, Feature
@@ -80,7 +65,10 @@
 
 // Media: Images, Gallery, Slideshow
 @import 'widgets/image';
-@import 'widgets/galleries/gallery';
+
+@import 'widgets/galleries/_gallery-defaults';
+@import 'widgets/galleries/_gallery';
+
 @import 'widgets/slideshow';
 
 

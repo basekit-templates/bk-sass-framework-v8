@@ -47,54 +47,18 @@
 // -----------------
 
 
-.navigation-item .item-name {
-    display: block;
+.navigation-item .item-name,
+#page-zones__header .clicktocall__label {
+    display: inline-block;
     padding: 0 5px;
     text-decoration: none;
 
     // Font Styles
-    color: $color__navigation--text;
     font-family: $font__navigation--font-family;
     font-size: $font__navigation--font-size;
     font-weight: $font__navigation--font-weight;
     letter-spacing: $font__navigation--letter-spacing;
     line-height: $font__navigation--line-height;
-
-
-    // .row--style-light & {
-    //     color: $color--dark;
-    // }
-
-
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
-
-
-    // .row--style-dark & {
-    //     color: $color--light;
-    // }
-
-
-    &:hover,
-    &:active,
-    &:focus {
-
-
-        // .row--style-light & {
-        //     color: $color--darkest;
-        // }
-
-
-        // .row--style-accent & {
-        //     color: $color--lightest;
-        // }
-
-
-        // .row--style-dark & {
-        //     color: $color--lightest;
-        // }
-    }
 
 
     &:hover {
@@ -118,21 +82,6 @@
     top: 100%;
     min-width: 100%;
     z-index: 2;
-
-
-    // .row--style-light & {
-    //     background-color: $color--lightest;
-    // }
-
-
-    // .row--style-accent & {
-    //     background-color: $color--accent;
-    // }
-
-
-    // .row--style-dark & {
-    //     background-color: $color--darkest;
-    // }
 }
 
 

@@ -4,6 +4,16 @@
 // -------------------------------------
 
 
+.widget[data-name="content"] {
+    padding-bottom: 15px;
+}
+
+
+.column .widget[data-name="content"]:last-child {
+    padding-bottom: 0;
+}
+
+
 .widget__content {
     -ms-word-break: break-word;
     word-break: break-word;

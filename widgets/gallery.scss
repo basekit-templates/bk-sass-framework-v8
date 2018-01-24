@@ -25,4 +25,10 @@
 // Stops gallery background image repeating
 .gallery__image-link {
     background-repeat: no-repeat;
+    text-decoration: none;
+}
+
+
+.gallery__caption-link {
+    text-decoration: none;
 }
