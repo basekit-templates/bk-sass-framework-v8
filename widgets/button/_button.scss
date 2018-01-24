@@ -1,0 +1,136 @@
+
+// -------------------------------------
+//  WIDGETS - Buttons
+// -------------------------------------
+
+
+
+
+
+// -----------------------------
+//  Table of Contents
+// -----------------------------
+
+//  1     Standard Button
+//  2     Paypal Button
+//  3     Dropbox Button
+//  4     Click to Call Button
+
+
+
+
+
+// ---------------------
+//  1. Main Button
+// ---------------------
+
+
+// Standard
+button,
+.button {
+
+    &:not(.navigation-toggle) {
+
+        // Structure
+        display: inline-block;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        padding: 18px 38px;
+        user-select: none;
+        white-space: nowrap;
+        vertical-align: middle;
+
+        // Font
+        font-family: $font__button--font-family;
+        font-size: $font__button--font-size;
+        letter-spacing: $font__button--letter-spacing;
+        line-height: $font__button--line-height;
+        font-weight: $font__button--font-weight;
+
+        // Style
+        text-transform: $style__button--text-transform;
+
+
+        &:hover,
+        &:focus,
+        &:active {
+            text-decoration: none;
+        }
+
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+
+// Removes any scaling elements from pagination / ecom basket buttons
+.ecombasketsummary__quantity-minus,
+.ecombasketsummary__quantity-plus,
+.ecomproductslist__pagination-item .button,
+.responsiveslideshow__pagination-item .button {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 1;
+}
+
+
+
+
+
+// ---------------------
+//  2. PayPal Button
+// ---------------------
+
+
+.paypalbuynow form { background-color: transparent; }
+
+
+
+
+
+// ---------------------
+//  3. Dropbox Button
+// ---------------------
+
+
+.dropbox-button__button,
+.dropbox-button__label {
+    display: inline-block; // Displays button & label inline
+}
+
+
+
+
+
+// ---------------------------
+//  4. Click to Call Button
+// ---------------------------
+
+
+.clicktocall__phone-number-link {
+    background-color: transparent;
+
+
+    &:hover {
+        text-decoration: none;
+    }
+
+
+    @media #{$mobile}, only screen and (max-width: 700px) and (orientation:landscape) {
+        border: 0;
+        display: inline-block;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        text-decoration: none;
+
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

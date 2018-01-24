@@ -1,0 +1,74 @@
+
+// -------------------------
+//  CORE: Cookie Warning
+// -------------------------
+
+
+.bk-cookie-container {
+    background-color: rgba(0,0,0, 0.75);
+    border: 1px solid #333;
+    color: white;
+    @include flex-display;
+    @include align-items(center);
+    @include justify-content(space-between);
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    position: fixed;
+    text-align: left;
+    max-width: 900px;
+    width: 95%;
+    z-index: 10005;
+
+    @media #{$mobile} {
+        border: none;
+        border-top: 1px solid #333;
+        left: 0;
+        bottom: 0;
+        margin: 0;
+        width: 100%;
+    }
+
+
+    p,
+    a {
+        font-family: 'Helvetica', Arial, sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+
+    p {
+        color: white;
+        padding: 0.5em 1em;
+
+        a {
+            color: #96d3ed;
+        }
+    }
+
+
+    .bk-cookie-close-button {
+        background-color: #000;
+        color: rgba(255,255,255, 0.5);
+        @include align-self(flex-start);
+        font-weight: 600;
+        line-height: 1em;
+        padding: 12px;
+        text-decoration: none;
+        transition: color 0.5s ease;
+
+        @media #{$tablet} {
+            color: white;
+        }
+
+        &:hover,
+        &:focus {
+            color: white;
+            text-decoration: none;
+        }
+    }
+}

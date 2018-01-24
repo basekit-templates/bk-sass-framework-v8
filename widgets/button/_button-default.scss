@@ -1,0 +1,157 @@
+
+// -------------------------------------
+//  DEFAULTS - Buttons
+// -------------------------------------
+
+
+
+
+//  Background
+// ------------------------------
+
+
+// Default Colour
+// $color__button--background--default: (
+//   light: $color--accent,
+//   accent: $color--lightest,
+//   dark: $color--lightest,
+// ) !default;
+
+
+// // Default Colour - Hover
+// $color__button--background--hover--default: (
+//   light: $color--accent,
+//   accent: $color--lightest,
+//   dark: $color--lightest,
+// ) !default;
+
+
+// $color__button--background: transparent !default;
+// $color__button--background--hover: transparent !default;
+
+
+// Style
+$style__button--border-radius: 0 !default;
+$style__button--border-radius--hover: 0 !default;
+$style__button--box-shadow: none !default;
+$style__button--box-shadow--hover: none !default;
+$style__button--padding: 14px 20px !default;
+$style__button--transition: none !default;
+$style__button--transition--hover: none !default;
+
+
+
+
+//  Border
+// ------------------------------
+
+
+// Default Colour
+// $color__button--border--default: (
+//   light: $color--accent,
+//   accent: $color--lighest,
+//   dark: $color--lightest,
+// ) !default;
+
+
+// // Default Colour - Hover
+// $color__button--border--hover--default: (
+//   light: $color--accent,
+//   accent: $color--lighest,
+//   dark: $color--lightest,
+// ) !default;
+
+
+// $color__button--border: transparent !default;
+// $color__button--border--hover: transparent !default;
+
+
+// Style
+$style__button--border-style: none !default;
+$style__button--border-style--hover: none !default
+$style__button--border-width: 0 !default;
+$style__button--border-width--hover: 0 !default;
+
+
+
+
+//  Box Shadow
+// ------------------------------
+
+
+// Default Colour
+// $color__button--box-shadow--default: (
+//   normal: transparent,
+//   hover: transparent,
+// ) !default;
+
+// $color__button--box-shadow: transparent !default;
+
+
+//  Outline
+// ------------------------------
+
+
+// Default Colour
+// $color__button--outline--default: (
+//   light: $color--accent,
+//   accent: $color--lighest,
+//   dark: $color--lightest,
+// ) !default;
+
+
+// // Default Colour - Hover
+// $color__button--outline--hover--default: (
+//   light: $color--accent,
+//   accent: $color--lighest,
+//   dark: $color--lightest,
+// ) !default;
+
+// $color__button--outline: none !default;
+// $color__button--outline--hover: none !default;
+
+
+// Style
+$style__button--outline-style: none !default;
+$style__button--outline-style--hover: none !default;
+$style__button--outline-width: 0 !default;
+$style__button--outline-width--hover: 0 !default;
+
+
+
+
+//  Text
+// ------------------------------
+
+
+// Font
+$font__button--font-family: $font__body--font-family !default;
+$font__button--font-size: 16px !default;
+$font__button--font-weight: 400 !default;
+$font__button--letter-spacing: 0 !default;
+$font__button--line-height: 18px !default;
+
+
+// Default Colour
+// $color__button--text--default: (
+//   light: $color--lightest,
+//   accent: $color--lighest,
+//   dark: $color--lightest,
+// ) !default;
+
+
+// // Default Colour - Hover
+// $color__button--text--hover--default: (
+//   light: transparent,
+//   accent: transparent,
+//   dark: transparent,
+// ) !default;
+
+// $color__button--text: transparent !default;
+
+
+// Style
+$style__button--text-shadow: none !default;
+$style__button--text-shadow--hover: none !default;
+$style__button--text-transform: none !default;
+

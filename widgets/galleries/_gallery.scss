@@ -1,0 +1,36 @@
+
+// -------------------------------------
+//  WIDGETS - Image Gallery
+// -------------------------------------
+
+
+
+
+// Element Resets
+// --------------
+
+
+.gallery__figure {
+	margin: 0;
+}
+
+
+.gallery-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.gallery__image-link {
+    background-repeat: no-repeat;
+    text-decoration: none;
+}
+
+
+.gallery__caption-link,
+.gallery__caption-link:hover,
+.gallery__caption-link:active,
+.gallery__caption-link:focus {
+    text-decoration: none;
+}

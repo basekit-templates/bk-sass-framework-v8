@@ -1,0 +1,25 @@
+
+// -------------------------
+// CORE: Footer
+// -------------------------
+
+
+
+//  Remove Default Link Styles
+// -----------------------------
+
+
+#page-zones__footer {
+
+
+    a {
+        text-decoration: none;
+    }
+
+
+    [data-name="content"] ul {
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+    }
+}

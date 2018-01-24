@@ -1,0 +1,587 @@
+
+// -------------------------------------
+//  CORE - Typography
+// -------------------------------------
+
+
+
+
+
+// -----------------------------
+//  Table of Contents
+// -----------------------------
+
+//  1.      Typography Defaults
+//  2.      Headings & Body Text
+//  2.1     Body Text
+//  2.2     Heading 1
+//  2.3     Heading 2
+//  2.4     Heading 3
+//  2.5     Heading 4
+//  2.6     Anchor Link
+//  2.7     Blockquote
+//  2.8     Company Name
+//  2.9     Tables
+//  2.9     Tables
+//  2.9     Tables
+//  2.9     Tables
+
+//  3.      Spacing
+//  4.      Font Styles
+
+
+
+
+
+// --------------------------------
+//  1. Typography Defaults
+// --------------------------------
+
+
+
+
+
+
+
+
+// ---------------------------
+//  2. Headings & Body Text
+// ---------------------------
+
+
+
+
+//  2.1 - Body Text
+// ------------------------------
+
+
+body {
+    background-color: $color__body--background;
+    font-family: $font__p--font-family;
+    font-size: $font__p--font-size;
+    font-weight: $font__p--font-weight;
+    line-height: $font__p--line-height;
+    letter-spacing: $font__p--letter-spacing;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+
+//  2.2 - Paragraph, Link, Lists, Blockquotes
+// --------------------------------------------
+
+
+p,
+.paragraph,
+%paragraph,
+.p-font,
+li,
+ol,
+a,
+blockquote,
+th,
+td,
+.clicktocall__phone-number-link,
+::-moz-placeholder,
+::-webkit-input-placeholder,
+:-ms-input-placeholder,
+:-moz-placeholder,
+::placeholder {
+    font-family: $font__p--font-family;
+    font-size: $font__p--font-size;
+    font-weight: $font__p--font-weight;
+    letter-spacing: $font__p--letter-spacing;
+    line-height: $font__p--line-height;
+}
+
+
+// Anchor link colour
+a {
+
+    &:hover {
+        text-decoration: $style__link--text-decoration;
+    }
+}
+
+
+
+
+//  2.3 - Heading 1
+// ------------------------------
+
+
+h1,
+.heading--1 {
+
+     // Font
+    font-family: $font__heading--font-family;
+    font-size: $font__h1--font-size;
+    font-weight: $font__h1--font-weight;
+    letter-spacing: $font__h1--letter-spacing;
+    line-height: $font__h1--line-height;
+
+    // Style
+    text-transform: $style__h1--text-transform;
+}
+
+
+
+
+//  2.4 - Heading 2
+// ------------------------------
+
+
+h2,
+.heading--2 {
+
+     // Font
+    font-family: $font__heading--font-family;
+    font-size: $font__h2--font-size;
+    font-weight: $font__h2--font-weight;
+    letter-spacing: $font__h2--letter-spacing;
+    line-height: $font__h2--line-height;
+
+    // Style
+    text-transform: $style__h2--text-transform;
+}
+
+
+
+
+//  2.5 - Heading 3
+// ------------------------------
+
+
+h3,
+.heading--3 {
+
+    // Font
+    font-family: $font__heading--font-family;
+    font-size: $font__h3--font-size;
+    font-weight: $font__h3--font-weight;
+    letter-spacing: $font__h3--letter-spacing;
+    line-height: $font__h3--line-height;
+
+    // Style
+    text-transform: $style__h3--text-transform;
+}
+
+
+
+
+//  2.6 - Heading 4
+// ------------------------------
+
+
+h4,
+.heading--4 {
+
+    // Font
+    font-family: $font__heading--font-family;
+    font-size: $font__h4--font-size;
+    font-weight: $font__h4--font-weight;
+    letter-spacing: $font__h4--letter-spacing;
+    line-height: $font__h4--line-height;
+
+    // Style
+    text-transform: $style__h4--text-transform;
+}
+
+
+
+
+//  2.7 - Heading 5
+// ------------------------------
+
+
+h5,
+.heading--5 {
+
+    // Font
+    font-family: $font__heading--font-family;
+    font-size: $font__h5--font-size;
+    font-weight: $font__h5--font-weight;
+    letter-spacing: $font__h5--letter-spacing;
+    line-height: $font__h5--line-height;
+
+    // Style
+    text-transform: $style__h5--text-transform;
+}
+
+
+
+
+//  2.8 - Heading 6
+// ------------------------------
+
+
+h6,
+.heading--6 {
+    font-family: $font__heading--font-family;
+    font-size: $font__h6--font-size;
+    font-weight: $font__h6--font-weight;
+    letter-spacing: $font__h6--letter-spacing;
+    line-height: $font__h6--line-height;
+}
+
+
+
+
+//  2.9 - Blockquote
+// ------------------------------
+
+
+blockquote {
+    quotes: "“" "”" "“" "”";
+    margin: 0;
+
+
+    &:before {
+        content: open-quote;
+        font-family: $font__p--font-family;
+        line-height: $font__p--line-height;
+    }
+}
+
+
+
+
+//  2.10 - Company Name
+// ------------------------------
+
+
+// .company-link {
+//     color: $color__companyname--text;
+//     font-family: $font__companyname--font-family;
+//     font-size: $font__companyname--font-size;
+//     font-weight: $font__companyname--font-weight;
+//     letter-spacing: $font__companyname--letter-spacing;
+//     line-height: $font__companyname--line-height;
+//     -ms-word-break: break-word;
+//     word-wrap: break-word;
+//     -webkit-hyphens: none;
+//     -moz-hyphens: none;
+//     hyphens: none;
+
+
+//     .row--style-light & {
+//         color: $color--darkest;
+//     }
+
+
+//     .row--style-accent & {
+//         color: $color--lightest;
+//     }
+
+
+//     .row--style-dark & {
+//         color: $color--lightest;
+//     }
+// }
+
+
+
+
+//  2.11 - Feature Text
+// ------------------------------
+
+
+// .feature__headline {
+//     color: $color__feature-headline--text;
+//     font-family: $font__feature-headline--font-family;
+//     font-size: $font__feature-headline--font-size;
+//     font-weight: $font__feature-headline--font-weight;
+//     letter-spacing: $font__feature-headline--letter-spacing;
+//     line-height: $font__feature-headline--line-height;
+
+
+//     .row--style-light & {
+//         color: $color--darkest;
+//     }
+
+
+//     .row--style-accent & {
+//         color: $color--lightest;
+//     }
+
+
+//     .row--style-dark & {
+//         color: $color--lightest;
+//     }
+// }
+
+
+// .feature__strapline {
+//     color: $color__feature-strapline--text;
+//     font-family: $font__feature-strapline--font-family;
+//     font-size: $font__feature-strapline--font-size;
+//     font-weight: $font__feature-strapline--font-weight;
+//     letter-spacing: $font__feature-strapline--letter-spacing;
+//     line-height: $font__feature-strapline--line-height;
+
+
+//     .row--style-light & {
+//         color: $color--dark;
+//     }
+
+
+//     .row--style-accent & {
+//         color: $color--lightest;
+//     }
+
+
+//     .row--style-dark & {
+//         color: $color--light;
+//     }
+// }
+
+
+
+
+//  2.12 - Tables
+// ------------------------------
+
+
+th {
+    // color: $color__h1--text;
+
+
+    // @each $item, $widget in $color__h1 {
+    //     @each $color, $value in $widget {
+
+    //         .row--style-#{$color} & {
+    //             background-color: map-deep-get($color__h1, 'color__h1--background', $color);
+    //             color: map-deep-get($color__h1, 'color__h1--text', $color);
+    //         }
+    //     }
+    // }
+}
+
+
+
+
+//  2.13 - Pre, Code
+// ------------------------------
+
+
+pre,
+code {
+    font-family: monospace;
+    font-size: $font__p--font-size;
+    font-weight: $font__p--font-weight;
+    letter-spacing: $font__p--letter-spacing;
+    line-height: $font__p--line-height;
+}
+
+
+// Code
+code {
+  word-break: break-word;
+
+
+    a > & {
+        color: inherit;
+    }
+}
+
+
+// Pre
+pre {
+  display: block;
+
+
+    code {
+        font-size: inherit;
+        color: inherit;
+        word-break: normal;
+    }
+}
+
+
+
+
+//  2.14 - Buttons
+// ------------------------------
+
+
+button,
+.button {
+
+    // Font
+    font-family: $font__button--font-family;
+    font-size: $font__button--font-size;
+    font-weight: $font__button--font-weight;
+    line-height: $font__button--line-height;
+    letter-spacing: $font__button--letter-spacing;
+
+    // Style
+    text-transform: $style__button--text-transform;
+}
+
+
+
+
+//  2.15 - Form
+// ------------------------------
+
+
+// Legend
+legend {
+
+    // Font
+    font-family: $font__legend--font-family;
+    font-size: $font__legend--font-size;
+    font-weight: $font__legend--font-weight;
+    line-height: $font__legend--line-height;
+    letter-spacing: $font__legend--letter-spacing;
+
+    // Style
+    text-transform: $style__legend--text-transform;
+}
+
+
+// Label
+label {
+
+    // Font
+    font-family: $font__label--font-family;
+    font-size: $font__label--font-size;
+    font-weight: $font__label--font-weight;
+    line-height: $font__label--line-height;
+    letter-spacing: $font__label--letter-spacing;
+
+    // Style
+    text-transform: $style__label--text-transform;
+}
+
+
+// Inputs
+input,
+select,
+textarea,
+::-moz-placeholder,
+::-webkit-input-placeholder,
+:-ms-input-placeholder,
+:-moz-placeholder,
+::placeholder {
+    font-family: $font__p--font-family;
+    font-size: $font__p--font-size;
+    font-weight: $font__p--font-weight;
+    line-height: $font__p--line-height;
+    letter-spacing: $font__p--letter-spacing;
+}
+
+
+
+
+// ---------------------------
+//  3. Spacing
+// ---------------------------
+
+
+
+
+//  3.1 Spacing Reset
+// -----------------------------
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+
+
+
+//  3.2 Paragraph Spacing
+// -----------------------------
+
+
+p {
+    margin-bottom: 6px;
+
+
+    &+ h1,
+    &+ h2,
+    &+ h3,
+    &+ h4,
+    &+ h5,
+    &+ h6,
+    &+ blockquote,
+    &+ code {
+        margin-top: 20px;
+    }
+
+
+    &+ p,
+    &+ ul,
+    &+ ol {
+        margin-top: 15px;
+    }
+}
+
+
+
+
+//  3.3 Heading Spacing
+// -----------------------------
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+code,
+ul,
+ol {
+    position: relative;
+
+
+    &+ ul,
+    &+ ol,
+    &+ blockquote,
+    &+ code,
+    &+ p {
+        margin-top: 15px;
+    }
+
+
+    &+ h1,
+    &+ h2,
+    &+ h3,
+    &+ h4,
+    &+ h5,
+    &+ h6 {
+        margin-top: 20px;
+    }
+}
+
+
+
+
+
+// ---------------------------
+//  4. Font Styles
+// ---------------------------
+
+
+.justifyitalic,
+.italic {
+    font-style: italic;
+}
+
+
+.justifybold,
+.bold {
+    font-weight: bold;
+}

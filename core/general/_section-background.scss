@@ -1,0 +1,40 @@
+
+// -----------------------------
+//  CORE - Row Background Type
+// -----------------------------
+
+
+
+
+//  Row Background
+// -------------------------------------
+
+
+.row--style {
+
+
+    &-light {
+        background-color: $color--lightest;
+    }
+
+
+    &-accent {
+        background-color: $color--accent;
+    }
+
+
+    &-dark {
+        background-color: $color--darkest;
+    }
+}
+
+
+.row--background-type {
+
+
+    &-image {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
