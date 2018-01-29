@@ -84,17 +84,16 @@ a,
 blockquote,
 th,
 td,
-.clicktocall__phone-number-link,
-::-moz-placeholder,
-::-webkit-input-placeholder,
-:-ms-input-placeholder,
-:-moz-placeholder,
-::placeholder {
+.clicktocall__phone-number-link {
     font-family: $font__p--font-family;
     font-size: $font__p--font-size;
     font-weight: $font__p--font-weight;
     letter-spacing: $font__p--letter-spacing;
     line-height: $font__p--line-height;
+
+    @media #{$mobile} {
+        font-size: $font__p--font-size / 1.1;
+    }
 }
 
 
@@ -125,6 +124,18 @@ h1,
 
     // Style
     text-transform: $style__h1--text-transform;
+
+    @media #{$tablet--landscape} {
+        font-size: $font__h1--font-size / 1.25;
+    }
+
+    @media #{$tablet} {
+        font-size: $font__h1--font-size / 1.75;
+    }
+
+    @media #{$mobile} {
+        font-size: $font__h1--font-size / 2.25;
+    }
 }
 
 
@@ -146,6 +157,18 @@ h2,
 
     // Style
     text-transform: $style__h2--text-transform;
+
+    @media #{$tablet--landscape} {
+        font-size: $font__h2--font-size / 1.15;
+    }
+
+    @media #{$tablet} {
+        font-size: $font__h2--font-size / 1.5;
+    }
+
+    @media #{$mobile} {
+        font-size: $font__h2--font-size / 1.75;
+    }
 }
 
 
@@ -167,6 +190,14 @@ h3,
 
     // Style
     text-transform: $style__h3--text-transform;
+
+    @media #{$tablet} {
+        font-size: $font__h3--font-size / 1.5;
+    }
+
+    @media #{$mobile} {
+        font-size: $font__h3--font-size / 1.75;
+    }
 }
 
 
@@ -188,6 +219,10 @@ h4,
 
     // Style
     text-transform: $style__h4--text-transform;
+
+    @media #{$mobile} {
+        font-size: $font__h4--font-size / 1.25;
+    }
 }
 
 
@@ -461,12 +496,16 @@ label {
 // Inputs
 input,
 select,
-textarea,
-::-moz-placeholder,
-::-webkit-input-placeholder,
-:-ms-input-placeholder,
-:-moz-placeholder,
-::placeholder {
+textarea {
+    font-family: $font__p--font-family;
+    font-size: $font__p--font-size;
+    font-weight: $font__p--font-weight;
+    line-height: $font__p--line-height;
+    letter-spacing: $font__p--letter-spacing;
+}
+
+
+@include placeholder {
     font-family: $font__p--font-family;
     font-size: $font__p--font-size;
     font-weight: $font__p--font-weight;

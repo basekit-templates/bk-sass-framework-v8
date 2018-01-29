@@ -49,12 +49,15 @@ button,
         font-weight: $font__button--font-weight;
 
         // Style
+        transition: all 0.25s ease-in;
         text-transform: $style__button--text-transform;
 
 
         &:hover,
         &:focus,
         &:active {
+            cursor: pointer;
+            transition: all 0.25s ease-out;
             text-decoration: none;
         }
 

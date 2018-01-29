@@ -35,12 +35,11 @@ legend {
 
 
 // Label
-label,
-.label {
+label {
 
     // Structure
 	display: inline-block;
-    margin: 0 0 12px;
+    margin: 0;
 
     // Font
     font-family: $font__label--font-family;
@@ -51,6 +50,11 @@ label,
 
     // Style
     text-transform: $style__label--text-transform;
+}
+
+
+.contactform__label {
+    margin-bottom: 12px;
 }
 
 
@@ -99,7 +103,7 @@ textarea,
 
 	&:focus {
 		border-color: #129fea;
-		box-shadow: inset 0 1px 3px #ddd;
+		box-shadow: none;
 		outline: 0;
 	}
 }
