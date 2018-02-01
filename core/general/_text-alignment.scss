@@ -9,21 +9,23 @@
 // -----------------------------
 
 
-// Align Center
-.align-center,
-.widget-align-center,
-.align--center,
-.justify--center {
-    text-align: center;
-}
-
-
 // Align Left
 .align-left,
 .widget-align-left,
 .align--left,
-.justify--left {
+.justify--left,
+.contentgroup--left {
     text-align: left;
+}
+
+
+// Align Center
+.align-center,
+.widget-align-center,
+.align--center,
+.justify--center,
+.contentgroup--center {
+    text-align: center;
 }
 
 
@@ -31,7 +33,8 @@
 .align-right,
 .widget-align-right,
 .align--right,
-.justify--right {
+.justify--right,
+.contentgroup--right {
     text-align: right;
 }
 

@@ -1533,21 +1533,23 @@ ol {
 // -----------------------------
 
 
-// Align Center
-.align-center,
-.widget-align-center,
-.align--center,
-.justify--center {
-    text-align: center;
-}
-
-
 // Align Left
 .align-left,
 .widget-align-left,
 .align--left,
-.justify--left {
+.justify--left,
+.contentgroup--left {
     text-align: left;
+}
+
+
+// Align Center
+.align-center,
+.widget-align-center,
+.align--center,
+.justify--center,
+.contentgroup--center {
+    text-align: center;
 }
 
 
@@ -1555,7 +1557,8 @@ ol {
 .align-right,
 .widget-align-right,
 .align--right,
-.justify--right {
+.justify--right,
+.contentgroup--right {
     text-align: right;
 }
 
@@ -2146,25 +2149,6 @@ ol {
 // -------------------------------------
 
 
-.row--style {
-
-
-    &-light {
-        background-color: $color--lightest;
-    }
-
-
-    &-accent {
-        background-color: $color--accent;
-    }
-
-
-    &-dark {
-        background-color: $color--darkest;
-    }
-}
-
-
 .row--background-type {
 
 
@@ -2190,6 +2174,7 @@ ol {
 $height--no-padding: 0;
 $height--thin: 15px;
 $height--default: 80px;
+$height--large: 80px;
 $height--full: 100px;
 
 $width--contained: 30px;
@@ -2224,6 +2209,26 @@ $width--full: 30px;
         @media #{$mobile} {
             padding-top: ( $height--default / 2 );
             padding-bottom: ( $height--default / 2 );
+        }
+    }
+
+
+    &-large {
+        min-height: 700px;
+
+        @media #{$mobile} {
+            min-height: 350px;
+        }
+
+
+        .row__container {
+            padding-top: $height--large;
+            padding-bottom: $height--large;
+
+            @media #{$mobile} {
+                padding-top: ( $height--large / 2 );
+                padding-bottom: ( $height--large / 2 );
+            }
         }
     }
 

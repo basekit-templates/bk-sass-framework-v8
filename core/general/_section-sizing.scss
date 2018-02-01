@@ -13,6 +13,7 @@
 $height--no-padding: 0;
 $height--thin: 15px;
 $height--default: 80px;
+$height--large: 80px;
 $height--full: 100px;
 
 $width--contained: 30px;
@@ -47,6 +48,26 @@ $width--full: 30px;
         @media #{$mobile} {
             padding-top: ( $height--default / 2 );
             padding-bottom: ( $height--default / 2 );
+        }
+    }
+
+
+    &-large {
+        min-height: 700px;
+
+        @media #{$mobile} {
+            min-height: 350px;
+        }
+
+
+        .row__container {
+            padding-top: $height--large;
+            padding-bottom: $height--large;
+
+            @media #{$mobile} {
+                padding-top: ( $height--large / 2 );
+                padding-bottom: ( $height--large / 2 );
+            }
         }
     }
 
