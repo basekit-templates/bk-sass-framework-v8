@@ -16,9 +16,8 @@
     @include flex-direction(row);
     @include flex(0 1 auto);
     @include flex-wrap(nowrap);
-    margin: 0 auto;
+    margin: 0 -1.5rem;
     position: relative;
-    width: 100%;
 
     @media #{$tablet} {
         @include flex-wrap(wrap);
@@ -37,7 +36,8 @@
 
     // Column margin and dropzone min height
     .column {
-        margin-right: 4%;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
         min-height: 30px;
         position: relative;
 
@@ -82,7 +82,7 @@
 // Two Columns
 .columns-two-left,
 .columns-two-right {
-    @include flex-basis(48%);
+    @include flex-basis(50%);
 }
 
 
@@ -90,7 +90,7 @@
 .columns-three-left,
 .columns-three-middle,
 .columns-three-right {
-    @include flex-basis(30.6666667%);
+    @include flex-basis(33.33%);
 }
 
 
@@ -99,7 +99,7 @@
 .columns-four-second,
 .columns-four-third,
 .columns-four-fourth {
-    @include flex-basis(22%);
+    @include flex-basis(25%);
 }
 
 
@@ -117,7 +117,7 @@
 
     // Makes all columns two up on smaller screens
     @media #{$tablet} {
-        @include flex-basis(48%);
+        @include flex-basis(50%);
 
 
         // Removes right sided margin

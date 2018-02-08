@@ -92,6 +92,10 @@ td,
     line-height: $font__p--line-height;
 
     @media #{$mobile} {
+        font-size: $font__p--font-size / 1.025;
+    }
+
+    @media #{$mobile} {
         font-size: $font__p--font-size / 1.1;
     }
 }
@@ -165,10 +169,6 @@ h2,
     @media #{$tablet} {
         font-size: $font__h2--font-size / 1.5;
     }
-
-    @media #{$mobile} {
-        font-size: $font__h2--font-size / 1.75;
-    }
 }
 
 
@@ -193,10 +193,6 @@ h3,
 
     @media #{$tablet} {
         font-size: $font__h3--font-size / 1.5;
-    }
-
-    @media #{$mobile} {
-        font-size: $font__h3--font-size / 1.75;
     }
 }
 
@@ -244,6 +240,10 @@ h5,
 
     // Style
     text-transform: $style__h5--text-transform;
+
+    @media #{$mobile} {
+        font-size: $font__h5--font-size / 1.15;
+    }
 }
 
 
@@ -260,6 +260,10 @@ h6,
     font-weight: $font__h6--font-weight;
     letter-spacing: $font__h6--letter-spacing;
     line-height: $font__h6--line-height;
+
+    @media #{$mobile} {
+        font-size: $font__h6--font-size / 1.15;
+    }
 }
 
 
@@ -490,6 +494,10 @@ label {
 
     // Style
     text-transform: $style__label--text-transform;
+
+    @media #{$mobile} {
+        font-size: $font__label--font-size / 1.1;
+    }
 }
 
 
@@ -502,6 +510,10 @@ textarea {
     font-weight: $font__p--font-weight;
     line-height: $font__p--line-height;
     letter-spacing: $font__p--letter-spacing;
+
+    @media #{$mobile} {
+        font-size: $font__p--font-size / 1.1;
+    }
 }
 
 
@@ -511,6 +523,10 @@ textarea {
     font-weight: $font__p--font-weight;
     line-height: $font__p--line-height;
     letter-spacing: $font__p--letter-spacing;
+
+    @media #{$mobile} {
+        font-size: $font__p--font-size / 1.1;
+    }
 }
 
 

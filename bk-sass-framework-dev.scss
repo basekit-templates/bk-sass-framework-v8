@@ -986,6 +986,10 @@ td,
     line-height: $font__p--line-height;
 
     @media #{$mobile} {
+        font-size: $font__p--font-size / 1.025;
+    }
+
+    @media #{$mobile} {
         font-size: $font__p--font-size / 1.1;
     }
 }
@@ -1059,10 +1063,6 @@ h2,
     @media #{$tablet} {
         font-size: $font__h2--font-size / 1.5;
     }
-
-    @media #{$mobile} {
-        font-size: $font__h2--font-size / 1.75;
-    }
 }
 
 
@@ -1087,10 +1087,6 @@ h3,
 
     @media #{$tablet} {
         font-size: $font__h3--font-size / 1.5;
-    }
-
-    @media #{$mobile} {
-        font-size: $font__h3--font-size / 1.75;
     }
 }
 
@@ -1138,6 +1134,10 @@ h5,
 
     // Style
     text-transform: $style__h5--text-transform;
+
+    @media #{$mobile} {
+        font-size: $font__h5--font-size / 1.15;
+    }
 }
 
 
@@ -1154,6 +1154,10 @@ h6,
     font-weight: $font__h6--font-weight;
     letter-spacing: $font__h6--letter-spacing;
     line-height: $font__h6--line-height;
+
+    @media #{$mobile} {
+        font-size: $font__h6--font-size / 1.15;
+    }
 }
 
 
@@ -1384,6 +1388,10 @@ label {
 
     // Style
     text-transform: $style__label--text-transform;
+
+    @media #{$mobile} {
+        font-size: $font__label--font-size / 1.1;
+    }
 }
 
 
@@ -1396,6 +1404,10 @@ textarea {
     font-weight: $font__p--font-weight;
     line-height: $font__p--line-height;
     letter-spacing: $font__p--letter-spacing;
+
+    @media #{$mobile} {
+        font-size: $font__p--font-size / 1.1;
+    }
 }
 
 
@@ -1405,6 +1417,10 @@ textarea {
     font-weight: $font__p--font-weight;
     line-height: $font__p--line-height;
     letter-spacing: $font__p--letter-spacing;
+
+    @media #{$mobile} {
+        font-size: $font__p--font-size / 1.1;
+    }
 }
 
 
@@ -1587,9 +1603,8 @@ ol {
     @include flex-direction(row);
     @include flex(0 1 auto);
     @include flex-wrap(nowrap);
-    margin: 0 auto;
+    margin: 0 -1.5rem;
     position: relative;
-    width: 100%;
 
     @media #{$tablet} {
         @include flex-wrap(wrap);
@@ -1608,7 +1623,8 @@ ol {
 
     // Column margin and dropzone min height
     .column {
-        margin-right: 4%;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
         min-height: 30px;
         position: relative;
 
@@ -1653,7 +1669,7 @@ ol {
 // Two Columns
 .columns-two-left,
 .columns-two-right {
-    @include flex-basis(48%);
+    @include flex-basis(50%);
 }
 
 
@@ -1661,7 +1677,7 @@ ol {
 .columns-three-left,
 .columns-three-middle,
 .columns-three-right {
-    @include flex-basis(30.6666667%);
+    @include flex-basis(33.33%);
 }
 
 
@@ -1670,7 +1686,7 @@ ol {
 .columns-four-second,
 .columns-four-third,
 .columns-four-fourth {
-    @include flex-basis(22%);
+    @include flex-basis(25%);
 }
 
 
@@ -1688,7 +1704,7 @@ ol {
 
     // Makes all columns two up on smaller screens
     @media #{$tablet} {
-        @include flex-basis(48%);
+        @include flex-basis(50%);
 
 
         // Removes right sided margin
@@ -2364,164 +2380,6 @@ $width--full: 30px;
 
 
 // Buttons: Standard, Tweet, Dropbox, Click to Call, PayPal
-// 
-// -------------------------------------
-//  DEFAULTS - Buttons
-// -------------------------------------
-
-
-
-
-//  Background
-// ------------------------------
-
-
-// Default Colour
-// $color__button--background--default: (
-//   light: $color--accent,
-//   accent: $color--lightest,
-//   dark: $color--lightest,
-// ) !default;
-
-
-// // Default Colour - Hover
-// $color__button--background--hover--default: (
-//   light: $color--accent,
-//   accent: $color--lightest,
-//   dark: $color--lightest,
-// ) !default;
-
-
-// $color__button--background: transparent !default;
-// $color__button--background--hover: transparent !default;
-
-
-// Style
-$style__button--border-radius: 0 !default;
-$style__button--border-radius--hover: 0 !default;
-$style__button--box-shadow: none !default;
-$style__button--box-shadow--hover: none !default;
-$style__button--padding: 14px 20px !default;
-$style__button--transition: none !default;
-$style__button--transition--hover: none !default;
-
-
-
-
-//  Border
-// ------------------------------
-
-
-// Default Colour
-// $color__button--border--default: (
-//   light: $color--accent,
-//   accent: $color--lighest,
-//   dark: $color--lightest,
-// ) !default;
-
-
-// // Default Colour - Hover
-// $color__button--border--hover--default: (
-//   light: $color--accent,
-//   accent: $color--lighest,
-//   dark: $color--lightest,
-// ) !default;
-
-
-// $color__button--border: transparent !default;
-// $color__button--border--hover: transparent !default;
-
-
-// Style
-$style__button--border-style: none !default;
-$style__button--border-style--hover: none !default
-$style__button--border-width: 0 !default;
-$style__button--border-width--hover: 0 !default;
-
-
-
-
-//  Box Shadow
-// ------------------------------
-
-
-// Default Colour
-// $color__button--box-shadow--default: (
-//   normal: transparent,
-//   hover: transparent,
-// ) !default;
-
-// $color__button--box-shadow: transparent !default;
-
-
-//  Outline
-// ------------------------------
-
-
-// Default Colour
-// $color__button--outline--default: (
-//   light: $color--accent,
-//   accent: $color--lighest,
-//   dark: $color--lightest,
-// ) !default;
-
-
-// // Default Colour - Hover
-// $color__button--outline--hover--default: (
-//   light: $color--accent,
-//   accent: $color--lighest,
-//   dark: $color--lightest,
-// ) !default;
-
-// $color__button--outline: none !default;
-// $color__button--outline--hover: none !default;
-
-
-// Style
-$style__button--outline-style: none !default;
-$style__button--outline-style--hover: none !default;
-$style__button--outline-width: 0 !default;
-$style__button--outline-width--hover: 0 !default;
-
-
-
-
-//  Text
-// ------------------------------
-
-
-// Font
-$font__button--font-family: $font__body--font-family !default;
-$font__button--font-size: 16px !default;
-$font__button--font-weight: 400 !default;
-$font__button--letter-spacing: 0 !default;
-$font__button--line-height: 18px !default;
-
-
-// Default Colour
-// $color__button--text--default: (
-//   light: $color--lightest,
-//   accent: $color--lighest,
-//   dark: $color--lightest,
-// ) !default;
-
-
-// // Default Colour - Hover
-// $color__button--text--hover--default: (
-//   light: transparent,
-//   accent: transparent,
-//   dark: transparent,
-// ) !default;
-
-// $color__button--text: transparent !default;
-
-
-// Style
-$style__button--text-shadow: none !default;
-$style__button--text-shadow--hover: none !default;
-$style__button--text-transform: none !default;
-
-                // Default button values
 
 // -------------------------------------
 //  WIDGETS - Buttons
@@ -2560,7 +2418,6 @@ button,
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
-        padding: 18px 38px;
         user-select: none;
         white-space: nowrap;
         vertical-align: middle;
@@ -2575,6 +2432,10 @@ button,
         // Style
         transition: all 0.25s ease-in;
         text-transform: $style__button--text-transform;
+
+        @media #{$mobile} {
+            font-size: $font__button--font-size / 1.1;
+        }
 
 
         &:hover,
@@ -2661,7 +2522,7 @@ button,
         }
     }
 }
-                           // Default button styling
+
 
 
 // Basic: Logo, Company Name, Navigation, Feature

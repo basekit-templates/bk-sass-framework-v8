@@ -36,7 +36,6 @@ button,
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
-        padding: 18px 38px;
         user-select: none;
         white-space: nowrap;
         vertical-align: middle;
@@ -51,6 +50,10 @@ button,
         // Style
         transition: all 0.25s ease-in;
         text-transform: $style__button--text-transform;
+
+        @media #{$mobile} {
+            font-size: $font__button--font-size / 1.1;
+        }
 
 
         &:hover,
