@@ -4,6 +4,10 @@
 // -------------------------------------
 
 
+// Removes line-height gap from map widget sections
+[data-name="map"] {
+    line-height: 0;
+}
 
 
 // Embedded map layout fix

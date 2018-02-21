@@ -1,19 +1,32 @@
 
-// -----------------------------
-//  BaseKit Sass Framework: V8
-// -----------------------------
+// -------------------------------
+//  BaseKit Sass Framework
+// -------------------------------
 
 
 
 
 
-// -----------------------------
-//  Core Import
-// -----------------------------
+//  Import: Core
+// ------------------------------
 
 
 // Reset: Normalize, Typeset & Default Variables
 @import 'core/reset/_normalize';
+
+
+// Mixins
+@import 'core/general/_mixins';
+
+
+// Media Queries
+@import 'core/general/_media-queries';
+
+
+// Functions
+@import 'core/general/_not-extend';
+@import 'core/general/_map-get';
+@import 'core/general/_color-contrast';
 
 
 // Typography: Base Typography & Font Icons
@@ -36,14 +49,13 @@
 @import 'core/general/_section-alignment';
 @import 'core/general/_section-background';
 @import 'core/general/_section-sizing';
+@import 'core/general/_section-layout';
 
 
 
 
-
-// -----------------------------
-//  Widgets Import
-// -----------------------------
+//  Import: Widgets
+// ------------------------------
 
 
 // General: Widgets
@@ -51,13 +63,20 @@
 
 
 // Buttons: Standard, Tweet, Dropbox, Click to Call, PayPal
+@import 'widgets/button/_button-defaults';
 @import 'widgets/button/_button';
 
 
-// Basic: Logo, Company Name, Navigation, Feature
+// Brand: Logo, Company Name
 @import 'widgets/logo';
 @import 'widgets/company-name';
-@import 'widgets/navigation';
+
+
+// Widget: Navigation
+@import 'widgets/navigation/_navigation';
+@import 'widgets/navigation/_navigation-defaults';
+
+
 @import 'widgets/feature';
 @import 'widgets/content';
 
@@ -72,11 +91,14 @@
 
 
 // Forms
-@import 'widgets/forms';
+@import 'widgets/forms/_forms';
+@import 'widgets/forms/_forms-defaults';
 
 
 // Social: Social Icons, Twitter Feed
-@import 'widgets/social-icons';
+@import 'widgets/social-icons/_social-icons--defaults';
+@import 'widgets/social-icons/_social-icons';
+
 @import 'widgets/twitter-feed';
 
 
@@ -94,9 +116,8 @@
 
 
 
-// -----------------------------
-//  Plugins Import
-// -----------------------------
+//  Import: Plugins
+// ------------------------------
 
 
 @import 'plugins/plugin-blog';

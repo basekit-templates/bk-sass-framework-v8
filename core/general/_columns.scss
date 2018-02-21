@@ -22,6 +22,10 @@
     @media #{$tablet} {
         @include flex-wrap(wrap);
     }
+
+    @media #{$mobile} {
+        margin: 0 -0.75rem;
+    }
 }
 
 
@@ -43,6 +47,8 @@
 
         @media #{$mobile} {
             margin-bottom: 18px;
+            padding-right: 0.75rem;
+            padding-left: 0.75rem;
         }
 
 
@@ -58,6 +64,27 @@
 
             @media #{$mobile} {
                 margin-bottom: 0;
+            }
+        }
+    }
+
+
+    // Change column margin for reversed layout rows
+    .row--layout-row-reverse & {
+
+
+        // This is equivelent to :last-child in a non reversed row
+        .column:first-child {
+            @media #{$mobile} {
+                margin-bottom: 0;
+            }
+        }
+
+
+        // This is equivelent to :first-child in a non reversed row
+        .column:last-child {
+            @media #{$mobile} {
+                margin-bottom: 18px;
             }
         }
     }

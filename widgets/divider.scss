@@ -6,23 +6,7 @@
 
 hr.rule {
     border: none;
-    background-color: contrast($color__body--background, lighten($color__body--background, 30%), darken($color__body--background, 30%));
     display: inline-block;
     height: 2px;
     width: 100%;
-
-
-    // .row--style-light & {
-    //     background-color: $color--light;
-    // }
-
-
-    // .row--style-accent & {
-    //     background-color: $color--lightest;
-    // }
-
-
-    // .row--style-dark & {
-    //     background-color: $color--dark;
-    // }
 }

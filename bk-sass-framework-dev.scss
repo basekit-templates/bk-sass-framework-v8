@@ -1,15 +1,14 @@
 
-// -----------------------------
-//  BaseKit Sass Framework: V8
-// -----------------------------
+// -------------------------------
+//  BaseKit Sass Framework
+// -------------------------------
 
 
 
 
 
-// -----------------------------
-//  Core Import
-// -----------------------------
+//  Import: Core
+// ------------------------------
 
 
 // Reset: Normalize, Typeset & Default Variables
@@ -50,7 +49,7 @@ html {
  */
 
 .bk-zone {
-    min-height: 50px;
+    min-height: 48px;
 }
 
 
@@ -560,6 +559,309 @@ template {
 
 
 
+// Mixins
+
+// -----------------------------
+// CORE: Mixins
+// -----------------------------
+
+
+
+
+// General Mixins
+// ------------------
+
+
+// Micro Clearfix
+@mixin clearfix {
+    &:after {
+        content:"";
+        display:table;
+        clear:both;
+    }
+}
+
+
+// Border Radius
+@mixin border-radius ($values) {
+    -webkit-border-radius: $values;
+    border-radius: $values;
+}
+
+
+// Box Sizing
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+     -moz-box-sizing: $box-model; // Firefox <= 19
+          box-sizing: $box-model;
+}
+
+
+// Box Shadow
+@mixin box-shadow ($values) {
+    -webkit-box-shadow: $values;
+    box-shadow: $values;
+}
+
+
+// Calc
+@mixin calc ($property, $expression) {
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
+
+
+// Transform
+@mixin transform ($values) {
+    -webkit-transform: $values;
+    -ms-transform: $values;
+    transform: $values;
+}
+
+
+// Transition
+@mixin transition ($values) {
+    -webkit-transition: $values;
+    transition: $values;
+}
+
+
+// Placeholder
+@mixin optional-at-root($sel) {
+    @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+        @content;
+    }
+}
+
+@mixin placeholder {
+    @include optional-at-root('::-webkit-input-placeholder') {
+        @content;
+    }
+
+    @include optional-at-root(':-moz-placeholder') {
+        @content;
+    }
+
+    @include optional-at-root('::-moz-placeholder') {
+        @content;
+    }
+
+    @include optional-at-root(':-ms-input-placeholder') {
+        @content;
+    }
+    @include optional-at-root('::placeholder') {
+        @content;
+    }
+}
+
+
+
+
+// Flexbox Mixins
+// -------------------
+
+
+// Flexbox Display
+@mixin flex-display {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+
+// Flex
+@mixin flex($columns: initial) {
+    -webkit-flex: $columns;
+     -moz-flex: $columns;
+      -ms-flex: $columns;
+          flex: $columns;
+}
+
+
+// Flex Basis
+@mixin flex-basis($value: auto) {
+    -webkit-flex-basis: $value;
+    -moz-flex-basis: $value;
+    -ms-flex-preferred-size: $value;
+    flex-basis: $value;
+    max-width: $value;
+}
+
+
+// Flex Wrap
+@mixin flex-wrap($wrap: wrap) {
+    -webkit-flex-wrap: $wrap;
+    -moz-flex-wrap: $wrap;
+    -ms-flex-wrap: $wrap;
+    flex-wrap: $wrap;
+}
+
+
+// Flex Direction
+@mixin flex-direction($direction: row) {
+      -webkit-box-orient: $direction;
+   -webkit-box-direction: $direction;
+  -webkit-flex-direction: $direction;
+     -moz-flex-direction: $direction;
+      -ms-flex-direction: $direction;
+          flex-direction: $direction;
+}
+
+
+// Flex Source Order
+@mixin flex-order($order: 0) {
+  -webkit-box-ordinal-group: $order;
+              -webkit-order: $order;
+                 -moz-order: $order;
+                  -ms-order: $order;
+             -ms-flex-order: $order;
+                      order: $order;
+}
+
+
+// Flex Grow
+@mixin flex-grow($grow: 0) {
+  -webkit-flex-grow: $grow;
+     -moz-flex-grow: $grow;
+      -ms-flex-grow: $grow;
+  -ms-flex-positive: $grow;
+          flex-grow: $grow;
+}
+
+
+// Justify Content
+@mixin justify-content($justify: flex-start) {
+          webkit-box-pack: $justify;
+  -webkit-justify-content: $justify;
+     -moz-justify-content: $justify;
+      -ms-justify-content: $justify;
+            -ms-flex-pack: $justify;
+          justify-content: $justify;
+}
+
+
+// Align Content
+@mixin align-content($align: stretch) {
+  -webkit-align-content: $align;
+     -moz-align-content: $align;
+      -ms-align-content: $align;
+     -ms-flex-line-pack: $align;
+          align-content: $align;
+}
+
+
+// Align Self
+@mixin align-self($align: center) {
+  -webkit-align-self: $align;
+     -moz-align-self: $align;
+      -ms-align-self: $align;
+      -ms-flex-item-align: $align;
+      -ms-flex-align: $align;
+          align-self: $align;
+}
+
+
+// Align Items
+@mixin align-items($align: stretch) {
+  -webkit-align-items: $align;
+     -moz-align-items: $align;
+      -ms-align-items: $align;
+       -ms-flex-align: $align;
+          align-items: $align;
+}
+
+
+
+// Media Queries
+
+// -------------------------
+//  CORE: Media Queries
+// -------------------------
+
+
+$tablet--landscape: "only screen and (max-width: 1024px)";
+$tablet: "only screen and (max-width: 900px)";
+$mobile: "only screen and (max-width: 700px)";
+
+
+
+// Functions
+
+// -------------------------------------------
+//  UTILITIES - :not Multiple Selector Usage
+// -------------------------------------------
+
+
+
+
+@mixin not($notExtend...) {
+
+    @if (length($notExtend) == 1){
+        $notExtend: nth($notExtend,1);
+    }
+
+    $notOutput: '';
+
+    @each $not in $notExtend {
+        $notOutput: $notOutput + ':not(#{$not})';
+    }
+
+    &#{$notOutput} {
+        @content;
+    }
+}
+
+
+$notButton: (
+    '.navigation-toggle',
+    '.pswp__button',
+    '.row-add-button__button',
+    '.row-template-preview__header-close-button',
+    '.row-template-preview__groups-menu-item-control',
+    '.row-template-preview__template-add-button',
+);
+
+
+// -----------------------------
+//  UTILITIES - Deep Map Get
+// -----------------------------
+
+
+
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    // The first time the key will equal ChildMap
+    // Then it will finish on $myProp
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
+
+// Color contrast
+@function color-contrast($color) {
+    $r: red($color);
+    $g: green($color);
+    $b: blue($color);
+
+    $yiq: (($r * 299) + ($g * 587) + ($b * 114)) / 1000;
+
+    @if ($yiq >= $contrast-threshold) {
+        @return $color--darkest;
+    } @else {
+        @return $color--lightest;
+    }
+}
+
+$contrast-threshold: 150 !default;
+$color--darkest: black !default;
+$color--lightest: white !default;
+
+
+
 // Typography: Base Typography & Font Icons
 
 // -------------------------
@@ -698,6 +1000,9 @@ template {
 // Global
 // ------------------------------
 
+
+// Colour - Heaading
+$color__heading--notch--overide: () !default;  // Header Notch Background Colour
 
 // Font - Heading
 $font__heading--font-family: (Helvetica, serif) !default;
@@ -842,6 +1147,10 @@ $font__h6--line-height: 1.5 !default;
 $font__h6--letter-spacing: 0 !default;
 
 
+// Style
+$style__h6--text-transform: $style__heading--text-transform !default;
+
+
 
 
 //  Font - Buttons
@@ -905,63 +1214,55 @@ $style__label--text-transform: normal !default;
 //  Table of Contents
 // -----------------------------
 
-//  1.      Typography Defaults
-//  2.      Headings & Body Text
-//  2.1     Body Text
-//  2.2     Heading 1
-//  2.3     Heading 2
-//  2.4     Heading 3
-//  2.5     Heading 4
-//  2.6     Anchor Link
-//  2.7     Blockquote
-//  2.8     Company Name
-//  2.9     Tables
-//  2.9     Tables
-//  2.9     Tables
-//  2.9     Tables
+//  1.      Headings & Body Text
+//  1.1     Body Text
+//  1.2     Paragraph Text
+//  1.3     Blockquotes
+//  1.4     Company Name
+//  1.5     Pre & Code
 
-//  3.      Spacing
-//  4.      Font Styles
-
-
-
-
-
-// --------------------------------
-//  1. Typography Defaults
-// --------------------------------
-
-
-
+//  2.      Spacing
+//  2.1     Spacing Reset
+//  2.2     Headings Spacing
+//  2.3     Paragraph Spacing
 
 
 
 
 
 // ---------------------------
-//  2. Headings & Body Text
+//  1. Headings & Body Text
 // ---------------------------
 
 
 
 
-//  2.1 - Body Text
+//  1.1 - Body Text
 // ------------------------------
 
 
 body {
-    background-color: $color__body--background;
-    font-family: $font__p--font-family;
-    font-size: $font__p--font-size;
-    font-weight: $font__p--font-weight;
-    line-height: $font__p--line-height;
-    letter-spacing: $font__p--letter-spacing;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 
+
+
+//  1.2 - Paragraph, Link, Lists, Blockquotes
+// --------------------------------------------
+
+
+.justifyitalic,
+.italic,
+i {
+    font-style: italic;
+}
+
+
+.justifybold,
+.bold,
 b {
     font-weight: bold;
 }
@@ -969,206 +1270,7 @@ b {
 
 
 
-//  2.2 - Paragraph, Link, Lists, Blockquotes
-// --------------------------------------------
-
-
-p,
-.paragraph,
-%paragraph,
-.p-font,
-li,
-ol,
-a,
-blockquote,
-th,
-td,
-.clicktocall__phone-number-link {
-    font-family: $font__p--font-family;
-    font-size: $font__p--font-size;
-    font-weight: $font__p--font-weight;
-    letter-spacing: $font__p--letter-spacing;
-    line-height: $font__p--line-height;
-
-    @media #{$mobile} {
-        font-size: $font__p--font-size / 1.025;
-    }
-
-    @media #{$mobile} {
-        font-size: $font__p--font-size / 1.1;
-    }
-}
-
-
-// Anchor link colour
-a {
-
-    &:hover {
-        text-decoration: $style__link--text-decoration;
-    }
-}
-
-
-
-
-//  2.3 - Heading 1
-// ------------------------------
-
-
-h1,
-.heading--1 {
-
-     // Font
-    font-family: $font__heading--font-family;
-    font-size: $font__h1--font-size;
-    font-weight: $font__h1--font-weight;
-    letter-spacing: $font__h1--letter-spacing;
-    line-height: $font__h1--line-height;
-
-    // Style
-    text-transform: $style__h1--text-transform;
-
-    @media #{$tablet--landscape} {
-        font-size: $font__h1--font-size / 1.25;
-    }
-
-    @media #{$tablet} {
-        font-size: $font__h1--font-size / 1.75;
-    }
-
-    @media #{$mobile} {
-        font-size: $font__h1--font-size / 2.25;
-    }
-}
-
-
-
-
-//  2.4 - Heading 2
-// ------------------------------
-
-
-h2,
-.heading--2 {
-
-     // Font
-    font-family: $font__heading--font-family;
-    font-size: $font__h2--font-size;
-    font-weight: $font__h2--font-weight;
-    letter-spacing: $font__h2--letter-spacing;
-    line-height: $font__h2--line-height;
-
-    // Style
-    text-transform: $style__h2--text-transform;
-
-    @media #{$tablet--landscape} {
-        font-size: $font__h2--font-size / 1.15;
-    }
-
-    @media #{$tablet} {
-        font-size: $font__h2--font-size / 1.5;
-    }
-}
-
-
-
-
-//  2.5 - Heading 3
-// ------------------------------
-
-
-h3,
-.heading--3 {
-
-    // Font
-    font-family: $font__heading--font-family;
-    font-size: $font__h3--font-size;
-    font-weight: $font__h3--font-weight;
-    letter-spacing: $font__h3--letter-spacing;
-    line-height: $font__h3--line-height;
-
-    // Style
-    text-transform: $style__h3--text-transform;
-
-    @media #{$tablet} {
-        font-size: $font__h3--font-size / 1.5;
-    }
-}
-
-
-
-
-//  2.6 - Heading 4
-// ------------------------------
-
-
-h4,
-.heading--4 {
-
-    // Font
-    font-family: $font__heading--font-family;
-    font-size: $font__h4--font-size;
-    font-weight: $font__h4--font-weight;
-    letter-spacing: $font__h4--letter-spacing;
-    line-height: $font__h4--line-height;
-
-    // Style
-    text-transform: $style__h4--text-transform;
-
-    @media #{$mobile} {
-        font-size: $font__h4--font-size / 1.25;
-    }
-}
-
-
-
-
-//  2.7 - Heading 5
-// ------------------------------
-
-
-h5,
-.heading--5 {
-
-    // Font
-    font-family: $font__heading--font-family;
-    font-size: $font__h5--font-size;
-    font-weight: $font__h5--font-weight;
-    letter-spacing: $font__h5--letter-spacing;
-    line-height: $font__h5--line-height;
-
-    // Style
-    text-transform: $style__h5--text-transform;
-
-    @media #{$mobile} {
-        font-size: $font__h5--font-size / 1.15;
-    }
-}
-
-
-
-
-//  2.8 - Heading 6
-// ------------------------------
-
-
-h6,
-.heading--6 {
-    font-family: $font__heading--font-family;
-    font-size: $font__h6--font-size;
-    font-weight: $font__h6--font-weight;
-    letter-spacing: $font__h6--letter-spacing;
-    line-height: $font__h6--line-height;
-
-    @media #{$mobile} {
-        font-size: $font__h6--font-size / 1.15;
-    }
-}
-
-
-
-
-//  2.9 - Blockquote
+//  1.3 - Blockquote
 // ------------------------------
 
 
@@ -1179,139 +1281,34 @@ blockquote {
 
     &:before {
         content: open-quote;
-        font-family: $font__p--font-family;
-        line-height: $font__p--line-height;
     }
 }
 
 
 
 
-//  2.10 - Company Name
+//  1.4 - Company Name
 // ------------------------------
 
 
-// .company-link {
-//     color: $color__companyname--text;
-//     font-family: $font__companyname--font-family;
-//     font-size: $font__companyname--font-size;
-//     font-weight: $font__companyname--font-weight;
-//     letter-spacing: $font__companyname--letter-spacing;
-//     line-height: $font__companyname--line-height;
-//     -ms-word-break: break-word;
-//     word-wrap: break-word;
-//     -webkit-hyphens: none;
-//     -moz-hyphens: none;
-//     hyphens: none;
-
-
-//     .row--style-light & {
-//         color: $color--darkest;
-//     }
-
-
-//     .row--style-accent & {
-//         color: $color--lightest;
-//     }
-
-
-//     .row--style-dark & {
-//         color: $color--lightest;
-//     }
-// }
-
-
-
-
-//  2.11 - Feature Text
-// ------------------------------
-
-
-// .feature__headline {
-//     color: $color__feature-headline--text;
-//     font-family: $font__feature-headline--font-family;
-//     font-size: $font__feature-headline--font-size;
-//     font-weight: $font__feature-headline--font-weight;
-//     letter-spacing: $font__feature-headline--letter-spacing;
-//     line-height: $font__feature-headline--line-height;
-
-
-//     .row--style-light & {
-//         color: $color--darkest;
-//     }
-
-
-//     .row--style-accent & {
-//         color: $color--lightest;
-//     }
-
-
-//     .row--style-dark & {
-//         color: $color--lightest;
-//     }
-// }
-
-
-// .feature__strapline {
-//     color: $color__feature-strapline--text;
-//     font-family: $font__feature-strapline--font-family;
-//     font-size: $font__feature-strapline--font-size;
-//     font-weight: $font__feature-strapline--font-weight;
-//     letter-spacing: $font__feature-strapline--letter-spacing;
-//     line-height: $font__feature-strapline--line-height;
-
-
-//     .row--style-light & {
-//         color: $color--dark;
-//     }
-
-
-//     .row--style-accent & {
-//         color: $color--lightest;
-//     }
-
-
-//     .row--style-dark & {
-//         color: $color--light;
-//     }
-// }
-
-
-
-
-//  2.12 - Tables
-// ------------------------------
-
-
-th {
-    // color: $color__h1--text;
-
-
-    // @each $item, $widget in $color__h1 {
-    //     @each $color, $value in $widget {
-
-    //         .row--style-#{$color} & {
-    //             background-color: map-deep-get($color__h1, 'color__h1--background', $color);
-    //             color: map-deep-get($color__h1, 'color__h1--text', $color);
-    //         }
-    //     }
-    // }
+.company-link {
+    -ms-word-break: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    hyphens: none;
 }
 
 
 
 
-//  2.13 - Pre, Code
+//  1.5 - Pre, Code
 // ------------------------------
 
 
 pre,
 code {
     font-family: monospace;
-    font-size: $font__p--font-size;
-    font-weight: $font__p--font-weight;
-    letter-spacing: $font__p--letter-spacing;
-    line-height: $font__p--line-height;
 }
 
 
@@ -1341,104 +1338,15 @@ pre {
 
 
 
-//  2.14 - Buttons
-// ------------------------------
-
-
-button,
-.button {
-
-    // Font
-    font-family: $font__button--font-family;
-    font-size: $font__button--font-size;
-    font-weight: $font__button--font-weight;
-    line-height: $font__button--line-height;
-    letter-spacing: $font__button--letter-spacing;
-
-    // Style
-    text-transform: $style__button--text-transform;
-}
-
-
-
-
-//  2.15 - Form
-// ------------------------------
-
-
-// Legend
-legend {
-
-    // Font
-    font-family: $font__legend--font-family;
-    font-size: $font__legend--font-size;
-    font-weight: $font__legend--font-weight;
-    line-height: $font__legend--line-height;
-    letter-spacing: $font__legend--letter-spacing;
-
-    // Style
-    text-transform: $style__legend--text-transform;
-}
-
-
-// Label
-label {
-
-    // Font
-    font-family: $font__label--font-family;
-    font-size: $font__label--font-size;
-    font-weight: $font__label--font-weight;
-    line-height: $font__label--line-height;
-    letter-spacing: $font__label--letter-spacing;
-
-    // Style
-    text-transform: $style__label--text-transform;
-
-    @media #{$mobile} {
-        font-size: $font__label--font-size / 1.1;
-    }
-}
-
-
-// Inputs
-input,
-select,
-textarea {
-    font-family: $font__p--font-family;
-    font-size: $font__p--font-size;
-    font-weight: $font__p--font-weight;
-    line-height: $font__p--line-height;
-    letter-spacing: $font__p--letter-spacing;
-
-    @media #{$mobile} {
-        font-size: $font__p--font-size / 1.1;
-    }
-}
-
-
-@include placeholder {
-    font-family: $font__p--font-family;
-    font-size: $font__p--font-size;
-    font-weight: $font__p--font-weight;
-    line-height: $font__p--line-height;
-    letter-spacing: $font__p--letter-spacing;
-
-    @media #{$mobile} {
-        font-size: $font__p--font-size / 1.1;
-    }
-}
-
-
-
 
 // ---------------------------
-//  3. Spacing
+//  2. Spacing
 // ---------------------------
 
 
 
 
-//  3.1 Spacing Reset
+//  2.1 Spacing Reset
 // -----------------------------
 
 h1,
@@ -1454,37 +1362,7 @@ p {
 
 
 
-//  3.2 Paragraph Spacing
-// -----------------------------
-
-
-p {
-    margin-bottom: 6px;
-
-
-    &+ h1,
-    &+ h2,
-    &+ h3,
-    &+ h4,
-    &+ h5,
-    &+ h6,
-    &+ blockquote,
-    &+ code {
-        margin-top: 20px;
-    }
-
-
-    &+ p,
-    &+ ul,
-    &+ ol {
-        margin-top: 15px;
-    }
-}
-
-
-
-
-//  3.3 Heading Spacing
+//  2.2 Heading Spacing
 // -----------------------------
 
 
@@ -1523,21 +1401,31 @@ ol {
 
 
 
-
-// ---------------------------
-//  4. Font Styles
-// ---------------------------
+//  2.3 Paragraph Spacing
+// -----------------------------
 
 
-.justifyitalic,
-.italic {
-    font-style: italic;
-}
+p {
+    margin-bottom: 6px;
 
 
-.justifybold,
-.bold {
-    font-weight: bold;
+    &+ h1,
+    &+ h2,
+    &+ h3,
+    &+ h4,
+    &+ h5,
+    &+ h6,
+    &+ blockquote,
+    &+ code {
+        margin-top: 20px;
+    }
+
+
+    &+ p,
+    &+ ul,
+    &+ ol {
+        margin-top: 15px;
+    }
 }
 
 
@@ -1563,6 +1451,13 @@ ol {
     text-align: left;
 }
 
+.imagewidget.widget-align-left {
+
+    &, .caption {
+        text-align: left;
+    }
+}
+
 
 // Align Center
 .align-center,
@@ -1573,6 +1468,13 @@ ol {
     text-align: center;
 }
 
+.imagewidget.widget-align-center {
+
+    &, .caption {
+        text-align: center;
+    }
+}
+
 
 // Align Right
 .align-right,
@@ -1581,6 +1483,13 @@ ol {
 .justify--right,
 .contentgroup--right {
     text-align: right;
+}
+
+.imagewidget.widget-align-right {
+
+    &, .caption {
+        text-align: right;
+    }
 }
 
 
@@ -1614,6 +1523,10 @@ ol {
     @media #{$tablet} {
         @include flex-wrap(wrap);
     }
+
+    @media #{$mobile} {
+        margin: 0 -0.75rem;
+    }
 }
 
 
@@ -1635,6 +1548,8 @@ ol {
 
         @media #{$mobile} {
             margin-bottom: 18px;
+            padding-right: 0.75rem;
+            padding-left: 0.75rem;
         }
 
 
@@ -1650,6 +1565,27 @@ ol {
 
             @media #{$mobile} {
                 margin-bottom: 0;
+            }
+        }
+    }
+
+
+    // Change column margin for reversed layout rows
+    .row--layout-row-reverse & {
+
+
+        // This is equivelent to :last-child in a non reversed row
+        .column:first-child {
+            @media #{$mobile} {
+                margin-bottom: 0;
+            }
+        }
+
+
+        // This is equivelent to :first-child in a non reversed row
+        .column:last-child {
+            @media #{$mobile} {
+                margin-bottom: 18px;
             }
         }
     }
@@ -2182,6 +2118,17 @@ ol {
         background-repeat: no-repeat;
         background-size: cover;
     }
+
+
+    &-image:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+    }
 }
 
 
@@ -2202,7 +2149,7 @@ $height--default: 80px;
 $height--large: 80px;
 $height--full: 100px;
 
-$width--contained: 30px;
+$width--contained: 5%;
 $width--wide: 40px;
 $width--full: 30px;
 
@@ -2303,13 +2250,11 @@ $width--full: 30px;
 // -------------------------------------
 
 
-.row--layout {
+.row--width {
 
 
     &-contained .row__container {
         margin: 0 auto;
-        // padding-left: $width--contained;
-        // padding-right: $width--contained;
         max-width: 1300px;
         width: 90%;
     }
@@ -2344,16 +2289,46 @@ $width--full: 30px;
     @include flex-display;
     @include flex-direction(column);
     width: 100%;
+    z-index: 1;
+}
+
+
+// -----------------------------
+//  Row - Layout
+// -----------------------------
+
+
+.row--layout {
+
+
+    // Stack Widgets Vertically
+    &-column .responsivecolumns {
+        @include flex-direction(column);
+    }
+
+
+    // Reverse Column Direction - Vertical
+    &-column-reverse .row__container {
+        @include flex-direction(column-reverse);
+    }
+
+
+    // Reverse Row Direction - Horizontal
+    &-row-reverse .responsivecolumns {
+        @include flex-direction(row-reverse);
+
+        @media #{$mobile} {
+            @include flex-direction(column-reverse);
+        }
+    }
 }
 
 
 
 
 
-
-// -----------------------------
-//  Widgets Import
-// -----------------------------
+//  Import: Widgets
+// ------------------------------
 
 
 // General: Widgets
@@ -2391,6 +2366,89 @@ $width--full: 30px;
 // Buttons: Standard, Tweet, Dropbox, Click to Call, PayPal
 
 // -------------------------------------
+//  DEFAULTS - Button Variables
+// -------------------------------------
+
+
+
+
+//  Background
+// ------------------------------
+
+
+// Colour
+$color__button--background--overide: () !default;  // Button Background
+$color__button--background--hover--overide: () !default;  // Button Background Hover
+
+
+// Style
+$style__button--border-radius: 0 !default;
+$style__button--cursor: pointer !default;
+$style__button--padding: 15px 20px !default;
+$style__button--transition: all 0.25s ease !default;
+
+
+
+
+//  Border
+// ------------------------------
+
+
+// Colour
+$color__button--border--overide: () !default;  // Button Background
+$color__button--border--hover--overide: () !default;  // Button Background Hover
+
+
+// Style
+$style__button--border-width: 0 !default;
+
+
+
+
+//  Box Shadow
+// ------------------------------
+
+
+// Colour
+$color__button--box-shadow--overide: () !default;  // Button Box Shadow
+$color__button--box-shadow--hover--overide: () !default;  // Button Box Shadow Hover
+
+
+
+
+//  Outline
+// ------------------------------
+
+
+// Colour
+$color__button--outline--overide: () !default;  // Button Outline
+$color__button--outline--hover--overide: () !default;  // Button Outline Hover
+
+
+// Style
+$style__button--outline-width: 0 !default;
+
+
+
+
+//  Text
+// ------------------------------
+
+
+// Font
+$font__button--font-family: $font__body--font-family !default;
+$font__button--font-size: 16px !default;
+$font__button--font-weight: 400 !default;
+$font__button--letter-spacing: 0 !default;
+$font__button--line-height: 1 !default;
+
+
+// Style
+$style__button--text-decoration: none !default;
+$style__button--text-transform: none !default;
+
+
+// -------------------------------------
 //  WIDGETS - Buttons
 // -------------------------------------
 
@@ -2417,10 +2475,9 @@ $width--full: 30px;
 
 
 // Standard
-button,
 .button {
 
-    &:not(.navigation-toggle) {
+    @include not($notButton) {
 
         // Structure
         display: inline-block;
@@ -2431,33 +2488,22 @@ button,
         white-space: nowrap;
         vertical-align: middle;
 
-        // Font
-        font-family: $font__button--font-family;
-        font-size: $font__button--font-size;
-        letter-spacing: $font__button--letter-spacing;
-        line-height: $font__button--line-height;
-        font-weight: $font__button--font-weight;
-
         // Style
-        transition: all 0.25s ease-in;
-        text-transform: $style__button--text-transform;
-
-        @media #{$mobile} {
-            font-size: $font__button--font-size / 1.1;
-        }
+        border: 0;
+        padding: 15px 20px;
+        transition: all 0.25s ease;
 
 
         &:hover,
         &:focus,
         &:active {
             cursor: pointer;
-            transition: all 0.25s ease-out;
             text-decoration: none;
         }
 
 
         &:focus {
-            outline: none;
+            outline: 0;
         }
     }
 }
@@ -2534,7 +2580,7 @@ button,
 
 
 
-// Basic: Logo, Company Name, Navigation, Feature
+// Brand: Logo, Company Name
 
 // -------------------------------------
 //  WIDGETS - Logo
@@ -2551,6 +2597,9 @@ button,
 //  WIDGETS - Company Name
 // -------------------------------------
 
+
+
+// Widget: Navigation
 
 // -------------------------------------
 //  WIDGETS - Navigation
@@ -2672,6 +2721,25 @@ button,
 
 
 // -------------------------------------
+//  DEFAULTS - Navigation Variables
+// -------------------------------------
+
+
+
+
+//  Background
+// ------------------------------
+
+
+// Colour
+$color__navigation-list--background--overide: () !default;  // Navigation List Background
+$color__navigation-folder--background--overide: () !default;  // Navigation Folder Background
+$color__navigation-item--selected--overide: () !default;  // Navigation Item Selected
+
+
+
+
+// -------------------------------------
 //  WIDGETS - Feature
 // -------------------------------------
 
@@ -2728,42 +2796,20 @@ button,
 .contentgroup {
 
 
-    &__heading {
-        position: relative;
-    }
-
-
+    &__heading,
     &__body {
         position: relative;
     }
 }
 
 
-// .wysiwyg-font-size-xx-small { font-size: 10px; }
-
-
-//.wysiwyg-font-size-x-small { font-size: $font__p--font-size * 0.75; }
-
-
-// .wysiwyg-font-size-smaller { font-size: 14px; }
-
-
 .wysiwyg-font-size-small { font-size: 14px; }
-
 
 .wysiwyg-font-size-medium { font-size: 16px; }
 
-
 .wysiwyg-font-size-large { font-size: 24px; }
 
-
-//.wysiwyg-font-size-larger { @include typi($h2-font-map); }
-
-
 .wysiwyg-font-size-x-large { font-size: 32px; }
-
-
-//.wysiwyg-font-size-xx-large { @include typi($h1-font-map); }
 
 
 
@@ -2794,48 +2840,8 @@ img {
 
 .image-title,
 .image-description {
-    // Gives title and description paragraph styling
-    @extend %paragraph;
-
+    @extend %paragraph; // Gives title and description paragraph styling
     display: block;
-}
-
-
-.image-title {
-
-
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
-
-
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
-
-
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
-}
-
-
-.image-description {
-
-
-    // .row--style-light & {
-    //     color: $color--dark;
-    // }
-
-
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
-
-
-    // .row--style-dark & {
-    //     color: $color--light;
-    // }
 }
 
 
@@ -2857,7 +2863,6 @@ img {
     }
 
 	&:hover {
-		// Removes underline from image link
 		text-decoration: none;
 	}
 }
@@ -2891,45 +2896,6 @@ img {
 .no-image {
 	background-image: url(data:image/png;base64,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);
 }
-
-
-
-
-// Align Left
-// ------------------------------
-
-.imagewidget.widget-align-left {
-
-    &, .caption {
-        text-align: left;
-    }
-}
-
-
-
-// Align Right
-// ------------------------------
-
-.imagewidget.widget-align-right {
-
-    &, .caption {
-        text-align: right;
-    }
-}
-
-
-
-// Align Center
-// ------------------------------
-
-.imagewidget.widget-align-center {
-
-    &, .caption {
-        text-align: center;
-    }
-}
-
-
 
 
 // -------------------------------------
@@ -3161,8 +3127,11 @@ fieldset {
 .form-group {
     margin-bottom: 20px;
 
+
     &:last-child {
+        display: inline-block;
         margin-bottom: 0;
+        position: relative;
     }
 }
 
@@ -3175,44 +3144,22 @@ legend {
 
 // Label
 label {
-
-    // Structure
 	display: inline-block;
     margin: 0;
-
-    // Font
-    font-family: $font__label--font-family;
-    font-size: $font__label--font-size;
-    font-weight: $font__label--font-weight;
-    line-height: $font__label--line-height;
-    letter-spacing: $font__label--letter-spacing;
-
-    // Style
-    text-transform: $style__label--text-transform;
-}
-
-
-.contactform__label {
-    margin-bottom: 12px;
 }
 
 
 // Selects
 select {
-    outline: none;
+    background-color: $color__body--background;
     border: 1px solid darken($color__body--background, 15%);
     border-radius: 0;
-    background-color: $color__body--background;
-    font-size: 12px;
+    outline: none;
     text-indent: 0;
 
-    @media #{$tablet} {
-    	font-size: 16px;
-    	line-height: 1.6;
-    }
 
-
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         background-color: $color__body--background;
         cursor: pointer;
     }
@@ -3230,14 +3177,9 @@ input[type="password"],
 textarea,
 .input--single-line {
     @include box-sizing(border-box);
-    border: 1px solid #ddd;
+    border: 0;
 	padding: 6px 10px;
     width: 100%;
-
-	@media #{$tablet} {
-		font-size: 16px;
-		line-height: 1.6;
-	}
 
 
 	&:focus {
@@ -3250,8 +3192,8 @@ textarea,
 
 // Textarea
 textarea {
+    min-height: 100px;
 	resize: vertical;
-	min-height: 100px;
 }
 
 
@@ -3265,11 +3207,7 @@ textarea {
     @include flex-display;
     @include justify-content(flex-start);
     @include align-items(center);
-    margin-bottom: 8px;
-
-    @media #{$tablet} {
-        margin-bottom: 10px;
-    }
+    margin-bottom: 10px;
 }
 
 
@@ -3351,13 +3289,88 @@ input[type="checkbox"] {
 // Form Validation
 // --------------------------
 
+
 .advancedcontactform .error {
     border: 1px solid #f06262 !important;
 }
 
 
+// -------------------------------------
+//  DEFAULTS - Form Variables
+// -------------------------------------
+
+
+
+
+//  Background
+// ------------------------------
+
+
+// Colour
+$color__form--input-background--overide: () !default;  // Form Input Background Overide
+$color__form--input-border--overide: () !default; // Form Input Border Overide
+
+
 
 // Social: Social Icons, Twitter Feed
+
+// -------------------------------------
+//  DEFAULTS - Social Icons Variables
+// -------------------------------------
+
+
+
+
+//  Background
+// ------------------------------
+
+
+// Colour
+$color__social-icons--background--overide: () !default;  // Social Icons Background Colour
+
+
+
+
+//  Icon
+// ------------------------------
+
+
+// Colour
+$color__social-icons--icon--overide: () !default;  // Social Icons Link Colour
+
+
+
+
+//  Border
+// ------------------------------
+
+
+// Colour
+$color__button--border--overide: () !default;  // Button Background
+$color__button--border--hover--overide: () !default;  // Button Background Hover
+
+
+
+
+//  Box Shadow
+// ------------------------------
+
+
+// Colour
+$color__social-icons--box-shadow--overide: () !default;  // Button Box Shadow
+$color__social-icons--box-shadow--hover--overide: () !default;  // Button Box Shadow Hover
+
+
+
+
+//  Outline
+// ------------------------------
+
+
+// Colour
+$color__social-icons--outline--overide: () !default;  // Button Outline
+$color__social-icons--outline--hover--overide: () !default;  // Button Outline Hover
+
 
 // -------------------------------------
 //  WIDGETS - Social Icons
@@ -3379,7 +3392,7 @@ input[type="checkbox"] {
 // Social Item
 .social-item {
     display: inline-block;
-    margin-right: 10px;
+    margin: 0 5px 0 0;
 }
 
 
@@ -3388,6 +3401,7 @@ input[type="checkbox"] {
     text-rendering: optimizedLegibility;
     -webkit-font-smoothing: antialiased;
 }
+
 
 
 // -------------------------------------
@@ -3410,21 +3424,6 @@ input[type="checkbox"] {
     font-weight: $font__h3--font-weight;
     letter-spacing: $font__h3--letter-spacing;
     line-height: $font__h3--line-height;
-
-
-    // .row--style-light & {
-    //     color: $color--darkest;
-    // }
-
-
-    // .row--style-accent & {
-    //     color: $color--lightest;
-    // }
-
-
-    // .row--style-dark & {
-    //     color: $color--lightest;
-    // }
 }
 
 
@@ -3465,25 +3464,9 @@ input[type="checkbox"] {
 
 hr.rule {
     border: none;
-    background-color: contrast($color__body--background, lighten($color__body--background, 30%), darken($color__body--background, 30%));
     display: inline-block;
     height: 2px;
     width: 100%;
-
-
-    // .row--style-light & {
-    //     background-color: $color--light;
-    // }
-
-
-    // .row--style-accent & {
-    //     background-color: $color--lightest;
-    // }
-
-
-    // .row--style-dark & {
-    //     background-color: $color--dark;
-    // }
 }
 
 
@@ -3550,6 +3533,10 @@ hr.rule {
 // -------------------------------------
 
 
+// Removes line-height gap from map widget sections
+[data-name="map"] {
+    line-height: 0;
+}
 
 
 // Embedded map layout fix
@@ -3572,9 +3559,8 @@ hr.rule {
 
 
 
-// -----------------------------
-//  Plugins Import
-// -----------------------------
+//  Import: Plugins
+// ------------------------------
 
 
 

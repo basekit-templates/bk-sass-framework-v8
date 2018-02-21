@@ -16,7 +16,7 @@ $height--default: 80px;
 $height--large: 80px;
 $height--full: 100px;
 
-$width--contained: 30px;
+$width--contained: 5%;
 $width--wide: 40px;
 $width--full: 30px;
 
@@ -117,13 +117,11 @@ $width--full: 30px;
 // -------------------------------------
 
 
-.row--layout {
+.row--width {
 
 
     &-contained .row__container {
         margin: 0 auto;
-        // padding-left: $width--contained;
-        // padding-right: $width--contained;
         max-width: 1300px;
         width: 90%;
     }
@@ -158,4 +156,5 @@ $width--full: 30px;
     @include flex-display;
     @include flex-direction(column);
     width: 100%;
+    z-index: 1;
 }

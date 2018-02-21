@@ -26,10 +26,9 @@
 
 
 // Standard
-button,
 .button {
 
-    &:not(.navigation-toggle) {
+    @include not($notButton) {
 
         // Structure
         display: inline-block;
@@ -40,33 +39,22 @@ button,
         white-space: nowrap;
         vertical-align: middle;
 
-        // Font
-        font-family: $font__button--font-family;
-        font-size: $font__button--font-size;
-        letter-spacing: $font__button--letter-spacing;
-        line-height: $font__button--line-height;
-        font-weight: $font__button--font-weight;
-
         // Style
-        transition: all 0.25s ease-in;
-        text-transform: $style__button--text-transform;
-
-        @media #{$mobile} {
-            font-size: $font__button--font-size / 1.1;
-        }
+        border: 0;
+        padding: 15px 20px;
+        transition: all 0.25s ease;
 
 
         &:hover,
         &:focus,
         &:active {
             cursor: pointer;
-            transition: all 0.25s ease-out;
             text-decoration: none;
         }
 
 
         &:focus {
-            outline: none;
+            outline: 0;
         }
     }
 }

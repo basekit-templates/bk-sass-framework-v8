@@ -10,6 +10,9 @@
 // ------------------------------
 
 
+// Colour - Heaading
+$color__heading--notch--overide: () !default;  // Header Notch Background Colour
+
 // Font - Heading
 $font__heading--font-family: (Helvetica, serif) !default;
 $font__heading--font-weight: 600 !default;
@@ -151,6 +154,10 @@ $font__h6--font-size: 20px !default;
 $font__h6--font-weight: 400 !default;
 $font__h6--line-height: 1.5 !default;
 $font__h6--letter-spacing: 0 !default;
+
+
+// Style
+$style__h6--text-transform: $style__heading--text-transform !default;
 
 
 

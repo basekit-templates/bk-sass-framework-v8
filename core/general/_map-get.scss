@@ -1,0 +1,17 @@
+
+// -----------------------------
+//  UTILITIES - Deep Map Get
+// -----------------------------
+
+
+
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    // The first time the key will equal ChildMap
+    // Then it will finish on $myProp
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}

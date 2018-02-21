@@ -18,6 +18,13 @@
     text-align: left;
 }
 
+.imagewidget.widget-align-left {
+
+    &, .caption {
+        text-align: left;
+    }
+}
+
 
 // Align Center
 .align-center,
@@ -28,6 +35,13 @@
     text-align: center;
 }
 
+.imagewidget.widget-align-center {
+
+    &, .caption {
+        text-align: center;
+    }
+}
+
 
 // Align Right
 .align-right,
@@ -36,6 +50,13 @@
 .justify--right,
 .contentgroup--right {
     text-align: right;
+}
+
+.imagewidget.widget-align-right {
+
+    &, .caption {
+        text-align: right;
+    }
 }
 
 

@@ -1,0 +1,34 @@
+
+// -------------------------------------------
+//  UTILITIES - :not Multiple Selector Usage
+// -------------------------------------------
+
+
+
+
+@mixin not($notExtend...) {
+
+    @if (length($notExtend) == 1){
+        $notExtend: nth($notExtend,1);
+    }
+
+    $notOutput: '';
+
+    @each $not in $notExtend {
+        $notOutput: $notOutput + ':not(#{$not})';
+    }
+
+    &#{$notOutput} {
+        @content;
+    }
+}
+
+
+$notButton: (
+    '.navigation-toggle',
+    '.pswp__button',
+    '.row-add-button__button',
+    '.row-template-preview__header-close-button',
+    '.row-template-preview__groups-menu-item-control',
+    '.row-template-preview__template-add-button',
+);

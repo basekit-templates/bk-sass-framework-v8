@@ -69,7 +69,7 @@ module.exports = function(grunt) {
 
     // This is the production version of bkb. The
     // one that will get released with BaseKit
-    grunt.file.write('bk-sass-framework-v8.scss', buildStr);
+    grunt.file.write('bk-sass-framework.scss', buildStr);
     grunt.task.run('sasslint');
   });
 };
