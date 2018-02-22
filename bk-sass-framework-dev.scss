@@ -1447,7 +1447,8 @@ p {
 .widget-align-left,
 .align--left,
 .justify--left,
-.contentgroup--left {
+.contentgroup--left,
+.alignment--left {
     text-align: left;
 }
 
@@ -1464,7 +1465,8 @@ p {
 .widget-align-center,
 .align--center,
 .justify--center,
-.contentgroup--center {
+.contentgroup--center,
+.alignment--center {
     text-align: center;
 }
 
@@ -1481,7 +1483,8 @@ p {
 .widget-align-right,
 .align--right,
 .justify--right,
-.contentgroup--right {
+.contentgroup--right,
+.alignment--right {
     text-align: right;
 }
 
