@@ -25,6 +25,25 @@
 
 // Social Link
 .social-link {
+    text-decoration: none;
     text-rendering: optimizedLegibility;
     -webkit-font-smoothing: antialiased;
+}
+
+
+
+
+// Social Icons Spacing
+// ----------------------
+
+.widget[data-name="socialicons"] {
+
+
+    + .widget {
+        margin-top: 20px;
+
+        @media #{$mobile} {
+            margin-top: 10px;
+        }
+    }
 }

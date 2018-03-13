@@ -52,16 +52,7 @@
     padding: 0 5px;
     text-decoration: none;
 
-    // Font Styles
-    font-family: $font__navigation--font-family;
-    font-size: $font__navigation--font-size;
-    font-weight: $font__navigation--font-weight;
-    letter-spacing: $font__navigation--letter-spacing;
-    line-height: $font__navigation--line-height;
-
-
     &:hover {
-        color: $color__navigation--text--hover;
         cursor: pointer;
     }
 }

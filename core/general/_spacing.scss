@@ -1,0 +1,145 @@
+
+[data-name="content"],
+[data-name="contentgroup"] {
+
+
+    + [data-name="contentgroup"],
+    + [data-name="content"] {
+        margin-top: 8px;
+    }
+
+
+    + [data-name="socialicons"],
+    + [data-name="clicktocall"] {
+        margin-top: 15px;
+    }
+
+
+    + [data-name="button"],
+    + [data-name="gallery"],
+    + [data-name="image"],
+    + [data-name="slideshow"],
+    + [data-name="map"],
+    + [data-name="contactform"] {
+        margin-top: 30px;
+    }
+
+
+    + [data-name="responsivecolumns"] {
+        margin-top: 40px;
+    }
+}
+
+
+.contentgroup__image-wrapper {
+    line-height: 0;
+
+
+    + .contentgroup__heading,
+    + .contentgroup__body,
+    + .contentgroup__button {
+        margin-top: 20px;
+    }
+}
+
+
+.contentgroup__heading {
+
+
+    + .contentgroup__body {
+        margin-top: 5px;
+    }
+
+
+    + .contentgroup__button  {
+        margin-top: 15px;
+    }
+}
+
+
+.contentgroup__body {
+
+
+    + .contentgroup__button {
+        margin-top: 15px;
+    }
+}
+
+
+[data-name="image"],
+[data-name="gallery"],
+[data-name="slideshow"],
+[data-name="map"],
+[data-name="contactform"] {
+
+
+    + [data-name="content"],
+    + [data-name="contentgroup"] {
+        margin-top: 30px;
+    }
+}
+
+
+
+h1,
+h2 {
+
+    + ul,
+    + ol,
+    + blockquote,
+    + code,
+    + p {
+        margin-top: 12px;
+    }
+
+
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5,
+    + h6 {
+        margin-top: 20px;
+    }
+}
+
+
+h3,
+h4 {
+
+
+    + ul,
+    + ol,
+    + blockquote,
+    + code,
+    + p {
+        margin-top: 8px;
+    }
+}
+
+
+h5,
+h6 {
+
+
+    + ul,
+    + ol,
+    + blockquote,
+    + code,
+    + p {
+        margin-top: 5px;
+    }
+}
+
+
+p {
+
+
+    + ul,
+    + ol,
+    + blockquote,
+    + code,
+    + p {
+        margin-top: 15px;
+    }
+}

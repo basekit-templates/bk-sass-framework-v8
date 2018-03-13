@@ -32,3 +32,9 @@ $notButton: (
     '.row-template-preview__groups-menu-item-control',
     '.row-template-preview__template-add-button',
 );
+
+
+$notZindex: (
+    '[data-name="row"]',
+    '[data-name="responsivecolumns"]'
+);

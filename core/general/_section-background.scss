@@ -17,16 +17,24 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        // position: relative;
+        // z-index: 0;
     }
 
 
-    &-image:after {
+    &-image:before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        z-index: 0;
+        // z-index: -1;
     }
 }
+
+
+// Always keep headers at the top of the z-index tree
+// #page-zones__header .row__container {
+//     z-index: 3;
+// }

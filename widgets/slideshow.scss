@@ -4,6 +4,8 @@
 // -------------------------------------
 
 
+
+
 // Element Resets
 .slides-list,
 .pagination-list,
@@ -19,6 +21,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
 }
+
 
 
 
@@ -75,6 +78,7 @@
 
 
 
+
     // Pagination
     // ----------
 
@@ -106,6 +110,7 @@
 
 
 
+
 // Crop Settings
 // -------------
 
@@ -129,9 +134,29 @@
 
 
 
+
 // Slideshow Controls
 // ------------------
 
 .slide-navigation {
     margin: 10px 0;
+}
+
+
+
+
+// Slideshow Spacing
+// ------------------
+
+
+.widget[data-name="map"] {
+
+
+    + .widget {
+        margin-top: 30px;
+
+        @media #{$mobile} {
+            margin-top: 15px;
+        }
+    }
 }

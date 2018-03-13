@@ -73,20 +73,19 @@
 
 
 // Widget: Navigation
-@import 'widgets/navigation/_navigation';
 @import 'widgets/navigation/_navigation-defaults';
+@import 'widgets/navigation/_navigation';
 
 
-@import 'widgets/feature';
-@import 'widgets/content';
+// Widget: Content & Content Group
+@import 'widgets/content/_content-defaults';
+@import 'widgets/content/_content';
 
 
 // Media: Images, Gallery, Slideshow
 @import 'widgets/image';
-
 @import 'widgets/galleries/_gallery-defaults';
 @import 'widgets/galleries/_gallery';
-
 @import 'widgets/slideshow';
 
 
@@ -96,9 +95,8 @@
 
 
 // Social: Social Icons, Twitter Feed
-@import 'widgets/social-icons/_social-icons--defaults';
+@import 'widgets/social-icons/_social-icons-defaults';
 @import 'widgets/social-icons/_social-icons';
-
 @import 'widgets/twitter-feed';
 
 
@@ -112,6 +110,8 @@
 @import 'widgets/youtube';
 @import 'widgets/google-map';
 @import 'widgets/linkedin';
+
+// @import 'widgets/feature';
 
 
 

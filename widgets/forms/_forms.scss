@@ -1,6 +1,6 @@
 
 // -------------------------
-// CORE: Forms
+//  CORE: Forms
 // -------------------------
 
 
@@ -34,6 +34,19 @@ fieldset {
 // Legend
 legend {
     display: block;
+
+    &:empty {
+        display: none;
+        visibility: hidden;
+
+        + .form-body {
+            margin-top: 0;
+        }
+    }
+
+    + .form-body {
+        margin-top: 15px;
+    }
 }
 
 
@@ -41,6 +54,11 @@ legend {
 label {
 	display: inline-block;
     margin: 0;
+
+    &:empty {
+        display: none;
+        visibility: hidden;
+    }
 }
 
 

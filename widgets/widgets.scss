@@ -11,18 +11,26 @@
 }
 
 
-// Widget positioning
-.widget:not([data-name="row"]) {
-    padding-bottom: 15px;
+// Default widget spacing
+.widget {
 
+    + .widget {
+        margin-top: 15px;
 
-    &:last-child {
-        padding-bottom: 0;
+        @media #{$mobile} {
+            margin-top: 7px;
+        }
     }
 }
 
 
-// Removes margin for the spacing widget
-.widget--zone-widget[data-name="space"] {
-	padding-bottom: 0;
+// Removes margin for sections and spacing widgets
+.widget[data-name="space"],
+.widget[data-name="row"] {
+	margin: 0 !important;
+
+
+    + .widget {
+        margin-top: 0;
+    }
 }

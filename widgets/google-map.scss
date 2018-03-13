@@ -14,3 +14,20 @@
 .google-map img {
     max-width: inherit;
 }
+
+
+// Gallery Spacing
+// ----------------
+
+
+.widget[data-name="map"] {
+
+
+    + .widget {
+        margin-top: 30px;
+
+        @media #{$mobile} {
+            margin-top: 15px;
+        }
+    }
+}

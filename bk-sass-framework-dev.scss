@@ -69,7 +69,6 @@ iframe {
  */
 
 body {
-    color: #333;
     font: 16px / 1.6 sans-serif;
     margin: 0;
     text-rendering: optimizelegibility;
@@ -88,17 +87,6 @@ header,
 nav,
 section {
     display: block;
-}
-
-
-/**
- * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
- */
-
-h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
 }
 
 
@@ -824,6 +812,12 @@ $notButton: (
 );
 
 
+$notZindex: (
+    '[data-name="row"]',
+    '[data-name="responsivecolumns"]'
+);
+
+
 // -----------------------------
 //  UTILITIES - Deep Map Get
 // -----------------------------
@@ -1367,34 +1361,64 @@ p {
 
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-blockquote,
-code,
-ul,
-ol {
-    position: relative;
+h2 {
 
+    + ul,
+    + ol,
+    + blockquote,
+    + code,
+    + p {
+        margin-top: 12px;
 
-    &+ ul,
-    &+ ol,
-    &+ blockquote,
-    &+ code,
-    &+ p {
-        margin-top: 15px;
+        @media #{$mobile} {
+            margin-top: 6px;
+        }
     }
 
 
-    &+ h1,
-    &+ h2,
-    &+ h3,
-    &+ h4,
-    &+ h5,
-    &+ h6 {
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5,
+    + h6 {
         margin-top: 20px;
+
+        @media #{$mobile} {
+            margin-top: 10px;
+        }
+    }
+}
+
+
+h3,
+h4 {
+
+
+    + ul,
+    + ol,
+    + blockquote,
+    + code,
+    + p {
+        margin-top: 8px;
+
+        @media #{$mobile} {
+            margin-top: 5px;
+        }
+    }
+}
+
+
+h5,
+h6 {
+
+
+    + ul,
+    + ol,
+    + blockquote,
+    + code,
+    + p {
+        margin-top: 5px;
     }
 }
 
@@ -1405,26 +1429,33 @@ ol {
 // -----------------------------
 
 
+
 p {
-    margin-bottom: 6px;
 
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5 {
+        margin-top: 30px;
 
-    &+ h1,
-    &+ h2,
-    &+ h3,
-    &+ h4,
-    &+ h5,
-    &+ h6,
-    &+ blockquote,
-    &+ code {
-        margin-top: 20px;
+        @media #{$mobile} {
+            margin-top: 15px;
+        }
     }
 
 
-    &+ p,
-    &+ ul,
-    &+ ol {
+    + h6,
+    + ul,
+    + ol,
+    + blockquote,
+    + code,
+    + p {
         margin-top: 15px;
+
+        @media #{$mobile} {
+            margin-top: 7px;
+        }
     }
 }
 
@@ -1550,7 +1581,7 @@ p {
         position: relative;
 
         @media #{$mobile} {
-            margin-bottom: 18px;
+            margin-bottom: 20px;
             padding-right: 0.75rem;
             padding-left: 0.75rem;
         }
@@ -1603,8 +1634,8 @@ p {
             margin-top: 20px;
         }
 
-        @media #{$tablet} {
-            margin-top: 18px;
+        @media #{$mobile} {
+            margin-top: 0;
         }
     }
 }
@@ -1665,6 +1696,20 @@ p {
     }
 }
 
+
+
+
+//  Responsive Spacing
+// -------------------------------------
+
+
+.widget[data-name="responsivecolumns"] {
+
+
+    + .widget {
+        margin-top: 30px;
+    }
+}
 
 
 // -------------------------
@@ -2120,19 +2165,27 @@ p {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+        // position: relative;
+        // z-index: 0;
     }
 
 
-    &-image:after {
+    &-image:before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
-        z-index: 0;
+        // z-index: -1;
     }
 }
+
+
+// Always keep headers at the top of the z-index tree
+// #page-zones__header .row__container {
+//     z-index: 3;
+// }
 
 
 // -----------------------------
@@ -2152,6 +2205,7 @@ $height--default: 80px;
 $height--large: 80px;
 $height--full: 100px;
 
+$width--no-padding: 0;
 $width--contained: 5%;
 $width--wide: 40px;
 $width--full: 30px;
@@ -2167,7 +2221,8 @@ $width--full: 30px;
 
 
     &-no-padding .row__container {
-        padding: $height--no-padding!important;
+        padding-left: $height--no-padding;
+        padding-right: $height--no-padding;
     }
 
 
@@ -2256,6 +2311,13 @@ $width--full: 30px;
 .row--width {
 
 
+    &-no-padding .row__container {
+        padding-left: $width--no-padding;
+        padding-right: $width--no-padding;
+        width: 100%;
+    }
+
+
     &-contained .row__container {
         margin: 0 auto;
         max-width: 1300px;
@@ -2292,7 +2354,6 @@ $width--full: 30px;
     @include flex-display;
     @include flex-direction(column);
     width: 100%;
-    z-index: 1;
 }
 
 
@@ -2348,20 +2409,28 @@ $width--full: 30px;
 }
 
 
-// Widget positioning
-.widget:not([data-name="row"]) {
-    padding-bottom: 15px;
+// Default widget spacing
+.widget {
 
+    + .widget {
+        margin-top: 15px;
 
-    &:last-child {
-        padding-bottom: 0;
+        @media #{$mobile} {
+            margin-top: 7px;
+        }
     }
 }
 
 
-// Removes margin for the spacing widget
-.widget--zone-widget[data-name="space"] {
-	padding-bottom: 0;
+// Removes margin for sections and spacing widgets
+.widget[data-name="space"],
+.widget[data-name="row"] {
+	margin: 0 !important;
+
+
+    + .widget {
+        margin-top: 0;
+    }
 }
 
 
@@ -2458,29 +2527,14 @@ $style__button--text-transform: none !default;
 
 
 
-
-// -----------------------------
-//  Table of Contents
-// -----------------------------
-
-//  1     Standard Button
-//  2     Paypal Button
-//  3     Dropbox Button
-//  4     Click to Call Button
+//  1. Standard Buttons
+// -----------------------------------
 
 
+.button,
+.contentgroup__link {
 
-
-
-// ---------------------
-//  1. Main Button
-// ---------------------
-
-
-// Standard
-.button {
-
-    @include not($notButton) {
+    @include not($notButton) {  // notButton includes all elements that should not inherit button styles
 
         // Structure
         display: inline-block;
@@ -2494,7 +2548,12 @@ $style__button--text-transform: none !default;
         // Style
         border: 0;
         padding: 15px 20px;
+        text-decoration: none;
         transition: all 0.25s ease;
+
+        @media #{$mobile} {
+            padding: 12px 16px;
+        }
 
 
         &:hover,
@@ -2523,12 +2582,24 @@ $style__button--text-transform: none !default;
 }
 
 
+// Spacing
+.widget[data-name="button"] {
+
+
+    + .widget {
+        margin-top: 20px;
+
+        @media #{$mobile} {
+            margin-top: 10px;
+        }
+    }
+}
 
 
 
-// ---------------------
-//  2. PayPal Button
-// ---------------------
+
+//  2. Paypal Button
+// -----------------------------------
 
 
 .paypalbuynow form { background-color: transparent; }
@@ -2536,10 +2607,8 @@ $style__button--text-transform: none !default;
 
 
 
-
-// ---------------------
 //  3. Dropbox Button
-// ---------------------
+// -----------------------------------
 
 
 .dropbox-button__button,
@@ -2550,10 +2619,8 @@ $style__button--text-transform: none !default;
 
 
 
-
-// ---------------------------
 //  4. Click to Call Button
-// ---------------------------
+// -----------------------------------
 
 
 .clicktocall__phone-number-link {
@@ -2603,6 +2670,23 @@ $style__button--text-transform: none !default;
 
 
 // Widget: Navigation
+
+// -------------------------------------
+//  DEFAULTS - Navigation Variables
+// -------------------------------------
+
+
+
+
+//  Background
+// ------------------------------
+
+
+// Colour
+$color__navigation-list--background--overide: () !default;  // Navigation List Background
+$color__navigation-folder--background--overide: () !default;  // Navigation Folder Background
+$color__navigation-item--selected--overide: () !default;  // Navigation Item Selected
+
 
 // -------------------------------------
 //  WIDGETS - Navigation
@@ -2657,16 +2741,7 @@ $style__button--text-transform: none !default;
     padding: 0 5px;
     text-decoration: none;
 
-    // Font Styles
-    font-family: $font__navigation--font-family;
-    font-size: $font__navigation--font-size;
-    font-weight: $font__navigation--font-weight;
-    letter-spacing: $font__navigation--letter-spacing;
-    line-height: $font__navigation--line-height;
-
-
     &:hover {
-        color: $color__navigation--text--hover;
         cursor: pointer;
     }
 }
@@ -2723,8 +2798,11 @@ $style__button--text-transform: none !default;
 }
 
 
+
+// Widget: Content & Content Group
+
 // -------------------------------------
-//  DEFAULTS - Navigation Variables
+//  DEFAULTS - Content Variables
 // -------------------------------------
 
 
@@ -2735,55 +2813,62 @@ $style__button--text-transform: none !default;
 
 
 // Colour
-$color__navigation-list--background--overide: () !default;  // Navigation List Background
-$color__navigation-folder--background--overide: () !default;  // Navigation Folder Background
-$color__navigation-item--selected--overide: () !default;  // Navigation Item Selected
+$color__contentgroup--background--overide: () !default;  /// Content Group Background
+$color__contentgroup--button--background--overide: () !default;  // // Content Group Button Background
 
 
+
+
+//  Border
+// ------------------------------
+
+
+// Colour
+$color__contentgroup--border--overide: () !default;  // Content Group Border
+
+
+// Style
+$style__button--border-width: 0 !default;
+
+
+
+
+//  Box Shadow
+// ------------------------------
+
+
+// Colour
+$color__contentgroup--box-shadow--overide: () !default;  // Content Group Box Shadow
+$color__contentgroup--box-shadow--hover--overide: () !default;  // Content Group Box Shadow Hover
+
+
+
+
+//  Outline
+// ------------------------------
+
+
+// Colour
+$color__contentgroup--outline--overide: () !default;  // Content Group Outline
+
+
+// Style
+$style__contentgroup--outline-width: 0 !default;
 
 
 // -------------------------------------
-//  WIDGETS - Feature
+//  WIDGETS - Content / Content Group
 // -------------------------------------
 
 
-// Feature Background Image
-.feature__background-image {
-    min-height: 400px;
-}
+// .widget[data-name="content"] {
+//     padding-bottom: 15px;
+// }
 
 
-// Feature Content Wrap
-.feature__content-wrap {
-	padding: 12px;
-}
-
-
-// Feature Button
-.feature__button {
-	padding: 3px 6px;
-    text-decoration: none;
-
-
-    &:hover {
-    	text-decoration: none;
-    }
-}
-
-
-// -------------------------------------
-//  WIDGETS - Content
-// -------------------------------------
-
-
-.widget[data-name="content"] {
-    padding-bottom: 15px;
-}
-
-
-.column .widget[data-name="content"]:last-child {
-    padding-bottom: 0;
-}
+// .column .widget[data-name="content"]:last-child {
+//     padding-bottom: 0;
+// }
 
 
 .widget__content {
@@ -2800,19 +2885,151 @@ $color__navigation-item--selected--overide: () !default;  // Navigation Item Sel
 
 
     &__heading,
-    &__body {
+    &__image-wrapper,
+    &__body,
+    &__link-wrapper {
         position: relative;
+    }
+
+    &__link {
+        text-decoration: none;
     }
 }
 
 
-.wysiwyg-font-size-small { font-size: 14px; }
+// Content Group - Center
+.contentgroup--center .contentgroup__content {
+    @include justify-content(center);
+    margin: 0 auto;
+}
 
-.wysiwyg-font-size-medium { font-size: 16px; }
 
-.wysiwyg-font-size-large { font-size: 24px; }
+// Content Group - Right
+.contentgroup--right .contentgroup__content {
+    @include justify-content(flex-end);
+}
 
-.wysiwyg-font-size-x-large { font-size: 32px; }
+
+// Spacing
+.widget[data-name="content"],
+.widget[data-name="contentgroup"] {
+
+
+    + [data-name="contentgroup"],
+    + [data-name="content"] {
+        margin-top: 5px;
+    }
+
+
+    + [data-name="socialicons"],
+    + [data-name="clicktocall"] {
+        margin-top: 15px;
+
+        @media #{$mobile} {
+            margin-top: 7px;
+        }
+    }
+
+
+    + [data-name="button"],
+    + [data-name="gallery"],
+    + [data-name="image"],
+    + [data-name="slideshow"],
+    + [data-name="map"],
+    + [data-name="contactform"],
+    + [data-name="signupform"],
+    + [data-name="tweet"],
+    + [data-name="dropbox"] {
+        margin-top: 25px;
+
+        @media #{$mobile} {
+            margin-top: 15px;
+        }
+    }
+
+
+    + [data-name="responsivecolumns"] {
+        margin-top: 40px;
+
+        @media #{$mobile} {
+            margin-top: 20px;
+        }
+    }
+}
+
+
+.contentgroup:not(.contentgroup--inline) .contentgroup__image-wrapper {
+    line-height: 0;
+
+    + .contentgroup__body-wrapper,
+    + .contentgroup__link-wrapper {
+        margin-top: 20px;
+
+        @media #{$mobile} {
+            margin-top: 10px;
+        }
+    }
+}
+
+
+.contentgroup__text-wrapper {
+
+    h1,
+    h2 {
+        +.contentgroup__body {
+            margin-top: 12px;
+
+            @media #{$mobile} {
+                margin-top: 8px;
+            }
+        }
+    }
+
+    h3,
+    h4 {
+        +.contentgroup__body {
+            margin-top: 8px;
+
+            @media #{$mobile} {
+                margin-top: 5px;
+            }
+        }
+    }
+
+    h5,
+    h6 {
+        +.contentgroup__body {
+            margin-top: 5px;
+
+            @media #{$mobile} {
+                margin-top: 3px;
+            }
+        }
+    }
+
+
+
+    + .contentgroup__body {
+        margin-top: 5px;
+
+        @media #{$mobile} {
+            margin-top: 3px;
+        }
+    }
+}
+
+
+.contentgroup__text-wrapper {
+
+
+    + .contentgroup__link-wrapper {
+        margin-top: 20px;
+
+        @media #{$mobile} {
+            margin-top: 10px;
+        }
+    }
+}
 
 
 
@@ -2901,6 +3118,21 @@ img {
 }
 
 
+
+
+// Image Spacing
+// -----------------------------------
+
+
+.widget[data-name="image"] {
+
+
+    + .widget {
+        margin-top: 30px;
+    }
+}
+
+
 // -------------------------------------
 //  DEFAULTS - Galleries
 // -------------------------------------
@@ -2936,7 +3168,7 @@ $font__gallery-description--line-height: 18px !default;
 
 
 // Element Resets
-// --------------
+// ----------------
 
 
 .gallery__figure {
@@ -2966,9 +3198,31 @@ $font__gallery-description--line-height: 18px !default;
 
 
 
+
+// Gallery Spacing
+// -----------------
+
+
+.widget[data-name="gallery"] {
+
+
+    + [data-name="content"],
+    + [data-name="contentgroup"] {
+        margin-top: 30px;
+
+        @media #{$mobile} {
+            margin-top: 15px;
+        }
+    }
+}
+
+
+
 // -------------------------------------
 //  WIDGETS - Slideshow
 // -------------------------------------
+
+
 
 
 // Element Resets
@@ -2986,6 +3240,7 @@ $font__gallery-description--line-height: 18px !default;
     -moz-user-select: none;
     -ms-user-select: none;
 }
+
 
 
 
@@ -3042,6 +3297,7 @@ $font__gallery-description--line-height: 18px !default;
 
 
 
+
     // Pagination
     // ----------
 
@@ -3073,6 +3329,7 @@ $font__gallery-description--line-height: 18px !default;
 
 
 
+
 // Crop Settings
 // -------------
 
@@ -3096,6 +3353,7 @@ $font__gallery-description--line-height: 18px !default;
 
 
 
+
 // Slideshow Controls
 // ------------------
 
@@ -3105,10 +3363,29 @@ $font__gallery-description--line-height: 18px !default;
 
 
 
+
+// Slideshow Spacing
+// ------------------
+
+
+.widget[data-name="map"] {
+
+
+    + .widget {
+        margin-top: 30px;
+
+        @media #{$mobile} {
+            margin-top: 15px;
+        }
+    }
+}
+
+
+
 // Forms
 
 // -------------------------
-// CORE: Forms
+//  CORE: Forms
 // -------------------------
 
 
@@ -3142,6 +3419,19 @@ fieldset {
 // Legend
 legend {
     display: block;
+
+    &:empty {
+        display: none;
+        visibility: hidden;
+
+        + .form-body {
+            margin-top: 0;
+        }
+    }
+
+    + .form-body {
+        margin-top: 15px;
+    }
 }
 
 
@@ -3149,6 +3439,11 @@ legend {
 label {
 	display: inline-block;
     margin: 0;
+
+    &:empty {
+        display: none;
+        visibility: hidden;
+    }
 }
 
 
@@ -3401,10 +3696,28 @@ $color__social-icons--outline--hover--overide: () !default;  // Button Outline H
 
 // Social Link
 .social-link {
+    text-decoration: none;
     text-rendering: optimizedLegibility;
     -webkit-font-smoothing: antialiased;
 }
 
+
+
+
+// Social Icons Spacing
+// ----------------------
+
+.widget[data-name="socialicons"] {
+
+
+    + .widget {
+        margin-top: 20px;
+
+        @media #{$mobile} {
+            margin-top: 10px;
+        }
+    }
+}
 
 
 // -------------------------------------
@@ -3548,6 +3861,23 @@ hr.rule {
 }
 
 
+// Gallery Spacing
+// ----------------
+
+
+.widget[data-name="map"] {
+
+
+    + .widget {
+        margin-top: 30px;
+
+        @media #{$mobile} {
+            margin-top: 15px;
+        }
+    }
+}
+
+
 // -------------------------------------
 //  WIDGETS - Linkedin
 // -------------------------------------
@@ -3556,6 +3886,36 @@ hr.rule {
 .linkedincompanyprofile,
 .linkedinprofile {
     overflow: auto;
+}
+
+
+// 
+// -------------------------------------
+//  WIDGETS - Feature
+// -------------------------------------
+
+
+// Feature Background Image
+.feature__background-image {
+    min-height: 400px;
+}
+
+
+// Feature Content Wrap
+.feature__content-wrap {
+	padding: 12px;
+}
+
+
+// Feature Button
+.feature__button {
+	padding: 3px 6px;
+    text-decoration: none;
+
+
+    &:hover {
+    	text-decoration: none;
+    }
 }
 
 

@@ -46,7 +46,7 @@
         position: relative;
 
         @media #{$mobile} {
-            margin-bottom: 18px;
+            margin-bottom: 20px;
             padding-right: 0.75rem;
             padding-left: 0.75rem;
         }
@@ -99,8 +99,8 @@
             margin-top: 20px;
         }
 
-        @media #{$tablet} {
-            margin-top: 18px;
+        @media #{$mobile} {
+            margin-top: 0;
         }
     }
 }
@@ -161,3 +161,17 @@
     }
 }
 
+
+
+
+//  Responsive Spacing
+// -------------------------------------
+
+
+.widget[data-name="responsivecolumns"] {
+
+
+    + .widget {
+        margin-top: 30px;
+    }
+}
