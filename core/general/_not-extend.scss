@@ -26,11 +26,21 @@
 
 $notButton: (
     '.navigation-toggle',
+    '.button--pagination',
+    '.next-button',
+    '.previous-button',
+    '.pause-toggle',
     '.pswp__button',
     '.row-add-button__button',
     '.row-template-preview__header-close-button',
     '.row-template-preview__groups-menu-item-control',
     '.row-template-preview__template-add-button',
+);
+
+
+$notBackground: (
+    '.style--background-image',
+    '.height--no-padding'
 );
 
 

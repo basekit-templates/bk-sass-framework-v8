@@ -47,8 +47,8 @@
 
 // Section Options
 @import 'core/general/_section-alignment';
-@import 'core/general/_section-background';
 @import 'core/general/_section-sizing';
+@import 'core/general/_section-background';
 @import 'core/general/_section-layout';
 
 
@@ -68,8 +68,8 @@
 
 
 // Brand: Logo, Company Name
-@import 'widgets/logo';
-@import 'widgets/company-name';
+@import 'widgets/brand/_brand-defaults';
+@import 'widgets/brand/_brand';
 
 
 // Widget: Navigation

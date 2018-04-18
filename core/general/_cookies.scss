@@ -5,12 +5,12 @@
 
 
 .bk-cookie-container {
-    background-color: rgba(0,0,0, 0.75);
-    border: 1px solid #333;
-    color: white;
     @include flex-display;
     @include align-items(center);
     @include justify-content(space-between);
+    background-color: rgba(0,0,0, 0.75);
+    border: 1px solid #333;
+    color: white;
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
     bottom: 10px;
     left: 0;
@@ -52,9 +52,9 @@
 
 
     .bk-cookie-close-button {
+        @include align-self(flex-start);
         background-color: #000;
         color: rgba(255,255,255, 0.5);
-        @include align-self(flex-start);
         font-weight: 600;
         line-height: 1em;
         padding: 12px;

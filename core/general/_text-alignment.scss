@@ -15,7 +15,9 @@
 .align--left,
 .justify--left,
 .contentgroup--left,
-.alignment--left {
+.alignment--left,
+.contactform.widget-align-center,
+.advancedcontactform.widget-align-center {
     text-align: left;
 }
 
@@ -34,8 +36,26 @@
 .justify--center,
 .contentgroup--center,
 .alignment--center {
+    @include justify-content(center);
     text-align: center;
 }
+
+
+.signupform,
+.contactform,
+.advancedcontactform {
+
+
+    &.widget-align-center {
+        margin: 0 auto;
+    }
+
+
+    &.widget-align-right {
+        margin-left: auto;
+    }
+}
+
 
 .imagewidget.widget-align-center {
 
@@ -52,6 +72,7 @@
 .justify--right,
 .contentgroup--right,
 .alignment--right {
+    @include justify-content(flex-end);
     text-align: right;
 }
 

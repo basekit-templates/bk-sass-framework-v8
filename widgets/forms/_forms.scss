@@ -39,13 +39,19 @@ legend {
         display: none;
         visibility: hidden;
 
+
         + .form-body {
             margin-top: 0;
         }
     }
 
+
     + .form-body {
-        margin-top: 15px;
+        margin-top: 25px;
+
+        @media #{$mobile} {
+            margin-top: 12px;
+        }
     }
 }
 
@@ -167,6 +173,93 @@ input[type="checkbox"] {
 .label--radio,
 .label--checkbox {
     margin-bottom: 0;
+}
+
+
+.row__container > {
+
+
+    [data-name="signupform"] .signupform,
+    [data-name="contactform"] .contactform,
+    [data-name="advancedcontactform"] .advancedcontactform {
+        max-width: 800px;
+        width: 100%;
+    }
+}
+
+
+
+
+// Signup Form
+// ---------------------
+
+
+.signupform {
+    @include flex-display;
+
+    @media #{$mobile} {
+        display: block;
+    }
+}
+
+.signupform__form-body {
+    @include flex-display;
+    @include align-items(flex-end);
+
+    @media #{$mobile} {
+        display: block;
+    }
+}
+
+
+.signupform__form-group {
+    margin-bottom: 0;
+
+    @media #{$mobile} {
+        width: 100%;
+    }
+
+
+    &:first-child {
+        margin-right: 10px;
+
+        @media #{$mobile} {
+            margin-right: 0;
+        }
+    }
+
+
+    &:last-child {
+
+        @media #{$mobile} {
+            margin-top: 10px;
+        }
+    }
+}
+
+
+.signupform__input,
+.signupform__button {
+
+    @include not($notButton) {
+        height: 60px;
+        padding: 15px;
+
+        @media #{$mobile} {
+            height: 50px;
+            padding: 15px 25px;
+            width: 100%;
+        }
+    }
+}
+
+
+.signupform__input {
+    min-width: 250px;
+
+    @media #{$mobile} {
+        min-width: 100%;
+    }
 }
 
 

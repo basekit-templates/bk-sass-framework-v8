@@ -11,7 +11,11 @@
 
 
 // Colour - Heaading
-$color__heading--notch--overide: () !default;  // Header Notch Background Colour
+$color__heading--notch--overide: () !default;               // Heading Notch Background Colour
+$color__heading--background--override: ()!default;          // Heading Background Colour
+$color__heading--background-before--override: ()!default;   // Heading :before Colour
+$color__heading--background-after--override: ()!default;    // Heading :after Colour
+
 
 // Font - Heading
 $font__heading--font-family: (Helvetica, serif) !default;

@@ -1,0 +1,20 @@
+
+// -------------------------------------
+//  WIDGETS - Branding
+// -------------------------------------
+
+
+.branding__logo .branding__link {
+    display: block;
+    line-height: 0;
+}
+
+
+// Stops logo being massively oversized
+.branding__logo-image {
+    max-height: 400px;
+
+    @media #{$tablet} {
+        max-height: 250px;
+    }
+}

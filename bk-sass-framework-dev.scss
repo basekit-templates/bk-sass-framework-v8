@@ -659,6 +659,15 @@ template {
 }
 
 
+// Inline Flexbox Display
+@mixin inline-flex {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+
+
 // Flex
 @mixin flex($columns: initial) {
     -webkit-flex: $columns;
@@ -804,11 +813,21 @@ $mobile: "only screen and (max-width: 700px)";
 
 $notButton: (
     '.navigation-toggle',
+    '.button--pagination',
+    '.next-button',
+    '.previous-button',
+    '.pause-toggle',
     '.pswp__button',
     '.row-add-button__button',
     '.row-template-preview__header-close-button',
     '.row-template-preview__groups-menu-item-control',
     '.row-template-preview__template-add-button',
+);
+
+
+$notBackground: (
+    '.style--background-image',
+    '.height--no-padding'
 );
 
 
@@ -996,7 +1015,11 @@ $color--lightest: white !default;
 
 
 // Colour - Heaading
-$color__heading--notch--overide: () !default;  // Header Notch Background Colour
+$color__heading--notch--overide: () !default;               // Heading Notch Background Colour
+$color__heading--background--override: ()!default;          // Heading Background Colour
+$color__heading--background-before--override: ()!default;   // Heading :before Colour
+$color__heading--background-after--override: ()!default;    // Heading :after Colour
+
 
 // Font - Heading
 $font__heading--font-family: (Helvetica, serif) !default;
@@ -1479,7 +1502,9 @@ p {
 .align--left,
 .justify--left,
 .contentgroup--left,
-.alignment--left {
+.alignment--left,
+.contactform.widget-align-center,
+.advancedcontactform.widget-align-center {
     text-align: left;
 }
 
@@ -1498,8 +1523,26 @@ p {
 .justify--center,
 .contentgroup--center,
 .alignment--center {
+    @include justify-content(center);
     text-align: center;
 }
+
+
+.signupform,
+.contactform,
+.advancedcontactform {
+
+
+    &.widget-align-center {
+        margin: 0 auto;
+    }
+
+
+    &.widget-align-right {
+        margin-left: auto;
+    }
+}
+
 
 .imagewidget.widget-align-center {
 
@@ -1516,6 +1559,7 @@ p {
 .justify--right,
 .contentgroup--right,
 .alignment--right {
+    @include justify-content(flex-end);
     text-align: right;
 }
 
@@ -1949,12 +1993,12 @@ p {
 
 
 .bk-cookie-container {
-    background-color: rgba(0,0,0, 0.75);
-    border: 1px solid #333;
-    color: white;
     @include flex-display;
     @include align-items(center);
     @include justify-content(space-between);
+    background-color: rgba(0,0,0, 0.75);
+    border: 1px solid #333;
+    color: white;
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
     bottom: 10px;
     left: 0;
@@ -1996,9 +2040,9 @@ p {
 
 
     .bk-cookie-close-button {
+        @include align-self(flex-start);
         background-color: #000;
         color: rgba(255,255,255, 0.5);
-        @include align-self(flex-start);
         font-weight: 600;
         line-height: 1em;
         padding: 12px;
@@ -2148,6 +2192,346 @@ p {
 
 
 // -----------------------------
+//  CORE - Row Sizing
+// -----------------------------
+
+
+
+
+//  Sizing Variables
+// -------------------------------------
+
+
+$height--no-padding: 0;
+$height--thin: 15px;
+$height--default: 80px;
+$height--large: 80px;
+$height--full: 100px;
+
+
+$width--no-padding: 0;
+$width--contained: 5%;
+$width--wide: 40px;
+$width--full: 30px;
+
+
+
+
+//  Sizing Maps
+// -------------------------------------
+
+
+$section-height: (
+    no-padding: $height--no-padding,
+    thin: $height--thin,
+    default: $height--default,
+    large: $height--large,
+    full: $height--full
+) !default;
+
+
+$section-style: (
+    light,
+    accent,
+    dark
+) !default;
+
+
+
+
+//  Sizing Mixins - Height
+// -------------------------------------
+
+
+@mixin height--full {
+    padding-top: $height--full;
+    padding-bottom: $height--full;
+
+    @media #{$tablet} {
+        padding-top: ( $height--full / 2 );
+        padding-bottom: ( $height--full / 2 );
+    }
+
+    @media #{$mobile} {
+        padding-top: ( $height--full / 2.5 );
+        padding-bottom: ( $height--full / 2.5 );
+    }
+}
+
+
+@mixin height--default {
+    padding-top: $height--default;
+    padding-bottom: $height--default;
+
+    @media #{$mobile} {
+        padding-top: ( $height--default / 2 );
+        padding-bottom: ( $height--default / 2 );
+    }
+}
+
+
+@mixin height--thin {
+    padding-top: $height--thin;
+    padding-bottom: $height--thin;
+}
+
+
+@mixin height--no-padding {
+    padding-top: $height--no-padding;
+    padding-bottom: $height--no-padding;
+}
+
+
+@mixin adjacent-spacing {
+    // Remove spacing from colour adjacent section
+    @each $value in $section-style {
+        .style--#{$value} + .style--#{$value} .row__container {
+            padding-top: 0;
+        }
+    }
+
+    // Re add spacing when a background image section preceeds an adjacent styled section or follows a section with no padding
+    @each $height, $value in $section-height {
+        .style--background-image + .height--#{$height} .row__container,
+        .height--no-padding + .height--#{$height} .row__container,
+        .height--#{$height}.active-row .row__container {
+            padding-top: $value;
+
+            @if $height == full {
+                @media #{$tablet} {
+                    padding-top: ( $value / 2 );
+                    padding-bottom: ( $value / 2 );
+                }
+
+                @media #{$mobile} {
+                    padding-top: ( $value / 2.5 );
+                    padding-bottom: ( $value / 2.5 );
+                }
+            }
+
+            @if $height == default {
+                @media #{$mobile} {
+                    padding-top: ( $value / 2 );
+                    padding-bottom: ( $value / 2 );
+                }
+            }
+        }
+    }
+}
+
+
+
+
+//  Sizing Mixins - Width
+// -------------------------------------
+
+
+@mixin width--no-padding {
+    max-width: 100%;
+    padding-left: $width--no-padding;
+    padding-right: $width--no-padding;
+    width: 100%;
+}
+
+
+@mixin width--contained {
+    margin: 0 auto;
+    max-width: 1300px;
+    width: 90%;
+}
+
+
+@mixin width--wide {
+    margin: 0 auto;
+    width: 90%;
+
+    @media #{$tablet--landscape} {
+        padding-left: $width--wide;
+        padding-right: $width--wide;
+        width: 100%;
+    }
+
+    @media #{$tablet} {
+        padding-left: ( $width--wide / 1.5 );
+        padding-right: ( $width--wide / 1.5 );
+    }
+}
+
+
+@mixin width--full {
+    padding-left: $width--full;
+    padding-right: $width--full;
+    width: 100%;
+}
+
+
+
+
+//  Section - Defaults
+// -------------------------------------
+
+
+.row__container {
+    @include flex-display;
+    @include flex-direction(column);
+    width: 100%;
+}
+
+
+
+
+//  Section Height - Adjacent Spacing
+// -------------------------------------
+
+#page-zones__main {
+    @include adjacent-spacing;
+}
+
+
+
+
+//  Section Height - Full
+// -------------------------------------
+
+
+.height--full {
+
+
+    .row__container {
+        @include height--full;
+    }
+
+
+    .row {
+        min-height: 100vh;
+    }
+
+
+    // Fix for mobile preview on iOS Safari
+    .ua-ios-safari.editor-loaded & {
+        min-height: var(--viewport-height);
+    }
+}
+
+
+
+
+//  Section Height - Large
+// -------------------------------------
+
+
+.height--large .row {
+    min-height: 700px;
+
+    @media #{$mobile} {
+        min-height: 350px;
+    }
+}
+
+
+
+
+//  Section Height - Large / Default
+// -------------------------------------
+
+
+.height--large,
+.height--default {
+
+
+    .row__container {
+        @include height--default;
+    }
+}
+
+
+
+
+//  Section Height - Thin
+// -------------------------------------
+
+
+.height--thin .row__container {
+    @include height--thin;
+}
+
+
+
+
+//  Section Height - No Padding
+// -------------------------------------
+
+
+.height--no-padding .row__container {
+     @include height--no-padding;
+}
+
+
+
+
+//  Section Height - Header / Footer
+// -------------------------------------
+
+
+// Remove min-height from widgets in the header and footer zones
+#page-zones__header,
+#page-zones__footer {
+
+
+    .bk-content-text,
+    .content,
+    .responsivecolumns .column {
+        min-height: 0 !important;
+    }
+}
+
+
+
+
+//  Section Width - No Padding
+// -------------------------------------
+
+
+.row--width-no-padding .row__container {
+    @include width--no-padding;
+}
+
+
+
+
+//  Section Width - Contained
+// -------------------------------------
+
+
+.row--width-contained .row__container {
+     @include width--contained;
+}
+
+
+
+
+//  Section Width - Wide
+// -------------------------------------
+
+
+.row--width-wide .row__container {
+     @include width--wide;
+}
+
+
+
+
+//  Section Width - Full
+// -------------------------------------
+
+
+.row--width-full .row__container {
+     @include width--full;
+}
+
+
+
+// -----------------------------
 //  CORE - Row Background Type
 // -----------------------------
 
@@ -2165,8 +2549,6 @@ p {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        // position: relative;
-        // z-index: 0;
     }
 
 
@@ -2177,183 +2559,7 @@ p {
         left: 0;
         right: 0;
         bottom: 0;
-        // z-index: -1;
     }
-}
-
-
-// Always keep headers at the top of the z-index tree
-// #page-zones__header .row__container {
-//     z-index: 3;
-// }
-
-
-// -----------------------------
-//  CORE - Row Sizing
-// -----------------------------
-
-
-
-
-//  Sizing Variables
-// -------------------------------------
-
-
-$height--no-padding: 0;
-$height--thin: 15px;
-$height--default: 80px;
-$height--large: 80px;
-$height--full: 100px;
-
-$width--no-padding: 0;
-$width--contained: 5%;
-$width--wide: 40px;
-$width--full: 30px;
-
-
-
-
-//  Row Height
-// -------------------------------------
-
-
-.row--height {
-
-
-    &-no-padding .row__container {
-        padding-left: $height--no-padding;
-        padding-right: $height--no-padding;
-    }
-
-
-    &-thin .row__container {
-        padding-top: $height--thin;
-        padding-bottom: $height--thin;
-    }
-
-
-    &-default .row__container {
-        padding-top: $height--default;
-        padding-bottom: $height--default;
-
-        @media #{$mobile} {
-            padding-top: ( $height--default / 2 );
-            padding-bottom: ( $height--default / 2 );
-        }
-    }
-
-
-    &-large {
-        min-height: 700px;
-
-        @media #{$mobile} {
-            min-height: 350px;
-        }
-
-
-        .row__container {
-            padding-top: $height--large;
-            padding-bottom: $height--large;
-
-            @media #{$mobile} {
-                padding-top: ( $height--large / 2 );
-                padding-bottom: ( $height--large / 2 );
-            }
-        }
-    }
-
-
-    &-full {
-        min-height: 100vh;
-
-
-        .row__container {
-            padding-top: $height--full;
-            padding-bottom: $height--full;
-
-            @media #{$tablet} {
-                padding-top: ( $height--full / 2 );
-                padding-bottom: ( $height--full / 2 );
-            }
-
-            @media #{$mobile} {
-                padding-top: ( $height--full / 2.5 );
-                padding-bottom: ( $height--full / 2.5 );
-            }
-        }
-
-
-        .ua-ios-safari.editor-loaded & {
-            min-height: var(--viewport-height);
-        }
-    }
-}
-
-
-#page-zones__header,
-#page-zones__footer {
-
-
-    .bk-content-text,
-    .content,
-    .responsivecolumns .column {
-        min-height: 0 !important;
-    }
-}
-
-
-
-
-//  Row Width
-// -------------------------------------
-
-
-.row--width {
-
-
-    &-no-padding .row__container {
-        padding-left: $width--no-padding;
-        padding-right: $width--no-padding;
-        width: 100%;
-    }
-
-
-    &-contained .row__container {
-        margin: 0 auto;
-        max-width: 1300px;
-        width: 90%;
-    }
-
-
-    &-wide .row__container {
-        margin: 0 auto;
-        width: 90%;
-
-        @media #{$tablet--landscape} {
-            padding-left: $width--wide;
-            padding-right: $width--wide;
-            width: 100%;
-        }
-
-        @media #{$tablet} {
-            padding-left: ( $width--wide / 1.5 );
-            padding-right: ( $width--wide / 1.5 );
-        }
-    }
-
-
-    &-full .row__container {
-        padding-left: $width--full;
-        padding-right: $width--full;
-        width: 100%;
-    }
-}
-
-
-.row__container {
-    @include flex-display;
-    @include flex-direction(column);
-    width: 100%;
 }
 
 
@@ -2624,13 +2830,14 @@ $style__button--text-transform: none !default;
 
 
 .clicktocall__phone-number-link {
+    @include inline-flex;
+    @include flex-wrap(nowrap);
     background-color: transparent;
 
 
     &:hover {
         text-decoration: none;
     }
-
 
     @media #{$mobile}, only screen and (max-width: 700px) and (orientation:landscape) {
         border: 0;
@@ -2653,19 +2860,50 @@ $style__button--text-transform: none !default;
 // Brand: Logo, Company Name
 
 // -------------------------------------
-//  WIDGETS - Logo
+//  DEFAULTS - Brand Variables
 // -------------------------------------
 
 
-.logo {
-    font-size: 0;
+
+
+//  Text
+// ------------------------------
+
+
+// Colour
+$color__companyname--text--overide: () !default;  // Brand text
+
+
+// Font
+$font__companyname--font-family: Helvetica Neue !default;
+$font__companyname--font-size: 32px !default;
+$font__companyname--font-weight: normal !default;
+$font__companyname--letter-spacing: 0 !default;
+$font__companyname--line-height: 1 !default;
+
+// Style
+$style__companyname--text-transform: none !default
+
+
+// -------------------------------------
+//  WIDGETS - Branding
+// -------------------------------------
+
+
+.branding__logo .branding__link {
+    display: block;
     line-height: 0;
 }
 
 
-// -------------------------------------
-//  WIDGETS - Company Name
-// -------------------------------------
+// Stops logo being massively oversized
+.branding__logo-image {
+    max-height: 400px;
+
+    @media #{$tablet} {
+        max-height: 250px;
+    }
+}
 
 
 
@@ -2958,7 +3196,7 @@ $style__contentgroup--outline-width: 0 !default;
 }
 
 
-.contentgroup:not(.contentgroup--inline) .contentgroup__image-wrapper {
+.contentgroup:not(.contentgroup--inline):not(.contentgroup--card) .contentgroup__image-wrapper {
     line-height: 0;
 
     + .contentgroup__body-wrapper,
@@ -3424,13 +3662,19 @@ legend {
         display: none;
         visibility: hidden;
 
+
         + .form-body {
             margin-top: 0;
         }
     }
 
+
     + .form-body {
-        margin-top: 15px;
+        margin-top: 25px;
+
+        @media #{$mobile} {
+            margin-top: 12px;
+        }
     }
 }
 
@@ -3552,6 +3796,93 @@ input[type="checkbox"] {
 .label--radio,
 .label--checkbox {
     margin-bottom: 0;
+}
+
+
+.row__container > {
+
+
+    [data-name="signupform"] .signupform,
+    [data-name="contactform"] .contactform,
+    [data-name="advancedcontactform"] .advancedcontactform {
+        max-width: 800px;
+        width: 100%;
+    }
+}
+
+
+
+
+// Signup Form
+// ---------------------
+
+
+.signupform {
+    @include flex-display;
+
+    @media #{$mobile} {
+        display: block;
+    }
+}
+
+.signupform__form-body {
+    @include flex-display;
+    @include align-items(flex-end);
+
+    @media #{$mobile} {
+        display: block;
+    }
+}
+
+
+.signupform__form-group {
+    margin-bottom: 0;
+
+    @media #{$mobile} {
+        width: 100%;
+    }
+
+
+    &:first-child {
+        margin-right: 10px;
+
+        @media #{$mobile} {
+            margin-right: 0;
+        }
+    }
+
+
+    &:last-child {
+
+        @media #{$mobile} {
+            margin-top: 10px;
+        }
+    }
+}
+
+
+.signupform__input,
+.signupform__button {
+
+    @include not($notButton) {
+        height: 60px;
+        padding: 15px;
+
+        @media #{$mobile} {
+            height: 50px;
+            padding: 15px 25px;
+            width: 100%;
+        }
+    }
+}
+
+
+.signupform__input {
+    min-width: 250px;
+
+    @media #{$mobile} {
+        min-width: 100%;
+    }
 }
 
 
@@ -4211,10 +4542,13 @@ hr.rule {
 
 
     .ecomproduct__image {
-        max-height: 80px;
+        line-height: 95px;
+        max-height: 95px;
+        vertical-align: middle;
 
         @media #{$mobile} {
-            max-height: 60px;
+            max-height: 45px;
+            line-height: 45px;
         }
     }
 }
@@ -4224,6 +4558,7 @@ hr.rule {
 .ecomproduct__image-link {
     background-position: -9999px;
     background-repeat: no-repeat;
+    display: block;
 
 
     &:hover {
@@ -4233,13 +4568,18 @@ hr.rule {
 }
 
 
+.ecomproduct__image-button {
+    display: block;
+}
+
+
 .ecomproduct__gallery-item,
 .ecombasket__image-link {
     cursor: pointer;
     display: inline-block;
-    line-height: 80px;
-    height: 80px;
-    width: 80px;
+    line-height: 100px;
+    height: 100px;
+    width: 100px;
     vertical-align: top;
 
     @media #{$mobile} {

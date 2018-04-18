@@ -16,6 +16,7 @@ $height--default: 80px;
 $height--large: 80px;
 $height--full: 100px;
 
+
 $width--no-padding: 0;
 $width--contained: 5%;
 $width--wide: 40px;
@@ -24,83 +25,263 @@ $width--full: 30px;
 
 
 
-//  Row Height
+//  Sizing Maps
 // -------------------------------------
 
 
-.row--height {
+$section-height: (
+    no-padding: $height--no-padding,
+    thin: $height--thin,
+    default: $height--default,
+    large: $height--large,
+    full: $height--full
+) !default;
 
 
-    &-no-padding .row__container {
-        padding-left: $height--no-padding;
-        padding-right: $height--no-padding;
+$section-style: (
+    light,
+    accent,
+    dark
+) !default;
+
+
+
+
+//  Sizing Mixins - Height
+// -------------------------------------
+
+
+@mixin height--full {
+    padding-top: $height--full;
+    padding-bottom: $height--full;
+
+    @media #{$tablet} {
+        padding-top: ( $height--full / 2 );
+        padding-bottom: ( $height--full / 2 );
     }
 
-
-    &-thin .row__container {
-        padding-top: $height--thin;
-        padding-bottom: $height--thin;
+    @media #{$mobile} {
+        padding-top: ( $height--full / 2.5 );
+        padding-bottom: ( $height--full / 2.5 );
     }
+}
 
 
-    &-default .row__container {
-        padding-top: $height--default;
-        padding-bottom: $height--default;
+@mixin height--default {
+    padding-top: $height--default;
+    padding-bottom: $height--default;
 
-        @media #{$mobile} {
-            padding-top: ( $height--default / 2 );
-            padding-bottom: ( $height--default / 2 );
+    @media #{$mobile} {
+        padding-top: ( $height--default / 2 );
+        padding-bottom: ( $height--default / 2 );
+    }
+}
+
+
+@mixin height--thin {
+    padding-top: $height--thin;
+    padding-bottom: $height--thin;
+}
+
+
+@mixin height--no-padding {
+    padding-top: $height--no-padding;
+    padding-bottom: $height--no-padding;
+}
+
+
+@mixin adjacent-spacing {
+    // Remove spacing from colour adjacent section
+    @each $value in $section-style {
+        .style--#{$value} + .style--#{$value} .row__container {
+            padding-top: 0;
         }
     }
 
+    // Re add spacing when a background image section preceeds an adjacent styled section or follows a section with no padding
+    @each $height, $value in $section-height {
+        .style--background-image + .height--#{$height} .row__container,
+        .height--no-padding + .height--#{$height} .row__container,
+        .height--#{$height}.active-row .row__container {
+            padding-top: $value;
 
-    &-large {
-        min-height: 700px;
+            @if $height == full {
+                @media #{$tablet} {
+                    padding-top: ( $value / 2 );
+                    padding-bottom: ( $value / 2 );
+                }
 
-        @media #{$mobile} {
-            min-height: 350px;
-        }
-
-
-        .row__container {
-            padding-top: $height--large;
-            padding-bottom: $height--large;
-
-            @media #{$mobile} {
-                padding-top: ( $height--large / 2 );
-                padding-bottom: ( $height--large / 2 );
+                @media #{$mobile} {
+                    padding-top: ( $value / 2.5 );
+                    padding-bottom: ( $value / 2.5 );
+                }
             }
-        }
-    }
 
-
-    &-full {
-        min-height: 100vh;
-
-
-        .row__container {
-            padding-top: $height--full;
-            padding-bottom: $height--full;
-
-            @media #{$tablet} {
-                padding-top: ( $height--full / 2 );
-                padding-bottom: ( $height--full / 2 );
+            @if $height == default {
+                @media #{$mobile} {
+                    padding-top: ( $value / 2 );
+                    padding-bottom: ( $value / 2 );
+                }
             }
-
-            @media #{$mobile} {
-                padding-top: ( $height--full / 2.5 );
-                padding-bottom: ( $height--full / 2.5 );
-            }
-        }
-
-
-        .ua-ios-safari.editor-loaded & {
-            min-height: var(--viewport-height);
         }
     }
 }
 
 
+
+
+//  Sizing Mixins - Width
+// -------------------------------------
+
+
+@mixin width--no-padding {
+    max-width: 100%;
+    padding-left: $width--no-padding;
+    padding-right: $width--no-padding;
+    width: 100%;
+}
+
+
+@mixin width--contained {
+    margin: 0 auto;
+    max-width: 1300px;
+    width: 90%;
+}
+
+
+@mixin width--wide {
+    margin: 0 auto;
+    width: 90%;
+
+    @media #{$tablet--landscape} {
+        padding-left: $width--wide;
+        padding-right: $width--wide;
+        width: 100%;
+    }
+
+    @media #{$tablet} {
+        padding-left: ( $width--wide / 1.5 );
+        padding-right: ( $width--wide / 1.5 );
+    }
+}
+
+
+@mixin width--full {
+    padding-left: $width--full;
+    padding-right: $width--full;
+    width: 100%;
+}
+
+
+
+
+//  Section - Defaults
+// -------------------------------------
+
+
+.row__container {
+    @include flex-display;
+    @include flex-direction(column);
+    width: 100%;
+}
+
+
+
+
+//  Section Height - Adjacent Spacing
+// -------------------------------------
+
+#page-zones__main {
+    @include adjacent-spacing;
+}
+
+
+
+
+//  Section Height - Full
+// -------------------------------------
+
+
+.height--full {
+
+
+    .row__container {
+        @include height--full;
+    }
+
+
+    .row {
+        min-height: 100vh;
+    }
+
+
+    // Fix for mobile preview on iOS Safari
+    .ua-ios-safari.editor-loaded & {
+        min-height: var(--viewport-height);
+    }
+}
+
+
+
+
+//  Section Height - Large
+// -------------------------------------
+
+
+.height--large .row {
+    min-height: 700px;
+
+    @media #{$mobile} {
+        min-height: 350px;
+    }
+}
+
+
+
+
+//  Section Height - Large / Default
+// -------------------------------------
+
+
+.height--large,
+.height--default {
+
+
+    .row__container {
+        @include height--default;
+    }
+}
+
+
+
+
+//  Section Height - Thin
+// -------------------------------------
+
+
+.height--thin .row__container {
+    @include height--thin;
+}
+
+
+
+
+//  Section Height - No Padding
+// -------------------------------------
+
+
+.height--no-padding .row__container {
+     @include height--no-padding;
+}
+
+
+
+
+//  Section Height - Header / Footer
+// -------------------------------------
+
+
+// Remove min-height from widgets in the header and footer zones
 #page-zones__header,
 #page-zones__footer {
 
@@ -115,54 +296,44 @@ $width--full: 30px;
 
 
 
-//  Row Width
+//  Section Width - No Padding
 // -------------------------------------
 
 
-.row--width {
-
-
-    &-no-padding .row__container {
-        padding-left: $width--no-padding;
-        padding-right: $width--no-padding;
-        width: 100%;
-    }
-
-
-    &-contained .row__container {
-        margin: 0 auto;
-        max-width: 1300px;
-        width: 90%;
-    }
-
-
-    &-wide .row__container {
-        margin: 0 auto;
-        width: 90%;
-
-        @media #{$tablet--landscape} {
-            padding-left: $width--wide;
-            padding-right: $width--wide;
-            width: 100%;
-        }
-
-        @media #{$tablet} {
-            padding-left: ( $width--wide / 1.5 );
-            padding-right: ( $width--wide / 1.5 );
-        }
-    }
-
-
-    &-full .row__container {
-        padding-left: $width--full;
-        padding-right: $width--full;
-        width: 100%;
-    }
+.row--width-no-padding .row__container {
+    @include width--no-padding;
 }
 
 
-.row__container {
-    @include flex-display;
-    @include flex-direction(column);
-    width: 100%;
+
+
+//  Section Width - Contained
+// -------------------------------------
+
+
+.row--width-contained .row__container {
+     @include width--contained;
 }
+
+
+
+
+//  Section Width - Wide
+// -------------------------------------
+
+
+.row--width-wide .row__container {
+     @include width--wide;
+}
+
+
+
+
+//  Section Width - Full
+// -------------------------------------
+
+
+.row--width-full .row__container {
+     @include width--full;
+}
+

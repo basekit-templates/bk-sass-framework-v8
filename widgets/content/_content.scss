@@ -101,7 +101,7 @@
 }
 
 
-.contentgroup:not(.contentgroup--inline) .contentgroup__image-wrapper {
+.contentgroup:not(.contentgroup--inline):not(.contentgroup--card) .contentgroup__image-wrapper {
     line-height: 0;
 
     + .contentgroup__body-wrapper,
