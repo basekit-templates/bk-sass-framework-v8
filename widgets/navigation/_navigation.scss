@@ -79,6 +79,12 @@
 }
 
 
+.align-right .folder .navigation-list--children {
+    left: initial;
+    right: 0;
+}
+
+
 // Dropdown Arrow
 .navigation-item {
 
@@ -104,6 +110,7 @@
 // Dropdown List Item
 .navigation-item--child {
     display: list-item;
+    max-width: 250px;
     overflow: hidden;
     text-overflow: ellipsis;
 }

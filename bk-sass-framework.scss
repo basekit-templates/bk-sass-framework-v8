@@ -1,8 +1,7 @@
 
-// -------------------------------
-//  BaseKit Sass Framework
-// -------------------------------
-
+// ---------------------------------
+//  BaseKit SASS Framework - V10
+// ---------------------------------
 
 
 
@@ -11,7 +10,7 @@
 // ------------------------------
 
 
-// Reset: Normalize, Typeset & Default Variables
+// Reset: Normalize & Zone Resets
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 
 
@@ -546,8 +545,46 @@ template {
 }
 
 
+// -----------------------------
+// CORE: Zone Related Resets
+// -----------------------------
 
-// Mixins
+
+
+
+//  Header & Footer Zones
+// -------------------------------------
+
+
+#page-zones__header,
+#page-zones__footer {
+
+
+    // Remove default link styling
+    a {
+        text-decoration: none;
+    }
+
+
+    // Remove default list styling
+    [data-name="content"] ul {
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+    }
+
+
+    // Remove min-height from widgets in the header and footer zones
+    .bk-content-text,
+    .content,
+    .responsivecolumns .column {
+        min-height: 0 !important;
+    }
+}
+
+
+
+// Mixins & Media Queries
 
 // -----------------------------
 // CORE: Mixins
@@ -770,9 +807,6 @@ template {
 }
 
 
-
-// Media Queries
-
 // -------------------------
 //  CORE: Media Queries
 // -------------------------
@@ -789,8 +823,6 @@ $mobile: "only screen and (max-width: 700px)";
 // -------------------------------------------
 //  UTILITIES - :not Multiple Selector Usage
 // -------------------------------------------
-
-
 
 
 @mixin not($notExtend...) {
@@ -811,6 +843,41 @@ $mobile: "only screen and (max-width: 700px)";
 }
 
 
+// Excludes text from inherting theme font styles
+$notText: (
+    '.row-preview-unavailable__title',
+    '.row-preview-unavailable__body'
+);
+
+
+// Excludes small heading set
+$notHeadingSmall: (
+    'h4',
+    'heading--4',
+    'h5',
+    'heading--5',
+    'h6',
+    'heading--6',
+    'label',
+    '.label',
+    'time'
+);
+
+
+// Excludes large heading set
+$notHeadingLarge: (
+    'h1',
+    'heading--1',
+    'h2',
+    'heading--2',
+    'h3',
+    'heading--3',
+    'legend',
+    '.legend'
+);
+
+
+// Excludes the following from inheriting theme button styles
 $notButton: (
     '.navigation-toggle',
     '.button--pagination',
@@ -822,6 +889,10 @@ $notButton: (
     '.row-template-preview__header-close-button',
     '.row-template-preview__groups-menu-item-control',
     '.row-template-preview__template-add-button',
+    '.button--pagination',
+    '.previous-button',
+    '.next-button',
+    '.pause-toggle'
 );
 
 
@@ -950,7 +1021,10 @@ $color--lightest: white !default;
 
 
 // Phone (Click to Call)
-.icon--phone:before { content: "\f095"; }
+.icon--phone .phone-number {
+    &:after { content: "\f095"; }
+    &:empty:after { display: none; }  // Hide icon if field is empty
+}
 
 
 // Pinterest
@@ -1014,7 +1088,15 @@ $color--lightest: white !default;
 // ------------------------------
 
 
-// Colour - Heaading
+// Colour - Heading
+$color__heading-text--large--default: ()!default;
+$color__heading-text--small--default: ()!default;
+$color__heading-text--large--overide: ()!default;
+$color__heading-text--small--overide: ()!default;
+$color__body--text--default: ()!default;
+$color__body--text--overide: ()!default;
+$color__link--text--default: ()!default;
+$color__link--text--overide: ()!default;
 $color__heading--notch--overide: () !default;               // Heading Notch Background Colour
 $color__heading--background--override: ()!default;          // Heading Background Colour
 $color__heading--background-before--override: ()!default;   // Heading :before Colour
@@ -1311,6 +1393,7 @@ blockquote {
 .company-link {
     -ms-word-break: break-word;
     word-wrap: break-word;
+    word-break: break-word;
     -webkit-hyphens: none;
     -moz-hyphens: none;
     hyphens: none;
@@ -1483,12 +1566,23 @@ p {
 }
 
 
+a {
+    -ms-word-break: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    hyphens: none;
+}
+
+
 
 // General
 
-// -------------------------
-// CORE: Alignment Styles
-// -------------------------
+// -----------------------------------------
+//  CORE: Section, Widget & Text Alignment
+// -----------------------------------------
+
 
 
 
@@ -1504,15 +1598,10 @@ p {
 .contentgroup--left,
 .alignment--left,
 .contactform.widget-align-center,
-.advancedcontactform.widget-align-center {
+.advancedcontactform.widget-align-center,
+.imagewidget.widget-align-left,
+ .imagewidget.widget-align-left .caption {
     text-align: left;
-}
-
-.imagewidget.widget-align-left {
-
-    &, .caption {
-        text-align: left;
-    }
 }
 
 
@@ -1522,10 +1611,39 @@ p {
 .align--center,
 .justify--center,
 .contentgroup--center,
-.alignment--center {
+.alignment--center,
+.imagewidget.widget-align-center,
+.imagewidget.widget-align-center .caption {
     @include justify-content(center);
     text-align: center;
 }
+
+
+// Align Right
+.align-right,
+.widget-align-right,
+.align--right,
+.justify--right,
+.contentgroup--right,
+.alignment--right,
+.imagewidget.widget-align-right,
+.imagewidget.widget-align-right .caption {
+    @include justify-content(flex-end);
+    text-align: right;
+}
+
+
+// Justify
+.justify-full,
+.justify--full {
+    text-align: justify;
+}
+
+
+
+
+//  Widget Alignment
+// -----------------------------
 
 
 .signupform,
@@ -1544,37 +1662,77 @@ p {
 }
 
 
-.imagewidget.widget-align-center {
 
-    &, .caption {
-        text-align: center;
+
+//  Section Alignment
+// -----------------------------
+
+
+.row--vertical-align {
+
+
+    // Add flex to top level if row height is set to full
+    &-top,
+    &-center,
+    &-bottom {
+
+
+        &.row--height-full,
+        &.row--height-large {
+            @include flex(0 1 auto);
+            @include flex-display;
+            @include flex-direction(row);
+            @include flex-wrap(wrap);
+        }
     }
-}
 
 
-// Align Right
-.align-right,
-.widget-align-right,
-.align--right,
-.justify--right,
-.contentgroup--right,
-.alignment--right {
-    @include justify-content(flex-end);
-    text-align: right;
-}
-
-.imagewidget.widget-align-right {
-
-    &, .caption {
-        text-align: right;
+    // Row Alignment Top
+    &-top .row__container {
+        @include justify-content(flex-start);
     }
-}
+
+    &-top .responsivecolumns {
+        @include align-items(flex-start);
+    }
+
+    // Full Height Alignment top
+    &-top.row--height-full,
+    &.top.row--height-large {
+        @include align-items(flex-start);
+    }
 
 
-// Justify
-.justify-full,
-.justify--full {
-    text-align: justify;
+    // Row Align Center
+    &-center .row__container {
+        @include justify-content(center);
+    }
+
+    &-center .responsivecolumns {
+        @include align-items(center);
+    }
+
+    // Full Height Alignment Center
+    &-center.row--height-full,
+    &-center.row--height-large {
+        @include align-items(center);
+    }
+
+
+    // Row Align Bottom
+    &-bottom .row__container {
+        @include justify-content(flex-end);
+    }
+
+    &-bottom .responsivecolumns {
+        @include align-items(flex-end);
+    }
+
+    // Full Height Alignment Bottom
+    &-bottom.row--height-full,
+    &-bottom.row--height-large {
+        @include align-items(flex-end);
+    }
 }
 
 
@@ -2062,146 +2220,53 @@ p {
 }
 
 
-// -------------------------
-// CORE: Header
-// -------------------------
-
-
-
-//  Remove Default Link Styles
-// -----------------------------
-
-
-#page-zones__header {
-
-
-    a {
-        text-decoration: none;
-    }
-
-
-    [data-name="content"] ul {
-        list-style: none;
-        margin: 0;
-        padding-left: 0;
-    }
-}
-
-
-// -------------------------
-// CORE: Footer
-// -------------------------
-
-
-
-//  Remove Default Link Styles
-// -----------------------------
-
-
-#page-zones__footer {
-
-
-    a {
-        text-decoration: none;
-    }
-
-
-    [data-name="content"] ul {
-        list-style: none;
-        margin: 0;
-        padding-left: 0;
-    }
-}
-
-
 
 // Section Options
 
-// -----------------------------
-//  Row - Alignment
-// -----------------------------
+// -----------------------------------
+//  CORE - Section Layout and Sizing
+// -----------------------------------
 
 
-.row--vertical-align {
 
 
-    // Add flex to top level if row height is set to full
-    &-top,
-    &-center,
-    &-bottom {
+//  Section Layout Options
+// -------------------------------------
 
 
-        &.row--height-full,
-        &.row--height-large {
-            @include flex(0 1 auto);
-            @include flex-display;
-            @include flex-direction(row);
-            @include flex-wrap(wrap);
+.row--layout {
+
+
+    // Stack Widgets Vertically
+    &-column .responsivecolumns {
+        @include flex-direction(column);
+    }
+
+
+    // Reverse Column Direction - Vertical
+    &-column-reverse .row__container {
+        @include flex-direction(column-reverse);
+    }
+
+
+    // Reverse Row Direction - Horizontal
+    &-row-reverse .responsivecolumns {
+        @include flex-direction(row-reverse);
+
+        @media #{$mobile} {
+            @include flex-direction(column-reverse);
         }
-    }
-
-
-
-    // Row Alignment Top
-    &-top .row__container {
-        @include justify-content(flex-start);
-    }
-
-    &-top .responsivecolumns {
-        @include align-items(flex-start);
-    }
-
-    // Full Height Alignment top
-    &-top.row--height-full,
-    &.top.row--height-large {
-        @include align-items(flex-start);
-    }
-
-
-    // Row Align Center
-    &-center .row__container {
-        @include justify-content(center);
-    }
-
-    &-center .responsivecolumns {
-        @include align-items(center);
-    }
-
-    // Full Height Alignment Center
-    &-center.row--height-full,
-    &-center.row--height-large {
-        @include align-items(center);
-    }
-
-
-    // Row Align Bottom
-    &-bottom .row__container {
-        @include justify-content(flex-end);
-    }
-
-    &-bottom .responsivecolumns {
-        @include align-items(flex-end);
-    }
-
-    // Full Height Alignment Bottom
-    &-bottom.row--height-full,
-    &-bottom.row--height-large {
-        @include align-items(flex-end);
     }
 }
 
 
-// -----------------------------
-//  CORE - Row Sizing
-// -----------------------------
 
 
+//  Section Height and Width Variables
+// --------------------------------------------
 
 
-//  Sizing Variables
-// -------------------------------------
-
-
+// Height
 $height--no-padding: 0;
 $height--thin: 15px;
 $height--default: 80px;
@@ -2209,6 +2274,7 @@ $height--large: 80px;
 $height--full: 100px;
 
 
+// Width
 $width--no-padding: 0;
 $width--contained: 5%;
 $width--wide: 40px;
@@ -2217,30 +2283,32 @@ $width--full: 30px;
 
 
 
-//  Sizing Maps
+//  Section Height Maps
 // -------------------------------------
 
 
+// Allows for creating a function to more easily apply styling when height effects an adjacent section
 $section-height: (
     no-padding: $height--no-padding,
     thin: $height--thin,
     default: $height--default,
     large: $height--large,
     full: $height--full
-) !default;
+);
 
 
+// Allows for creating a function to more easily apply styling to adjacent styled sections
 $section-style: (
     light,
     accent,
     dark
-) !default;
+);
 
 
 
 
-//  Sizing Mixins - Height
-// -------------------------------------
+//  Section Height Mixins (Allows values to be extended for layout switching)
+// ----------------------------------------------------------------------------
 
 
 @mixin height--full {
@@ -2283,6 +2351,7 @@ $section-style: (
 
 
 @mixin adjacent-spacing {
+
     // Remove spacing from colour adjacent section
     @each $value in $section-style {
         .style--#{$value} + .style--#{$value} .row__container {
@@ -2290,9 +2359,13 @@ $section-style: (
         }
     }
 
+
     // Re add spacing when a background image section preceeds an adjacent styled section or follows a section with no padding
     @each $height, $value in $section-height {
         .style--background-image + .height--#{$height} .row__container,
+        .style--light.height--#{$height} + .style--background-image .row__container,
+        .style--accent.height--#{$height} + .style--background-image .row__container,
+        .style--dark.height--#{$height} + .style--background-image .row__container,
         .height--no-padding + .height--#{$height} .row__container,
         .height--#{$height}.active-row .row__container {
             padding-top: $value;
@@ -2383,6 +2456,7 @@ $section-style: (
 //  Section Height - Adjacent Spacing
 // -------------------------------------
 
+
 #page-zones__main {
     @include adjacent-spacing;
 }
@@ -2469,25 +2543,6 @@ $section-style: (
 
 
 
-//  Section Height - Header / Footer
-// -------------------------------------
-
-
-// Remove min-height from widgets in the header and footer zones
-#page-zones__header,
-#page-zones__footer {
-
-
-    .bk-content-text,
-    .content,
-    .responsivecolumns .column {
-        min-height: 0 !important;
-    }
-}
-
-
-
-
 //  Section Width - No Padding
 // -------------------------------------
 
@@ -2530,21 +2585,15 @@ $section-style: (
 }
 
 
-
-// -----------------------------
-//  CORE - Row Background Type
-// -----------------------------
-
-
-
-
-//  Row Background
-// -------------------------------------
+// ----------------------------------
+//  CORE - Section Background Type
+// ----------------------------------
 
 
 .row--background-type {
 
 
+    // Default backgorund image positioning
     &-image {
         background-position: center;
         background-repeat: no-repeat;
@@ -2552,6 +2601,7 @@ $section-style: (
     }
 
 
+    // Image Overlay
     &-image:before {
         content: "";
         position: absolute;
@@ -2563,37 +2613,6 @@ $section-style: (
 }
 
 
-// -----------------------------
-//  Row - Layout
-// -----------------------------
-
-
-.row--layout {
-
-
-    // Stack Widgets Vertically
-    &-column .responsivecolumns {
-        @include flex-direction(column);
-    }
-
-
-    // Reverse Column Direction - Vertical
-    &-column-reverse .row__container {
-        @include flex-direction(column-reverse);
-    }
-
-
-    // Reverse Row Direction - Horizontal
-    &-row-reverse .responsivecolumns {
-        @include flex-direction(row-reverse);
-
-        @media #{$mobile} {
-            @include flex-direction(column-reverse);
-        }
-    }
-}
-
-
 
 
 
@@ -2601,10 +2620,10 @@ $section-style: (
 // ------------------------------
 
 
-// General: Widgets
+// General: Widget Styles & Spacing
 
 // -------------------------------------
-//  WIDGETS - General
+//  WIDGETS - General Defaults
 // -------------------------------------
 
 
@@ -2615,7 +2634,12 @@ $section-style: (
 }
 
 
-// Default widget spacing
+
+
+//  Default Widget Spacing
+// ------------------------------
+
+
 .widget {
 
     + .widget {
@@ -2631,11 +2655,178 @@ $section-style: (
 // Removes margin for sections and spacing widgets
 .widget[data-name="space"],
 .widget[data-name="row"] {
-	margin: 0 !important;
+	margin-bottom: 0 !important;
+    margin-top: 0 !important;
 
 
     + .widget {
         margin-top: 0;
+    }
+}
+
+
+
+
+//  Widget Spacing Content & Content Group
+// ----------------------------------------
+
+
+[data-name="content"],
+[data-name="contentgroup"] {
+
+
+    + [data-name="contentgroup"],
+    + [data-name="content"] {
+        margin-top: 8px;
+    }
+
+
+    + [data-name="socialicons"],
+    + [data-name="clicktocall"] {
+        margin-top: 15px;
+    }
+
+
+    + [data-name="button"],
+    + [data-name="gallery"],
+    + [data-name="image"],
+    + [data-name="slideshow"],
+    + [data-name="map"],
+    + [data-name="contactform"] {
+        margin-top: 30px;
+    }
+
+
+    + [data-name="responsivecolumns"] {
+        margin-top: 40px;
+    }
+}
+
+
+// Content Group Image
+.contentgroup__image-wrapper {
+    line-height: 0;
+
+
+    + .contentgroup__heading,
+    + .contentgroup__body,
+    + .contentgroup__button {
+        margin-top: 20px;
+    }
+}
+
+
+// Content Group Heading
+.contentgroup__heading {
+
+
+    + .contentgroup__body {
+        margin-top: 5px;
+    }
+
+
+    + .contentgroup__button  {
+        margin-top: 15px;
+    }
+}
+
+
+// Content Group Body
+.contentgroup__body {
+
+
+    + .contentgroup__button {
+        margin-top: 15px;
+    }
+}
+
+
+
+
+//  Widget Spacing - Image, Gallery, Slideshow, Map & Contact Form
+// -----------------------------------------------------------------
+
+
+[data-name="image"],
+[data-name="gallery"],
+[data-name="slideshow"],
+[data-name="map"],
+[data-name="contactform"] {
+
+
+    + [data-name="content"],
+    + [data-name="contentgroup"] {
+        margin-top: 30px;
+    }
+}
+
+
+
+
+//  Widget Spacing - Typography
+// ------------------------------
+
+
+h1,
+h2 {
+
+    + ul,
+    + ol,
+    + blockquote,
+    + code,
+    + p {
+        margin-top: 12px;
+    }
+
+
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5,
+    + h6 {
+        margin-top: 20px;
+    }
+}
+
+
+h3,
+h4 {
+
+
+    + ul,
+    + ol,
+    + blockquote,
+    + code,
+    + p {
+        margin-top: 8px;
+    }
+}
+
+
+h5,
+h6 {
+
+
+    + ul,
+    + ol,
+    + blockquote,
+    + code,
+    + p {
+        margin-top: 5px;
+    }
+}
+
+
+p {
+
+
+    + ul,
+    + ol,
+    + blockquote,
+    + code,
+    + p {
+        margin-top: 15px;
     }
 }
 
@@ -2748,7 +2939,7 @@ $style__button--text-transform: none !default;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        white-space: nowrap;
+        white-space: normal;
         vertical-align: middle;
 
         // Style
@@ -3300,6 +3491,8 @@ img {
 .image-description {
     @extend %paragraph; // Gives title and description paragraph styling
     display: block;
+    -ms-word-break: break-word;
+    word-wrap: break-word;
 }
 
 
@@ -4015,6 +4208,12 @@ $color__social-icons--outline--hover--overide: () !default;  // Button Outline H
     .social-item:last-child {
         margin-right: 0;
     }
+
+
+    .bk-message--empty {
+        color: rgb(45,45,45);
+        list-style: none;
+    }
 }
 
 
@@ -4217,36 +4416,6 @@ hr.rule {
 .linkedincompanyprofile,
 .linkedinprofile {
     overflow: auto;
-}
-
-
-// 
-// -------------------------------------
-//  WIDGETS - Feature
-// -------------------------------------
-
-
-// Feature Background Image
-.feature__background-image {
-    min-height: 400px;
-}
-
-
-// Feature Content Wrap
-.feature__content-wrap {
-	padding: 12px;
-}
-
-
-// Feature Button
-.feature__button {
-	padding: 3px 6px;
-    text-decoration: none;
-
-
-    &:hover {
-    	text-decoration: none;
-    }
 }
 
 

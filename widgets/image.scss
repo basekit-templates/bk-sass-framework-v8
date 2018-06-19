@@ -26,6 +26,8 @@ img {
 .image-description {
     @extend %paragraph; // Gives title and description paragraph styling
     display: block;
+    -ms-word-break: break-word;
+    word-wrap: break-word;
 }
 
 

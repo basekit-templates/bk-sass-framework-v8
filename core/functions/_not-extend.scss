@@ -4,8 +4,6 @@
 // -------------------------------------------
 
 
-
-
 @mixin not($notExtend...) {
 
     @if (length($notExtend) == 1){
@@ -24,6 +22,41 @@
 }
 
 
+// Excludes text from inherting theme font styles
+$notText: (
+    '.row-preview-unavailable__title',
+    '.row-preview-unavailable__body'
+);
+
+
+// Excludes small heading set
+$notHeadingSmall: (
+    'h4',
+    'heading--4',
+    'h5',
+    'heading--5',
+    'h6',
+    'heading--6',
+    'label',
+    '.label',
+    'time'
+);
+
+
+// Excludes large heading set
+$notHeadingLarge: (
+    'h1',
+    'heading--1',
+    'h2',
+    'heading--2',
+    'h3',
+    'heading--3',
+    'legend',
+    '.legend'
+);
+
+
+// Excludes the following from inheriting theme button styles
 $notButton: (
     '.navigation-toggle',
     '.button--pagination',
@@ -35,6 +68,10 @@ $notButton: (
     '.row-template-preview__header-close-button',
     '.row-template-preview__groups-menu-item-control',
     '.row-template-preview__template-add-button',
+    '.button--pagination',
+    '.previous-button',
+    '.next-button',
+    '.pause-toggle'
 );
 
 

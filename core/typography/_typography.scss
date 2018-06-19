@@ -91,6 +91,7 @@ blockquote {
 .company-link {
     -ms-word-break: break-word;
     word-wrap: break-word;
+    word-break: break-word;
     -webkit-hyphens: none;
     -moz-hyphens: none;
     hyphens: none;
@@ -260,4 +261,14 @@ p {
             margin-top: 7px;
         }
     }
+}
+
+
+a {
+    -ms-word-break: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    hyphens: none;
 }

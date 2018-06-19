@@ -72,7 +72,10 @@
 
 
 // Phone (Click to Call)
-.icon--phone:before { content: "\f095"; }
+.icon--phone .phone-number {
+    &:after { content: "\f095"; }
+    &:empty:after { display: none; }  // Hide icon if field is empty
+}
 
 
 // Pinterest

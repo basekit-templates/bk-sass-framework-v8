@@ -1,4 +1,53 @@
 
+// -------------------------------------
+//  WIDGETS - General Defaults
+// -------------------------------------
+
+
+// Default widget settings
+.widget {
+    @include clearfix;
+    position: relative;
+}
+
+
+
+
+//  Default Widget Spacing
+// ------------------------------
+
+
+.widget {
+
+    + .widget {
+        margin-top: 15px;
+
+        @media #{$mobile} {
+            margin-top: 7px;
+        }
+    }
+}
+
+
+// Removes margin for sections and spacing widgets
+.widget[data-name="space"],
+.widget[data-name="row"] {
+	margin-bottom: 0 !important;
+    margin-top: 0 !important;
+
+
+    + .widget {
+        margin-top: 0;
+    }
+}
+
+
+
+
+//  Widget Spacing Content & Content Group
+// ----------------------------------------
+
+
 [data-name="content"],
 [data-name="contentgroup"] {
 
@@ -31,6 +80,7 @@
 }
 
 
+// Content Group Image
 .contentgroup__image-wrapper {
     line-height: 0;
 
@@ -43,6 +93,7 @@
 }
 
 
+// Content Group Heading
 .contentgroup__heading {
 
 
@@ -57,6 +108,7 @@
 }
 
 
+// Content Group Body
 .contentgroup__body {
 
 
@@ -64,6 +116,12 @@
         margin-top: 15px;
     }
 }
+
+
+
+
+//  Widget Spacing - Image, Gallery, Slideshow, Map & Contact Form
+// -----------------------------------------------------------------
 
 
 [data-name="image"],
@@ -79,6 +137,11 @@
     }
 }
 
+
+
+
+//  Widget Spacing - Typography
+// ------------------------------
 
 
 h1,

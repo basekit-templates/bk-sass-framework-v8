@@ -10,7 +10,15 @@
 // ------------------------------
 
 
-// Colour - Heaading
+// Colour - Heading
+$color__heading-text--large--default: ()!default;
+$color__heading-text--small--default: ()!default;
+$color__heading-text--large--overide: ()!default;
+$color__heading-text--small--overide: ()!default;
+$color__body--text--default: ()!default;
+$color__body--text--overide: ()!default;
+$color__link--text--default: ()!default;
+$color__link--text--overide: ()!default;
 $color__heading--notch--overide: () !default;               // Heading Notch Background Colour
 $color__heading--background--override: ()!default;          // Heading Background Colour
 $color__heading--background-before--override: ()!default;   // Heading :before Colour

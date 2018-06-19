@@ -1,18 +1,13 @@
 
-// -----------------------------
-//  CORE - Row Background Type
-// -----------------------------
-
-
-
-
-//  Row Background
-// -------------------------------------
+// ----------------------------------
+//  CORE - Section Background Type
+// ----------------------------------
 
 
 .row--background-type {
 
 
+    // Default backgorund image positioning
     &-image {
         background-position: center;
         background-repeat: no-repeat;
@@ -20,6 +15,7 @@
     }
 
 
+    // Image Overlay
     &-image:before {
         content: "";
         position: absolute;

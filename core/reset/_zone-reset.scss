@@ -1,0 +1,37 @@
+
+// -----------------------------
+// CORE: Zone Related Resets
+// -----------------------------
+
+
+
+
+//  Header & Footer Zones
+// -------------------------------------
+
+
+#page-zones__header,
+#page-zones__footer {
+
+
+    // Remove default link styling
+    a {
+        text-decoration: none;
+    }
+
+
+    // Remove default list styling
+    [data-name="content"] ul {
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+    }
+
+
+    // Remove min-height from widgets in the header and footer zones
+    .bk-content-text,
+    .content,
+    .responsivecolumns .column {
+        min-height: 0 !important;
+    }
+}

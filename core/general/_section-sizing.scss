@@ -1,15 +1,48 @@
 
-// -----------------------------
-//  CORE - Row Sizing
-// -----------------------------
+// -----------------------------------
+//  CORE - Section Layout and Sizing
+// -----------------------------------
 
 
 
 
-//  Sizing Variables
+//  Section Layout Options
 // -------------------------------------
 
 
+.row--layout {
+
+
+    // Stack Widgets Vertically
+    &-column .responsivecolumns {
+        @include flex-direction(column);
+    }
+
+
+    // Reverse Column Direction - Vertical
+    &-column-reverse .row__container {
+        @include flex-direction(column-reverse);
+    }
+
+
+    // Reverse Row Direction - Horizontal
+    &-row-reverse .responsivecolumns {
+        @include flex-direction(row-reverse);
+
+        @media #{$mobile} {
+            @include flex-direction(column-reverse);
+        }
+    }
+}
+
+
+
+
+//  Section Height and Width Variables
+// --------------------------------------------
+
+
+// Height
 $height--no-padding: 0;
 $height--thin: 15px;
 $height--default: 80px;
@@ -17,6 +50,7 @@ $height--large: 80px;
 $height--full: 100px;
 
 
+// Width
 $width--no-padding: 0;
 $width--contained: 5%;
 $width--wide: 40px;
@@ -25,30 +59,32 @@ $width--full: 30px;
 
 
 
-//  Sizing Maps
+//  Section Height Maps
 // -------------------------------------
 
 
+// Allows for creating a function to more easily apply styling when height effects an adjacent section
 $section-height: (
     no-padding: $height--no-padding,
     thin: $height--thin,
     default: $height--default,
     large: $height--large,
     full: $height--full
-) !default;
+);
 
 
+// Allows for creating a function to more easily apply styling to adjacent styled sections
 $section-style: (
     light,
     accent,
     dark
-) !default;
+);
 
 
 
 
-//  Sizing Mixins - Height
-// -------------------------------------
+//  Section Height Mixins (Allows values to be extended for layout switching)
+// ----------------------------------------------------------------------------
 
 
 @mixin height--full {
@@ -91,6 +127,7 @@ $section-style: (
 
 
 @mixin adjacent-spacing {
+
     // Remove spacing from colour adjacent section
     @each $value in $section-style {
         .style--#{$value} + .style--#{$value} .row__container {
@@ -98,9 +135,13 @@ $section-style: (
         }
     }
 
+
     // Re add spacing when a background image section preceeds an adjacent styled section or follows a section with no padding
     @each $height, $value in $section-height {
         .style--background-image + .height--#{$height} .row__container,
+        .style--light.height--#{$height} + .style--background-image .row__container,
+        .style--accent.height--#{$height} + .style--background-image .row__container,
+        .style--dark.height--#{$height} + .style--background-image .row__container,
         .height--no-padding + .height--#{$height} .row__container,
         .height--#{$height}.active-row .row__container {
             padding-top: $value;
@@ -191,6 +232,7 @@ $section-style: (
 //  Section Height - Adjacent Spacing
 // -------------------------------------
 
+
 #page-zones__main {
     @include adjacent-spacing;
 }
@@ -277,25 +319,6 @@ $section-style: (
 
 
 
-//  Section Height - Header / Footer
-// -------------------------------------
-
-
-// Remove min-height from widgets in the header and footer zones
-#page-zones__header,
-#page-zones__footer {
-
-
-    .bk-content-text,
-    .content,
-    .responsivecolumns .column {
-        min-height: 0 !important;
-    }
-}
-
-
-
-
 //  Section Width - No Padding
 // -------------------------------------
 
@@ -336,4 +359,3 @@ $section-style: (
 .row--width-full .row__container {
      @include width--full;
 }
-
