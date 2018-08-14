@@ -76,12 +76,19 @@
     width: auto;
     visibility: hidden;
     z-index: 2;
+
+    @media #{$tablet} {
+        max-width: 100%;
+    }
 }
 
 
 .align-right .folder .navigation-list--children {
-    left: initial;
     right: 0;
+
+    @media only screen and (min-width: 900px) {
+        left: initial;
+    }
 }
 
 
@@ -101,16 +108,27 @@
 
 // Display Dropdown Menu
 .navigation-item:hover .navigation-list--children {
-    height: auto;
-    opacity: 1;
-    visibility: visible;
+
+    @media only screen and (min-width: 900px) {
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.navigation-item.folder-open .navigation-list--children {
+
+    @media #{$tablet} {
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
 
 // Dropdown List Item
 .navigation-item--child {
     display: list-item;
-    max-width: 250px;
     overflow: hidden;
     text-overflow: ellipsis;
 }

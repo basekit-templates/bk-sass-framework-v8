@@ -9,7 +9,7 @@
   "author": "",
   "license": "BSD-2-Clause",
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-sass-lint": "~0.2.0"
+    "grunt": "^0.4.5",
+    "grunt-sass-lint": "^0.2.4"
   }
 }

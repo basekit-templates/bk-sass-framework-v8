@@ -154,3 +154,62 @@
         @include align-items(flex-end);
     }
 }
+
+
+// Layout specific alignment
+[class$='-tl'] {
+    @include align-items(flex-start);
+    @include justify-content(flex-start);
+}
+
+[class$='-tc'] {
+    @include align-items(flex-start);
+    @include justify-content(center);
+}
+
+[class$='-tr'] {
+    @include align-items(flex-start);
+    @include justify-content(flex-end);
+}
+
+[class$='-ml'] {
+    @include align-items(center);
+    @include justify-content(flex-start);
+}
+
+[class$='-mc'] {
+    @include align-items(center);
+    @include justify-content(center);
+}
+
+[class$='-mr'] {
+    @include align-items(center);
+    @include justify-content(flex-end);
+}
+
+[class$='-bl'] {
+    @include align-items(flex-end);
+    @include justify-content(flex-start);
+}
+
+[class$='-bc'] {
+    @include align-items(flex-end);
+    @include justify-content(center);
+}
+
+[class$='-br'] {
+    @include align-items(flex-end);
+    @include justify-content(flex-end);
+}
+
+[class$='-tl'] *,
+[class$='-ml'] *,
+[class$='-bl'] * {
+    text-align: left;
+}
+
+[class$='-tr'] *,
+[class$='-mr'] *,
+[class$='-br'] * {
+    text-align: right;
+}

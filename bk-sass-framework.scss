@@ -1600,7 +1600,7 @@ a {
 .contactform.widget-align-center,
 .advancedcontactform.widget-align-center,
 .imagewidget.widget-align-left,
- .imagewidget.widget-align-left .caption {
+.imagewidget.widget-align-left .caption {
     text-align: left;
 }
 
@@ -1733,6 +1733,65 @@ a {
     &-bottom.row--height-large {
         @include align-items(flex-end);
     }
+}
+
+
+// Layout specific alignment
+[class$='-tl'] {
+    @include align-items(flex-start);
+    @include justify-content(flex-start);
+}
+
+[class$='-tc'] {
+    @include align-items(flex-start);
+    @include justify-content(center);
+}
+
+[class$='-tr'] {
+    @include align-items(flex-start);
+    @include justify-content(flex-end);
+}
+
+[class$='-ml'] {
+    @include align-items(center);
+    @include justify-content(flex-start);
+}
+
+[class$='-mc'] {
+    @include align-items(center);
+    @include justify-content(center);
+}
+
+[class$='-mr'] {
+    @include align-items(center);
+    @include justify-content(flex-end);
+}
+
+[class$='-bl'] {
+    @include align-items(flex-end);
+    @include justify-content(flex-start);
+}
+
+[class$='-bc'] {
+    @include align-items(flex-end);
+    @include justify-content(center);
+}
+
+[class$='-br'] {
+    @include align-items(flex-end);
+    @include justify-content(flex-end);
+}
+
+[class$='-tl'] *,
+[class$='-ml'] *,
+[class$='-bl'] * {
+    text-align: left;
+}
+
+[class$='-tr'] *,
+[class$='-mr'] *,
+[class$='-br'] * {
+    text-align: right;
 }
 
 
@@ -2289,7 +2348,6 @@ $width--full: 30px;
 
 // Allows for creating a function to more easily apply styling when height effects an adjacent section
 $section-height: (
-    no-padding: $height--no-padding,
     thin: $height--thin,
     default: $height--default,
     large: $height--large,
@@ -2358,7 +2416,6 @@ $section-style: (
             padding-top: 0;
         }
     }
-
 
     // Re add spacing when a background image section preceeds an adjacent styled section or follows a section with no padding
     @each $height, $value in $section-height {
@@ -2464,6 +2521,30 @@ $section-style: (
 
 
 
+//  Section Height - Header Zone Reset
+// -------------------------------------
+
+
+.height--full .row__container,
+.height--large .row__container,
+.height--default .row__container {
+
+
+    // Reduce padding in the header zone
+    #page-zones__header & {
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        @media #{$mobile} {
+            padding-top: ( 40px / 2 );
+            padding-bottom: ( 40px / 2 );
+        }
+    }
+}
+
+
+
+
 //  Section Height - Full
 // -------------------------------------
 
@@ -2471,13 +2552,13 @@ $section-style: (
 .height--full {
 
 
-    .row__container {
-        @include height--full;
+    .row {
+        min-height: 100vh;
     }
 
 
-    .row {
-        min-height: 100vh;
+    .row__container {
+        @include height--full;
     }
 
 
@@ -2590,19 +2671,16 @@ $section-style: (
 // ----------------------------------
 
 
-.row--background-type {
-
+.style--background-image .row {
 
     // Default backgorund image positioning
-    &-image {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
 
     // Image Overlay
-    &-image:before {
+    &:before {
         content: "";
         position: absolute;
         top: 0;
@@ -3194,6 +3272,19 @@ $color__navigation-item--selected--overide: () !default;  // Navigation Item Sel
     width: auto;
     visibility: hidden;
     z-index: 2;
+
+    @media #{$tablet} {
+        max-width: 100%;
+    }
+}
+
+
+.align-right .folder .navigation-list--children {
+    right: 0;
+
+    @media only screen and (min-width: 900px) {
+        left: initial;
+    }
 }
 
 
@@ -3213,9 +3304,21 @@ $color__navigation-item--selected--overide: () !default;  // Navigation Item Sel
 
 // Display Dropdown Menu
 .navigation-item:hover .navigation-list--children {
-    height: auto;
-    opacity: 1;
-    visibility: visible;
+
+    @media only screen and (min-width: 900px) {
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.navigation-item.folder-open .navigation-list--children {
+
+    @media #{$tablet} {
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
 
@@ -3975,7 +4078,7 @@ input[type="checkbox"] {
     -o-box-shadow: none;
     height: auto;
     min-height: inherit;
-    margin-right: 5px;
+    margin-right: 12px;
     width: auto !important;
 }
 
@@ -3989,6 +4092,102 @@ input[type="checkbox"] {
 .label--radio,
 .label--checkbox {
     margin-bottom: 0;
+}
+
+
+// GDPR Checkboxes
+.advancedcontactform__form-group--terms,
+.contactform__form-group--terms,
+.signupform__form-group--terms {
+    @include flex-display;
+    @include flex-wrap(nowrap);
+    @include align-items(center);
+    @include justify-content(flex-start);
+    position: relative;
+
+
+    label {
+        cursor: pointer;
+        @include flex-grow(1);
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 1.6;
+        text-transform: none;
+    }
+
+
+    .form__link {
+        text-decoration: underline;
+    }
+
+
+    // Larger clickable area for touch devices
+    @media only screen and (max-width: 1024px) {
+
+
+        label {
+            @include flex-display;
+            @include align-items(center);
+            margin: 0;
+            padding: 0;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+
+            &:before,
+            &:after {
+                margin: auto 0;
+                position: absolute;
+                bottom: 0;
+            }
+
+            &:before {
+                background: #fff;
+                border: 1px solid;
+                border-color: rgba(0, 0, 0, 0.2);
+                border-radius: 4px;
+                content: "";
+                left: 0;
+                margin: auto 0;
+                max-height: 35px;
+                min-width: 35px;
+                top: 0;
+            }
+
+            &:after {
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4gICAgPHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgyNHYyNEgweiIvPiAgICA8cGF0aCBkPSJNOSAxNi4yTDQuOCAxMmwtMS40IDEuNEw5IDE5IDIxIDdsLTEuNC0xLjRMOSAxNi4yeiIvPjwvc3ZnPg==);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 24px;
+                content: "";
+                filter: alpha(opacity=0);
+                height: 35px;
+                left: 0;
+                opacity: 0;
+                top: 0;
+                width: 35px;
+            }
+        }
+
+
+        input[type="checkbox"] {
+            cursor: pointer;
+            flex-shrink: 0;
+            filter: alpha(opacity=0);
+            margin: 0 10px 0 0;
+            min-height: 35px;
+            min-width: 35px;
+            height: 35px !important;
+            width: 35px !important;
+            opacity: 0;
+            z-index: 1;
+        }
+
+
+        input[type="checkbox"]:checked + label:after {
+            filter: alpha(opacity=1);
+            opacity: 1;
+        }
+    }
 }
 
 
@@ -4301,7 +4500,7 @@ $color__social-icons--outline--hover--overide: () !default;  // Button Outline H
 
 
 
-// Other: Divider, Profile
+// Other: Divider, Profile, Privacy
 
 // -------------------------------------
 //  WIDGETS - Divider
@@ -4330,6 +4529,55 @@ hr.rule {
 	.companydescription__description {
 		padding-bottom: 0;
 	}
+}
+
+
+// -------------------------------------
+//  WIDGETS - Privacy Policy
+// -------------------------------------
+
+
+.widget[data-name="responsivecolumns"] + [data-name="policypages"],
+.widget + [data-name="policypages"] {
+    margin-top: 15px;
+}
+
+
+.widget__policypages {
+    @include flex-display;
+    @include flex-wrap(wrap);
+    line-height: 1.5;
+
+    @media #{$mobile} {
+        @include justify-content(center);
+        text-align: center;
+    }
+
+
+    &.widget-align-center .widget__policypages__link:last-child {
+        margin-right: 15px;
+    }
+}
+
+
+.widget__policypages__link {
+    font-size: 15px;
+    text-decoration: none;
+
+    &:not(:last-child) {
+        margin-right: 15px;
+    }
+
+    &:not(:last-child):after {
+        border-right-style: solid;
+        border-right-width: 1px;
+        content: "";
+        display: inline-block;
+        height: 12px;
+        opacity: 0.25;
+        padding-left: 15px;
+        width: 1px;
+    }
 }
 
 
@@ -4417,6 +4665,7 @@ hr.rule {
 .linkedinprofile {
     overflow: auto;
 }
+
 
 
 

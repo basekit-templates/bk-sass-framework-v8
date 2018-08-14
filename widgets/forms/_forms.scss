@@ -159,7 +159,7 @@ input[type="checkbox"] {
     -o-box-shadow: none;
     height: auto;
     min-height: inherit;
-    margin-right: 5px;
+    margin-right: 12px;
     width: auto !important;
 }
 
@@ -173,6 +173,102 @@ input[type="checkbox"] {
 .label--radio,
 .label--checkbox {
     margin-bottom: 0;
+}
+
+
+// GDPR Checkboxes
+.advancedcontactform__form-group--terms,
+.contactform__form-group--terms,
+.signupform__form-group--terms {
+    @include flex-display;
+    @include flex-wrap(nowrap);
+    @include align-items(center);
+    @include justify-content(flex-start);
+    position: relative;
+
+
+    label {
+        cursor: pointer;
+        @include flex-grow(1);
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 1.6;
+        text-transform: none;
+    }
+
+
+    .form__link {
+        text-decoration: underline;
+    }
+
+
+    // Larger clickable area for touch devices
+    @media only screen and (max-width: 1024px) {
+
+
+        label {
+            @include flex-display;
+            @include align-items(center);
+            margin: 0;
+            padding: 0;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+
+            &:before,
+            &:after {
+                margin: auto 0;
+                position: absolute;
+                bottom: 0;
+            }
+
+            &:before {
+                background: #fff;
+                border: 1px solid;
+                border-color: rgba(0, 0, 0, 0.2);
+                border-radius: 4px;
+                content: "";
+                left: 0;
+                margin: auto 0;
+                max-height: 35px;
+                min-width: 35px;
+                top: 0;
+            }
+
+            &:after {
+                background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4gICAgPHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgyNHYyNEgweiIvPiAgICA8cGF0aCBkPSJNOSAxNi4yTDQuOCAxMmwtMS40IDEuNEw5IDE5IDIxIDdsLTEuNC0xLjRMOSAxNi4yeiIvPjwvc3ZnPg==);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 24px;
+                content: "";
+                filter: alpha(opacity=0);
+                height: 35px;
+                left: 0;
+                opacity: 0;
+                top: 0;
+                width: 35px;
+            }
+        }
+
+
+        input[type="checkbox"] {
+            cursor: pointer;
+            flex-shrink: 0;
+            filter: alpha(opacity=0);
+            margin: 0 10px 0 0;
+            min-height: 35px;
+            min-width: 35px;
+            height: 35px !important;
+            width: 35px !important;
+            opacity: 0;
+            z-index: 1;
+        }
+
+
+        input[type="checkbox"]:checked + label:after {
+            filter: alpha(opacity=1);
+            opacity: 1;
+        }
+    }
 }
 
 

@@ -65,7 +65,6 @@ $width--full: 30px;
 
 // Allows for creating a function to more easily apply styling when height effects an adjacent section
 $section-height: (
-    no-padding: $height--no-padding,
     thin: $height--thin,
     default: $height--default,
     large: $height--large,
@@ -134,7 +133,6 @@ $section-style: (
             padding-top: 0;
         }
     }
-
 
     // Re add spacing when a background image section preceeds an adjacent styled section or follows a section with no padding
     @each $height, $value in $section-height {
@@ -240,6 +238,30 @@ $section-style: (
 
 
 
+//  Section Height - Header Zone Reset
+// -------------------------------------
+
+
+.height--full .row__container,
+.height--large .row__container,
+.height--default .row__container {
+
+
+    // Reduce padding in the header zone
+    #page-zones__header & {
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        @media #{$mobile} {
+            padding-top: ( 40px / 2 );
+            padding-bottom: ( 40px / 2 );
+        }
+    }
+}
+
+
+
+
 //  Section Height - Full
 // -------------------------------------
 
@@ -247,13 +269,13 @@ $section-style: (
 .height--full {
 
 
-    .row__container {
-        @include height--full;
+    .row {
+        min-height: 100vh;
     }
 
 
-    .row {
-        min-height: 100vh;
+    .row__container {
+        @include height--full;
     }
 
 

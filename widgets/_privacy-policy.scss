@@ -1,0 +1,48 @@
+
+// -------------------------------------
+//  WIDGETS - Privacy Policy
+// -------------------------------------
+
+
+.widget[data-name="responsivecolumns"] + [data-name="policypages"],
+.widget + [data-name="policypages"] {
+    margin-top: 15px;
+}
+
+
+.widget__policypages {
+    @include flex-display;
+    @include flex-wrap(wrap);
+    line-height: 1.5;
+
+    @media #{$mobile} {
+        @include justify-content(center);
+        text-align: center;
+    }
+
+
+    &.widget-align-center .widget__policypages__link:last-child {
+        margin-right: 15px;
+    }
+}
+
+
+.widget__policypages__link {
+    font-size: 15px;
+    text-decoration: none;
+
+    &:not(:last-child) {
+        margin-right: 15px;
+    }
+
+    &:not(:last-child):after {
+        border-right-style: solid;
+        border-right-width: 1px;
+        content: "";
+        display: inline-block;
+        height: 12px;
+        opacity: 0.25;
+        padding-left: 15px;
+        width: 1px;
+    }
+}

@@ -4,19 +4,16 @@
 // ----------------------------------
 
 
-.row--background-type {
-
+.style--background-image .row {
 
     // Default backgorund image positioning
-    &-image {
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 
 
     // Image Overlay
-    &-image:before {
+    &:before {
         content: "";
         position: absolute;
         top: 0;
