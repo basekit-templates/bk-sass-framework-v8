@@ -4,9 +4,20 @@
 // -------------------------------------
 
 
+
 .widget[data-name="responsivecolumns"] + [data-name="policypages"],
 .widget + [data-name="policypages"] {
-    margin-top: 15px;
+
+
+    body:not(.edit) & {
+        margin-top: 15px;
+    }
+
+
+    // Remove margin for when privacy policy is not displayed in the editor
+    body.edit & {
+        margin-top: 0;
+    }
 }
 
 

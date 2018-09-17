@@ -6,19 +6,18 @@
 
 .style--background-image .row {
 
-    // Default backgorund image positioning
+    // Default background image positioning
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
 
     // Image Overlay
-    &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
+    .row--background-overlay {
         bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
     }
 }

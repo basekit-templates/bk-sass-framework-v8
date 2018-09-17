@@ -34,6 +34,7 @@ fieldset {
 // Legend
 legend {
     display: block;
+    width: 100%;
 
     &:empty {
         display: none;

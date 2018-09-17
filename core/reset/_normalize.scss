@@ -38,6 +38,9 @@ html {
     min-height: 48px;
 }
 
+body:not(.edit) .bk-zone {
+    min-height: 0;
+}
 
 iframe {
     border: 0;

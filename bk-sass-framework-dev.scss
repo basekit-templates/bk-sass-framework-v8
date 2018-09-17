@@ -1,6 +1,7 @@
 
 // ---------------------------------
 //  BaseKit SASS Framework - V10
+//  For updates - https://github.com/basekit-templates/bk-sass-framework-v8
 // ---------------------------------
 
 
@@ -51,6 +52,9 @@ html {
     min-height: 48px;
 }
 
+body:not(.edit) .bk-zone {
+    min-height: 0;
+}
 
 iframe {
     border: 0;
@@ -1367,6 +1371,11 @@ b {
 }
 
 
+address {
+    font-style: normal;
+}
+
+
 
 
 //  1.3 - Blockquote
@@ -1662,136 +1671,135 @@ a {
 }
 
 
+.align-left .navigation-toggle {
+    margin-right: auto;
+}
 
 
-//  Section Alignment
+.align-center .navigation-toggle {
+    margin: 0 auto;
+}
+
+
+.align-right .navigation-toggle {
+    margin-left: auto;
+}
+
+
+
+
+//  Section Vertical Alignment
 // -----------------------------
 
 
-.row--vertical-align {
+[class*='row--vertical-align'] {
 
 
-    // Add flex to top level if row height is set to full
-    &-top,
-    &-center,
-    &-bottom {
-
-
-        &.row--height-full,
-        &.row--height-large {
-            @include flex(0 1 auto);
-            @include flex-display;
-            @include flex-direction(row);
-            @include flex-wrap(wrap);
-        }
+    &.row--height-full,
+    &.row--height-large {
+        @include flex(0 1 auto);
+        @include flex-display;
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
     }
+}
 
 
-    // Row Alignment Top
-    &-top .row__container {
+// Align Top
+.row--vertical-align-top {
+
+
+    .row__container {
         @include justify-content(flex-start);
     }
 
-    &-top .responsivecolumns {
+
+    .responsivecolumns {
         @include align-items(flex-start);
     }
-
-    // Full Height Alignment top
-    &-top.row--height-full,
-    &.top.row--height-large {
-        @include align-items(flex-start);
-    }
+}
 
 
-    // Row Align Center
-    &-center .row__container {
+// Align Middle
+.row--vertical-align-center {
+
+
+    .row__container {
         @include justify-content(center);
     }
 
-    &-center .responsivecolumns {
+
+    .responsivecolumns {
         @include align-items(center);
     }
-
-    // Full Height Alignment Center
-    &-center.row--height-full,
-    &-center.row--height-large {
-        @include align-items(center);
-    }
+}
 
 
-    // Row Align Bottom
-    &-bottom .row__container {
+// Align Bottom
+.row--vertical-align-bottom {
+
+
+    .row__container {
         @include justify-content(flex-end);
     }
 
-    &-bottom .responsivecolumns {
-        @include align-items(flex-end);
-    }
 
-    // Full Height Alignment Bottom
-    &-bottom.row--height-full,
-    &-bottom.row--height-large {
+    .responsivecolumns {
         @include align-items(flex-end);
     }
 }
 
 
-// Layout specific alignment
-[class$='-tl'] {
+
+
+//  Layout Specific Alignment (takes precedence over section alignment)
+// ---------------------------------------------------------------------
+
+
+// Align Top
+[class*='row--layout-top'],
+[class*='row--layout-top'] .responsivecolumns {
     @include align-items(flex-start);
-    @include justify-content(flex-start);
 }
 
-[class$='-tc'] {
+
+// Align Middle
+[class*='row--layout-middle'],
+[class*='row--layout-middle'] .responsivecolumns {
+    @include align-items(center);
+}
+
+
+// Align Bottom
+[class*='row--layout-bottom'],
+[class*='row--layout-bottom'] .responsivecolumns {
+    @include align-items(flex-end);
+}
+
+
+// Align Central
+[class*='row--layout'][class*='-central'] .row__container {
+    @include align-items(center);
+}
+
+
+// Align Left
+[class*='row--layout'][class*='-left'] .row__container {
     @include align-items(flex-start);
-    @include justify-content(center);
+
+    * {
+        text-align: left;
+    }
 }
 
-[class$='-tr'] {
-    @include align-items(flex-start);
-    @include justify-content(flex-end);
-}
 
-[class$='-ml'] {
-    @include align-items(center);
-    @include justify-content(flex-start);
-}
-
-[class$='-mc'] {
-    @include align-items(center);
-    @include justify-content(center);
-}
-
-[class$='-mr'] {
-    @include align-items(center);
-    @include justify-content(flex-end);
-}
-
-[class$='-bl'] {
+// Align Right
+[class*='row--layout'][class*='-right'] .row__container {
     @include align-items(flex-end);
-    @include justify-content(flex-start);
-}
 
-[class$='-bc'] {
-    @include align-items(flex-end);
-    @include justify-content(center);
-}
-
-[class$='-br'] {
-    @include align-items(flex-end);
-    @include justify-content(flex-end);
-}
-
-[class$='-tl'] *,
-[class$='-ml'] *,
-[class$='-bl'] * {
-    text-align: left;
-}
-
-[class$='-tr'] *,
-[class$='-mr'] *,
-[class$='-br'] * {
-    text-align: right;
+    * {
+        text-align: right;
+    }
 }
 
 
@@ -2673,20 +2681,19 @@ $section-style: (
 
 .style--background-image .row {
 
-    // Default backgorund image positioning
+    // Default background image positioning
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
 
     // Image Overlay
-    &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
+    .row--background-overlay {
         bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
     }
 }
 
@@ -3953,6 +3960,7 @@ fieldset {
 // Legend
 legend {
     display: block;
+    width: 100%;
 
     &:empty {
         display: none;
@@ -4532,14 +4540,35 @@ hr.rule {
 }
 
 
+.address-line {
+    margin-top: 0;
+}
+
+
+.emailaddress__email,
+.phone-number-link {
+    text-decoration: none;
+}
+
 // -------------------------------------
 //  WIDGETS - Privacy Policy
 // -------------------------------------
 
 
+
 .widget[data-name="responsivecolumns"] + [data-name="policypages"],
 .widget + [data-name="policypages"] {
-    margin-top: 15px;
+
+
+    body:not(.edit) & {
+        margin-top: 15px;
+    }
+
+
+    // Remove margin for when privacy policy is not displayed in the editor
+    body.edit & {
+        margin-top: 0;
+    }
 }
 
 
