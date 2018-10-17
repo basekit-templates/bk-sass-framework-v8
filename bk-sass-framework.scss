@@ -1039,6 +1039,10 @@ $color--lightest: white !default;
 .icon--instagram:before { content: "\f16d"; }
 
 
+// Vkontakte
+.icon--vkontakte:before { content: "\f189"; }
+
+
 
 // Slideshow Icons
 // -------------------
@@ -2273,6 +2277,7 @@ a {
         padding: 12px;
         text-decoration: none;
         transition: color 0.5s ease;
+        word-break: normal;
 
         @media #{$tablet} {
             color: white;
@@ -2680,7 +2685,6 @@ $section-style: (
 
 
 .style--background-image .row {
-
     // Default background image positioning
     background-position: center;
     background-repeat: no-repeat;
